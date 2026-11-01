@@ -9,9 +9,7 @@ The annotations are original. Every reference is a public source (arXiv, a
 journal, a textbook, or a university thesis repository). Identities, authors,
 venues and arXiv numbers were checked against search results for arXiv,
 publisher and repository records in November 2026; where an arXiv title differs
-from the published one, both are given. Entries marked *(not independently
-checked)* are well-known references whose details were taken from standard
-citations but not re-verified in this pass.
+from the published one, both are given.
 
 **How to use this list.** Each section matches part of the
 [tutorial](../tutorial/README.md). Read the ⭐ entries first; the rest are for
@@ -56,12 +54,12 @@ details.
   and the range of species and applications.
 
 - **Quantum information with Rydberg atoms.** Saffman, Walker, Mølmer (2010).
-  *Rev. Mod. Phys.* 82, 2313. [arXiv:0909.4777](https://arxiv.org/abs/0909.4777) *(not independently checked)*
+  *Rev. Mod. Phys.* 82, 2313. [arXiv:0909.4777](https://arxiv.org/abs/0909.4777)
   The standard reference on Rydberg physics for quantum information: scaling
   laws, interactions, blockade, gate protocols and error analysis.
 
 - **Many-body physics with individually controlled Rydberg atoms.** Browaeys,
-  Lahaye (2020). *Nat. Phys.* 16, 132. [arXiv:2002.07413](https://arxiv.org/abs/2002.07413) *(not independently checked)*
+  Lahaye (2020). *Nat. Phys.* 16, 132. [arXiv:2002.07413](https://arxiv.org/abs/2002.07413)
   The quantum-simulation side of Rydberg arrays, very clearly written.
 
 - **Atomic Physics.** Foot (2005). Oxford University Press.
@@ -83,12 +81,12 @@ details.
   frequencies, lifetimes, dipole matrix elements, hyperfine constants,
   saturation intensities, Breit-Rabi formula.
 - **Laser deceleration of an atomic beam.** Phillips, Metcalf (1982).
-  *Phys. Rev. Lett.* 48, 596. *(not independently checked)* The first Zeeman slower.
+  *Phys. Rev. Lett.* 48, 596. The first Zeeman slower.
 - **Three-dimensional viscous confinement and cooling of atoms by resonance
   radiation pressure.** Chu, Hollberg, Bjorkholm, Cable, Ashkin (1985).
-  *Phys. Rev. Lett.* 55, 48. *(not independently checked)* The first optical molasses.
+  *Phys. Rev. Lett.* 55, 48. The first optical molasses.
 - **Trapping of neutral sodium atoms with radiation pressure.** Raab, Prentiss,
-  Cable, Chu, Pritchard (1987). *Phys. Rev. Lett.* 59, 2631. *(not independently checked)* The first MOT.
+  Cable, Chu, Pritchard (1987). *Phys. Rev. Lett.* 59, 2631. The first MOT.
 - **Observation of atoms laser cooled below the Doppler limit.** Lett, Watts,
   Westbrook, Phillips, Gould, Metcalf (1988). *Phys. Rev. Lett.* 61, 169.
   [doi:10.1103/PhysRevLett.61.169](https://doi.org/10.1103/PhysRevLett.61.169)
@@ -96,9 +94,9 @@ details.
   result that broke the two-level theory.
 - **Laser cooling below the Doppler limit by polarization gradients: simple
   theoretical models.** Dalibard, Cohen-Tannoudji (1989). *J. Opt. Soc. Am. B* 6, 2023.
-  *(not independently checked)* The explanation of Sisyphus and $\sigma^+\sigma^-$ cooling.
+  The explanation of Sisyphus and $\sigma^+\sigma^-$ cooling.
 - **Laser cooling of atoms.** Wineland, Itano (1979). *Phys. Rev. A* 20, 1521.
-  *(not independently checked)* A thorough early theory of Doppler cooling.
+  A thorough early theory of Doppler cooling.
 
 ---
 
@@ -106,12 +104,12 @@ details.
 
 - ⭐ **Optical dipole traps for neutral atoms.** Grimm, Weidemüller,
   Ovchinnikov (2000). *Adv. At. Mol. Opt. Phys.* 42, 95.
-  [arXiv:physics/9902072](https://arxiv.org/abs/physics/9902072) *(not independently checked)*
+  [arXiv:physics/9902072](https://arxiv.org/abs/physics/9902072)
   The polarizability and scattering formulas of Chapter 07 and a survey of trap
   geometries.
 - **Sub-poissonian loading of single atoms in a microscopic dipole trap.**
   Schlosser, Reymond, Protsenko, Grangier (2001). *Nature* 411, 1024.
-  *(not independently checked)* The collisional blockade.
+  The collisional blockade.
 - **Single-atom trapping in holographic 2D arrays of microtraps with arbitrary
   geometries.** Nogrette et al. (2014). *Phys. Rev. X* 4, 021034.
   [arXiv:1402.5329](https://arxiv.org/abs/1402.5329)
@@ -171,7 +169,7 @@ details.
   220, 319. [arXiv:1612.05529](https://arxiv.org/abs/1612.05529)
   The library behind the Rydberg numbers of Chapter 10.
 - **Dipole blockade and quantum information processing in mesoscopic atomic
-  ensembles.** Lukin et al. (2001). *Phys. Rev. Lett.* 87, 037901. *(not independently checked)*
+  ensembles.** Lukin et al. (2001). *Phys. Rev. Lett.* 87, 037901.
 - **Observation of Rydberg blockade between two atoms.** Urban et al. (2009).
   *Nat. Phys.* 5, 110. [arXiv:0805.0758](https://arxiv.org/abs/0805.0758)
 - **Observation of collective excitation of two individual atoms in the Rydberg
@@ -186,10 +184,10 @@ details.
 
 - ⭐ **Fast quantum gates for neutral atoms.** Jaksch, Cirac, Zoller, Rolston,
   Côté, Lukin (2000). *Phys. Rev. Lett.* 85, 2208.
-  [arXiv:quant-ph/0004038](https://arxiv.org/abs/quant-ph/0004038) *(not independently checked)*
+  [arXiv:quant-ph/0004038](https://arxiv.org/abs/quant-ph/0004038)
   The $\pi$-$2\pi$-$\pi$ protocol.
 - **High-fidelity control and entanglement of Rydberg-atom qubits.** Levine et
-  al. (2018). *Phys. Rev. Lett.* 121, 123603. [arXiv:1806.04682](https://arxiv.org/abs/1806.04682) *(not independently checked)*
+  al. (2018). *Phys. Rev. Lett.* 121, 123603. [arXiv:1806.04682](https://arxiv.org/abs/1806.04682)
   Laser phase noise and how to suppress it.
 - ⭐ **Parallel implementation of high-fidelity multiqubit gates with neutral
   atoms.** Levine et al. (2019). *Phys. Rev. Lett.* 123, 170503.
@@ -210,7 +208,7 @@ details.
 - **Benchmarking and fidelity response theory of high-fidelity Rydberg entangling
   gates.** Tsai, Sun, Shaw, Finkelstein, Endres (2025). *PRX Quantum* 6, 010331.
   [arXiv:2407.20184](https://arxiv.org/abs/2407.20184)
-  (arXiv title: *Benchmarking and linear response modeling of high-fidelity
+  (original arXiv v1 title: *Benchmarking and linear response modeling of high-fidelity
   Rydberg gates*). A time-optimal CZ at 0.9971(5) and a method to predict
   infidelity from measured laser-noise spectra.
 
@@ -260,9 +258,9 @@ details.
 ## Quantum simulation
 
 - **Probing many-body dynamics on a 51-atom quantum simulator.** Bernien et al.
-  (2017). *Nature* 551, 579. [arXiv:1707.04344](https://arxiv.org/abs/1707.04344) *(not independently checked)*
+  (2017). *Nature* 551, 579. [arXiv:1707.04344](https://arxiv.org/abs/1707.04344)
 - **Quantum phases of matter on a 256-atom programmable quantum simulator.**
-  Ebadi et al. (2021). *Nature* 595, 227. [arXiv:2012.12281](https://arxiv.org/abs/2012.12281) *(not independently checked)*
+  Ebadi et al. (2021). *Nature* 595, 227. [arXiv:2012.12281](https://arxiv.org/abs/2012.12281)
 - **Quantum simulation of 2D antiferromagnets with hundreds of Rydberg atoms.**
   Scholl et al. (2021). *Nature* 595, 233. [arXiv:2012.12268](https://arxiv.org/abs/2012.12268)
   (arXiv title: *Programmable quantum simulation of 2D antiferromagnets with
@@ -284,18 +282,17 @@ are listed; the topic orders shown are those of the published syllabi.
 
 | Course or series | Instructor(s) | What it covers, in order | Materials | Best for |
 |---|---|---|---|---|
-| ⭐ MIT **8.421** *Atomic and Optical Physics I* (OCW, Spring 2014) | W. Ketterle | resonance → atomic structure (H, He, fine structure, Lamb shift, hyperfine) → atoms in external fields → atom-light interaction and spontaneous emission → line broadening → two-photon excitation and coherence in two- and three-level systems | [videos, problem sets, exams](https://ocw.mit.edu/courses/8-421-atomic-and-optical-physics-i-spring-2014/) | Ch 02, 03 |
-| ⭐ MIT **8.422** *Atomic and Optical Physics II* (OCW, Spring 2013) | W. Ketterle | non-classical light, multiphoton and Raman processes, coherence; lecture 16 light forces (scattering force, slowing, Doppler limit); lecture 17 dressed atom and dipole traps; lecture 18 magnetic trapping and evaporation | [videos and notes](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/) | Ch 04 to 07 |
-| ⭐ A. Browaeys, Les Houches pre-doctoral school on light and cold atoms (2019) | A. Browaeys | dipole-dipole interaction between atoms → Rydberg physics, arrays of cold atoms, blockade and quantum information → many-body physics with Rydberg atoms | [lecture 1 slides](https://coldatoms2019.sciencesconf.org/data/pages/2019_LesHouches_Predoc_Lecture1_short.pdf) | Ch 08, 10, 11 |
-| ⭐ A. Browaeys, Boulder School *Ultracold Matter* (July 2021), *Rydberg atoms in optical tweezers I to III* | A. Browaeys | arrays of atoms → blockade, two-body physics and gates → many-body physics, spin models and transport | [lecture notes](https://www.colorado.edu/conference/bss/2021/boulder-school-2021-lecture-notes) · [lecture 1 PDF](https://boulderschool.yale.edu/sites/default/files/files/2021_BoulderSchool_Lecture1_notes-reduced.pdf); videos on the Boulder School YouTube channel | Ch 08 to 10 |
-| ⭐ H. Bernien, ICTP-SAIFR school (São Paulo, 2023), *Quantum Information Processing and Simulation with Rydberg Atom Arrays* (3 lectures) | H. Bernien | Rydberg arrays for quantum simulation and computation | [slides](https://www.ictp-saifr.org/wp-content/uploads/2023/06/Quantum-Information-Processing-and-Simulation-with-Rydberg-Atom-Arrays.pdf); videos on the ICTP-SAIFR YouTube channel | Ch 10 to 12 |
-| A. Browaeys, ICTP summer school (2025) and Benasque (2025) | A. Browaeys | arrays and Rydberg physics → blockade → spin models and quantum magnetism | [Benasque lecture 1](https://www.benasque.org/2025uqms/talks_contr/173_2025_Benasque_school_Lecture1_Browaeys.pdf) | Ch 10 |
+| ⭐ MIT **8.421** *Atomic and Optical Physics I* (OCW, Spring 2014) | W. Ketterle (lectures), I. Chuang | resonance → atomic structure (H, He, fine structure, Lamb shift, hyperfine) → atoms in external fields → atom-light interaction and spontaneous emission → line broadening → two-photon excitation and coherence in two- and three-level systems | [videos, problem sets, exams](https://ocw.mit.edu/courses/8-421-atomic-and-optical-physics-i-spring-2014/) | Ch 02, 03 |
+| ⭐ MIT **8.422** *Atomic and Optical Physics II* (OCW, Spring 2013) | W. Ketterle | non-classical light, multiphoton and Raman processes, coherence; lecture 16 light forces (radiation pressure, reactive forces, applications of the spontaneous force); lecture 17 dressed atom and dipole traps; lecture 18 magnetic trapping and evaporation | [videos and notes](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/) | Ch 04 to 07 |
+| ⭐ A. Browaeys, Les Houches pre-doctoral school *Interaction of light and cold atoms* (30 Sep – 11 Oct 2019) | A. Browaeys | dipole-dipole interaction between atoms → Rydberg physics, arrays of cold atoms, blockade and quantum information → many-body physics with Rydberg atoms | [lecture 1 slides](https://coldatoms2019.sciencesconf.org/data/pages/2019_LesHouches_Predoc_Lecture1_short.pdf) | Ch 08, 10, 11 |
+| ⭐ A. Browaeys, Boulder School *Ultracold Matter* (July 2021), *Rydberg atoms in optical tweezers I to III* | A. Browaeys | Rydberg atoms and their interactions, arrays of atoms, blockade and gates, many-body physics and spin models | [lecture notes](https://www.colorado.edu/conference/bss/2021/boulder-school-2021-lecture-notes); videos on the Boulder School YouTube channel | Ch 08 to 10 |
+| ⭐ H. Bernien, ICTP-SAIFR School on Emergent Phenomena in Non-Equilibrium Quantum Many-Body Systems (São Paulo, June–July 2023), *Quantum Information Processing and Simulation with Rydberg Atom Arrays* (3 lectures) | H. Bernien | Rydberg arrays for quantum simulation and computation | [slides](https://www.ictp-saifr.org/wp-content/uploads/2023/06/Quantum-Information-Processing-and-Simulation-with-Rydberg-Atom-Arrays.pdf); videos on the ICTP-SAIFR YouTube channel | Ch 10 to 12 |
+| A. Browaeys, ICTP summer school (2025) and Benasque (2025) | A. Browaeys | arrays and Rydberg physics → Rydberg interactions and spin models → quantum magnetism | [Benasque lecture 1](https://www.benasque.org/2025uqms/talks_contr/173_2025_Benasque_school_Lecture1_Browaeys.pdf) | Ch 10 |
 | Caltech **Ph/APh 137ab** *Atoms and Photons* | M. Endres, N. Hutzler | quantized fields, light-matter interaction, open systems, with applications including Rydberg arrays; resonance, atomic structure, laser cooling, coherent control | [catalog entry](https://catalog.caltech.edu/current/2025-26/phaph-137-ab); materials not public | syllabus reference |
-| Varenna "Enrico Fermi" school, Course 214, *Quantum Computers and Simulators with Atoms* (2024) | lecturers include Saffman, Kaufman, Thompson | advanced lectures; Saffman's notes cover connectivity: long-range gates, atom transport, lattice surgery | [Saffman's notes, arXiv:2505.11218](https://arxiv.org/abs/2505.11218) | after Ch 12 |
+| Varenna "Enrico Fermi" school, Course 214, *Quantum Computers and Simulators with Atoms* (2024) | lecturers include Saffman and Kaufman | advanced lectures; Saffman's notes, *Quantum computing with atomic qubit arrays: confronting the cost of connectivity*, cover connectivity: long-range gates, atom transport, lattice surgery | [Saffman's notes, arXiv:2505.11218](https://arxiv.org/abs/2505.11218) | after Ch 12 |
 
-M. Lukin teaches Harvard's graduate course *Modern Atomic and Optical Physics
-II* (Physics 285b; coherence, non-classical light, cooling and trapping, atom
-optics), but no official materials are public. The review by Morgado and
+M. Lukin has taught in Harvard's graduate atomic-physics sequence, but no
+official course materials are public. The review by Morgado and
 Whitlock, *Quantum simulation and computing with Rydberg-interacting qubits*,
 AVS Quantum Sci. 3, 023501 (2021), [arXiv:2011.03031](https://arxiv.org/abs/2011.03031),
 is a good companion to Bernien's lectures.
@@ -327,7 +324,7 @@ linked through university repositories, not re-hosted.
 |---|---|---|---|---|
 | 2020 | Kale, A. M. | Towards High Fidelity Quantum Computation and Simulation with Rydberg Atoms | senior (undergraduate) thesis | [CaltechTHESIS](https://thesis.library.caltech.edu/13812) |
 | 2024 | Shaw, A. L. | Learning, Verifying, and Erasing Errors on a Chaotic and Highly Entangled Programmable Quantum Simulator | PhD thesis | [CaltechTHESIS](https://thesis.library.caltech.edu/16353) |
-| 2025 | Shaw, Scholl, Finkelstein, Tsai, Choi, Endres | Erasure cooling, control, and hyperentanglement of motion in optical tweezers (arXiv title: *Erasure-cooling, control, and hyper-entanglement…*) | *Science* 388 (2025), [doi:10.1126/science.adn2618](https://doi.org/10.1126/science.adn2618) | [arXiv:2311.15580](https://arxiv.org/abs/2311.15580) |
+| 2025 | Shaw, Scholl, Finkelstein, Tsai, Choi, Endres | Erasure cooling, control, and hyperentanglement of motion in optical tweezers (arXiv title: *Erasure-cooling, control, and hyper-entanglement…*) | *Science* 388, 845 (2025), [doi:10.1126/science.adn2618](https://doi.org/10.1126/science.adn2618) | [arXiv:2311.15580](https://arxiv.org/abs/2311.15580) |
 | 2026 | Manetsch, H. J. | Scaling Neutral Atom Tweezer Arrays to 6,100 Qubits | PhD thesis | [CaltechTHESIS](https://thesis.caltech.edu/18735/) |
 | 2026 | Bataille, Nomura, Endres | Detuning- and Stark-robust Rydberg gates | preprint | [arXiv:2608.27426](https://arxiv.org/abs/2608.27426) |
 

@@ -1,3 +1,43 @@
+# Independent review, 1 November 2026 (third pass)
+
+Five fresh reviewers re-read the whole course again in the same slices as the
+second pass, recomputed every number with their own scripts, re-derived the key
+formulas, simulated the protocols the text describes, viewed every figure and
+ran every lab. Each finding below was re-checked (several by independent
+simulation) before it was applied. No formula in the course was found to be
+wrong; the corrections fix statements that would mislead a beginner, missing
+assumptions, and bookkeeping.
+
+## Corrections
+
+| Where | Finding | Correction |
+|---|---|---|
+| Ch 03 | Landau-Zener example quoted $4\times10^{-3}$ for a $\pm7$ MHz sweep at constant $\Omega$ | the formula needs the sweep to start and end at $\vert\delta\vert\gg\Omega$; that finite sweep actually leaves 1.4% (0.2% with a ramped $\Omega$), now stated |
+| Ch 03 | "the hyperfine lines blur together" in a 300 K vapour | only the excited-state components blur; the 6.8 GHz ground-state splitting stays resolved |
+| Ch 03 | ladder-system detunings and light-shift signs ambiguous; STIRAP pulses not said to overlap | detuning conventions for $\Lambda$ and ladder stated; both levels pushed away from $\vert e\rangle$; overlapping pulses in counter-intuitive order |
+| Ch 01, 02 | coherence "for seconds"; why the hyperfine qubit is protected; leak-rate estimate; a typo | ms (seconds with echo); mechanism stated; line-strength and branching factors included |
+| Ch 04 | "slides down (or up)"; excited-state light shift "the same amount" | pushed toward lower energy; equal and opposite only in the two-level model |
+| Ch 05 | Zeeman-slower lock explanation used "falls behind" in two opposite senses | rewritten: of the two force-balance points only the slow, red-detuned one is stable |
+| Ch 05 | molasses force "linear for $\vert v\vert\lesssim2.4$ m/s" for a figure at $\delta=-\Gamma,-2\Gamma$ | close to linear for $kv\lesssim\vert\delta\vert$; peaks near $v\approx\vert\delta\vert/k$ |
+| Ch 06, lab 04 | force maximum called the "edge of the trap"; "linear only for $\vert z\vert\lesssim2$ mm" | the force stays restoring out to the beam edge; within about 10% of linear to 2 to 3 mm |
+| Ch 06 | sub-Doppler floor explained inconsistently | floor where recoil heating per cycle is no longer small compared with the energy removed per climb |
+| Labs 02, 03 | exit-speed arithmetic; burn-in event counts; stale docstring and dead code | numbers match the code's output; dead code removed |
+| Ch 07 | sign regions of the polarizability omitted the D2-to-tune-out window; $w_0$ formula attribution | full sign map; untruncated-Gaussian vs filled-aperture spot sizes |
+| Ch 08 | threshold rounding; SLM refresh time; $p_{\rm hole}$ undefined | equal priors stated; thresholds 16 and 17 nearly equivalent; tens of ms; defined |
+| Ch 09 | nuclear-spin Zeeman scale; Rayleigh-scattering fraction; Raman figure range | 0.2 to 0.75 kHz/G; 70 to 90%; figure starts at 20 GHz |
+| Lab 08 | fidelity check used one error bar for all thresholds | per-threshold binomial standard error |
+| Ch 10, 11, lab 13 | $Z_2$ crossover is at $\Delta\approx1.4$ MHz, not 0, for $\Omega/2\pi=2$ MHz; PXP model unexplained; leakage mechanism | crossover stated; PXP Hamiltonian written out; leakage from the fast $\Omega$ ramps |
+| Ch 12 | transversal CNOT error spreading | errors spread only to the partner atom in the other block |
+| REVIEW, reading list | 70S lifetime 147 $\mu$s left in the checking notes; "(not independently checked)" markers | 146 $\mu$s; all 14 marked references verified against arXiv, APS, Nature and ADS records and the markers removed |
+| reading list | Shaw et al. page missing; 8.421 instructors; Tsai et al. arXiv title; unconfirmed course details | *Science* 388, 845 (2025); Ketterle and Chuang; v1 title; unconfirmed lecturer, course number and PDF link removed |
+
+## Re-run
+
+`python hands-on/run_labs.py --all --check` passes 13/13,
+`python tutorial/figures/make_figures.py` changes only the three figures edited
+in this pass (06-mot-scheme, 09-raman, 09-sequences), and
+`python tools/check_repo.py` reports 0 errors.
+
 # Independent review, 1 November 2026 (second pass)
 
 Five independent reviewers each re-read one slice of the course line by line
@@ -56,7 +96,7 @@ Monte Carlo at $p=0.3$, where every case produces enough failures to test.
   HTML `src`/`href` targets.
 
 Validation after this pass: `python hands-on/run_labs.py --all --check` passes
-13/13 (about 95 s), `python tutorial/figures/make_figures.py` regenerates every
+13/13 (about 100 s on a 4-core machine), `python tutorial/figures/make_figures.py` regenerates every
 figure, and `python tools/check_repo.py` reports 0 errors.
 
 ---
@@ -104,7 +144,7 @@ numbers locally.
   within 3.3% of the measured 318.8 a.u.
 - **Rydberg data** (quantum defects, lifetimes at 0 and 300 K, $C_6$) were
   computed with ARC for $n=40$ to 100. For 70S: $C_6/h=862.7$ GHz $\mu$m$^6$,
-  $\tau=374\ \mu$s (0 K) and $147\ \mu$s (300 K). The fitted scaling exponents
+  $\tau=374\ \mu$s (0 K) and $146\ \mu$s (300 K). The fitted scaling exponents
   are $-2.00$ (binding energy), $3.00$ (lifetime) and $11.3$ ($C_6$).
 - **The Levine CZ gate** parameters were re-derived numerically:
   $\Delta/\Omega=0.3774$, $\tau\Omega=4.2927$ per pulse, and $\xi=3.902$ rad in the
@@ -115,7 +155,7 @@ numbers locally.
 ## Labs and their checks
 
 All thirteen labs run headlessly with
-`python hands-on/run_labs.py --all --check` (about 75 to 95 s on one core) and pass.
+`python hands-on/run_labs.py --all --check` (about 100 s on a 4-core machine) and pass.
 Each lab defines a `checks` dictionary of independent comparisons. Examples:
 
 | Lab | Independent check |
@@ -149,7 +189,7 @@ Matplotlib 3.11.2 and QuTiP 5.3.1.
 | The Kaufman, Lester and Regal arXiv number was written as 1209.3087 | Corrected to 1209.2087 |
 | The Rydberg chapter implied that one UV photon excites $nS$ states | One photon reaches $nP$ ($\Delta\ell=0$ is forbidden); $nS$ needs two photons |
 | The 99.5% gate result was attributed to "gates of the Levine family" | Evered et al. used fast single-pulse optimal-control gates plus dark-state techniques; fidelity 99.52(4)% on up to 60 atoms |
-| A quoted time-optimal duration of $7.612/\Omega$ could not be confirmed from search results | Stated as "about $7.6/\Omega$, about 10% faster than the two-pulse gate", which the abstract supports |
+| A quoted time-optimal duration of $7.612/\Omega$ could not be confirmed from search results | Stated as "about $7.6/\Omega$, about 10% faster than the two-pulse gate", which follows from $7.612$ versus $8.585$ in units of $1/\Omega$ (11%) |
 | A tweezer-loading statement of "80 to 90%" was attributed jointly | Now specific: 89% (single tweezer) and 80% (10 × 10 array) from Brown et al. 2019; Grünzweig et al. 2010 credited for the method |
 | Lett et al. 1988 was quoted as "about 40 $\mu$K" | $43\pm20\ \mu$K against a Doppler limit of about 240 $\mu$K |
 | The Breit-Rabi, Sisyphus and quantum-defect figures had a mislabelled panel, an optical-pumping arrow drawn at the wrong position, and a 5S level drawn with the large-$n$ quantum defect | All redrawn: measured level energies from ARC, correct hilltop-to-valley pumping, labels moved |
@@ -168,8 +208,8 @@ al.; Levine et al. 2019 and 2022; de Léséleuc et al.; Jandura and Pupillo;
 Evered et al. 2023; Tsai et al.; Wu et al.; Bluvstein et al. 2022, 2024 and 2025;
 Chiu et al.; Manetsch et al.; Baranes et al.; Geim et al.; Samajdar et al.; and
 every thesis and preprint in the bibliography section. Classic references
-(1975 to 2010) and the main reviews were cited from standard records and are
-marked *(not independently checked)* in the reading list.
+(1979 to 2001), the main reviews and three experiments (2017 to 2021) were
+re-checked against arXiv, APS, Nature and ADS records in the third pass.
 
 ## Scope and limits
 

@@ -72,7 +72,7 @@ Chapter 07, which agrees with ARC's full sum over valence states to 0.3% at 1064
 | ground-state polarizability at 1064 nm / 852 nm | $\approx677$ / $\approx2070$ atomic units |
 | depth per mW, 1064 nm, waist $w_0=1.0\ \mu$m | $k_B\times97\ \mu$K $=h\times2.0$ MHz |
 | power for $U_0=k_B\times1$ mK at 1064 nm, $w_0=1\ \mu$m | 10.3 mW |
-| trap frequencies at that depth | radial 98 kHz, axial 24 kHz (Rayleigh range 2.95 $\mu$m) |
+| trap frequencies at that depth | radial 98.5 kHz, axial 23.6 kHz (Rayleigh range 2.95 $\mu$m) |
 | photon scattering rate at that depth | $\approx3.6\ \mathrm{s^{-1}}$ |
 | Lamb-Dicke parameter, 780 nm light, radial | 0.20 |
 | mean radial vibrational number at 10 $\mu$K | $\approx1.7$ |

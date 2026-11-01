@@ -83,7 +83,7 @@ All three platforms improve rapidly; treat this table as a description of *mecha
 - **2017 to 2021: programmable quantum simulators** with tens to hundreds of Rydberg atoms (Bernien et al.; Ebadi et al.; Scholl et al.).
 - **2023 to 2025: toward fault tolerance.** Parallel CZ gates at 99.5% fidelity (Evered et al.), a logical-qubit processor based on moving atoms (Bluvstein et al.), arrays of more than 6000 trapped atoms (Manetsch et al.) and continuously reloaded arrays of thousands of qubits (Chiu et al.).
 
-Full references are in the [reading list](../reading-list/README.md); Chapter 12 returns to the most recent results.
+Most of these works are in the [reading list](../reading-list/README.md); Chapter 12 returns to the most recent results.
 
 ## Worked example: how hard is it to stop an atom? (illustrative numbers)
 

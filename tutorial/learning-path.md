@@ -77,7 +77,8 @@ commands run from the repository root.
 7. Depth per mW scales as $1/w_0^2$: $P=10.3\times0.64=6.6$ mW. At fixed depth
    $f_r\propto1/w_0$: $98.5/0.8=123$ kHz.
 8. $0.5^{100}e^{-100\times0.2/60}=5.7\times10^{-31}$: essentially never. With
-   rearrangement, 0.43 (lab 07): about half the cycles succeed in one round.
+   rearrangement, 0.43 exactly (lab 07's Monte Carlo gives 0.41 ± 0.01): fewer than half
+   the cycles succeed in one round.
 9. $T_2^*=0.97\times2\hbar/(\eta k_BT)$ with $\eta=6.08\times10^{-5}$: 24 ms. No:
    a single echo refocuses only shifts that are constant during the sequence.
    If the whole sequence is much shorter than 1 ms, 1 kHz noise is effectively
