@@ -39,7 +39,8 @@ The force balance predicts how far a locked atom lags behind the design
 velocity: the force equals $m\,a$ when
 $s_0/(1+s_0+x^2)=\eta$ with $x=2\delta_{\rm eff}/\Gamma$. With $s_0=3$ and
 $\eta=0.6$ this gives $x=1$, a lag of $\Gamma/2k=2.37$ m/s. The script measures
-the actual lag in the middle third of the slower and compares.
+the actual lag between 30% and 70% of the slower length, and the actual
+deceleration from the slope of $v^2$ versus $z$, and compares both with the design.
 
 ## Expected output
 
@@ -49,25 +50,32 @@ the actual lag in the middle third of the slower and compares.
     detuning after the slower for v_f: -20.0 Gamma
     predicted lag behind v_design: 2.37 m/s (x = 1.00)
     v_init = 100 m/s -> v_exit =   26.4 m/s
-    ...
+    v_init = 150 m/s -> v_exit =   26.4 m/s
+    v_init = 200 m/s -> v_exit =   26.4 m/s
+    v_init = 250 m/s -> v_exit =   26.4 m/s
     v_init = 290 m/s -> v_exit =   26.4 m/s
     v_init = 320 m/s -> v_exit =  318.9 m/s
     v_init = 350 m/s -> v_exit =  349.7 m/s
     v_init = 400 m/s -> v_exit =  399.9 m/s
     measured lag in the middle of the slower: 2.43 m/s
+    measured deceleration of the locked atom: 6.6529e+04 m/s^2 (design eta*a_max = 6.7291e+04)
 
 ![Zeeman slower field and trajectories](figures/slower.png)
 
 Left: the designed field. It falls from $+160$ G, crosses zero, and ends at
 $-87$ G, where it drops abruptly to zero. Right: every atom slower than about
 300 m/s coasts until the resonance condition reaches it, locks on just below the
-dashed design curve, and leaves at 26 m/s ($v_f$ minus the lag and a little extra
-deceleration at the exit). Atoms above the capture velocity are never resonant
+dashed design curve (on its slow, red-detuned side), and leaves at 26 m/s: $v_f$
+minus the lag, minus a further 0.7 m/s lost in the last 10 cm, where the atom is
+20 linewidths off resonance but still scatters a few times $10^4$ photons per
+second. Atoms above the capture velocity are never resonant
 and pass through almost unchanged.
 
-The runner checks four things: the length formula; capture of all atoms below
-$v_0$ to within 5 m/s of $v_f$ minus the lag; no capture above $v_0$; and the
-measured lag against the force balance (10%).
+The runner checks four things: that the deceleration the locked atom actually
+experiences (the slope of $v^2$ versus $z$, which should be $-2\eta a_{\max}$)
+matches the design within 2%; that atoms entering between $v_f$ and $v_0$ leave
+within 2 m/s of $v_f$ minus the lag; that atoms above $v_0$ are not captured; and
+that the measured lag matches the force balance (10%).
 
 ## Try this
 

@@ -16,7 +16,7 @@ For an alkali, an electron with low orbital angular momentum $\ell$ has an ellip
 
 $$E_{n\ell}=-\frac{\mathrm{Ry}}{(n-\delta_\ell)^2}=-\frac{\mathrm{Ry}}{n^{*2}},\qquad n^*=n-\delta_\ell .$$
 
-For Rb the defects are large for S states ($\delta_0\approx3.13$), smaller for P ($\approx2.64$) and D ($\approx1.35$), and almost zero for F states ($\approx0.02$), whose orbits never get close to the core. The defects depend weakly on $n$; the values above are the high-$n$ limits computed with the ARC library, and they will matter again in Chapter 10 for Rydberg states.
+For Rb the defects are large for S states ($\delta_0\approx3.13$), smaller for P ($\approx2.64$ for $P_{3/2}$, 2.65 for $P_{1/2}$) and D ($\approx1.35$), and almost zero for F states ($\approx0.02$), whose orbits never get close to the core. The defects depend weakly on $n$; the values above are the high-$n$ limits computed with the ARC library, and they will matter again in Chapter 10 for Rydberg states.
 
 ![Energy-level diagram of rubidium S, P, D and F levels next to hydrogen, all measured downward from the ionisation limit. The 5S ground state lies 4.18 eV below the limit, far deeper than any hydrogen level with n of 2 or more; S levels are pushed down the most, F levels almost coincide with hydrogen](figures/02-quantum-defects.png)
 
@@ -41,7 +41,7 @@ The notation $n\,^{2S+1}L_J$ is standard: in $5\,^2P_{3/2}$ the "2" is the spin 
 
 ## Step 3: hyperfine structure
 
-The Rb-87 nucleus has spin $I=3/2$ and a magnetic dipole moment (plus, for $J\ge1$, an electric quadrupole moment). Coupling it to the electron gives the total angular momentum
+The Rb-87 nucleus has spin $I=3/2$ and a magnetic dipole moment (plus, because $I\ge1$, an electric quadrupole moment, which shifts only levels with $J\ge1$). Coupling it to the electron gives the total angular momentum
 
 $$\mathbf F=\mathbf J+\mathbf I,\qquad F=|J-I|,\dots,J+I .$$
 
@@ -57,7 +57,7 @@ Apply this to Rb-87:
 |---|---|---|---|
 | $5S_{1/2}$ | 1, 2 | $A=3417.34$ MHz | $2A=6834.68$ MHz |
 | $5P_{1/2}$ | 1, 2 | $A=408.33$ MHz | 816.66 MHz |
-| $5P_{3/2}$ | 0, 1, 2, 3 | $A=84.72$ MHz, $B=12.50$ MHz | 72.22, 156.94, 266.65 MHz |
+| $5P_{3/2}$ | 0, 1, 2, 3 | $A=84.72$ MHz, $B=12.50$ MHz | 72.22, 156.95, 266.65 MHz |
 
 The ground-state splitting, $6.834\,682\,610\,904$ GHz, is one of the most precisely measured numbers in physics. It is our **qubit frequency**.
 
@@ -73,7 +73,7 @@ Electric-dipole transitions obey
 
 - $\Delta\ell=\pm1$ (S to P, P to S or D),
 - $\Delta F=0,\pm1$, but not $F=0\to F'=0$,
-- $\Delta m_F=0$ for $\pi$-polarized light (along the quantisation axis), $\Delta m_F=\pm1$ for $\sigma^\pm$ light.
+- $\Delta m_F=0$ for $\pi$-polarized light (electric field along the quantisation axis set by the bias field, not along the beam), $\Delta m_F=\pm1$ for $\sigma^\pm$ light.
 
 These rules explain the two lasers in the diagram. An atom excited to $F'=3$ cannot decay to $F=1$, because that would need $\Delta F=-2$. So $F=2\leftrightarrow F'=3$ is a **cycling transition**: in principle the atom can scatter photons forever. If in addition the light is $\sigma^+$ polarized, the atom is optically pumped into the stretched state $|F{=}2,m_F{=}2\rangle$, which couples only to $|F'{=}3,m_F'{=}3\rangle$. That pair is an almost perfect **two-level atom**, the model of Chapter 03.
 
@@ -81,7 +81,7 @@ In practice the cooling laser is also slightly off-resonant with $F'=2$, which i
 
 $$\left(\frac{6.07}{2\times266.65}\right)^2=1.3\times10^{-4},$$
 
-so after very roughly $10^4$ photons (this estimate ignores line-strength factors, which change it by a factor of a few) the atom lands in $F=1$ and goes dark. Laser cooling needs about $5\times10^4$ photons (Chapter 01), so without the repumper the atom would be lost from the cycle long before it was cold.
+so after very roughly $10^4$ photons the atom lands in $F=1$ and goes dark. This estimate assumes resonant light and ignores line-strength and branching factors; in a MOT the cooling light is red-detuned by about $2\Gamma$, which makes $F'=2$ relatively more likely and the leak faster (a dark atom every few thousand photons). Note also that a perfect $\sigma^+$ beam on $|2,2\rangle$ could not excite $F'=2$ at all (there is no $m_F'=3$ in $F'=2$); the leak happens because real beams and MOTs have mixed polarizations. Laser cooling needs about $5\times10^4$ photons (Chapter 01), so without the repumper the atom would be lost from the cycle long before it was cold.
 
 ## Step 4: the Zeeman effect and the clock states
 
@@ -95,11 +95,11 @@ When the Zeeman energy becomes comparable with the hyperfine splitting, $F$ is n
 
 $$E_{F=I\pm1/2,\,m}=-\frac{\Delta E_{\rm hfs}}{2(2I+1)}+g_I\mu_Bm\,B\pm\frac{\Delta E_{\rm hfs}}{2}\sqrt{1+\frac{4m\,x}{2I+1}+x^2},\qquad x=\frac{(g_J-g_I)\mu_BB}{\Delta E_{\rm hfs}},$$
 
-with $g_J=2.00233$ and $g_I=-0.000995$. The crossover field $x=1$ is $B=6834.68\ \mathrm{MHz}/(2.0033\times1.400\ \mathrm{MHz/G})\approx2440$ G, far above anything used in a tweezer experiment.
+with $g_J=2.00233$ and $g_I=-0.000995$ (Steck's sign convention, in which the Zeeman Hamiltonian is $\mu_B(g_JJ_z+g_II_z)B/\hbar$). For the stretched state $m=-(I+1/2)=-2$ the square root equals $|1-x|$ and must be read as $1-x$ so that the energy stays a smooth function of $B$ through $x=1$. The crossover field $x=1$ is $B=6834.68\ \mathrm{MHz}/(2.0033\times1.400\ \mathrm{MHz/G})\approx2440$ G, far above anything used in a tweezer experiment.
 
-![Left: Breit-Rabi diagram of the Rb-87 ground state from 0 to 5000 gauss; five F = 2 sublevels start at +2.56 GHz and three F = 1 sublevels at -4.27 GHz, fanning out linearly at low field and curving at high field. Right: on a log scale, the shift of the clock transition grows as 575 Hz per gauss squared and reaches 575 Hz at 1 gauss, while the magnetically sensitive transition from 1,0 to 2,1 shifts by 0.70 MHz per gauss](figures/02-breit-rabi.png)
+![Left: Breit-Rabi diagram of the Rb-87 ground state from 0 to 5000 gauss; five F = 2 sublevels start at +2.56 GHz and three F = 1 sublevels at -4.27 GHz, fanning out linearly at low field, curving at intermediate field and becoming linear again (Paschen-Back regime) at high field. Right: on a log scale, the shift of the clock transition grows as 575 Hz per gauss squared and reaches 575 Hz at 1 gauss, while the magnetically sensitive transition from 1,0 to 2,1 shifts by 0.70 MHz per gauss](figures/02-breit-rabi.png)
 
-*Left: the exact ground-state energies (Breit-Rabi). Right: why the qubit lives in the $m_F=0$ "clock" states. Their transition has no linear Zeeman shift, only a quadratic one, so it is a thousand times less sensitive to field noise at 1 G than a transition with $\Delta m_F=1$.*
+*Left: the exact ground-state energies (Breit-Rabi). Right: why the qubit lives in the $m_F=0$ "clock" states. Their transition has no linear Zeeman shift, only a quadratic one, At 1 G it shifts by 575 Hz instead of 700 kHz, and its sensitivity to field fluctuations is about 600 times smaller ($d\nu/dB=1.15$ kHz/G instead of 0.70 MHz/G).*
 
 The two $m_F=0$ states have no linear shift at all. Expanding the Breit-Rabi formula to second order in $x$ for $m=0$ gives the **clock-transition shift**
 
@@ -116,7 +116,7 @@ $$|0\rangle=|F{=}1,m_F{=}0\rangle,\qquad |1\rangle=|F{=}2,m_F{=}0\rangle .$$
 | Atom | Why people use it | Note |
 |---|---|---|
 | Rb-87, Rb-85 | cheap 780/795 nm diode lasers; mature technology | Rb-85 has $I=5/2$ and a 3.04 GHz ground splitting |
-| Cs-133 | largest alkali hyperfine splitting (9.19 GHz); heavy, so small recoil | $I=7/2$, D2 line at 852 nm |
+| Cs-133 | largest hyperfine splitting of the stable alkalis (9.19 GHz); heavy, so small recoil | $I=7/2$, D2 line at 852 nm |
 | Na, K, Li | lighter alkalis, popular for quantum gases | sub-Doppler cooling is harder for some isotopes |
 | Sr, Yb (alkaline-earth and alkaline-earth-like) | two valence electrons give narrow "intercombination" and ultra-narrow "clock" lines; the fermionic isotopes have a nuclear spin with no electronic spin in the ground state | Sr-87 has $I=9/2$; Yb-171 has $I=1/2$, a natural nuclear-spin qubit |
 
@@ -137,14 +137,14 @@ Two-electron atoms have singlet and triplet families. A broad singlet line (for 
 
 **Step 2: field noise.** Suppose the bias field fluctuates by 1 mG from shot to shot. The clock qubit frequency then fluctuates by $3.45\ \mathrm{kHz/G}\times10^{-3}\ \mathrm{G}=3.5$ Hz; a $\Delta m_F=1$ qubit would fluctuate by $0.70\ \mathrm{MHz/G}\times10^{-3}\ \mathrm{G}=700$ Hz. A phase error of one radian accumulates after $1/(2\pi\times3.5\ \mathrm{Hz})\approx45$ ms for the clock qubit but after only $1/(2\pi\times700\ \mathrm{Hz})\approx0.23$ ms for the other. That factor of 200 is why the clock states are used.
 
-**Step 3: repumping.** From the $(\Gamma/2\Delta)^2$ estimate above, an atom on the cooling transition leaks to $F=1$ about once per $10^4$ photons. At a scattering rate of $10^6$ to $10^7$ photons per second, that happens every millisecond or so, so the repumper must be on whenever the cooling light is.
+**Step 3: repumping.** From the $(\Gamma/2\Delta)^2$ estimate above, an atom on the cooling transition leaks to $F=1$ about once per $10^4$ photons. At a scattering rate of $10^6$ to $10^7$ photons per second, that happens every 1 to 10 ms, so the repumper must be on whenever the cooling light is.
 
 ## Common pitfalls
 
 - **"The D2 line is a single frequency."** The $5S_{1/2}\to5P_{3/2}$ line has six allowed hyperfine components ($F=1\to F'=0,1,2$ and $F=2\to F'=1,2,3$) spread over 7 GHz. The quoted 780.241 nm refers to the centre of gravity of the line; lasers are locked to a specific hyperfine component.
-- **"Hyperfine splittings follow $A\,F$."** The interval rule gives the splitting between $F$ and $F-1$ as $A\,F$ only when there is no quadrupole term. For $5P_{3/2}$ the $B$ term is needed to reproduce 72.22, 156.94 and 266.65 MHz.
+- **"Hyperfine splittings follow $A\,F$."** The interval rule gives the splitting between $F$ and $F-1$ as $A\,F$ only when there is no quadrupole term. For $5P_{3/2}$ the $B$ term is needed to reproduce 72.22, 156.95 and 266.65 MHz.
 - **"Clock states are immune to magnetic fields."** They have no *linear* shift; the quadratic shift (575 Hz/G$^2$) is still there and must be included when the bias field is several gauss.
-- **"$g_F=1/2$ exactly."** It is $0.4998$ for $F=2$ and $-0.5018$ for $F=1$, because of the small nuclear term $g_I$. The difference matters for precision work.
+- **"$g_F=1/2$ exactly."** It is $0.4998$ for $F=2$ and $-0.5018$ for $F=1$, because $g_J=2.00233$ is not exactly 2 and because of the small nuclear term $g_I$. The difference matters for precision work.
 - **Primed and unprimed $F$.** By convention $F'$ refers to the excited state and $F$ to the ground state; mixing them up sends lasers to the wrong transition.
 
 ## Key takeaways
@@ -158,10 +158,10 @@ Two-electron atoms have singlet and triplet families. A broad singlet line (for 
 ## Go deeper
 
 - C. J. Foot, *Atomic Physics* (Oxford University Press, 2005), chapters 4 to 6. The clearest textbook treatment of alkali structure, fine and hyperfine structure, and the Zeeman effect.
-- D. A. Steck, *Rubidium 87 D Line Data*, [steck.us/alkalidata](https://steck.us/alkalidata). Every number in the tables above, with references and the Breit-Rabi formula in this chapter's form.
+- D. A. Steck, *Rubidium 87 D Line Data*, [steck.us/alkalidata](https://steck.us/alkalidata). The Rb-87 numbers in this chapter (wavelengths, linewidths, hyperfine constants, $g$-factors), with references and the Breit-Rabi formula in this chapter's form.
 - N. Šibalić, J. D. Pritchard, C. S. Adams, K. J. Weatherill, *ARC: An open-source library for calculating properties of alkali Rydberg atoms*, Comput. Phys. Commun. 220, 319 (2017), [arXiv:1612.05529](https://arxiv.org/abs/1612.05529). The library used here for quantum defects and level energies; install it with `pip install arc-alkali-rydberg-calculator` and reproduce the first figure.
 - H. J. Metcalf and P. van der Straten, *Laser cooling and trapping of atoms*, J. Opt. Soc. Am. B 20, 887 (2003), [Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf). Its discussion of multilevel atoms, optical pumping and repumping builds directly on this chapter.
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [Introduction: Why Neutral Atoms](01-introduction.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [A Two-Level Atom in a Laser Field](03-atom-light.md) →

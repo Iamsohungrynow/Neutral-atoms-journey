@@ -1,7 +1,8 @@
 """Check local Markdown targets and Python syntax; no network or dependencies.
 
 Run from any directory: python /path/to/repo/tools/check_repo.py
-External URLs and Markdown heading anchors are outside this check's scope.
+Checks Markdown links/images and HTML src/href attributes. External URLs and
+heading anchors are outside this check's scope.
 """
 import ast
 from pathlib import Path
@@ -20,7 +21,9 @@ def main():
         # Math such as [P(0)-P_inf](1-L-S) is not a Markdown hyperlink.
         source = re.sub(r"\$\$.*?\$\$", "", source, flags=re.S)
         source = re.sub(r"(?<!\\)\$.*?(?<!\\)\$", "", source)
-        for target in re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", source):
+        targets = re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", source)
+        targets += re.findall(r'(?:src|href)="([^"]+)"', source)   # HTML <img>/<a> tags
+        for target in targets:
             if target.startswith(("https:", "http:", "mailto:", "#")):
                 continue
             if path == ROOT / "README.md" and target == "../../issues":

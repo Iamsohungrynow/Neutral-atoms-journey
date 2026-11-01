@@ -10,13 +10,13 @@ We now have a defect-free array of single, cold atoms. This chapter turns each a
 |---|---|---|---|---|
 | **Hyperfine clock qubit** | Rb-87 $\vert F{=}1,m_F{=}0\rangle$, $\vert F{=}2,m_F{=}0\rangle$ | 6.83 GHz (microwave) | no linear Zeeman shift; long $T_1$ and $T_2$ | differential light shift in the trap |
 | Zeeman qubit | two $m_F$ sublevels of one $F$ | MHz per gauss | simple to drive | linearly field sensitive (Chapter 02) |
-| **Ground-Rydberg qubit** | $\vert g\rangle$, $\vert r\rangle=\vert70S\rangle$ | hundreds of THz (optical) | directly interacting; used in analog simulators | Rydberg lifetime $\sim100\ \mu$s; laser phase noise |
+| **Ground-Rydberg qubit** | $\vert g\rangle$, $\vert r\rangle=\vert70S\rangle$ | about 1009 THz (297 nm, UV; driven as two photons, 420 + 1013 nm) | directly interacting; used in analog simulators | Rydberg lifetime $\sim100\ \mu$s; laser phase noise |
 | Nuclear-spin qubit | $^{87}$Sr ($I=9/2$) or $^{171}$Yb ($I=1/2$) in the $^1S_0$ ground state | kHz to MHz in a bias field | no electronic angular momentum: tiny magnetic and light-shift sensitivity | needs two-electron atoms |
 | Optical clock qubit | Sr $^1S_0$ and the metastable $^3P_0$ state | 429 THz (698 nm) | ultra-narrow line; magic-wavelength traps | ultrastable lasers needed |
 
 This course keeps to the Rb-87 clock qubit, $|0\rangle=|F{=}1,m_F{=}0\rangle$ and $|1\rangle=|F{=}2,m_F{=}0\rangle$. The ground-Rydberg transition appears again in Chapters 10 and 11 as the mechanism for entangling gates.
 
-**Initialisation.** Optical pumping prepares $|0\rangle$. With $\pi$-polarized light on $F=1\to F'=1$, every sublevel of $F=1$ can be excited except $m_F=0$: the $m_F=0\to m_F'=0$ transition is forbidden when $\Delta F=0$ (its Clebsch-Gordan coefficient vanishes). A repumper on $F=2\to F'=2$ returns atoms that decay to $F=2$. After a few scattering events every atom ends up in the dark state $|F{=}1,m_F{=}0\rangle$. Fidelities above 99% are routine; residual errors come from imperfect polarization and off-resonant excitation of other hyperfine levels.
+**Initialisation.** Optical pumping prepares $|0\rangle$. With $\pi$-polarized light on $F=1\to F'=1$, every sublevel of $F=1$ can be excited except $m_F=0$: the $m_F=0\to m_F'=0$ transition is forbidden when $\Delta F=0$ (its Clebsch-Gordan coefficient vanishes). A repumper on $F=2\to F'=2$ returns atoms that decay to $F=2$; it must not be purely $\pi$-polarized, or $|F{=}2,m_F{=}0\rangle$ would be dark too and atoms would pile up there. The D1 line is often used for pumping because its two excited hyperfine levels are 817 MHz apart, which keeps the light cleanly on one transition. After a few scattering events every atom ends up in the dark state $|F{=}1,m_F{=}0\rangle$. Fidelities above 99% are routine; residual errors come from imperfect polarization and off-resonant excitation of other hyperfine levels.
 
 ## Single-qubit gates
 
@@ -36,11 +36,11 @@ Raman beams can be focused onto single atoms or steered with AODs, giving **loca
 
 *Raman gates. The price of using an optical transition is occasional spontaneous emission, which scrambles the qubit; detuning further reduces it at the cost of more laser power.*
 
-**The cost: spontaneous scattering.** With $\Omega_1=\Omega_2=\Omega$, each beam excites the atom off-resonantly at rate $\Gamma\Omega^2/4\Delta^2$, so the total scattering rate is $R=\Gamma\Omega^2/2\Delta^2$. A $\pi$ pulse lasts $\pi/\Omega_{\rm eff}=2\pi\Delta/\Omega^2$, so the probability of scattering a photon during it is
+**The cost: spontaneous scattering.** With $\Omega_1=\Omega_2=\Omega$, each beam excites the atom off-resonantly at rate $\Gamma\Omega^2/4\Delta^2$, so the total scattering rate is $R=\Gamma\Omega^2/2\Delta^2$. A $\pi$ pulse lasts $\pi/\Omega_{\rm eff}=2\pi\Delta/\Omega^2$, (this assumes $|\Delta|\gg\omega_{\rm hfs}$, so that both beams act on whichever qubit state is populated), so the probability of scattering a photon during it is
 
 $$P_{\rm sc}=R\,\frac{\pi}{\Omega_{\rm eff}}=\frac{\pi\Gamma}{|\Delta|},$$
 
-independent of the laser power. At $\Delta/2\pi=50$ GHz this is $\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
+independent of the laser power. It is an upper bound on the error: when $|\Delta|\gg\omega_{\rm hfs}$ most scattered photons are Rayleigh photons that leave the qubit state intact, and only the smaller Raman (state-changing) part is fully destructive. At $\Delta/2\pi=50$ GHz this is $\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
 
 ### Addressing one atom in an array
 
@@ -56,7 +56,7 @@ Crosstalk, the fraction of the addressing light reaching neighbours a few microm
 
 Two time scales describe a qubit's memory, as in any two-level system:
 
-- $T_1$: how long populations survive. For hyperfine qubits the main mechanism is **Raman scattering of trap photons**, which can change the hyperfine state. For far-detuned traps it is slow, giving $T_1$ of order seconds.
+- $T_1$: how long populations survive. For hyperfine qubits the main mechanism is **Raman scattering of trap photons**, which can change the hyperfine state. For far-detuned traps it is slow: for a 1 mK trap the two-line model gives $T_1$ of a few seconds at 852 nm and minutes at 1064 nm, where the hyperfine-changing amplitudes from D1 and D2 nearly cancel.
 - $T_2$: how long the phase of a superposition survives. This is the limiting time, and it has several contributions.
 
 ### Thermal dephasing from the differential light shift
@@ -71,7 +71,7 @@ $$\boxed{\ C(t)=\Big[1+\Big(\frac{\eta k_BTt}{2\hbar}\Big)^2\Big]^{-3/2}=\Big[1+
 
 where the numbers come from defining $T_2^*$ as the $1/e$ time: $0.95=e^{2/3}-1$ and $0.97=\sqrt{e^{2/3}-1}$. This is the result of Kuhr et al. (2005). The envelope is not exponential; it falls off as a power law at long times.
 
-Two levers follow directly: **colder atoms** (smaller $T$) and **smaller $\eta$** (farther-detuned traps). For Rb at $10\ \mu$K, $T_2^*=6.6$ ms in an 852 nm trap ($\eta=2.3\times10^{-4}$) and 24 ms at 1064 nm ($\eta=6.1\times10^{-5}$). Note that the trap depth does not appear: deeper traps shift the qubit more, but the spread of shifts is set by $k_BT$ alone. In practice deeper traps heat atoms more during loading and imaging, so they indirectly shorten $T_2^*$.
+Two levers follow directly: **colder atoms** (smaller $T$) and **smaller $\eta$** (farther-detuned traps). For Rb at $10\ \mu$K, $T_2^*=6.6$ ms in an 852 nm trap ($\eta=2.3\times10^{-4}$) and 24 ms at 1064 nm ($\eta=6.1\times10^{-5}$). Note that the trap depth does not appear: deeper traps shift the qubit more, but the spread of shifts is set by $k_BT$ alone. Depth matters indirectly: lowering the trap adiabatically lowers the temperature ($T\propto\omega\propto\sqrt{U_0}$), so $T_2^*$ grows as $1/\sqrt{U_0}$ when an experiment ramps the trap down before a coherent operation.
 
 ![Left: Ramsey contrast versus free-evolution time from lab 09 for atoms at 5, 10 and 20 microkelvin in an 852 nm tweezer, falling to 1/e at 13.2, 6.6 and 3.3 ms; dots show the analytic formula of Kuhr et al. on top of the simulated curves; a dashed line at contrast 1 shows that spin echo removes the dephasing. Right: T2 star versus temperature on log axes for 852 nm and 1064 nm traps, both falling as one over temperature, with the simulated points on the 852 nm line](../hands-on/09-ramsey-dephasing/figures/ramsey.png)
 
@@ -94,7 +94,7 @@ What echo cannot remove is noise that changes **during** the sequence: fluctuati
 | thermal motion | spread of $\eta E/2\hbar$ | $T_2^*=6.6$ ms (852 nm, $10\ \mu$K) |
 | trap-depth inhomogeneity across the array | site-to-site $\eta\,\delta U_0$ | 2% depth spread at 852 nm, 1 mK: $0.02\times4.7$ kHz $=94$ Hz rms, a Gaussian $1/e$ time of $\sqrt2/(2\pi\times94\ {\rm Hz})=2.4$ ms (removed by echo) |
 | magnetic field noise | clock shift $2\times575\ {\rm Hz/G^2}\times B\,\delta B$ | 1 mG at $B=3$ G: 3.5 Hz (Chapter 02) |
-| Raman scattering of trap light | hyperfine-changing photon scattering | sets $T_1$ of order seconds |
+| Raman scattering of trap light | hyperfine-changing photon scattering | sets $T_1$: seconds (852 nm) to minutes (1064 nm) |
 | gate laser phase and intensity noise | errors during operations | depends on the laser system |
 
 ## Worked example (Rb-87, illustrative numbers)
@@ -146,4 +146,4 @@ What echo cannot remove is noise that changes **during** the sequence: fluctuati
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [Loading, Imaging and Assembling Atom Arrays](08-arrays.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [Rydberg Atoms and the Blockade](10-rydberg.md) →

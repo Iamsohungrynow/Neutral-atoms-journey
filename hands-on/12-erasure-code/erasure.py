@@ -68,7 +68,7 @@ shots = 400000
 spot = []
 for d in ds:
     for name, Re in models.items():
-        p = 0.1
+        p = 0.3
         mc = p_logical_mc(d, p, Re, shots)
         th = p_logical(d, p, Re)
         se = np.sqrt(max(th * (1 - th), 1 / shots) / shots)
@@ -81,10 +81,10 @@ def slope(d, Re, p1=1e-3, p2=2e-3):
 
 print("Repetition code: Pauli errors versus erasures")
 print("=" * 70)
-print(" d   model                         P_L MC (p = 0.1)      exact")
+print(" d   model                         P_L MC (p = 0.3)      exact")
 for d, name, mc, th, se in spot:
     print(f" {d}   {name:28s}  {mc:.3e} +/- {se:.1e}   {th:.3e}")
-print("small-p slope d ln P_L / d ln p (effective distance):")
+print("small-p slope d ln P_L / d ln p (the number of faults needed to cause a failure):")
 for d in ds:
     print(f"   d = {d}: Pauli {slope(d, 0.0):.2f} (expect {(d + 1) / 2}), erasure {slope(d, 1.0):.2f} "
           f"(expect {d}), 98% erasure {slope(d, 0.98):.2f}")
@@ -130,6 +130,6 @@ checks = {
         np.allclose([p_logical(3, p, 0.0) for p in pp], 3 * pp**2 - 2 * pp**3, atol=1e-14),
     "pure erasure equals p^d / 2 for d = 3, 5, 7":
         all(np.allclose([p_logical(d, p, 1.0) for p in pp], pp**d / 2, rtol=1e-12) for d in ds),
-    "effective distance: slope (d+1)/2 for Pauli and d for erasure (5%)":
+    "failure exponent: slope (d+1)/2 for Pauli and d for erasure (5%)":
         all(abs(slope(d, 0.0) / ((d + 1) / 2) - 1) < 0.05 and abs(slope(d, 1.0) / d - 1) < 0.05 for d in ds),
 }

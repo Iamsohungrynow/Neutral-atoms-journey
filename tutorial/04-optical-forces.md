@@ -71,6 +71,8 @@ At a fixed trap depth, the scattering rate falls as $1/|\delta|$. Moving far fro
 
 ## Worked example: a near-resonant dipole trap (illustrative numbers)
 
+This example treats the atom as the two-level cycling transition driven with $\sigma^+$ light, so it uses $I_{\rm sat}=1.669$ mW/cm$^2$. For linearly polarized light the effective coupling is weaker and the depth and scattering rate come out about $2/3$ as large.
+
 | Symbol | Meaning | Value |
 |---|---|---|
 | $P$, $w_0$ | beam power and waist | 1.0 mW, 10 $\mu$m |
@@ -82,7 +84,7 @@ At a fixed trap depth, the scattering rate falls as $1/|\delta|$. Moving far fro
 | $\gamma_p$ | scattering rate at the centre | **$2.7\times10^4$ s$^{-1}$** (computed) |
 | $t_{\rm heat}$ | time to heat by $U_0$ | **$\approx0.17$ s** (computed) |
 
-**Step 1: intensity.** $I_0=2(10^{-3})/(\pi\times10^{-10})=6.37\times10^6\ {\rm W/m^2}=637\ {\rm W/cm^2}$, so $s_0=637/(1.669\times10^{-3})=3.8\times10^5$. A huge saturation parameter, but at $|\delta|=1650\,\Gamma$ the atom is barely excited.
+**Step 1: intensity.** $I_0=2(10^{-3})/(\pi\times10^{-10})=6.37\times10^6\ {\rm W/m^2}=637\ {\rm W/cm^2}$, so $s_0=637/(1.669\times10^{-3})=3.8\times10^5$. A huge saturation parameter, but at $|\delta|\approx8200\,\Gamma$ the atom is barely excited.
 
 **Step 2: Rabi frequency.** $\Omega=\Gamma\sqrt{s_0/2}=2\pi\times6.0666\ {\rm MHz}\times437=2\pi\times2.65$ GHz. Check that $\Omega\ll|\delta|$: $2.65/50=0.053$, fine.
 
@@ -108,7 +110,7 @@ At a fixed trap depth, the scattering rate falls as $1/|\delta|$. Moving far fro
 - **"A tweezer holds atoms with radiation pressure."** A single focused beam pushes atoms *along* the beam through scattering; the tweezer holds them through the dipole force, and works best where scattering is negligible.
 - **"Blue light can't trap."** Blue-detuned light repels atoms, but a dark spot surrounded by light (a "bottle beam") or a blue-detuned lattice can trap them at intensity minima, where they also scatter less.
 - **Sign of the light shift.** With $\delta=\omega_L-\omega_0$, the ground state shifts by $+\hbar\Omega^2/4\delta$: negative for red. The excited state shifts by the same amount in the opposite direction, which matters for imaging atoms in a tweezer (Chapter 08).
-- **Two-level formulas at large detuning.** Once $|\delta|$ approaches the fine-structure splitting (7 THz for Rb) the D1 and D2 lines both contribute and the counter-rotating terms matter. Chapter 07 uses the full two-line polarizability.
+- **Two-level formulas at large detuning.** Once $|\delta|$ approaches the fine-structure splitting (7 THz for Rb) the D1 and D2 lines both contribute, and at still larger detuning (for example a 1064 nm tweezer, 100 THz away) the counter-rotating terms matter too. Chapter 07 uses the full two-line polarizability.
 - **"Emission kicks cancel, so they don't matter."** They cancel on average but not their *variance*. That random walk is the heating that limits Doppler cooling.
 
 ## Key takeaways
@@ -120,11 +122,11 @@ At a fixed trap depth, the scattering rate falls as $1/|\delta|$. Moving far fro
 
 ## Go deeper
 
-- H. J. Metcalf and P. van der Straten, *Laser cooling and trapping of atoms*, J. Opt. Soc. Am. B 20, 887 (2003), [Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf). Its opening section on optical forces derives the radiative and dipole forces in this notation.
+- H. J. Metcalf and P. van der Straten, *Laser cooling and trapping of atoms*, J. Opt. Soc. Am. B 20, 887 (2003), [Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf). Its opening section on optical forces derives the radiative and dipole forces in closely related notation (it writes $\gamma$ for $\Gamma$).
 - R. Grimm, M. Weidemüller, Yu. B. Ovchinnikov, *Optical dipole traps for neutral atoms*, Adv. At. Mol. Opt. Phys. 42, 95 (2000), [arXiv:physics/9902072](https://arxiv.org/abs/physics/9902072). The standard reference for the dipole potential and the $\Gamma/\delta$ scattering argument; Chapter 07 follows it.
 - A. Ashkin, *Trapping of atoms by resonance radiation pressure*, Phys. Rev. Lett. 40, 729 (1978). An early proposal to trap atoms with light forces.
 - C. J. Foot, *Atomic Physics* (Oxford University Press, 2005), chapter 9. A textbook treatment of both forces.
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [A Two-Level Atom in a Laser Field](03-atom-light.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [Slowing and Doppler Cooling](05-doppler-cooling.md) →

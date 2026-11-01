@@ -113,7 +113,7 @@ ax.text(787, 1.32e4, "D2  D1", fontsize=8, color="C3", ha="center")
 ax.set_ylim(-1.5e4, 1.5e4)
 ax.set_xlabel("trap wavelength (nm)")
 ax.set_ylabel("ground-state polarizability (a.u.)")
-ax.set_title("alpha > 0: attractive (red of D1)\nalpha < 0: repulsive (blue of D2)", fontsize=9)
+ax.set_title("alpha > 0 (attractive) red of D1; alpha < 0 (repulsive)\nblue of D2 and between the tune-out (790 nm) and D1", fontsize=9)
 ax.annotate("1064 nm: 677 a.u.", xy=(1064, alpha(1064e-9) / AU), xytext=(930, 6e3), fontsize=8,
             arrowprops=dict(arrowstyle="->"))
 ax = axes[1]

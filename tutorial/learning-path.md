@@ -12,15 +12,15 @@ commands run from the repository root.
 | Chapter | By the end you should be able to… | Run and investigate |
 |---|---|---|
 | [01](01-introduction.md) | Explain the experimental cycle and estimate how many photons it takes to stop an atom | `python tutorial/figures/make_figures.py 01`; read the frequency-scale figure |
-| [02](02-atomic-structure.md) | Read the Rb-87 level diagram and explain why the clock states make the best qubit | `python tutorial/figures/make_figures.py 02`; change the bias field in the Breit-Rabi panel |
+| [02](02-atomic-structure.md) | Read the Rb-87 level diagram and explain why the clock states make the best qubit | `python tutorial/figures/make_figures.py 02`; change the plotted field range in `breit_rabi()` of `tutorial/figures/ch02.py` |
 | [03](03-atom-light.md) | Solve the optical Bloch equations and use the scattering-rate formula | `python hands-on/01-optical-bloch/obe.py`; add a detuning |
 | [04](04-optical-forces.md) | Distinguish the scattering and dipole forces and explain why traps are far detuned | `python tutorial/figures/make_figures.py 04` |
 | [05](05-doppler-cooling.md) | Design a Zeeman slower and derive the Doppler limit | `python hands-on/run_labs.py 02 03`; change $\eta$ and the emission model |
 | [06](06-sub-doppler-mot.md) | Explain Sisyphus cooling and compute the MOT spring constant | `python hands-on/04-mot/mot.py`; flip the field gradient |
 | [07](07-optical-tweezers.md) | Compute tweezer depth, frequencies and scattering at any wavelength | `python hands-on/run_labs.py 05 06`; change the waist |
 | [08](08-arrays.md) | Explain collisional blockade, imaging fidelity and rearrangement statistics | `python hands-on/run_labs.py 07 08`; raise the loading probability |
-| [09](09-qubits-coherence.md) | Estimate Raman gate errors and the thermal $T_2^*$, and explain spin echo | `python hands-on/09-ramsey-dephasing/ramsey.py`; switch to 1064 nm |
-| [10](10-rydberg.md) | Use Rydberg scaling laws and compute the blockade radius | `python hands-on/10-rydberg-blockade/blockade.py` |
+| [09](09-qubits-coherence.md) | Estimate Raman gate errors and the thermal $T_2^*$, and explain spin echo | `python hands-on/09-ramsey-dephasing/ramsey.py`; switch to 1064 nm (change both `eta` and the axial frequency in `omegas`) |
+| [10](10-rydberg.md) | Use Rydberg scaling laws, compute the blockade radius, and explain adiabatic state preparation | `python hands-on/run_labs.py 10 13`; change the sweep time and the spacing |
 | [11](11-rydberg-gates.md) | Explain how the blockade makes a CZ gate and build an error budget | `python hands-on/11-cz-gate/cz_gate.py`; change $\Omega$ and the lifetime |
 | [12](12-architectures.md) | Explain erasure conversion and zoned architectures | `python hands-on/12-erasure-code/erasure.py` |
 
@@ -34,7 +34,7 @@ commands run from the repository root.
 3. **Scattering (Ch 03):** For $I=1$ mW/cm$^2$ on the cycling transition, find
    $s_0$ and the scattering rate at $\delta=-\Gamma/2$. What is the full width at
    half maximum at $s_0=10$?
-4. **Forces (Ch 04):** 1 mW focused to a 10 $\mu$m waist, 50 GHz red of D2: how
+4. **Forces (Ch 04):** 1 mW focused to a 10 $\mu$m waist, 50 GHz red of D2, treating the atom as the two-level cycling transition driven with $\sigma^+$ light: how
    deep is the trap and how fast does the atom scatter? Why is this a poor qubit
    trap?
 5. **Doppler limit (Ch 05):** What is the Doppler limit for Cs
@@ -45,14 +45,15 @@ commands run from the repository root.
    $w_0=0.8\ \mu$m, and what is the radial trap frequency?
 8. **Arrays (Ch 08):** What is the probability that a 100-site array is
    defect-free *without* rearrangement ($p=0.5$, $\tau=60$ s, $t=0.2$ s)? With
-   rearrangement and 1% loss per move?
+   rearrangement and 1% loss per move, sorting a 16 × 16 array loaded at $p=0.5$
+   into a central 10 × 10 block (the geometry of lab 07)?
 9. **Coherence (Ch 09):** Find $T_2^*$ for a Rb atom at 10 $\mu$K in a 1064 nm
    tweezer. Would a spin echo remove dephasing caused by magnetic-field noise at
    1 kHz?
 10. **Blockade (Ch 10):** For $70S$, what is the blockade radius at
     $\Omega/2\pi=1$ MHz? What is $V/h$ at 6 $\mu$m?
 11. **Gates (Ch 11):** How long is a Levine CZ gate at $\Omega/2\pi=5$ MHz, and
-    what is its decay error with $\tau_r=147\ \mu$s?
+    what is its decay error with $\tau_r=146\ \mu$s?
 12. **Erasure (Ch 12):** For a $d=3$ repetition code at $p=5\%$, compare the
     logical error with all-Pauli errors and with all-erasure errors.
 
@@ -78,11 +79,15 @@ commands run from the repository root.
 8. $0.5^{100}e^{-100\times0.2/60}=5.7\times10^{-31}$: essentially never. With
    rearrangement, 0.43 (lab 07): about half the cycles succeed in one round.
 9. $T_2^*=0.97\times2\hbar/(\eta k_BT)$ with $\eta=6.08\times10^{-5}$: 24 ms. No:
-   a single echo refocuses only shifts that are constant during the sequence;
-   1 kHz noise needs dynamical decoupling with pulses spaced well below 1 ms.
+   a single echo refocuses only shifts that are constant during the sequence.
+   If the whole sequence is much shorter than 1 ms, 1 kHz noise is effectively
+   static and the echo works; for longer sequences it needs dynamical decoupling
+   with pulses spaced well below 1 ms.
 10. $R_b=(863\times10^3)^{1/6}\ \mu{\rm m}=9.8\ \mu$m; $V/h=863\times10^3/6^6=18.5$ MHz.
-11. $8.585/\Omega=273$ ns. The time in $|r\rangle$ scales as $1/\Omega$:
-    $0.150\times3.5/5=0.105\ \mu$s, so the decay error is $0.105/147=7\times10^{-4}$.
+11. $8.585/\Omega=273$ ns. Chapter 11 (lab 11) gives a mean time in $|r\rangle$,
+    averaged over the four input states, of $0.150\ \mu$s at $\Omega/2\pi=3.5$ MHz.
+    It scales as $1/\Omega$: $0.150\times3.5/5=0.105\ \mu$s, so the decay error is
+    $0.105/146=7\times10^{-4}$.
 12. Pauli: $3p^2-2p^3=7.25\times10^{-3}$. Erasure: $p^3/2=6.3\times10^{-5}$,
     more than a hundred times smaller.
 

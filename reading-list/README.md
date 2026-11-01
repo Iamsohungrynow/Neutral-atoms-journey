@@ -28,6 +28,7 @@ details.
 | [Rydberg entangling gates](#rydberg-entangling-gates) | 11 |
 | [Error correction, architectures and scaling](#error-correction-architectures-and-scaling) | 12 |
 | [Quantum simulation](#quantum-simulation) | 10, 12 |
+| [Courses and lecture series](#courses-and-lecture-series) | all |
 | [Theses and recent papers from my bibliography](#theses-and-recent-papers-from-my-bibliography) | all |
 
 ---
@@ -50,7 +51,7 @@ details.
 
 - ⭐ **Quantum science with optical tweezer arrays of ultracold atoms and
   molecules.** Kaufman, Ni (2021). *Nat. Phys.* 17, 1324.
-  [arXiv:2109.10087](https://arxiv.org/abs/2109.10087) *(not independently checked)*
+  [arXiv:2109.10087](https://arxiv.org/abs/2109.10087)
   A short review focused on tweezers themselves: loading, cooling, imaging,
   and the range of species and applications.
 
@@ -67,14 +68,9 @@ details.
   The textbook for Chapters 02 to 06: atomic structure, the optical Bloch
   equations, laser cooling and trapping.
 
-- **Lecture courses.** MIT OpenCourseWare
-  [8.421](https://ocw.mit.edu/courses/8-421-atomic-and-optical-physics-i-spring-2014/) and
-  [8.422](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/),
-  *Atomic and Optical Physics I and II*: graduate courses whose sequence
-  (two-level systems, light forces, cooling and trapping) Part I follows.
-  A. Browaeys's Boulder School 2021 lectures, *Rydberg atoms in optical
-  tweezers* ([Boulder School](https://boulderschool.yale.edu/)), follow the same
-  arc as Parts II and III.
+- **Lecture courses and lecture series.** See [Courses and lecture series](#courses-and-lecture-series)
+  below: MIT's graduate atomic-physics courses for Part I, and lecture series
+  by Browaeys and by Bernien for Parts II and III.
 
 ---
 
@@ -157,7 +153,7 @@ details.
   The origin of the thermal $T_2^*$ formula used in Chapter 09 and lab 09.
 - **Quantum computing with atomic qubits and Rydberg interactions: progress and
   challenges.** Saffman (2016). *J. Phys. B* 49, 202001.
-  [arXiv:1605.05207](https://arxiv.org/abs/1605.05207) *(not independently checked)*
+  [arXiv:1605.05207](https://arxiv.org/abs/1605.05207)
 - **Dispersive optical systems for scalable Raman driving of hyperfine qubits.**
   Levine et al. (2022). *Phys. Rev. A* 105, 032618.
   [arXiv:2110.14645](https://arxiv.org/abs/2110.14645)
@@ -172,17 +168,17 @@ details.
 - **Rydberg Atoms.** Gallagher (1994). Cambridge University Press. The classic monograph.
 - **ARC: An open-source library for calculating properties of alkali Rydberg
   atoms.** Šibalić, Pritchard, Adams, Weatherill (2017). *Comput. Phys. Commun.*
-  220, 319. [arXiv:1612.05529](https://arxiv.org/abs/1612.05529) *(not independently checked)*
+  220, 319. [arXiv:1612.05529](https://arxiv.org/abs/1612.05529)
   The library behind the Rydberg numbers of Chapter 10.
 - **Dipole blockade and quantum information processing in mesoscopic atomic
   ensembles.** Lukin et al. (2001). *Phys. Rev. Lett.* 87, 037901. *(not independently checked)*
 - **Observation of Rydberg blockade between two atoms.** Urban et al. (2009).
-  *Nat. Phys.* 5, 110. [arXiv:0805.0758](https://arxiv.org/abs/0805.0758) *(not independently checked)*
+  *Nat. Phys.* 5, 110. [arXiv:0805.0758](https://arxiv.org/abs/0805.0758)
 - **Observation of collective excitation of two individual atoms in the Rydberg
   blockade regime.** Gaëtan et al. (2009). *Nat. Phys.* 5, 115.
-  [arXiv:0810.2960](https://arxiv.org/abs/0810.2960) *(not independently checked)*
+  [arXiv:0810.2960](https://arxiv.org/abs/0810.2960)
 - **Rydberg atom quantum technologies.** Adams, Pritchard, Shaffer (2020).
-  *J. Phys. B* 53, 012002. [arXiv:1907.09231](https://arxiv.org/abs/1907.09231) *(not independently checked)*
+  *J. Phys. B* 53, 012002. [arXiv:1907.09231](https://arxiv.org/abs/1907.09231)
 
 ---
 
@@ -235,8 +231,11 @@ details.
   [arXiv:2312.03982](https://arxiv.org/abs/2312.03982)
   Up to 280 physical qubits; surface codes up to distance 7; up to 48 logical
   qubits in sampling circuits.
-- **Architectural mechanisms of a universal fault-tolerant quantum computer.**
-  Bluvstein et al. (2025). [arXiv:2506.20661](https://arxiv.org/abs/2506.20661)
+- **A fault-tolerant neutral-atom architecture for universal quantum
+  computation.** Bluvstein, Geim et al. (2026; online November 2025). *Nature*
+  649, 39. [doi:10.1038/s41586-025-09848-5](https://doi.org/10.1038/s41586-025-09848-5) ·
+  [arXiv:2506.20661](https://arxiv.org/abs/2506.20661) (arXiv title: *Architectural
+  mechanisms of a universal fault-tolerant quantum computer*).
   Up to 448 atoms: surface-code operation 2.14(13)x below threshold, lattice
   surgery, transversal teleportation with 3D codes, and mid-circuit qubit re-use.
 - **Continuous operation of a coherent 3,000-qubit system.** Chiu et al. (2025).
@@ -254,7 +253,7 @@ details.
   algorithms*).
 - **Neutral atom quantum computing hardware: performance and end-user
   perspective.** Wintersperger et al. (2023). *EPJ Quantum Technol.* 10, 32.
-  [arXiv:2304.14360](https://arxiv.org/abs/2304.14360) *(not independently checked)*
+  [arXiv:2304.14360](https://arxiv.org/abs/2304.14360)
 
 ---
 
@@ -277,6 +276,32 @@ details.
 
 ---
 
+## Courses and lecture series
+
+Courses and school lectures by researchers in the field, found by searching
+university and school pages in November 2026. Only publicly available materials
+are listed; the topic orders shown are those of the published syllabi.
+
+| Course or series | Instructor(s) | What it covers, in order | Materials | Best for |
+|---|---|---|---|---|
+| ⭐ MIT **8.421** *Atomic and Optical Physics I* (OCW, Spring 2014) | W. Ketterle | resonance → atomic structure (H, He, fine structure, Lamb shift, hyperfine) → atoms in external fields → atom-light interaction and spontaneous emission → line broadening → two-photon excitation and coherence in two- and three-level systems | [videos, problem sets, exams](https://ocw.mit.edu/courses/8-421-atomic-and-optical-physics-i-spring-2014/) | Ch 02, 03 |
+| ⭐ MIT **8.422** *Atomic and Optical Physics II* (OCW, Spring 2013) | W. Ketterle | non-classical light, multiphoton and Raman processes, coherence; lecture 16 light forces (scattering force, slowing, Doppler limit); lecture 17 dressed atom and dipole traps; lecture 18 magnetic trapping and evaporation | [videos and notes](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/) | Ch 04 to 07 |
+| ⭐ A. Browaeys, Les Houches pre-doctoral school on light and cold atoms (2019) | A. Browaeys | dipole-dipole interaction between atoms → Rydberg physics, arrays of cold atoms, blockade and quantum information → many-body physics with Rydberg atoms | [lecture 1 slides](https://coldatoms2019.sciencesconf.org/data/pages/2019_LesHouches_Predoc_Lecture1_short.pdf) | Ch 08, 10, 11 |
+| ⭐ A. Browaeys, Boulder School *Ultracold Matter* (July 2021), *Rydberg atoms in optical tweezers I to III* | A. Browaeys | arrays of atoms → blockade, two-body physics and gates → many-body physics, spin models and transport | [lecture notes](https://www.colorado.edu/conference/bss/2021/boulder-school-2021-lecture-notes) · [lecture 1 PDF](https://boulderschool.yale.edu/sites/default/files/files/2021_BoulderSchool_Lecture1_notes-reduced.pdf); videos on the Boulder School YouTube channel | Ch 08 to 10 |
+| ⭐ H. Bernien, ICTP-SAIFR school (São Paulo, 2023), *Quantum Information Processing and Simulation with Rydberg Atom Arrays* (3 lectures) | H. Bernien | Rydberg arrays for quantum simulation and computation | [slides](https://www.ictp-saifr.org/wp-content/uploads/2023/06/Quantum-Information-Processing-and-Simulation-with-Rydberg-Atom-Arrays.pdf); videos on the ICTP-SAIFR YouTube channel | Ch 10 to 12 |
+| A. Browaeys, ICTP summer school (2025) and Benasque (2025) | A. Browaeys | arrays and Rydberg physics → blockade → spin models and quantum magnetism | [Benasque lecture 1](https://www.benasque.org/2025uqms/talks_contr/173_2025_Benasque_school_Lecture1_Browaeys.pdf) | Ch 10 |
+| Caltech **Ph/APh 137ab** *Atoms and Photons* | M. Endres, N. Hutzler | quantized fields, light-matter interaction, open systems, with applications including Rydberg arrays; resonance, atomic structure, laser cooling, coherent control | [catalog entry](https://catalog.caltech.edu/current/2025-26/phaph-137-ab); materials not public | syllabus reference |
+| Varenna "Enrico Fermi" school, Course 214, *Quantum Computers and Simulators with Atoms* (2024) | lecturers include Saffman, Kaufman, Thompson | advanced lectures; Saffman's notes cover connectivity: long-range gates, atom transport, lattice surgery | [Saffman's notes, arXiv:2505.11218](https://arxiv.org/abs/2505.11218) | after Ch 12 |
+
+M. Lukin teaches Harvard's graduate course *Modern Atomic and Optical Physics
+II* (Physics 285b; coherence, non-classical light, cooling and trapping, atom
+optics), but no official materials are public. The review by Morgado and
+Whitlock, *Quantum simulation and computing with Rydberg-interacting qubits*,
+AVS Quantum Sci. 3, 023501 (2021), [arXiv:2011.03031](https://arxiv.org/abs/2011.03031),
+is a good companion to Bernien's lectures.
+
+---
+
 ## Theses and recent papers from my bibliography
 
 Theses are the best way to learn how an experiment actually works. They are
@@ -289,11 +314,11 @@ linked through university repositories, not re-hosted.
 | 2021 | Levine, H. J. | Quantum Information Processing and Quantum Simulation with Programmable Rydberg Atom Arrays | PhD thesis | [Harvard DASH](https://dash.harvard.edu/handle/1/37368420) |
 | 2022 | Cong, I. | Quantum Machine Learning, Error Correction, and Topological Phases of Matter | PhD thesis | Harvard DASH |
 | 2022 | Chen, Y.-T. (advisors Vuletić, Lukin) | A Platform for Cavity Quantum Electrodynamics with Rydberg Atom Arrays | PhD thesis | [Harvard DASH](https://dash.harvard.edu/handle/1/37372046) |
-| 2023 | Ebadi, S. | Quantum Simulation and Computation with Two-Dimensional Arrays of Neutral Atoms | PhD thesis | Harvard |
+| 2023 (Harvard DASH: 2024) | Ebadi, S. | Quantum Simulation and Computation with Two-Dimensional Arrays of Neutral Atoms | PhD thesis | Harvard |
 | 2025 | Bluvstein, D. | Error-Corrected Quantum Processing with Neutral Atoms | PhD thesis | [Harvard DASH](https://dash.harvard.edu/handle/1/42725323) |
 | 2026 | Evered, S. J. | Digital Quantum Simulation and Error Correction with Atomic Processors | PhD thesis | Harvard DASH |
 | 2026 | Evered et al. | High-fidelity entangling gates and nonlocal circuits with neutral atoms | preprint | [arXiv:2604.25987](https://arxiv.org/abs/2604.25987) |
-| 2025 | Menon, Bonilla Ataides, Mehta, Tan, Lukin | Magic tricycles: efficient magic state generation with finite block-length quantum LDPC codes | preprint (revised 2026) | [arXiv:2508.10714](https://arxiv.org/abs/2508.10714) |
+| 2025 | Menon, Bonilla Ataides, Mehta, Tan, Lukin | Magic tricycles: efficient magic state generation with finite block-length quantum LDPC codes | preprint (posted August 2025, since revised) | [arXiv:2508.10714](https://arxiv.org/abs/2508.10714) |
 | 2026 | Koh, …, Lukin, Majidy | Entangling logical qubits without physical operations | preprint | [arXiv:2601.20927](https://arxiv.org/abs/2601.20927) |
 
 ### Endres group (Caltech)
@@ -302,7 +327,7 @@ linked through university repositories, not re-hosted.
 |---|---|---|---|---|
 | 2020 | Kale, A. M. | Towards High Fidelity Quantum Computation and Simulation with Rydberg Atoms | senior (undergraduate) thesis | [CaltechTHESIS](https://thesis.library.caltech.edu/13812) |
 | 2024 | Shaw, A. L. | Learning, Verifying, and Erasing Errors on a Chaotic and Highly Entangled Programmable Quantum Simulator | PhD thesis | [CaltechTHESIS](https://thesis.library.caltech.edu/16353) |
-| 2025 | Shaw, Scholl, Finkelstein, Tsai, Choi, Endres | Erasure-cooling, control, and hyper-entanglement of motion in optical tweezers | *Science* 388 (2025) | [arXiv:2311.15580](https://arxiv.org/abs/2311.15580) |
+| 2025 | Shaw, Scholl, Finkelstein, Tsai, Choi, Endres | Erasure cooling, control, and hyperentanglement of motion in optical tweezers (arXiv title: *Erasure-cooling, control, and hyper-entanglement…*) | *Science* 388 (2025), [doi:10.1126/science.adn2618](https://doi.org/10.1126/science.adn2618) | [arXiv:2311.15580](https://arxiv.org/abs/2311.15580) |
 | 2026 | Manetsch, H. J. | Scaling Neutral Atom Tweezer Arrays to 6,100 Qubits | PhD thesis | [CaltechTHESIS](https://thesis.caltech.edu/18735/) |
 | 2026 | Bataille, Nomura, Endres | Detuning- and Stark-robust Rydberg gates | preprint | [arXiv:2608.27426](https://arxiv.org/abs/2608.27426) |
 
@@ -316,18 +341,19 @@ recorded:
   "Balanis C.A.".
 - *Towards High Fidelity Quantum Computation and Simulation with Rydberg Atoms*
   (Kale, 2020) is a Caltech **senior** thesis, not a PhD thesis.
-- *Benchmarking and Linear Response Modelling of High-Fidelity Rydberg Gates*
+- *Benchmarking and Linear Response Modeling of High-Fidelity Rydberg Gates*
   (2024) and *Benchmarking and fidelity response theory of high-fidelity
   Rydberg entangling gates* (2025) are the **same paper**: arXiv preprint and
   PRX Quantum version.
 - *A tweezer array with 6100 highly coherent atomic qubits* was published in
   Nature in **2025** (arXiv 2024); the 2026 item is Manetsch's thesis.
 - *Erasure-cooling, control, and hyper-entanglement of motion* now lists Shaw
-  first (Scholl second) and was published in Science in 2025.
+  first (Scholl second) and was published in Science in 2025 as *Erasure cooling,
+  control, and hyperentanglement of motion in optical tweezers*.
 - *Three-body interactions in Rydberg lattices*: last author is Walther (Lukin
   is second). *Entangling logical qubits without physical operations*: last
   author is Majidy (Lukin is among the authors).
-- *Magic tricycles* was first posted in 2025 (arXiv:2508.10714) and revised in 2026.
+- *Magic tricycles* was first posted in August 2025 (arXiv:2508.10714) and has been revised since.
 - *Leveraging atom loss errors…* was retitled *Leveraging qubit loss detection…*
   and published in PRX in 2026.
 - *Advancing the Scalability Frontier of Neutral Atom Quantum Processors*

@@ -34,6 +34,7 @@ import matplotlib.pyplot as plt
 hbar = 1.054571817e-34
 kB = 1.380649e-23
 m = 86.909180531 * 1.66053906660e-27
+M_ATOM = m
 k = 2 * np.pi / 780.241209686e-9
 Gamma = 2 * np.pi * 6.0666e6
 vr = hbar * k / m
@@ -94,9 +95,28 @@ def mean_force(v, delta, n=400000):
 delta0 = -Gamma / 2
 v_probe = np.linspace(-6, 6, 25)
 F_sim, F_exact = np.array([mean_force(v, delta0) for v in v_probe]).T
-v_small = np.linspace(-0.1, 0.1, 11)          # linear region, k v << Gamma
-F_small = np.array([mean_force(v, delta0, n=20_000_000)[0] for v in v_small])
-beta_fit = -np.polyfit(v_small, F_small, 1)[0]
+# Friction measured from the DYNAMICS: atoms all start at +v0 (inside the linear
+# region) and receive random kicks; the mean velocity must decay as exp(-beta t / m).
+# Fixed small time steps (event probability per step ~2%) are used here so that all
+# atoms share one clock; the equilibrium temperatures below use the exact event loop.
+def mean_velocity_decay(delta, v0=0.5, n_atoms=20000, t_max=1.2e-3, dt=4e-8):
+    v = np.full(n_atoms, v0)
+    n_steps = int(t_max / dt)
+    t_out, v_out = [], []
+    for i in range(n_steps):
+        rp, rm = rates(v, delta)
+        u = rng.random(n_atoms)
+        absorb = np.where(u < rp * dt, 1.0, np.where(u < (rp + rm) * dt, -1.0, 0.0))
+        emit = rng.choice([-1.0, 1.0], n_atoms) * (absorb != 0)
+        v = v + (absorb + emit) * vr
+        if i % 250 == 0:
+            t_out.append(i * dt)
+            v_out.append(v.mean())
+    return np.array(t_out), np.array(v_out)
+
+
+t_dec, v_dec = mean_velocity_decay(delta0)
+beta_fit = -M_ATOM * np.polyfit(t_dec, np.log(v_dec), 1)[0]
 
 # ---------------------------------------------------------------------------
 # 2) equilibrium temperature versus detuning
@@ -104,7 +124,10 @@ beta_fit = -np.polyfit(v_small, F_small, 1)[0]
 detunings = np.array([-0.25, -0.5, -1.0, -1.5, -2.0, -3.0]) * Gamma
 T_sim, T_err = [], []
 for d in detunings:
-    v2, tt, vv = simulate(d)
+    # burn-in of at least 8 velocity-damping times (m/beta) worth of events
+    events_per_damping = (m / beta_analytic(d)) * sum(rates(0.0, d))
+    n_burn = int(max(2000, 8 * events_per_damping))
+    v2, tt, vv = simulate(d, n_events=n_burn + 3000, n_burn=n_burn)
     T_atoms = m * v2 / kB
     T_sim.append(T_atoms.mean())
     T_err.append(T_atoms.std(ddof=1) / np.sqrt(len(T_atoms)))
@@ -115,7 +138,7 @@ T_sim, T_err = np.array(T_sim), np.array(T_err)
 
 print("1D optical molasses, Rb-87 D2, s0 = 0.05 per beam, emission +/- hbar k")
 print("=" * 70)
-print(f"friction at delta = -Gamma/2: beta_sim = {beta_fit:.3e} kg/s, "
+print(f"friction at delta = -Gamma/2 from the decay of <v>: beta_sim = {beta_fit:.3e} kg/s, "
       f"beta_analytic = {beta_analytic(delta0):.3e} kg/s")
 print(f"velocity damping time m/beta = {m / beta_analytic(delta0) * 1e3:.3f} ms")
 print("-" * 70)
@@ -168,12 +191,10 @@ plt.show()
 # ---------------------------------------------------------------------------
 F_err = hbar * k * np.sqrt(400000) / (400000 / (np.array([sum(rates(v, delta0)) for v in v_probe])))
 checks = {
-    "counted kicks reproduce the analytic force F(v) within 4 standard errors":
-        np.all(np.abs(F_sim - F_exact) < 4 * F_err),
-    "small-velocity slope equals beta = -8 hbar k^2 delta s0 / (Gamma(1+s0+x^2)^2) within 5%":
+    "mean velocity decays at beta/m with beta = -8 hbar k^2 delta s0 / (Gamma(1+s0+x^2)^2), within 5%":
         abs(beta_fit / beta_analytic(delta0) - 1) < 0.05,
-    "equilibrium temperatures agree with (hbar Gamma/4)(1+s0+x^2)/x within 4% + 3 s.e.":
-        np.all(np.abs(T_sim - T_analytic(detunings)) < 0.04 * T_analytic(detunings) + 3 * T_err),
+    "equilibrium temperatures agree with (hbar Gamma/4)(1+s0+x^2)/x within 2% + 3 s.e.":
+        np.all(np.abs(T_sim - T_analytic(detunings)) < 0.02 * T_analytic(detunings) + 3 * T_err),
     "coldest simulated detuning is -Gamma/2 and lies within 5% of the Doppler limit":
         detunings[np.argmin(T_sim)] == delta0 and abs(T_sim.min() / (hbar * Gamma / 2 / kB) - 1) < 0.05,
 }

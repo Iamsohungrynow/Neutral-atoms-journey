@@ -10,10 +10,10 @@ from style import save
 def sisyphus():
     """Light-shifted ground sublevels of a J=1/2 -> J'=3/2 atom in a lin-perp-lin standing wave.
 
-    The local polarization cycles linear -> sigma- -> linear -> sigma+ with period lambda/2;
+    The local polarization cycles linear -> sigma+ -> linear -> sigma- with period lambda/2;
     the sigma+/- intensity fractions are (1 +/- sin 2kz)/2 and the Clebsch-Gordan weights
     (1 for the stretched transition, 1/3 for the other) give
-        U(+1/2) = U0 [2/3 + (1/3) sin 2kz],   U(-1/2) = U0 [2/3 - (1/3) sin 2kz],   U0 < 0.
+        U(+1/2) = E_ls [2/3 + (1/3) sin 2kz],   U(-1/2) = E_ls [2/3 - (1/3) sin 2kz],   E_ls < 0.
     """
     z = np.linspace(0, 1.0, 600)               # in units of lambda
     s = np.sin(4 * np.pi * z)
@@ -33,7 +33,7 @@ def sisyphus():
     ax.text(zt + 0.015, -0.62, "at the hilltop sigma- light\npumps the atom to m = -1/2,\nwhose valley is here: the\nemitted photon carries off\nthe energy", fontsize=8)
     ax.text(0.25, -1.12, "dotted: the atom climbs in m = +1/2 (kinetic -> potential energy)", fontsize=8, ha="center")
     ax.set_xlabel("position z (units of lambda)")
-    ax.set_ylabel("light shift (units of |U0|)")
+    ax.set_ylabel("light shift (units of |E_ls|)")
     ax.set_xlim(0, 1)
     ax.set_ylim(-1.2, -0.02)
     for zp, lab in [(0, "lin"), (0.125, "sigma+"), (0.25, "lin"), (0.375, "sigma-"), (0.5, "lin"),

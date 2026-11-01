@@ -40,7 +40,9 @@ if any entry is false.
 Verified environment: Python 3.13.18, NumPy 2.5.3, SciPy 1.18.1,
 Matplotlib 3.11.2, QuTiP 5.3.1 (Linux). The requirements list supported API
 bounds, not a claim that every combination has been tested. Only lab 01 uses
-QuTiP; the others need NumPy, SciPy and Matplotlib.
+QuTiP; the others need NumPy, SciPy and Matplotlib. The ARC Rydberg library
+(`pip install arc-alkali-rydberg-calculator`) is optional: no lab or figure
+imports it, but it reproduces the Rydberg numbers stored in the code.
 
 Follow the [learning path](../tutorial/learning-path.md) for predictions,
 exercises and answers. Read the [notation page](../tutorial/00-notation.md) for
@@ -62,6 +64,7 @@ units and sign conventions before changing the code.
 | [10-rydberg-blockade/](10-rydberg-blockade/) | Blockade, collective $\sqrt N$ enhancement, Rydberg scaling | [10](../tutorial/10-rydberg.md) |
 | [11-cz-gate/](11-cz-gate/) | Levine and Jaksch CZ gates; decay, Doppler and blockade errors | [11](../tutorial/11-rydberg-gates.md) |
 | [12-erasure-code/](12-erasure-code/) | Repetition code with erasures versus Pauli errors | [12](../tutorial/12-architectures.md) |
+| [13-adiabatic-z2/](13-adiabatic-z2/) | Analog simulation: adiabatic preparation of a $Z_2$ Rydberg crystal | [10](../tutorial/10-rydberg.md) |
 
 ## Regenerate the tutorial figures
 

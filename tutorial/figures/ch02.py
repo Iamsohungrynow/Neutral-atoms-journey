@@ -8,7 +8,7 @@ from style import save
 
 # Rb-87 hyperfine data (A, B constants from ARC / Steck)
 HFS_5P12 = 816.656e6           # F'=1 <-> F'=2 (Hz)
-HFS_5P32 = [72.222e6, 156.941e6, 266.652e6]   # F'=0-1, 1-2, 2-3 (Hz)
+HFS_5P32 = [72.2180e6, 156.9470e6, 266.6500e6]   # F'=0-1, 1-2, 2-3 (Hz), measured (Steck)
 
 
 # Measured-quality Rb level energies (eV below ionisation) from the ARC library,
@@ -46,7 +46,7 @@ def quantum_defect_levels():
     ax.set_title("Rb levels: E = -Ry/(n - delta_l)^2, and low-l electrons dive into the core")
     ax.annotate("5S ground state, 4.18 eV deep\n(n* = 1.80, so delta = 3.20 at n = 5)", xy=(0.1, -4.1771),
                 xytext=(0.75, -3.75), fontsize=8, va="center", arrowprops=dict(arrowstyle="->"))
-    ax.text(2.5, -3.2, "defects quoted are the high-n (Rydberg) limits;\nat low n they are slightly larger",
+    ax.text(2.5, -3.2, "defects quoted are the high-n (Rydberg) limits; at low n\nthey differ (larger for S and P, smaller for D and F)",
             fontsize=8, color="0.35", ha="center")
     save(fig, "02-quantum-defects.png")
 
@@ -107,9 +107,9 @@ def level_diagram():
                 arrowprops=dict(arrowstyle="->", color="C0", lw=2))
     ax.text(5.9, 2.4, "repumper\nF=1 -> F'=2", fontsize=8, color="C0")
     # forbidden decay from F'=3 to F=1
-    ax.annotate("", xy=(8.2, 0.0), xytext=(8.2, ys[3]),
+    ax.annotate("", xy=(7.0, 0.0), xytext=(7.0, ys[3]),
                 arrowprops=dict(arrowstyle="->", color="0.5", lw=0.8, ls=":"))
-    ax.text(8.3, 6.2, "F'=3 -> F=1\nforbidden\n(Delta F = 2)", fontsize=7.5, color="0.4")
+    ax.text(6.2, 6.3, "F'=3 -> F=1\nforbidden\n(Delta F = 2)", fontsize=7.5, color="0.4")
     ax.text(0.1, 10.1, "Rb-87, nuclear spin I = 3/2 (energies not to scale)", fontsize=10, weight="bold")
     save(fig, "02-rb87-levels.png")
 

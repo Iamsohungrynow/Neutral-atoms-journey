@@ -46,11 +46,11 @@ def sequences():
     fig, axes = plt.subplots(2, 1, figsize=(10, 3.8), sharex=True)
     for ax, (title, pulses) in zip(axes, [
             ("Ramsey: measures T2* (all static and slow shifts dephase)", [(0, 0.06, "pi/2"), (0.94, 0.06, "pi/2")]),
-            ("Spin echo: a pi pulse in the middle refocuses static shifts (measures T2)",
-             [(0, 0.06, "pi/2"), (0.47, 0.06, "pi"), (0.94, 0.06, "pi/2")])]):
+            ("Spin echo: a pi pulse (twice the area, so twice as long) in the middle refocuses static shifts (measures T2)",
+             [(0, 0.06, "pi/2"), (0.44, 0.12, "pi"), (0.94, 0.06, "pi/2")])]):
         ax.axhline(0, color="k", lw=1)
         for t0, w, lab in pulses:
-            h = 1.0 if lab == "pi" else 0.6
+            h = 0.6
             ax.add_patch(Rectangle((t0, 0), w, h, fc="C0", ec="k"))
             ax.text(t0 + w / 2, h + 0.08, lab, ha="center", fontsize=9)
         ax.set_ylim(-0.2, 1.4)

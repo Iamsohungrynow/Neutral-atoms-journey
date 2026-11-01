@@ -101,11 +101,15 @@ print("-" * 66)
 for v in v_inits:
     print(f"v_init = {v:3d} m/s -> v_exit = {v_exit[v]:6.1f} m/s")
 
-# Lag measured for the atom that starts at v0 (middle third of the slower)
+# Lag measured for the atom that enters at 290 m/s, between 0.3 L and 0.7 L
 z_c, v_c = trajectories[290]
 mid = (z_c > 0.3 * L) & (z_c < 0.7 * L)
 lag_measured = np.mean(v_design(z_c[mid]) - v_c[mid])
 print(f"measured lag in the middle of the slower: {lag_measured:.2f} m/s")
+# Deceleration actually experienced by the locked atom: v^2 falls linearly with z at slope -2a
+a_measured = -0.5 * np.polyfit(z_c[mid], v_c[mid]**2, 1)[0]
+print(f"measured deceleration of the locked atom: {a_measured:.4e} m/s^2 "
+      f"(design eta*a_max = {a:.4e})")
 
 # ---------------------------------------------------------------------------
 # Figure
@@ -137,10 +141,10 @@ plt.show()
 # ---------------------------------------------------------------------------
 captured = [v for v in v_inits if v <= 290]
 checks = {
-    "length equals (v0^2 - v_f^2)/(2 eta a_max) and exceeds the a_max minimum":
-        np.isclose(L, (v0**2 - v_f**2) / (2 * eta * a_max)) and L > (v0**2 - v_f**2) / (2 * a_max),
-    "atoms starting below the capture velocity exit within 5 m/s of v_f":
-        all(abs(v_exit[v] - (v_f - dv_lag)) < 5.0 for v in captured),
+    "the locked atom's simulated deceleration (slope of v^2 versus z) equals eta * a_max within 2%":
+        abs(a_measured / a - 1) < 0.02,
+    "atoms entering between v_f and the capture velocity exit within 2 m/s of v_f minus the lag":
+        all(abs(v_exit[v] - (v_f - dv_lag)) < 2.0 for v in captured),
     "atoms faster than the capture velocity are not slowed to v_f":
         all(v_exit[v] > 0.8 * v for v in v_inits if v >= 350),
     "locked atom lags v_design by x*Gamma/2k from the force balance (10%)":

@@ -26,7 +26,7 @@ def excitation():
     ax1.annotate("", xy=(2.2, 9.2), xytext=(2.2, 4.6), arrowprops=dict(arrowstyle="<->", color="C3", lw=2.2))
     ax1.text(2.05, 7.0, "1013 nm\nOmega_2", ha="right", color="C3", fontsize=9)
     ax1.text(3.0, 7.0, "Omega = Omega_1 Omega_2 / (2 Delta_i)\n(a few MHz)", fontsize=8)
-    ax1.text(5.2, 0.0, "ionisation limit 735.7 GHz above 70S,\nlevel spacing near n = 70: ~22 GHz", fontsize=8, va="bottom")
+    ax1.text(4.7, 9.6, "ionisation limit 735.7 GHz above 70S; level spacing near n = 70: ~22 GHz", fontsize=8, va="bottom")
     ax1.set_title("Two-photon excitation of Rb-87 to a Rydberg state", fontsize=9)
     # orbit size comparison
     ax2.set_aspect("equal")

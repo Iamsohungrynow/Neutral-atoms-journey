@@ -10,10 +10,10 @@ Start with the [guided learning path and exercises](learning-path.md), the [nota
 |---|---------|-----------|-----|
 | 01 | [**Introduction: Why Neutral Atoms**](01-introduction.md) | the experimental cycle, energy scales, DiVincenzo criteria, platform comparison, history | figures |
 | 02 | [**The Atom: Levels, Fine and Hyperfine Structure**](02-atomic-structure.md) | quantum defects, D1/D2, hyperfine structure, cycling transition and repumper, Breit-Rabi, clock states | figures |
-| 03 | [**A Two-Level Atom in a Laser Field**](03-atom-light.md) | rotating-wave approximation, Rabi oscillations, optical Bloch equations, saturation, scattering rate | [01](../hands-on/01-optical-bloch/) |
-| 04 | [**Optical Forces**](04-optical-forces.md) | photon recoil, scattering force, light shift and dipole force, why traps are far detuned | figures |
+| 03 | [**A Two-Level Atom in a Laser Field**](03-atom-light.md) | rotating-wave approximation, Rabi oscillations, optical Bloch equations, saturation, scattering rate, Doppler broadening, three-level atoms and adiabatic passage | [01](../hands-on/01-optical-bloch/) |
+| 04 | [**Optical Forces: Radiation Pressure and the Dipole Force**](04-optical-forces.md) | photon recoil, scattering force, light shift and dipole force, why traps are far detuned | figures |
 | 05 | [**Slowing and Doppler Cooling**](05-doppler-cooling.md) | Zeeman slower, optical molasses, friction coefficient, Doppler limit | [02](../hands-on/02-zeeman-slower/), [03](../hands-on/03-doppler-molasses/) |
-| 06 | [**Sub-Doppler Cooling and the MOT**](06-sub-doppler-mot.md) | polarization gradients, Sisyphus cooling, gray molasses, magneto-optical trap | [04](../hands-on/04-mot/) |
+| 06 | [**Sub-Doppler Cooling and the Magneto-Optical Trap**](06-sub-doppler-mot.md) | polarization gradients, Sisyphus cooling, gray molasses, magneto-optical trap | [04](../hands-on/04-mot/) |
 
 ## Part II: single atoms in tweezers
 
@@ -27,9 +27,9 @@ Start with the [guided learning path and exercises](learning-path.md), the [nota
 
 | # | Chapter | Key ideas | Lab |
 |---|---------|-----------|-----|
-| 10 | [**Rydberg Atoms and the Blockade**](10-rydberg.md) | scaling laws, van der Waals interaction, blockade radius, collective excitation, analog simulation | [10](../hands-on/10-rydberg-blockade/) |
+| 10 | [**Rydberg Atoms and the Blockade**](10-rydberg.md) | scaling laws, van der Waals interaction, blockade radius, collective excitation, analog simulation and adiabatic state preparation | [10](../hands-on/10-rydberg-blockade/), [13](../hands-on/13-adiabatic-z2/) |
 | 11 | [**Rydberg Entangling Gates and Their Errors**](11-rydberg-gates.md) | $\pi$-$2\pi$-$\pi$ gate, global phase gate, decay, Doppler and blockade errors | [11](../hands-on/11-cz-gate/) |
-| 12 | [**Toward Fault Tolerance**](12-architectures.md) | mid-circuit readout, atom loss and erasure conversion, zoned architectures, scaling | [12](../hands-on/12-erasure-code/) |
+| 12 | [**Toward Fault Tolerance: Readout, Loss, Erasure and Zoned Architectures**](12-architectures.md) | mid-circuit readout, atom loss and erasure conversion, zoned architectures, scaling | [12](../hands-on/12-erasure-code/) |
 
 ## How to use this tutorial
 

@@ -29,9 +29,9 @@ The dipole operator only connects $|g\rangle$ and $|e\rangle$. Define the **Rabi
 
 $$\hbar\Omega=-\langle e|\hat{\mathbf d}\cdot\mathbf E_0|g\rangle,$$
 
-taking $\Omega$ real. Writing $\cos\omega_Lt=(e^{i\omega_Lt}+e^{-i\omega_Lt})/2$ and moving to a frame that rotates at the laser frequency, the coupling contains two kinds of term. One oscillates at the small difference $\omega_L-\omega_0=\delta$; the other oscillates at the sum $\omega_L+\omega_0\approx2\pi\times768$ THz. The fast term averages to zero over any time we can resolve. Dropping it is the **rotating-wave approximation (RWA)**, valid when $\Omega,|\delta|\ll\omega_0$. For Rb that means MHz to GHz couplings against a 384 THz transition: an extremely good approximation.
+taking $\Omega$ real. Write $\cos\omega_Lt=(e^{i\omega_Lt}+e^{-i\omega_Lt})/2$ and look at the coupling in the interaction picture, where the atom's own evolution at $\omega_0$ is removed. The coupling then contains two kinds of term. One oscillates at the small difference $\omega_L-\omega_0=\delta$; the other oscillates at the sum $\omega_L+\omega_0\approx2\pi\times768$ THz. The fast term averages to zero over any time we can resolve. Dropping it is the **rotating-wave approximation (RWA)**, valid when $\Omega,|\delta|\ll\omega_0$. For Rb that means MHz to GHz couplings against a 384 THz transition: an extremely good approximation.
 
-What remains is a time-independent Hamiltonian:
+Finally, moving to a frame that rotates at the laser frequency $\omega_L$ makes what remains time independent:
 
 $$\frac{\hat H}{\hbar}=-\delta\,|e\rangle\langle e|+\frac{\Omega}{2}\big(|e\rangle\langle g|+|g\rangle\langle e|\big).$$
 
@@ -39,7 +39,7 @@ $$\frac{\hat H}{\hbar}=-\delta\,|e\rangle\langle e|+\frac{\Omega}{2}\big(|e\rang
 
 ## Rabi oscillations and the Bloch sphere
 
-Any pure state of two levels can be drawn as a point on a unit sphere: ground state at the south pole, excited state at the north pole. With the Pauli matrix $\sigma_z=|e\rangle\langle e|-|g\rangle\langle g|$, the Hamiltonian above is (up to a constant) $\frac{\hbar}{2}(\Omega\sigma_x-\delta\sigma_z)$, a spin in a magnetic field. The Bloch vector therefore **precesses** about the axis $(\Omega,0,-\delta)$ at the **generalized Rabi frequency**
+Any pure state of two levels can be drawn as a point on a unit sphere: ground state at the south pole, excited state at the north pole. With the Pauli matrix $\sigma_z=|e\rangle\langle e|-|g\rangle\langle g|$, the Hamiltonian above is (up to a constant) $\frac{\hbar}{2}(\Omega\sigma_x-\delta\sigma_z)$, a spin in a magnetic field. The Bloch vector has components $u=\langle\sigma_x\rangle=2\,{\rm Re}\,\rho_{eg}$, $v=\langle\sigma_y\rangle=-2\,{\rm Im}\,\rho_{eg}$ and $w=\langle\sigma_z\rangle=\rho_{ee}-\rho_{gg}$. It therefore **precesses** about the axis $(\Omega,0,-\delta)$ at the **generalized Rabi frequency**
 
 $$\Omega'=\sqrt{\Omega^2+\delta^2}.$$
 
@@ -82,7 +82,7 @@ $$\gamma_p=\frac{\Gamma}{2}\,\frac{s_0}{1+s_0+(2\delta/\Gamma)^2}.$$
 This one formula is the engine of laser cooling. Read off its properties:
 
 - **Low intensity** ($s_0\ll1$): a Lorentzian in $\delta$ with full width $\Gamma$, and $\gamma_p\propto I$.
-- **Saturation**: on resonance $\gamma_p\to\Gamma/2$ as $s_0\to\infty$. At most half the atoms are excited, because stimulated emission balances absorption.
+- **Saturation**: $\gamma_p\to\Gamma/2$ as $s_0\to\infty$, at any detuning (far from resonance it just takes more intensity). At most half the atoms are excited, because stimulated emission balances absorption.
 - **Power broadening**: the full width at half maximum is $\Gamma\sqrt{1+s_0}$.
 
 ### Saturation intensity and cross-section
@@ -91,11 +91,44 @@ With $I=\tfrac12c\varepsilon_0E_0^2$ and $\Omega=dE_0/\hbar$, the condition $s_0
 
 $$I_{\rm sat}=\frac{\pi hc\,\Gamma}{3\lambda^3}=1.669\ \mathrm{mW/cm^2}\quad\text{(Rb-87 cycling transition)}.$$
 
-At low intensity, the scattered power $\hbar\omega\gamma_p$ divided by the incident intensity is the resonant **cross-section** $\sigma_0=\hbar\omega\Gamma/(2I_{\rm sat})=3\lambda^2/2\pi=0.291\ \mu{\rm m}^2$: an atom a fraction of a nanometre across blocks light as if it were a disc nearly 0.6 $\mu$m in diameter.
+At low intensity, the scattered power $\hbar\omega\gamma_p$ divided by the incident intensity is the resonant **cross-section** $\sigma_0=\hbar\omega\Gamma/(2I_{\rm sat})=3\lambda^2/2\pi=0.291\ \mu{\rm m}^2$: an atom a fraction of a nanometre across blocks light as if it were a disc about 0.6 $\mu$m in diameter.
 
 ![Left: log-log plot of scattering rate versus saturation parameter for detunings 0, minus half a linewidth and minus two linewidths; each curve rises linearly and flattens at Gamma over 2, 1.9 times ten to the seven photons per second. Right: full width at half maximum in units of Gamma, rising as the square root of one plus s0, with points marked at 8.6 MHz for s0 = 1, 20.1 MHz for s0 = 10 and 61.0 MHz for s0 = 100](figures/03-saturation.png)
 
 *Saturation (left) and power broadening (right) for Rb-87 D2. Detuned light needs more intensity to saturate: the curve for $\delta=-2\Gamma$ reaches half of $\Gamma/2$ only at $s_0=1+(2\delta/\Gamma)^2=17$.*
+
+## Doppler broadening: why cold atoms see a sharp line
+
+The line shape above is for an atom at rest. An atom moving with velocity $v$ along the beam sees the laser Doppler-shifted by $kv$, so a gas with a spread of velocities absorbs over a spread of frequencies. For a thermal (Maxwell-Boltzmann) gas the velocity along the beam is Gaussian with rms value $\sigma_v=\sqrt{k_BT/m}$, which gives a Gaussian **Doppler profile** with rms width $k\sigma_v$, or $\sigma_v/\lambda$ in ordinary frequency units, and full width at half maximum $2\sqrt{2\ln2}\,\sigma_v/\lambda$:
+
+| Rb-87 on the D2 line | $\sigma_v$ | Doppler FWHM | compared with $\Gamma/2\pi=6.07$ MHz |
+|---|---|---|---|
+| room-temperature vapour, 300 K | 169 m/s | **511 MHz** | 84 times wider: the hyperfine lines of Chapter 02 blur together |
+| laser-cooled cloud, 100 $\mu$K | 9.8 cm/s | **0.30 MHz** | 20 times narrower: the natural line dominates |
+
+This is why lasers are locked using **Doppler-free** techniques such as saturated-absorption spectroscopy in a vapour cell, and why cold atoms are such clean spectroscopic samples. The same physics returns twice later in the course: the Doppler shift is what makes laser *cooling* possible (Chapter 05), and the residual Doppler shift of a few-microkelvin atom is an error source for Rydberg gates (Chapter 11). Finite interaction time (transit-time broadening) and collisions also broaden lines, but they are small for atoms held in tweezers.
+
+## Beyond two levels: three-level atoms
+
+Several tools in later chapters use three levels: Raman transitions between the two qubit states (Chapter 09), two-photon excitation of Rydberg states (Chapter 10), and the dark states behind gray molasses (Chapter 06). Three ideas cover them all.
+
+**1. Adiabatic elimination: two photons act like one.** Take levels $|a\rangle$, $|e\rangle$, $|b\rangle$, with a laser of Rabi frequency $\Omega_1$ on $|a\rangle\leftrightarrow|e\rangle$ and a second, $\Omega_2$, on $|e\rangle\leftrightarrow|b\rangle$, both detuned by the same large $\Delta$ from $|e\rangle$ so that the two-photon transition $|a\rangle\leftrightarrow|b\rangle$ is resonant. If $|\Delta|\gg\Omega_1,\Omega_2,\Gamma_e$, the intermediate state is barely populated (probability about $\Omega_1^2/4\Delta^2$) and can be eliminated. What remains is an effective two-level system with
+
+$$\Omega_{\rm eff}=\frac{\Omega_1\Omega_2}{2\Delta},$$
+
+plus a light shift of each level by $\Omega_i^2/4\Delta$ (the Chapter 04 formula, one laser at a time). The *difference* of the two light shifts moves the two-photon resonance and must be compensated. The small intermediate-state population still scatters photons at a rate of about $\Gamma_e\Omega_1^2/4\Delta^2$, which is the price of the scheme (Chapters 09 and 11 work out the numbers).
+
+**2. Dark states.** In a $\Lambda$ system ($|a\rangle$ and $|b\rangle$ both below $|e\rangle$) on two-photon resonance, the superposition
+
+$$|D\rangle\propto\Omega_2|a\rangle-\Omega_1|b\rangle$$
+
+is not coupled to $|e\rangle$ at all: the two excitation amplitudes cancel. An atom in $|D\rangle$ never absorbs, never scatters, and stays there. This **coherent population trapping** makes a medium transparent at the two-photon resonance (electromagnetically induced transparency) and underlies gray molasses (Chapter 06). Slowly changing the ratio $\Omega_1/\Omega_2$ moves the dark state: applying $\Omega_2$ first and then $\Omega_1$ (the "counter-intuitive" order) carries an atom from $|a\rangle$ to $|b\rangle$ without ever populating $|e\rangle$. This is STIRAP (stimulated Raman adiabatic passage).
+
+**3. Adiabatic passage and Landau-Zener.** Sweep the detuning of a two-level system through resonance, $\delta(t)=\alpha t$, with a constant coupling $\Omega$. Far from resonance the eigenstates are $|g\rangle$ and $|e\rangle$; at resonance they mix; on the other side they have swapped. If the sweep is slow, the atom follows its eigenstate and ends up transferred; if it is fast, it stays behind. The probability of being left behind is the **Landau-Zener** formula,
+
+$$P_{\rm diabatic}=\exp\!\Big(-\frac{\pi\Omega^2}{2\alpha}\Big),$$
+
+so the sweep must be slow compared with $\Omega^2$, the square of the minimum gap. Adiabatic transfer is robust against small errors in pulse area and detuning, which is why it is used for state transfer and, in many-body form, to prepare ordered phases of Rydberg arrays (Chapter 10 and lab 13). For example, $\Omega/2\pi=2$ MHz swept over 14 MHz in 2 $\mu$s gives $\alpha=2\pi\times7$ MHz/$\mu$s and $P_{\rm diabatic}=e^{-\pi(2\pi\times2)^2/(2\cdot2\pi\times7)}=e^{-5.6}\approx4\times10^{-3}$.
 
 ## Worked example (Rb-87 D2, illustrative numbers)
 
@@ -136,15 +169,17 @@ At low intensity, the scattered power $\hbar\omega\gamma_p$ divided by the incid
 - Spontaneous emission damps populations at $\Gamma$ and coherences at $\Gamma/2$; the optical Bloch equations describe both.
 - The steady-state scattering rate $\gamma_p=\frac{\Gamma}{2}\frac{s_0}{1+s_0+(2\delta/\Gamma)^2}$ saturates at $\Gamma/2$ and is power-broadened to width $\Gamma\sqrt{1+s_0}$.
 - For Rb-87 D2: $\Gamma/2\pi=6.07$ MHz, $I_{\rm sat}=1.669$ mW/cm$^2$, maximum scattering rate $1.9\times10^7$ photons per second.
+- Thermal motion Doppler-broadens a line (511 MHz FWHM for Rb vapour at 300 K, 0.3 MHz at 100 $\mu$K).
+- Two detuned lasers act like one with $\Omega_{\rm eff}=\Omega_1\Omega_2/2\Delta$; $\Lambda$ systems have dark states; slow sweeps transfer population adiabatically (Landau-Zener).
 - Each scattered photon delivers a momentum kick; Chapter 04 turns this rate into a force.
 
 ## Go deeper
 
-- H. J. Metcalf and P. van der Straten, *Laser cooling and trapping of atoms*, J. Opt. Soc. Am. B 20, 887 (2003), [Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf). Its introduction to optical forces starts from exactly this scattering rate, in the same notation ($\delta$, $s_0$, $\gamma_p$).
+- H. J. Metcalf and P. van der Straten, *Laser cooling and trapping of atoms*, J. Opt. Soc. Am. B 20, 887 (2003), [Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf). Its introduction to optical forces starts from this scattering rate, in closely related notation ($\delta$, $s_0$, $\gamma_p$; the review writes $\gamma$ for the linewidth that this course calls $\Gamma$).
 - C. J. Foot, *Atomic Physics* (Oxford University Press, 2005), chapter 7. A careful derivation of the optical Bloch equations and the steady state.
 - D. A. Steck, *Rubidium 87 D Line Data*, [steck.us/alkalidata](https://steck.us/alkalidata). Dipole matrix elements and saturation intensities for every polarization.
 - H. J. Metcalf and P. van der Straten, *Laser Cooling and Trapping* (Springer, 1999), chapters 2 and 3. The book-length version of the review, with the density-matrix derivation in full.
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [The Atom: Levels, Fine and Hyperfine Structure](02-atomic-structure.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [Optical Forces: Radiation Pressure and the Dipole Force](04-optical-forces.md) →

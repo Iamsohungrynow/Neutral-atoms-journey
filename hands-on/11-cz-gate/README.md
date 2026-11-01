@@ -10,7 +10,7 @@ $|1\rangle$ couples to the 70S Rydberg state. The pair Hamiltonian ($\hbar=1$) i
     H = sum_i [ (Omega/2)(e^{-i xi}|r><1| + h.c.) - (Delta + delta_i)|r><r| - (i Gamma/2)|r><r| ]_i + V |rr><rr|
 
 with $\Omega/2\pi=3.5$ MHz, atoms 4 $\mu$m apart ($V/h=211$ MHz), Rydberg decay
-rate $\Gamma=1/147\ \mu$s (300 K), and Doppler detunings $\delta_i$.
+rate $\Gamma=1/146\ \mu$s (300 K), and Doppler detunings $\delta_i$.
 
 1. **Levine gate.** Optimise $(\Delta/\Omega,\ \tau\Omega,\ \xi)$ of the two-pulse
    global gate for maximum CZ fidelity with ideal blockade.
@@ -40,25 +40,36 @@ average gate fidelity $F=(|{\rm Tr}(U_{\rm ideal}^\dagger M)|^2+{\rm Tr}(M^\dagg
 Leakage out of the subspace lowers ${\rm Tr}(M^\dagger M)$, so it is penalised.
 
 Decay is modelled by the non-Hermitian term $-i\Gamma/2$ on $|r\rangle$: decayed
-population simply disappears, which counts as an error. The prediction to
-compare with is $\Gamma$ times the mean time spent in $|r\rangle$, computed by
-stepping through the ideal gate. Doppler shifts are Gaussian random detunings
+population simply disappears, which counts as an error (a conservative model;
+a real decay may return the atom to a qubit state). To first order this model
+gives an infidelity of $\Gamma$ times the mean time spent in $|r\rangle$, computed
+by stepping through the ideal gate; that comparison is a consistency check of
+the code. The independent physics check is the time $|11\rangle$ spends in
+$|r\rangle$: one full detuned cycle of a two-level system with coupling
+$\sqrt2\Omega$ per pulse gives exactly $2\tau\,\Omega^2/(2\Omega^2+\Delta^2)$. Doppler shifts are Gaussian random detunings
 with rms $k_{\rm eff}\sigma_v$, held constant during each gate and averaged over
-600 samples.
+600 samples; the two temperatures use independent random draws.
+
+The optimiser is started near the published values. Other starting points can
+converge to equivalent solutions, for example the mirror image $\Delta\to-\Delta$,
+$\xi\to2\pi-\xi$, or a longer gate with $\tau\Omega\approx5.9$; the published one is the
+shortest with $\Delta>0$.
 
 ## Expected output
 
     Levine gate: Delta/Omega = 0.3774, tau*Omega = 4.2927 per pulse, xi = 3.9024 rad
-       conditional phase = 0.999999 pi, fidelity (ideal blockade) = 1.0000000041
+       conditional phase = 1.000001 pi, fidelity (ideal blockade) = 1.0000000001
        total gate time 2 tau = 390 ns = 8.585 / Omega
        time in |r> (us): 00 0.000, 01 0.208, 10 0.208, 11 0.182
-    decay (tau = 146.5 us): infidelity 1.020e-03; prediction mean(Gamma T_R) = 1.020e-03
-    finite blockade: infidelity at V = 211 MHz: 1.71e-04; at 2V: 4.25e-05 (ratio 4.03)
-    Doppler, 10 uK: infidelity 5.56e-04; at T/4 (sigma_v/2): 1.39e-04 (ratio 4.00)
-    Jaksch pi-2pi-pi phases / pi for |00>,|01>,|10>,|11>: [ 0.  1.  1. -1.]
+    decay (tau = 146.2 us): infidelity 1.022e-03; prediction mean(Gamma T_R) = 1.022e-03
+    finite blockade: infidelity at V = 211 MHz: 1.71e-04; at 2V: 4.26e-05 (ratio 4.03)
+    Doppler, 10 uK: infidelity 5.56e-04; at T/4 (sigma_v/2): 1.45e-04 (ratio 3.84)
+    Jaksch pi-2pi-pi phases / pi for |00>,|01>,|10>,|11>: [ 0.        1.        1.       -0.999999]
 
-(The fidelity is printed as slightly above 1 because of rounding at the
-$10^{-9}$ level. A phase of $-\pi$ is the same as $+\pi$.)
+(Values within about $10^{-9}$ of 1, and phases of $\pm\pi$, are numerical noise from
+the matrix exponential: ideal blockade is modelled by a large but finite
+$V=10^7$ rad/us, which keeps the exponential accurately unitary. A phase of
+$-\pi$ is the same as $+\pi$.)
 
 ![Levine gate dynamics and error budget](figures/cz_gate.png)
 
@@ -67,11 +78,12 @@ cycle in each pulse; $|01\rangle$ returns only after the phase jump. Right: the
 three intrinsic errors versus $\Omega$, extrapolated from the simulated values with
 their scaling laws ($1/\Omega$, $1/\Omega^2$, $\Omega^2$), and their sum.
 
-The runner checks seven things: the optimised parameters against the published
+The runner checks eight things: the optimised parameters against the published
 values ($\Delta/\Omega=0.377$, $\tau\Omega=4.29$, $\xi=3.90$); the conditional phase and
 fidelity with ideal blockade; the full-cycle condition $\sqrt{2+(\Delta/\Omega)^2}\,\tau\Omega=2\pi$;
-the decay error against $\Gamma\overline{T_R}$; the $\sigma_v^2$ and $1/V^2$ scalings;
-and the Jaksch truth table.
+the time $|11\rangle$ spends in $|r\rangle$ against its analytic value; the decay error
+against $\Gamma\overline{T_R}$; the $\sigma_v^2$ and $1/V^2$ scalings; and the Jaksch
+truth table.
 
 ## Try this
 

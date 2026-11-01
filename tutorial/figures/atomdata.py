@@ -43,7 +43,7 @@ LAMBDA_420 = 420.299e-9                # 5S1/2 -> 6P3/2
 LAMBDA_1013 = 1012.79e-9               # 6P3/2 -> 70S1/2
 C6_70S_HZ_UM6 = 862.7e9                # C6/h for 70S1/2-70S1/2, Hz um^6 (repulsive)
 TAU_70S_0K = 373.9e-6                  # radiative lifetime, 0 K
-TAU_70S_300K = 146.5e-6                # including blackbody, 300 K
+TAU_70S_300K = 146.2e-6                # including blackbody, 300 K
 
 
 def alpha_ground(lam, hfs_shift=0.0):

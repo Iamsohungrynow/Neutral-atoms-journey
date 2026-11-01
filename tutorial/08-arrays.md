@@ -30,7 +30,7 @@ $$P_1=\sum_{N\ \rm odd}\frac{\bar n^Ne^{-\bar n}}{N!}=e^{-\bar n}\sinh\bar n=\fr
 
 *Collisional blockade. Removing atoms in pairs turns any Poisson distribution into a coin toss between zero and one atom. Without it, the best you could do is $P_1=1/e=0.37$, and many traps would hold two or more atoms.*
 
-The occupancy is **sub-Poissonian**: the variance of the atom number per trap, $p(1-p)=0.25$ at $p=1/2$, is much smaller than the Poisson variance $\bar n$. That is useful, but a 50% filling is still a problem: the probability that all $N$ traps are full is $2^{-N}$, about $10^{-15}$ for $N=50$.
+The occupancy is **sub-Poissonian**: the variance of the atom number per trap, $p(1-p)=0.25$ at $p=1/2$, is half the variance $0.5$ that a Poisson distribution with the same mean of 0.5 atoms would have. That is useful, but a 50% filling is still a problem: the probability that all $N$ traps are full is $2^{-N}$, about $10^{-15}$ for $N=50$.
 
 **Beating 50%.** If the collisions are tuned so that only **one** atom of a pair escapes, the trap ends with one atom far more often. Blue-detuned light-assisted collisions do this by giving the pair just enough energy for one atom to leave; gray-molasses loading on the D1 line achieves the same with little light scattering. Grünzweig et al. (2010) pioneered this with blue-detuned light-assisted collisions; with gray-molasses loading, Brown et al. (2019) reached 89% in a single tweezer and 80% across a 10 × 10 array. Rearrangement then fills the rest.
 
@@ -51,7 +51,7 @@ of its photons into the lens (for isotropic emission). For NA $=0.5$, $\theta=30
 - **Detection (assignment) fidelity**: the probability of correctly calling a trap full or empty. Photon counts from an empty trap (background) and a full trap (signal plus background) are both Poisson distributed; a threshold separates them. Lab 08 shows that with 32 signal and 5 background photons the two distributions are so well separated that the error is $5\times10^{-5}$.
 - **Survival**: the probability that the atom is still there afterwards. Imaging heats and occasionally loses atoms; an atom lost early in the exposure produces too few photons and may be miscounted. In lab 08, a 1% loss during imaging raises the assignment error from $5\times10^{-5}$ to $1.6\times10^{-3}$.
 
-State-resolved readout of a qubit uses the same imaging. First, light resonant with $F=2\to F'=3$ and no repumper **pushes out** every atom in $F=2$; then all remaining atoms are imaged. A bright trap means the atom was in $F=1$, a dark trap that it was in $F=2$ (or was lost). Chapter 12 discusses faster, non-destructive alternatives.
+State-resolved readout of a qubit uses the same imaging. First, light resonant with $F=2\to F'=3$ and no repumper **pushes out** every atom in $F=2$; then all remaining atoms are imaged. A bright trap means the atom was in $F=1$, a dark trap that it was in $F=2$ (or was lost). Chapter 12 discusses how readout is done in the middle of a computation.
 
 ## Rearrangement: atom-by-atom assembly
 
@@ -65,7 +65,7 @@ $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\t
 
 (assuming enough reservoir atoms; lab 07 includes the reservoir exactly). The two loss factors set the scaling: with $p=1/2$, $\varepsilon=1\%$, $\tau=60$ s and $t=0.2$ s, a 100-site block succeeds about 43% of the time, compared with $2^{-100}\approx10^{-30}$ without rearrangement. For 1000 sites the vacuum factor alone is $e^{-1000\times0.2/60}=e^{-3.3}=0.036$. Scaling to thousands of qubits therefore pushes toward better vacuum (cryogenic setups reach lifetimes of many minutes), faster cycles, repeated rearrangement rounds, and continuous reloading of fresh atoms (Chapter 12).
 
-![Three panels from lab 07. Left: a 16 by 16 array after loading, with 125 atoms scattered randomly and a red 10 by 10 target square. Middle: the same array after 51 moves, with the target square completely filled and leftover atoms outside. Right: probability of a defect-free array versus number of target sites on a log scale: without rearrangement it falls as one half to the N; with rearrangement it falls exponentially but slowly, faster for move loss 1 percent and vacuum lifetime 60 s than for 0.3 percent and 600 s; Monte Carlo points agree with the curves](../hands-on/07-rearrangement/figures/rearrange.png)
+![Three panels from lab 07. Left: a 16 by 16 array after loading, with 125 atoms scattered randomly and a red 10 by 10 target square. Middle: the same array after 51 moves, with the target square completely filled and leftover atoms outside. Right: probability of a defect-free array versus number of target sites on a log scale: without rearrangement it falls as one half to the N; with rearrangement it falls exponentially but slowly; three curves compare move loss 1 percent with a 60 s vacuum lifetime, 0.3 percent with 60 s, and 0.3 percent with 600 s; Monte Carlo points agree with the curves](../hands-on/07-rearrangement/figures/rearrange.png)
 
 *Lab 07. Rearrangement turns a hopeless $2^{-N}$ into a slowly decaying exponential set by move losses and vacuum lifetime.*
 
@@ -89,9 +89,9 @@ $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\t
 
 **Step 3: vacuum.** All 100 target atoms must survive 0.2 s: $e^{-100\times0.2/60}=e^{-0.333}=0.72$.
 
-**Step 4: combine.** $0.61\times0.72=0.44$; the exact formula, which accounts for the reservoir, gives 0.43. In more than half the cycles at least one site is empty after one round. Experiments then image again and repair the remaining holes in a second round.
+**Step 4: combine.** $0.606\times0.717=0.434$. Including the small probability that the reservoir runs short (lab 07) changes nothing at this size. In more than half the cycles at least one site is empty after one round. Experiments then image again and repair the remaining holes in a second round.
 
-**Step 5: imaging.** With $\mu_s=0.027\times6\times10^4\times0.02=32$ detected signal photons and $\mu_b=5$, the optimal threshold is at the crossing of the two Poisson distributions, $\lceil\mu_s/\ln(1+\mu_s/\mu_b)\rceil=17$ photons, and the assignment error is $5\times10^{-5}$.
+**Step 5: imaging.** With $\mu_s=0.0268\times6\times10^4\times0.02=32.2$ detected signal photons and $\mu_b=5$, the optimal threshold is the first count at which a full site becomes more likely than an empty one, where the two Poisson distributions cross: $\mu_s/\ln(1+\mu_s/\mu_b)=32.2/\ln7.44=16.03$, which rounds up to 17 photons (with $\mu_s$ rounded to 32 you would get 16, so carry the digits), and the assignment error is $5\times10^{-5}$.
 
 ## Run it
 
@@ -125,4 +125,4 @@ $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\t
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [Optical Dipole Traps and Tweezers](07-optical-tweezers.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [Atomic Qubits, Single-Qubit Gates and Coherence](09-qubits-coherence.md) →

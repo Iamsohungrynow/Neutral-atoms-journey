@@ -54,6 +54,24 @@ for r in rabi_cases:
                   options={"atol": 1e-10, "rtol": 1e-8})
     traces[r] = np.real(res.expect[0])
 
+# Independent check of the dissipative dynamics: integrate the optical Bloch
+# equations exactly as written in Chapter 03 (our own ODE, not QuTiP),
+#   d rho_ee/dt = -Gamma rho_ee + Omega Im(rho_ge)
+#   d rho_eg/dt = (i delta - Gamma/2) rho_eg - (i Omega/2)(rho_gg - rho_ee)
+from scipy.integrate import solve_ivp
+
+
+def obe_rhs(t, y, Om, de):
+    ree, re_eg, im_eg = y
+    reg = re_eg + 1j * im_eg
+    dree = -GAMMA * ree + Om * np.imag(np.conj(reg))
+    dreg = (1j * de - GAMMA / 2) * reg - 0.5j * Om * (1 - 2 * ree)
+    return [dree, dreg.real, dreg.imag]
+
+
+obe_own = solve_ivp(obe_rhs, (0, tlist[-1]), [0, 0, 0], t_eval=tlist, args=(2.0 * GAMMA, 0.0),
+                    rtol=1e-10, atol=1e-12).y[0]
+
 # Undamped reference: Gamma -> 0 must give sin^2(Omega t / 2)
 Omega_ref = 2.0 * GAMMA
 undamped = np.real(sesolve(hamiltonian(Omega_ref, 0.0), g, tlist, e_ops=[Pe],
@@ -116,7 +134,7 @@ ax1.set_xlabel("time (ns)")
 ax1.set_ylabel("excited population rho_ee")
 ax1.set_title("Damped Rabi oscillations (dotted: steady state)")
 ax1.set_ylim(0, 1.05)
-ax1.legend(fontsize=8, loc="upper right")
+ax1.legend(fontsize=8, loc="center right")
 for s0, col in zip(s0_values, ["C0", "C1", "C2"]):
     ax2.plot(deltas / GAMMA, lines[s0], color=col, label=f"s0 = {s0}")
     ax2.plot(deltas[::24] / GAMMA, rho_ee_analytic(GAMMA * np.sqrt(s0 / 2), deltas[::24]),
@@ -140,10 +158,10 @@ checks = {
         np.allclose(undamped, np.sin(Omega_ref * tlist / 2)**2, atol=1e-6),
     "steady state equals (s0/2)/(1+s0+(2delta/Gamma)^2) for all detunings":
         all(np.allclose(lines[s0], analytic_lines[s0], atol=1e-9) for s0 in s0_values),
-    "time evolution relaxes to the steady state after ~50 lifetimes":
+    "time evolution relaxes to the steady state after ~11 lifetimes (300 ns)":
         all(abs(traces[r][-1] - rho_ee_analytic(r * GAMMA, 0)) < 2e-3 for r in rabi_cases),
     "FWHM equals Gamma*sqrt(1+s0) within 0.5%":
         all(abs(w / t - 1) < 5e-3 for w, t in widths.values()),
-    "scattering never exceeds Gamma/2":
-        max(l.max() for l in lines.values()) < 0.5 and max(t.max() for t in traces.values()) <= 1.0,
+    "QuTiP master equation equals our own integration of the Chapter 03 Bloch equations (Omega = 2 Gamma)":
+        np.allclose(traces[2.0], obe_own, atol=1e-6),
 }

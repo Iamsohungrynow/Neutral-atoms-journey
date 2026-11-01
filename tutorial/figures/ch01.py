@@ -16,7 +16,7 @@ def cycle():
         ("5  Rearrange", "moving tweezers drag\natoms into a\ndefect-free array"),
         ("6  Cool + initialise", "sub-Doppler / sideband\ncooling, optical\npumping to |0>"),
         ("7  Compute", "single-qubit gates +\nRydberg entangling\ngates"),
-        ("8  Read out", "push out one state,\nimage again:\nbright = 1, dark = 0"),
+        ("8  Read out", "push out |1> (F=2),\nimage again:\nbright = 0, dark = 1"),
     ]
     n = len(steps)
     fig, ax = plt.subplots(figsize=(10, 6.2))
@@ -44,7 +44,7 @@ def cycle():
         ax.add_patch(FancyArrowPatch(p0, p1, connectionstyle="arc3,rad=-0.25",
                                      arrowstyle="-|>", mutation_scale=12, color="0.3", lw=1.2))
     ax.text(0, 0.08, "one experimental cycle", ha="center", fontsize=11, weight="bold")
-    ax.text(0, -0.12, "repeated ~1 time per second;\nsteps 4-8 can repeat while\nthe MOT reloads",
+    ax.text(0, -0.12, "repeated ~1 time per second;\nsurviving atoms can be reused,\nthe array is refilled from a reservoir",
             ha="center", fontsize=8.5, color="0.25")
     save(fig, "01-experimental-cycle.png")
 

@@ -35,12 +35,12 @@ $$L=\frac{v_0^2-v_f^2}{2\eta\,a_{\max}}.$$
 
 ![Top: schematic of a Zeeman slower; an oven on the left emits atoms through a tapered solenoid toward a MOT on the right, while a sigma-plus slowing laser red-detuned by 160 MHz travels in the opposite direction. Bottom: the designed magnetic field decreasing from +160 G at the entrance through zero near 55 cm to -87 G at the exit at 66 cm, with the design velocity falling from 300 to 30 m/s along the same curve](figures/05-zeeman-slower.png)
 
-*The slower of lab 02: $v_0=300$ m/s, $v_f=30$ m/s, $\eta=0.6$, $\delta_L/2\pi=-160$ MHz. The field passes through zero (a "spin-flip" design) so that the coil currents stay moderate, and ends abruptly: beyond it, atoms at 30 m/s are $20\Gamma$ off resonance and stop scattering before they reach the MOT.*
+*The slower of lab 02: $v_0=300$ m/s, $v_f=30$ m/s, $\eta=0.6$, $\delta_L/2\pi=-160$ MHz. The field passes through zero (a "spin-flip" design) so that the coil currents stay moderate, and ends abruptly: beyond it, atoms at about 30 m/s are $20\Gamma$ off resonance and scatter hundreds of times more slowly than inside the slower.*
 
 Three design choices deserve comment.
 
-- **Why $\eta<1$?** The atom can only stay locked if a slightly larger force is available when it falls behind. With saturation parameter $s_0$ the largest available force is $a_{\max}\,s_0/(1+s_0)$, so $\eta$ must be below $s_0/(1+s_0)$. A locked atom settles where the force exactly equals $ma$, which happens a little off resonance: in lab 02 it lags $2.4$ m/s behind $v_d(z)$, exactly as the force balance predicts.
-- **What is captured?** Every atom slower than $v_0$ when it enters drifts until the resonance condition catches up with it, then locks on and exits at about $v_f$. Atoms faster than $v_0$ are never resonant and pass straight through. $v_0$ is the **capture velocity**.
+- **Why $\eta<1$?** The atom can only stay locked if a slightly larger force is available when it falls behind. With saturation parameter $s_0$ the largest available force is $a_{\max}\,s_0/(1+s_0)$, so $\eta$ must be below $s_0/(1+s_0)$. A locked atom settles where the force exactly equals $ma$, which happens a little off resonance, on the slow (red-detuned) side: there an atom that falls further behind feels less force and is caught up again by the resonance, so the lock is stable. In lab 02 the atom travels about 2.4 m/s slower than $v_d(z)$, as the force balance predicts.
+- **What is captured?** Every atom with $v_f\lesssim v<v_0$ when it enters drifts until the resonance condition catches up with it, then locks on and exits at about $v_f$. Atoms faster than $v_0$ are never resonant and pass straight through. $v_0$ is the **capture velocity**.
 - **Why red detuning?** With $\delta_L$ well to the red, atoms that have left the slower and slowed further are far off resonance, so the slowing beam does not push them back out of the MOT.
 
 > **Intuition aside.** Picture the resonance condition as a "sweet spot" velocity that slides down the slower as $B$ decreases. Atoms that reach the sweet spot are dragged along with it like surfers on a wave; atoms that start too fast never catch the wave.
@@ -57,7 +57,7 @@ $$\boxed{\ \beta=-\frac{8\hbar k^2\,\delta\,s_0}{\Gamma\big[1+s_0+(2\delta/\Gamm
 
 which is positive (a true damping) only for red detuning. Three pairs of beams along $x$, $y$, $z$ damp motion in all directions: atoms in the overlap region move as if through a viscous fluid, hence "optical molasses" (Chu and co-workers, 1985).
 
-![Left: force versus atom velocity at detuning minus Gamma with s0 = 1 per beam; the beam along +z pushes positive with a peak near -4.7 m/s, the beam along -z pushes negative with a peak near +4.7 m/s, and their sum is a dispersion-shaped curve passing through zero with negative slope. Right: the total force for detunings -0.5, -1 and -2 Gamma; larger detuning gives a wider but shallower capture range](figures/05-molasses-force.png)
+![Left: force versus atom velocity at detuning minus Gamma with s0 = 1 per beam; the beam along +z pushes positive with a peak near -4.7 m/s, the beam along -z pushes negative with a peak near +4.7 m/s, and their sum is a dispersion-shaped curve passing through zero with negative slope. Right: the total force for detunings -0.5, -1 and -2 Gamma; larger detuning gives a smaller slope (weaker friction) at v = 0 but a wider capture range](figures/05-molasses-force.png)
 
 *The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is linear (pure friction) only for $|v|\lesssim\Gamma/2k\approx2.4$ m/s; faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
 
@@ -77,7 +77,7 @@ At low intensity this is smallest at $\delta=-\Gamma/2$, giving the **Doppler li
 
 $$\boxed{\ k_BT_D=\frac{\hbar\Gamma}{2}\ },\qquad T_D=\frac{(1.0546\times10^{-34})(3.812\times10^7)}{2(1.381\times10^{-23})}=145.6\ \mu{\rm K}\ \text{for Rb-87}.$$
 
-A careful three-dimensional treatment (with the true dipole emission pattern and beams along three axes) changes the numerical factor only slightly, and $\hbar\Gamma/2k_B$ is the value universally quoted. Note what sets it: only $\Gamma$. A narrower line means a colder limit, which is why narrow intercombination lines in strontium and ytterbium cool to below a microkelvin (Chapter 02).
+The emission model matters. With a single beam pair and isotropic emission, each emission kick contributes only $(\hbar k)^2/3$ along the axis and the result is $\tfrac23$ of the formula above. With three beam pairs, though, photons scattered from all six beams feed random kicks into every axis, and for isotropic emission the low-intensity limit comes out at exactly $\hbar\Gamma/2$ again; that is the value universally quoted. Note what sets it: only $\Gamma$. A narrower line means a colder limit: the narrow intercombination line of strontium (689 nm, $\Gamma/2\pi=7.4$ kHz) cools to below a microkelvin, and that of ytterbium (556 nm, 182 kHz) to a few microkelvin and above (Chapter 02).
 
 ![Doppler temperature of Rb-87 versus detuning for s0 = 0, 0.5 and 2 per beam. The s0 = 0 curve has its minimum of 145.6 microkelvin at delta = -Gamma/2, rising steeply toward zero detuning and linearly at large detuning; higher intensity raises the curve and moves its minimum to larger detuning](figures/05-doppler-temperature.png)
 
@@ -112,7 +112,7 @@ When Lett and co-workers measured the temperature of sodium in optical molasses 
 ## Run it
 
 - [Lab 02](../hands-on/02-zeeman-slower/) designs the slower above, flies atoms of different initial speeds through it, and checks the capture velocity, the exit velocity and the lag predicted by the force balance.
-- [Lab 03](../hands-on/03-doppler-molasses/) simulates molasses photon by photon, measures the friction coefficient by counting kicks, and recovers the temperature-versus-detuning curve and the Doppler limit within statistical error.
+- [Lab 03](../hands-on/03-doppler-molasses/) simulates molasses photon by photon, measures the friction coefficient from the decay of the mean velocity, and recovers the temperature-versus-detuning curve and the Doppler limit within statistical error.
 
 ## Common pitfalls
 
@@ -140,4 +140,4 @@ When Lett and co-workers measured the temperature of sodium in optical molasses 
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [Optical Forces: Radiation Pressure and the Dipole Force](04-optical-forces.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [Sub-Doppler Cooling and the Magneto-Optical Trap](06-sub-doppler-mot.md) →

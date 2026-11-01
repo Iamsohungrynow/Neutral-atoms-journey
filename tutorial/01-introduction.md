@@ -16,7 +16,7 @@ Read the cycle as a story about **energy scales**. The atoms start as a room-tem
 
 $$v_{\rm rms}=\sqrt{\frac{3k_BT}{m}}=\sqrt{\frac{3\,(1.381\times10^{-23}\ {\rm J/K})(300\ {\rm K})}{1.443\times10^{-25}\ {\rm kg}}}\approx293\ {\rm m/s}.$$
 
-An optical tweezer is a potential well about $k_B\times1$ mK deep. An atom can be trapped only if its kinetic energy is well below that, so the atoms must first be cooled by a factor of roughly $10^5$ in temperature. Laser light does this: each absorbed photon carries momentum $\hbar k$, and by arranging for atoms to absorb mostly photons that oppose their motion, a laser beam acts like friction (Chapters 04 and 05). A **magneto-optical trap (MOT)** adds a magnetic field gradient so that the friction comes with a restoring force (Chapter 06), collecting millions of atoms at about $100\ \mu$K in a cloud a millimetre across.
+An optical tweezer is a potential well about $k_B\times1$ mK deep. An atom can be trapped only if its kinetic energy is well below that, so the atoms must first be cooled by a factor of roughly $10^6$ to $10^7$ in temperature (from 300 K to 10 to 100 $\mu$K). Laser light does this: each absorbed photon carries momentum $\hbar k$, and by arranging for atoms to absorb mostly photons that oppose their motion, a pair of counter-propagating, slightly red-detuned laser beams acts like friction (Chapters 04 and 05). A **magneto-optical trap (MOT)** adds a magnetic field gradient so that the friction comes with a restoring force (Chapter 06), collecting millions of atoms at about $100\ \mu$K in a cloud a millimetre across.
 
 From that cloud, an array of tweezers picks up atoms. A surprising piece of physics now helps: when two atoms sit in the same tiny trap, laser light makes them collide and both are lost. Each tweezer ends up holding either zero or one atom, with roughly even odds (Chapter 08). A camera photographs the array, a computer finds the empty sites, and a second set of movable tweezers drags atoms into a perfect, defect-free pattern. Then the quantum computation starts.
 
@@ -30,7 +30,7 @@ From that cloud, an array of tweezers picks up atoms. A surprising piece of phys
 | **Optically reconfigurable** | tweezers are just light, so the layout is software: atoms can be moved mid-computation to connect any pair | Ch 08, 12 |
 | **Scalable in number** | thousands of tweezers can be made from one laser with holograms or acousto-optic deflectors | Ch 08 |
 
-The second and third properties pull in opposite directions, and reconciling them is the central idea of the platform. A good memory wants an atom that ignores everything; a good gate wants atoms that interact strongly. Neutral atoms do both by changing state: in the ground state the van der Waals interaction between two atoms $5\ \mu$m apart is utterly negligible, while in the $70S$ Rydberg state the same pair interacts with energy
+The second and third properties pull in opposite directions, and reconciling them is the central idea of the platform. A good memory wants an atom that ignores everything; a good gate wants atoms that interact strongly. Neutral atoms do both by changing state: in the ground state the van der Waals interaction between two atoms $5\ \mu$m apart is utterly negligible (with the ground-state $C_6\approx4.7\times10^3$ atomic units it is about $h\times4\times10^{-11}$ Hz), while in the $70S$ Rydberg state the same pair interacts with energy
 
 $$\frac{V}{h}=\frac{C_6/h}{R^6}=\frac{863\ {\rm GHz}\,\mu{\rm m}^6}{(5\ \mu{\rm m})^6}=\frac{863\times10^3\ {\rm MHz}}{15\,625}\approx55\ {\rm MHz},$$
 
@@ -40,7 +40,7 @@ far larger than the few-MHz laser coupling used to drive the atoms. That mismatc
 
 ## Fourteen orders of magnitude
 
-![Log-scale chart of characteristic frequencies in a rubidium-87 tweezer experiment, from the roughly 1 Hz experimental cycle rate, through the 3.8 kHz recoil energy, the 98 kHz radial trap frequency, the 0.7 MHz Zeeman shift per gauss, the 2 MHz Rydberg Rabi frequency, the 6.1 MHz natural linewidth, the 21 MHz depth of a 1 millikelvin tweezer, the 55 MHz Rydberg interaction at 5 micrometres, the 6.8 GHz hyperfine splitting, up to the 282 THz tweezer light and 384 THz optical transition](figures/01-frequency-scales.png)
+![Log-scale chart of characteristic frequencies in a rubidium-87 tweezer experiment, from the roughly 1 Hz experimental cycle rate, through the 3.8 kHz recoil energy, the 98 kHz radial trap frequency, the 0.7 MHz Zeeman shift per gauss per unit of m_F in F = 2, the 2 MHz Rydberg Rabi frequency, the 6.1 MHz natural linewidth, the 21 MHz depth of a 1 millikelvin tweezer, the 55 MHz Rydberg interaction at 5 micrometres, the 6.8 GHz hyperfine splitting, up to the 282 THz tweezer light and 384 THz optical transition](figures/01-frequency-scales.png)
 
 *The frequency (or energy, via $E=hf$) scales in one experiment, computed from the reference data in the [notation page](00-notation.md). Much of atomic physics is the art of using a fast scale to control a slow one: optical photons at hundreds of THz set up a trap whose vibrations are at 100 kHz.*
 
@@ -56,7 +56,7 @@ DiVincenzo listed five requirements for a quantum computer (plus two for quantum
 | 2. Initialisation to a simple state | optical pumping prepares one magnetic sublevel with high probability | imperfect pumping, residual atom temperature |
 | 3. Coherence times much longer than gate times | hyperfine coherence of milliseconds to seconds versus gates of microseconds | differential light shifts, magnetic noise, Rydberg decay *during* gates |
 | 4. A universal set of gates | microwave or Raman single-qubit rotations; Rydberg-blockade CZ gates | two-qubit fidelity, laser noise |
-| 5. Qubit-specific measurement | fluorescence imaging of each tweezer | standard imaging ejects or heats the atom; it is slow (milliseconds) |
+| 5. Qubit-specific measurement | fluorescence imaging of each tweezer | imaging heats the atoms and is slow (milliseconds); state-selective readout by push-out loses the atoms in one state |
 
 The last column is the honest part. Most of Chapters 08 to 12 is about those limitations and the clever ways experiments now work around them.
 
@@ -75,9 +75,9 @@ All three platforms improve rapidly; treat this table as a description of *mecha
 ## A short history
 
 - **1975 to 1985: the idea and first demonstrations of laser cooling.** Proposals to cool atoms and ions with light (Hänsch and Schawlow; Wineland and Dehmelt, 1975) were followed by laser deceleration of an atomic beam (Phillips and Metcalf, 1982) and three-dimensional "optical molasses" (Chu and co-workers, 1985).
-- **1987 to 1989: the MOT and the sub-Doppler surprise.** The magneto-optical trap (Raab et al., 1987) became the workhorse source of cold atoms. Atoms in molasses turned out to be colder than the theory of the day allowed (Lett et al., 1988), and polarization-gradient cooling explained why (Dalibard and Cohen-Tannoudji, 1989).
+- **1987 to 1989: the MOT and the sub-Doppler surprise.** The magneto-optical trap (Raab et al., 1987) became the workhorse source of cold atoms. Atoms in molasses turned out to be colder than the theory of the day allowed (Lett et al., 1988), and polarization-gradient cooling explained why (Dalibard and Cohen-Tannoudji; Ungar, Weiss, Riis and Chu; both 1989).
 - **1997: Nobel Prize** to Chu, Cohen-Tannoudji and Phillips for laser cooling and trapping.
-- **2000 to 2001: the quantum-computing blueprint.** Jaksch et al. proposed fast Rydberg gates between neutral atoms; Lukin et al. introduced the dipole blockade; Schlosser et al. trapped single atoms in a microscopic dipole trap.
+- **2000 to 2001: the quantum-computing blueprint.** Jaksch et al. proposed fast Rydberg gates between neutral atoms, including the blockade mechanism; Lukin et al. extended the dipole blockade to atomic ensembles; Schlosser et al. trapped single atoms in a microscopic dipole trap.
 - **2009 to 2010: blockade and first gates** between two individual atoms (Urban et al.; Gaëtan et al.; Wilk et al.; Isenhower et al.).
 - **2016: atom-by-atom assembly** of defect-free arrays by rearrangement (Endres et al.; Barredo et al.).
 - **2017 to 2021: programmable quantum simulators** with tens to hundreds of Rydberg atoms (Bernien et al.; Ebadi et al.; Scholl et al.).
@@ -106,7 +106,7 @@ All values from the [reference table](00-notation.md).
 
 **Step 4: the end point.** After slowing and cooling, a typical atom moves at a few cm/s: at $10\ \mu$K the one-dimensional rms velocity is $\sqrt{k_BT/m}=3.1$ cm/s, about five recoil velocities. The whole journey spans a factor of $10^4$ in velocity and $3\times10^7$ in temperature.
 
-**Takeaway:** a single photon barely nudges an atom, but an atom can scatter ten million photons per second. That enormous rate is what makes light such a strong tool for controlling atoms.
+**Takeaway:** a single photon barely nudges an atom, but an atom can scatter about twenty million photons per second. That enormous rate is what makes light such a strong tool for controlling atoms.
 
 ## Course map
 
@@ -138,7 +138,7 @@ Part I follows the logic of the course's primary text, Metcalf and van der Strat
 ## Key takeaways
 
 - A neutral-atom qubit is a single atom in an optical tweezer; the qubit lives in two long-lived internal states.
-- Atoms must first be cooled by roughly five orders of magnitude in temperature. Laser cooling does this by scattering tens of thousands of photons per atom.
+- Atoms must first be cooled by six to seven orders of magnitude in temperature. Laser cooling does this by scattering tens of thousands of photons per atom.
 - Ground-state atoms barely interact, which protects stored information; Rydberg excitation switches on interactions of tens of MHz at micrometre distances, which enables gates.
 - Arrays are assembled each cycle: stochastic loading, imaging, then rearrangement.
 - The five DiVincenzo criteria map naturally onto atoms; the hard parts are gate fidelity, atom loss, and slow cycle times.
@@ -153,4 +153,4 @@ Part I follows the logic of the course's primary text, Metcalf and van der Strat
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+[Tutorial index](./README.md) · [Project README](../README.md) · Next: [The Atom: Levels, Fine and Hyperfine Structure](02-atomic-structure.md) →

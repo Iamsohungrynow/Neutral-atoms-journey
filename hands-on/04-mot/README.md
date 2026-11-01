@@ -50,7 +50,7 @@ $v_c<\sqrt{4F_{\max}R/m}$.
     kappa = 1.6596e-18 N/m   (numerical derivative 1.6596e-18)
     trap frequency omega0/2pi = 539.7 Hz, damping rate beta/m = 10530.5 1/s
     damping ratio (beta/m)/(2 omega0) = 1.55 (overdamped)
-    linear region |z| < |delta| hbar/(mu' A) = 4.33 mm
+    force maximum near |z| = |delta| hbar/(mu' A) = 4.33 mm (linear only for |z| < ~2 mm)
     capture velocity (beam radius 1 cm): 19.9 m/s; energy bound sqrt(4 F_max R/m) = 47.4 m/s
     max deviation from damped-oscillator solution: 0.000% of z0
 
@@ -58,7 +58,7 @@ $v_c<\sqrt{4F_{\max}R/m}$.
 
 Left: the restoring force is linear for a few millimetres, peaks where the
 Zeeman shift equals the detuning, then falls off; it vanishes outside the beams.
-Middle: a displaced atom returns to the centre in about 2 ms without
+Middle: a displaced atom returns to the centre within a couple of milliseconds (slowest decay time 0.8 ms) without
 overshooting, because the trap is overdamped. Right: phase-space trajectories of
 atoms entering from the left. Slow atoms are first *accelerated* toward the
 centre (the force at the edge points inward) and then damped; atoms faster than

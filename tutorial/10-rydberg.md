@@ -19,8 +19,8 @@ with $\delta_0=3.131$ for Rb $nS$ states, so $70S_{1/2}$ has $n^*=66.87$. Almost
 | orbit radius $\langle r\rangle\approx\frac32n^{*2}a_0$ | $n^{*2}$ | 355 nm |
 | dipole moment to neighbouring states | $n^{*2}$ | thousands of $ea_0$ |
 | radiative lifetime (low $\ell$) | $n^{*3}$ | 374 $\mu$s at 0 K |
-| blackbody-limited lifetime | $n^{*2}$ | 147 $\mu$s total at 300 K |
-| static polarizability | $n^{*7}$ | $\approx520$ MHz/(V/cm)$^2$ |
+| blackbody-limited lifetime | $n^{*2}$ | 240 $\mu$s from blackbody alone; 146 $\mu$s total at 300 K |
+| static polarizability | $n^{*7}$ | $\approx520$ MHz/(V/cm)$^2$ (shift $=-\frac12\alpha F^2$) |
 | van der Waals coefficient $C_6$ | $n^{*11}$ | $h\times863$ GHz $\mu$m$^6$ |
 
 Three entries matter most. **Lifetimes** of hundreds of microseconds are long compared with MHz-scale laser couplings, so a Rydberg state can be coherently driven. **Room-temperature blackbody radiation** (thermal photons at THz frequencies, resonant with transitions between neighbouring Rydberg levels) shortens the lifetime by more than a factor of two at $n=70$; cryogenic environments help. The **polarizability** grows as $n^{*7}$, so Rydberg atoms are very sensitive to stray electric fields: a field of only 10 mV/cm shifts $70S$ by tens of kHz. Experiments use electrodes to null stray fields and avoid charging their glass cells.
@@ -33,15 +33,15 @@ Three entries matter most. **Lifetimes** of hundreds of microseconds are long co
 
 A single photon cannot drive $5S\to70S$ at all ($\Delta\ell=0$ is dipole-forbidden); one ultraviolet photon near 297 nm reaches the $nP$ Rydberg states instead. Most Rb experiments use **two photons**, which reach $nS$ (and $nD$) states: 420 nm to $6P_{3/2}$ and 1013 nm onward to $70S$ (or 780 nm and 480 nm via $5P_{3/2}$). Detuning both by $\Delta_i$ from the intermediate state, the scheme behaves like the Raman transition of Chapter 09 with an effective Rabi frequency $\Omega=\Omega_1\Omega_2/2\Delta_i$, typically a few MHz. The intermediate state still scatters a little light; Chapter 11 includes that in the error budget. Alkaline-earth atoms such as strontium can be excited with a **single** UV photon from a long-lived metastable state, which avoids the intermediate state altogether.
 
-Because the two beams are usually counter-propagating, the Doppler shift is set by the difference of their wavevectors, $k_{\rm eff}=2\pi(1/420.3\ {\rm nm}-1/1012.8\ {\rm nm})=8.75\times10^6\ {\rm m^{-1}}$. An atom at $10\ \mu$K (rms velocity 3.1 cm/s) sees a random detuning with an rms value of $k_{\rm eff}\sigma_v/2\pi=43$ kHz, which matters for gates (Chapter 11).
+Because the two beams are usually counter-propagating, the Doppler shift is set by the difference of their wavevectors, $k_{\rm eff}=2\pi(1/420.3\ {\rm nm}-1/1012.8\ {\rm nm})=8.75\times10^6\ {\rm m^{-1}}$. An atom at $10\ \mu$K (one-dimensional rms velocity along $k_{\rm eff}$, $\sigma_v=\sqrt{k_BT/m}=3.1$ cm/s) sees a random detuning with an rms value of $k_{\rm eff}\sigma_v/2\pi=43$ kHz, which limits ground-Rydberg coherence to $T_2^*=\sqrt2/(k_{\rm eff}\sigma_v)\approx5\ \mu$s and matters for gates (Chapter 11).
 
 ## Interactions between Rydberg atoms
 
-Two atoms in $|r\rangle=|nS\rangle$ at distance $R$ interact through their electric dipoles. A single $nS$ state has no permanent dipole, so the interaction appears in **second order**: the pair state $|nS,nS\rangle$ is coupled by the dipole-dipole operator $\propto1/R^3$ to nearby pair states such as $|nP,(n-1)P\rangle$, which differ in energy by a small **Förster defect** $\Delta_F$. Second-order perturbation theory gives
+Two atoms in $|r\rangle=|nS\rangle$ at distance $R$ interact through their electric dipoles. A single $nS$ state has no permanent dipole, so the interaction appears in **second order**: the pair state $|nS,nS\rangle$ is coupled by the dipole-dipole operator $\propto1/R^3$ to nearby pair states such as $|nP,(n-1)P\rangle$, which differ in energy by a small **Förster defect** $\Delta_F=E_{\rm pair'}-E_{nS,nS}$. Second-order perturbation theory gives
 
 $$V(R)=-\frac{|C_3|^2}{\Delta_F R^6}\equiv\frac{C_6}{R^6},$$
 
-the **van der Waals** interaction. Its strength scales as $C_3^2/\Delta_F\propto(n^{*4})^2/n^{*-3}=n^{*11}$, which explains the enormous growth with $n$. For Rb $nS$ pairs $C_6>0$ (repulsive); for $70S$, $C_6/h=863$ GHz $\mu$m$^6$. At short distances, where $C_3/R^3$ becomes comparable with $\Delta_F$, perturbation theory fails and the interaction crosses over to the resonant dipole-dipole form $\propto1/R^3$.
+the **van der Waals** interaction. Its strength scales as $C_3^2/\Delta_F\propto(n^{*4})^2/n^{*-3}=n^{*11}$, which explains the enormous growth with $n$. For Rb $nS$ pairs the nearby pair states lie *below* $|nS,nS\rangle$ ($\Delta_F<0$; for $70S$ the closest, $|70P_{3/2},69P_{3/2}\rangle$, is about 0.7 GHz below), so $C_6>0$ (repulsive); for $70S$, $C_6/h=863$ GHz $\mu$m$^6$. At short distances, where $C_3/R^3$ becomes comparable with $|\Delta_F|$ (below roughly 3 to 4 $\mu$m for $70S$), perturbation theory fails and the interaction crosses over to the resonant dipole-dipole form $\propto1/R^3$; $C_6/R^6$ values quoted at 4 $\mu$m are therefore asymptotic estimates, about 10% too large.
 
 How strong is it? At $R=5\ \mu$m,
 
@@ -58,7 +58,7 @@ $$\frac{H}{\hbar}=\frac{\Omega}{2}\big(\sigma^x_1+\sigma^x_2\big)+\frac{V(R)}{\h
 - If the atoms are **far apart** ($V\ll\hbar\Omega$), each Rabi-flops independently and the probability of finding both excited is $\sin^4(\Omega t/2)$.
 - If they are **close** ($V\gg\hbar\Omega$), the doubly excited state $|rr\rangle$ is shifted out of resonance. Starting from $|gg\rangle$, the laser can only reach the symmetric singly excited state $|W\rangle=(|gr\rangle+|rg\rangle)/\sqrt2$. The matrix element $\langle W|H|gg\rangle=\sqrt2\,\hbar\Omega/2$, so the pair oscillates between $|gg\rangle$ and an **entangled** state at the enhanced frequency $\sqrt2\,\Omega$.
 
-![Left: level diagram of two atoms; the ground state gg couples to the symmetric singly excited state W with matrix element root 2 Omega, while the doubly excited state rr is shifted up by V and is no longer resonant with the laser. Right: van der Waals interaction energy of two 70S atoms versus distance on a log scale, crossing the 2 MHz line of h-bar Omega at the blockade radius of 8.7 micrometres; at 5 micrometres it is 55 MHz. The region inside the blockade radius is shaded](figures/10-blockade.png)
+![Left: level diagram of two atoms; the ground state gg couples to the symmetric singly excited state W with Rabi frequency root 2 Omega, while the doubly excited state rr is shifted up by V and is no longer resonant with the laser. Right: van der Waals interaction energy of two 70S atoms versus distance on a log scale, crossing the 2 MHz line of h-bar Omega at the blockade radius of 8.7 micrometres; at 5 micrometres it is 55 MHz. The region inside the blockade radius is shaded](figures/10-blockade.png)
 
 *The blockade. Inside the blockade radius, $V\gg\hbar\Omega$ and at most one atom is excited; outside it, the atoms behave independently.*
 
@@ -68,9 +68,9 @@ $$R_b=\Big(\frac{C_6}{\hbar\Omega}\Big)^{1/6},$$
 
 which is $(863\ {\rm GHz}/2\ {\rm MHz})^{1/6}\ \mu{\rm m}=8.7\ \mu$m for $70S$ at $\Omega/2\pi=2$ MHz. Because of the sixth root, $R_b$ is forgiving: changing $\Omega$ by a factor of 2 changes $R_b$ by only 12%.
 
-The blockade is not perfect. The doubly excited state is still weakly coupled, off resonance by $V$, so its population is of order $(\hbar\Omega/V)^2$: about $\frac12(2/55)^2\approx7\times10^{-4}$ at 5 $\mu$m. Lab 10 confirms that halving $V$ multiplies the residual double excitation by 4.
+The blockade is not perfect. The doubly excited state is still weakly coupled, off resonance by $V$, so its population is of order $(\hbar\Omega/V)^2$: at most about $\frac12(2/55)^2\approx7\times10^{-4}$ at 5 $\mu$m (that is the peak value, reached when the pair is in $|W\rangle$; the time average is about half of it). Lab 10 confirms that halving $V$ multiplies the residual double excitation by 4.
 
-**Many atoms.** If $N$ atoms all lie within one blockade radius, only one excitation can be shared among them, and the ground state couples to the symmetric state $\frac1{\sqrt N}\sum_i|g\cdots r_i\cdots g\rangle$ with matrix element $\sqrt N\,\hbar\Omega/2$: a **collective Rabi frequency** $\sqrt N\,\Omega$. Observing the $\sqrt2$ enhancement for two atoms in separate tweezers was the first direct demonstration of the blockade between individual atoms (Gaëtan et al.; Urban et al., 2009).
+**Many atoms.** If $N$ atoms all lie within one blockade radius, only one excitation can be shared among them, and the ground state couples to the symmetric state $\frac1{\sqrt N}\sum_i|g\cdots r_i\cdots g\rangle$ with matrix element $\sqrt N\,\hbar\Omega/2$: a **collective Rabi frequency** $\sqrt N\,\Omega$. Blockade between two individual atoms was first observed in 2009, as suppressed double excitation (Urban et al.) and as the $\sqrt2$-enhanced collective Rabi oscillation (Gaëtan et al.).
 
 > **Intuition aside.** The blockade is a quantum "one at a time" rule enforced by energy conservation. The laser supplies exactly enough energy to excite one atom. Exciting the second would cost an extra $V$ that the laser photon does not carry, so it simply does not happen, and quantum mechanics keeps both possibilities (which atom was excited) in superposition: that is the entanglement.
 
@@ -80,7 +80,22 @@ Let many atoms in an array evolve under the same laser, now with a detuning $\De
 
 $$\frac{H}{\hbar}=\sum_i\frac{\Omega}{2}\sigma^x_i-\Delta\sum_in_i+\sum_{i<j}\frac{V_{ij}}{\hbar}n_in_j .$$
 
-This is an Ising-type spin model in a transverse field, with the "spin up" state being the Rydberg state. When the nearest neighbours are blockaded and farther atoms are not, sweeping $\Delta$ from negative to positive drives the array into ordered phases, for example a chain in which every other atom is excited. Programmable arrays of tens to hundreds of atoms have used this Hamiltonian to study quantum phase transitions and many-body dynamics (Bernien et al., 2017; Ebadi et al., 2021; Scholl et al., 2021). This "analog" mode uses the ground-Rydberg qubit directly, without the hyperfine qubit of Chapter 09.
+This is an Ising-type spin model in a transverse field, with the "spin up" state being the Rydberg state: $\Omega$ plays the role of a transverse field, $\Delta$ of a longitudinal field (a chemical potential for Rydberg excitations), and $V_{ij}$ of an interaction that penalises nearby excitations. Running this Hamiltonian directly, rather than breaking it into gates, is called **analog quantum simulation**. It uses the ground-Rydberg qubit directly, without the hyperfine qubit of Chapter 09.
+
+**Ordered phases in a chain.** Consider atoms on a line with spacing $a$ such that nearest neighbours are blockaded ($V(a)\gg\hbar\Omega$) but next-nearest neighbours are not ($V(2a)=V(a)/64\ll\hbar\Omega$). With $\Omega\to0$ the energy of a configuration is $-\hbar\Delta$ per excitation plus the interactions:
+
+- For $\Delta<0$, every excitation costs energy: the ground state is all atoms in $|g\rangle$.
+- For $0<\Delta<V(a)/\hbar$, every excitation lowers the energy, but two neighbours cannot both be excited: the ground state packs in as many excitations as the blockade allows, $|r\,g\,r\,g\cdots\rangle$. This crystal breaks the translation symmetry of the chain by two sites and is called the **$Z_2$ phase**.
+
+Between the two lies a quantum phase transition. A chain of $N$ atoms has only $F(N+2)$ configurations without neighbouring excitations (a Fibonacci number: 89 for nine atoms, instead of $2^9=512$), which is why the blockaded chain is also known as the "PXP model".
+
+**Adiabatic preparation.** To reach the crystal, start with all atoms in $|g\rangle$ at large negative $\Delta$ (the ground state there), switch on $\Omega$, and sweep $\Delta$ slowly to positive values. The adiabatic theorem keeps the system in its instantaneous ground state as long as the sweep is slow compared with the smallest energy gap, which occurs near the phase transition (the many-body version of the Landau-Zener problem of Chapter 03). [Lab 13](../hands-on/13-adiabatic-z2/) does exactly this for nine atoms 6 $\mu$m apart: the gap closes to $2\pi\times0.79$ MHz, and the probability of the perfect crystal rises from 3% for a 0.5 $\mu$s sweep to 96% for an 8 $\mu$s sweep.
+
+![Three panels from lab 13. Left: the energy gap to the first reflection-symmetric excited state of a nine-atom Rydberg chain versus detuning, falling from about 6 MHz to a minimum of 0.79 MHz near 1.4 MHz detuning and rising again. Middle: probability of the perfect Z2 crystal versus sweep time, rising from 3 percent at 0.5 microseconds to 96 percent at 8 microseconds. Right: Rydberg population on each of the nine sites at the end of the sweep for sweep times of 0.5, 2 and 8 microseconds; the slow sweep shows the alternating pattern r g r g with populations near 1 and 0](../hands-on/13-adiabatic-z2/figures/z2_sweep.png)
+
+*Lab 13: adiabatic preparation of a $Z_2$ crystal. The slower the sweep, the fewer defects.*
+
+**What experiments do with it.** Programmable arrays of tens to hundreds of atoms have used this Hamiltonian to prepare such ordered phases and study the transitions between them, to watch non-equilibrium many-body dynamics (including unexpectedly long-lived oscillations from the $Z_2$ state, known as quantum many-body scars), and to explore two-dimensional phases on square, honeycomb and kagome lattices (Bernien et al., 2017; Ebadi et al., 2021; Scholl et al., 2021). Other interactions are available too: atoms in two *different* Rydberg states exchange excitations through the resonant dipole-dipole interaction $\propto1/R^3$, which realises XY spin models, and weakly admixing Rydberg character into ground states ("Rydberg dressing") gives softer, longer-range interactions.
 
 ## Worked example (Rb-87, 70S, illustrative numbers)
 
@@ -88,23 +103,23 @@ This is an Ising-type spin model in a transverse field, with the "spin up" state
 |---|---|---|
 | effective quantum number | $70-3.131$ | 66.87 |
 | orbit radius | $\frac32n^{*2}a_0$ | **355 nm** |
-| lifetime at 300 K | ARC | **147 $\mu$s** |
+| lifetime at 300 K | ARC | **146 $\mu$s** |
 | $C_6/h$ | ARC | 863 GHz $\mu$m$^6$ |
 | interaction at 5 $\mu$m | $C_6/R^6$ | **55 MHz** |
 | blockade radius at $\Omega/2\pi=2$ MHz | $(C_6/\hbar\Omega)^{1/6}$ | **8.7 $\mu$m** |
 | residual double excitation at 5 $\mu$m | $\sim\frac12(\hbar\Omega/V)^2$ | **$7\times10^{-4}$** |
 | time-to-entangle ($\pi$ pulse at $\sqrt2\Omega$) | $\pi/(\sqrt2\Omega)$ | **177 ns** |
-| decay during it | $t/\tau$ | **$\approx1.2\times10^{-3}$** |
+| decay during it | $\approx\frac12t/\tau$ (upper bound $t/\tau$) | **$\approx6\times10^{-4}$** ($1.2\times10^{-3}$) |
 
 **Step 1: size.** $\frac32\times66.87^2\times0.0529\ {\rm nm}=355$ nm, about a third of a tweezer waist.
 
-**Step 2: interaction and blockade.** $V/h=55$ MHz at 5 $\mu$m is 28 times $\Omega/2\pi=2$ MHz: deep in the blockade regime. At 10 $\mu$m it falls to 0.86 MHz, less than $\Omega$: no blockade. The array spacing must sit well inside $R_b=8.7\ \mu$m for the atoms that should interact, and well outside it for those that should not.
+**Step 2: interaction and blockade.** $V/h=55$ MHz at 5 $\mu$m is 28 times $\Omega/2\pi=2$ MHz: deep in the blockade regime. At 10 $\mu$m it falls to 0.86 MHz, less than $\Omega$: only weak, partial blockade. The array spacing must sit well inside $R_b=8.7\ \mu$m for the atoms that should interact, and well outside it for those that should not.
 
-**Step 3: speed versus lifetime.** Starting from $|gg\rangle$, a pulse of length $\pi/(\sqrt2\Omega)=1/(2\sqrt2\times2\ {\rm MHz})=177$ ns creates $|W\rangle$. The pair spends on average about half of that time with one atom in $|r\rangle$, so the probability of a decay is roughly $0.5\times177\ {\rm ns}/147\ \mu{\rm s}\approx6\times10^{-4}$ (the table's $t/\tau$ is the pessimistic upper bound). Lifetime limits on gate fidelity are therefore at the $10^{-3}$ level; Chapter 11 does this budget properly.
+**Step 3: speed versus lifetime.** Starting from $|gg\rangle$, a pulse of length $\pi/(\sqrt2\Omega)=1/(2\sqrt2\times2\ {\rm MHz})=177$ ns creates $|W\rangle$. The pair spends on average about half of that time with one atom in $|r\rangle$, so the probability of a decay is roughly $0.5\times177\ {\rm ns}/146\ \mu{\rm s}\approx6\times10^{-4}$ (the table's $t/\tau$ is the pessimistic upper bound). Lifetime limits on gate fidelity are therefore at the $10^{-3}$ level; Chapter 11 does this budget properly.
 
 ## Run it
 
-[Lab 10](../hands-on/10-rydberg-blockade/) simulates two atoms as a function of distance, extracts the $\sqrt2$ enhancement and the $(\Omega/V)^2$ residual double excitation, checks the collective $\sqrt N$ Rabi frequency for up to four atoms, and fits the Rydberg scaling laws to ARC data.
+[Lab 13](../hands-on/13-adiabatic-z2/) prepares a nine-atom $Z_2$ crystal by an adiabatic detuning sweep. [Lab 10](../hands-on/10-rydberg-blockade/) simulates two atoms as a function of distance, extracts the $\sqrt2$ enhancement and the $(\Omega/V)^2$ residual double excitation, checks the collective $\sqrt N$ Rabi frequency for up to four atoms, and fits the Rydberg scaling laws to ARC data.
 
 ## Common pitfalls
 
@@ -120,7 +135,7 @@ This is an Ising-type spin model in a transverse field, with the "spin up" state
 - Two $70S$ Rb atoms interact with $C_6/h=863$ GHz $\mu$m$^6$: 55 MHz at 5 $\mu$m.
 - When $V\gg\hbar\Omega$, double excitation is blocked; two atoms oscillate between $|gg\rangle$ and the entangled $|W\rangle$ at $\sqrt2\Omega$, and $N$ atoms at $\sqrt N\Omega$.
 - The blockade radius $R_b=(C_6/\hbar\Omega)^{1/6}$ is 8.7 $\mu$m at $\Omega/2\pi=2$ MHz.
-- The same Hamiltonian, run with a detuning sweep across an array, is a programmable quantum simulator of Ising-type models.
+- The same Hamiltonian, run with a detuning sweep across an array, is a programmable quantum simulator of Ising-type models: a slow sweep prepares the $Z_2$ crystal of a blockaded chain (lab 13).
 
 ## Go deeper
 
@@ -132,4 +147,4 @@ This is an Ising-type spin model in a transverse field, with the "spin up" state
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [Atomic Qubits, Single-Qubit Gates and Coherence](09-qubits-coherence.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [Rydberg Entangling Gates and Their Errors](11-rydberg-gates.md) →

@@ -32,7 +32,7 @@ Loading by parity is a single line: `rng.poisson(nbar, n) % 2`.
 
 For rearrangement, the function `rearrange_2d(L, n_target)` draws a random
 occupancy grid, lists the holes inside the target and the atoms outside it, and
-builds a cost matrix of Euclidean distances. `linear_sum_assignment` returns the
+builds a cost matrix of Euclidean distances. (In this model every move has the same loss probability, so the choice of assignment does not change the success probability; it would matter for the total move time and for distance-dependent losses, see Try this 2.) `linear_sum_assignment` returns the
 pairing that minimises the total distance. Each pairing becomes a move that
 succeeds with probability $1-\varepsilon$. Finally every site survives the cycle
 with probability $e^{-t/\tau}$, and the trial succeeds if the whole target is

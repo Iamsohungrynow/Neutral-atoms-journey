@@ -2,15 +2,18 @@
 
 This course uses one reference atom, **rubidium-87**, all the way through, so
 the numbers in different chapters can be compared directly. Read this page once
-and keep it open beside your editor. Every number in the table below is
-recomputed by [`tutorial/figures/atomdata.py`](figures/atomdata.py); if a chapter
-and this page ever disagree, this page and that script win.
+and keep it open beside your editor. The numbers below come from a small set of
+tabulated inputs (Steck's D-line data and values computed once with the ARC
+library), stored in [`tutorial/figures/atomdata.py`](figures/atomdata.py); the
+derived quantities are recomputed from them by that script, by the labs, or in
+the chapters' worked examples. If a chapter and this page ever disagree, this
+page wins.
 
 ## Sign conventions
 
 | Symbol | Definition | Note |
 |---|---|---|
-| $\delta=\omega_L-\omega_0$ | laser detuning from an optical transition | **red** detuning means $\delta<0$ (laser below resonance). Same convention as Metcalf and van der Straten |
+| $\delta=\omega_L-\omega_0$ | laser detuning from an optical transition | **red** detuning means $\delta<0$ (laser below resonance). Same convention as Metcalf and van der Straten (who write $\gamma$ for the linewidth) |
 | $\Gamma$ | natural linewidth = spontaneous decay rate of the excited state, in rad/s | quoted as $\Gamma/2\pi$ in Hz. Lifetime $\tau=1/\Gamma$ |
 | $\Omega$ | Rabi frequency (angular), $\hbar\Omega=-\langle e\vert\hat{\mathbf d}\cdot\mathbf E_0\vert g\rangle$ | the population oscillates as $\sin^2(\Omega t/2)$ on resonance |
 | $s_0=I/I_{\rm sat}=2\Omega^2/\Gamma^2$ | on-resonance saturation parameter | $I_{\rm sat}=\pi hc\Gamma/(3\lambda^3)$ for a cycling transition |
@@ -32,8 +35,9 @@ Two traps for the unwary:
 
 | Context | Units |
 |---|---|
-| Laser cooling, trapping, imaging labs (01 to 08) | SI throughout (m, s, kg, J, K), printed in convenient multiples |
-| Coherent dynamics labs (09 to 12) | time in microseconds, frequency in MHz, angular quantities in rad/us, e.g. `Omega = 2*np.pi*2.0` means $\Omega/2\pi=2$ MHz |
+| Labs 02 to 09 | SI throughout (m, s, kg, J, K), printed in convenient multiples |
+| Labs 01, 10, 11 and 13 | time in microseconds, frequency in MHz, angular quantities in rad/us, e.g. `Omega = 2*np.pi*2.0` means $\Omega/2\pi=2$ MHz |
+| Lab 12 | dimensionless probabilities only |
 | Hamiltonians in the dynamics scripts | actually $H/\hbar$ in rad/us |
 | Temperatures | printed in uK; stored in K |
 
@@ -43,7 +47,7 @@ D-line data follow D. A. Steck, *Rubidium 87 D Line Data*
 ([steck.us/alkalidata](https://steck.us/alkalidata)). Rydberg numbers were
 computed with the open-source [ARC](https://github.com/nikolasibalic/ARC-Alkali-Rydberg-Calculator)
 library. Tweezer numbers use the simple two-line (D1 + D2) polarizability of
-Chapter 07, which agrees with ARC's full sum over states to about 1% at 1064 nm.
+Chapter 07, which agrees with ARC's full sum over valence states to 0.3% at 1064 nm (and is about 1.6% below ARC's total once the 9 a.u. polarizability of the ionic core is added).
 
 ### Atom and laser cooling
 
@@ -80,7 +84,7 @@ Chapter 07, which agrees with ARC's full sum over states to about 1% at 1064 nm.
 |---|---|
 | two-photon ladder | $5S_{1/2}\xrightarrow{420.30\,\rm nm}6P_{3/2}\xrightarrow{1012.8\,\rm nm}nS_{1/2}$ (here $n=70$) |
 | $70S_{1/2}$ effective quantum number $n^*=n-\delta_\ell$ | 66.87 |
-| $70S_{1/2}$ lifetime at 0 K / 300 K | 374 $\mu$s / 147 $\mu$s |
+| $70S_{1/2}$ lifetime at 0 K / 300 K | 374 $\mu$s / 146 $\mu$s |
 | van der Waals coefficient $C_6/h$ ($70S+70S$) | $+863$ GHz $\mu$m$^6$ (repulsive) |
 | blockade radius $R_b=(C_6/\hbar\Omega)^{1/6}$ at $\Omega/2\pi=2$ MHz | 8.7 $\mu$m |
 

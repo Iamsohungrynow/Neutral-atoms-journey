@@ -67,11 +67,11 @@ While an atom is in $|r\rangle$ it can decay (radiatively or by blackbody transf
 
 $$1-F\approx\Gamma\,\overline{T_R},\qquad\overline{T_R}=\tfrac14\big(T_R^{00}+T_R^{01}+T_R^{10}+T_R^{11}\big).$$
 
-For the Levine gate at $\Omega/2\pi=3.5$ MHz the lab finds $T_R=0,\ 0.208,\ 0.208,\ 0.182\ \mu$s, so $\overline{T_R}=0.150\ \mu$s. With $\tau_r=147\ \mu$s (70S at 300 K), $1-F=0.150/147=1.0\times10^{-3}$. Since $T_R\propto1/\Omega$, faster gates reduce this error; colder surroundings (smaller blackbody rate) and higher $n$ (longer lifetime) do too.
+For the Levine gate at $\Omega/2\pi=3.5$ MHz the lab finds $T_R=0,\ 0.208,\ 0.208,\ 0.182\ \mu$s, so $\overline{T_R}=0.150\ \mu$s. With $\tau_r=146\ \mu$s (70S at 300 K), $1-F=0.150/146=1.0\times10^{-3}$. Since $T_R\propto1/\Omega$, faster gates reduce this error; colder surroundings (smaller blackbody rate) and higher $n$ (longer lifetime) do too.
 
 ### 2. Doppler dephasing
 
-A moving atom sees the two-photon Rydberg light shifted by $k_{\rm eff}v$ (Chapter 10). Over a gate lasting a few hundred nanoseconds the velocity is effectively constant, so this is a random static detuning, rms $k_{\rm eff}\sigma_v=2\pi\times43$ kHz at $10\ \mu$K. A detuning error $\delta$ causes an infidelity of order $(\delta/\Omega)^2$: the lab finds $5.6\times10^{-4}$ at $10\ \mu$K, scaling as $\sigma_v^2\propto T$. Colder atoms, faster gates, or co-propagating beam geometries reduce it.
+A moving atom sees the two-photon Rydberg light shifted by $k_{\rm eff}v$ (Chapter 10). Over a gate lasting a few hundred nanoseconds the velocity is effectively constant, so this is a random static detuning, rms $k_{\rm eff}\sigma_v=2\pi\times43$ kHz at $10\ \mu$K. A detuning error $\delta$ causes an infidelity of order $(\delta/\Omega)^2$: the lab finds $5.6\times10^{-4}$ at $10\ \mu$K, scaling as $\sigma_v^2\propto T$. Colder atoms and faster gates reduce it. The usual counter-propagating 420/1013 nm arrangement already removes most of it (co-propagating beams would add the wavevectors and make it about six times worse), and three-photon schemes whose wavevectors cancel can remove it entirely.
 
 ### 3. Finite blockade
 
@@ -83,11 +83,11 @@ With $V$ finite, $|11\rangle$ couples weakly to $|rr\rangle$, which shifts its p
 
 ### 4. Technical errors
 
-The intrinsic budget above gives about $10^{-3}$. In experiments other errors usually dominate:
+The intrinsic budget above totals about $1.7\times10^{-3}$ (worked example below). In experiments other errors usually dominate:
 
 - **Laser phase noise.** The Rydberg lasers' phase directly enters the gate; noise at frequencies near $\Omega$ is especially harmful. Narrow-linewidth lasers locked to high-finesse cavities, with filtered "servo bumps", are essential.
 - **Intensity noise and inhomogeneity.** A 1% error in $\Omega$ shifts the pulse areas; across a large array the beams must be uniform, and robust pulse designs tolerate small errors.
-- **Intermediate-state scattering.** In two-photon schemes the atom briefly occupies $6P_{3/2}$ (lifetime 118 ns) with probability $\sim\Omega_1^2/4\Delta_i^2$. The resulting error per gate is of order $\pi\Gamma_i/\Delta_i$: about $2\times10^{-3}$ for $\Gamma_i/2\pi=1.35$ MHz and $\Delta_i/2\pi=2$ GHz (a rough estimate that depends on the ratio $\Omega_1/\Omega_2$).
+- **Intermediate-state scattering.** In two-photon schemes the atom briefly occupies $6P_{3/2}$ (lifetime 118 ns) with probability $\sim\Omega_1^2/4\Delta_i^2$. The resulting error per gate is of order $\pi\Gamma_i/\Delta_i$: about $2\times10^{-3}$ for $\Gamma_i/2\pi=1.35$ MHz and $\Delta_i/2\pi=2$ GHz (a rough estimate for a single $2\pi$-area pulse with $\Omega_1=\Omega_2$; the Levine gate has about 1.4 times that area per atom, and the result depends on the ratio $\Omega_1/\Omega_2$).
 - **Atomic motion and position.** Thermal motion also changes $V$ (if not deep in the blockade regime) and the local intensity.
 - **Leakage and loss.** Atoms that decay from $|r\rangle$ may end up outside the qubit subspace or be lost from the trap. Chapter 12 shows that such errors, if detected, can be easier to correct than ordinary errors.
 
@@ -99,20 +99,20 @@ The intrinsic budget above gives about $10^{-3}$. In experiments other errors us
 | gate parameters | $\Delta/\Omega=0.377$, $\tau\Omega=4.29$, $\xi=3.90$ |
 | gate duration | $8.58/\Omega=$ **390 ns** |
 | mean time in $\vert r\rangle$ | **0.150 $\mu$s** |
-| decay error ($\tau_r=147\ \mu$s) | **$1.0\times10^{-3}$** |
+| decay error ($\tau_r=146\ \mu$s) | **$1.0\times10^{-3}$** |
 | Doppler error (10 $\mu$K) | **$5.6\times10^{-4}$** |
 | finite-blockade error | **$1.7\times10^{-4}$** |
 | intrinsic total | **$\approx1.7\times10^{-3}$** ($F\approx99.8\%$) |
 
 **Step 1: duration.** $2\times4.29/(2\pi\times3.5\ {\rm MHz})=8.58/(22.0\ \mu{\rm s}^{-1})=0.390\ \mu$s.
 
-**Step 2: decay.** $0.150\ \mu{\rm s}/147\ \mu{\rm s}=1.0\times10^{-3}$. This is the largest intrinsic term.
+**Step 2: decay.** $0.150\ \mu{\rm s}/146\ \mu{\rm s}=1.0\times10^{-3}$. This is the largest intrinsic term.
 
 **Step 3: Doppler.** $k_{\rm eff}\sigma_v/\Omega=2\pi\times43\ {\rm kHz}/(2\pi\times3.5\ {\rm MHz})=0.012$; the infidelity is a few times $0.012^2$, and the lab gives $5.6\times10^{-4}$.
 
 **Step 4: blockade.** $\Omega/V=3.5/211=0.017$; the infidelity is of order $(\Omega/V)^2/2$, and the lab gives $1.7\times10^{-4}$.
 
-**Step 5: verdict.** About $1.7\times10^{-3}$ from physics that cannot be calibrated away, before laser noise and intermediate-state scattering. This is why the 99.5% demonstration of 2023 was a milestone, and why cryogenic environments, higher Rydberg states, faster robust pulses and colder atoms are all active research directions.
+**Step 5: verdict.** About $1.7\times10^{-3}$ from decay, motion and finite interaction (part of the blockade error is a deterministic phase that recalibrating $\Delta$ and $\xi$ can absorb; fluctuations of the atom positions cannot be), before laser noise and intermediate-state scattering. This is why the 99.5% demonstration of 2023 was a milestone, and why cryogenic environments, higher Rydberg states, faster robust pulses and colder atoms are all active research directions.
 
 ## Run it
 
@@ -131,7 +131,7 @@ The intrinsic budget above gives about $10^{-3}$. In experiments other errors us
 - A $2\pi$ excursion to $|r\rangle$ multiplies a state by $-1$; the blockade makes that phase conditional.
 - The $\pi$-$2\pi$-$\pi$ gate gives ${\rm diag}(1,-1,-1,-1)$ = CZ up to local $Z$, but needs individual addressing.
 - The global Levine gate uses two identical pulses with a phase jump: $\Delta/\Omega=0.377$, $\tau\Omega=4.29$, $\xi=3.90$, total $8.58/\Omega$; time-optimal single pulses take about $7.6/\Omega$.
-- Intrinsic errors: decay $\Gamma\overline{T_R}\propto1/\Omega$, Doppler $\propto T/\Omega^2$, finite blockade $\propto(\Omega/V)^2$. For Rb 70S at 3.5 MHz they total about $2\times10^{-3}$.
+- Intrinsic errors: decay $\Gamma\overline{T_R}\propto1/\Omega$, Doppler $\propto T/\Omega^2$, finite blockade $\propto(\Omega/V)^2$. For Rb 70S at 3.5 MHz they total about $1.7\times10^{-3}$.
 - Laser phase noise, intensity errors and intermediate-state scattering add to this; fidelities of 99.5% have been demonstrated in parallel on many pairs.
 
 ## Go deeper
@@ -145,4 +145,4 @@ The intrinsic budget above gives about $10^{-3}$. In experiments other errors us
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [Rydberg Atoms and the Blockade](10-rydberg.md) · [Tutorial index](./README.md) · [Project README](../README.md) · Next: [Toward Fault Tolerance: Readout, Loss, Erasure and Zoned Architectures](12-architectures.md) →

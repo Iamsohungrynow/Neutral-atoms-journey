@@ -66,7 +66,10 @@ width at half maximum of each numerical line by linear interpolation.
 ![Damped Rabi oscillations and saturated line shapes](figures/obe.png)
 
 Left: the weakly driven atom ($\Omega=0.5\,\Gamma$) creeps up to its steady
-state without oscillating, because decay is faster than the drive. The strongly
+state with only a tiny overshoot (0.1674 against 0.1667). On resonance the
+Bloch equations oscillate only when $\Omega>\Gamma/4$; at $\Omega=0.5\,\Gamma$ the
+oscillation frequency is $\sqrt{\Omega^2-\Gamma^2/16}\approx0.43\,\Gamma$ while the
+damping rate is $3\Gamma/4$, so the ringing dies out within one period. The strongly
 driven atom ($\Omega=5\,\Gamma$) overshoots to 0.80 before ringing down to
 0.49, close to the saturation limit of 1/2. The dashed curve is the same drive
 without decay: a perfect $\sin^2(\Omega t/2)$. Right: as $s_0$ grows the peak
@@ -75,7 +78,9 @@ saturates toward 1/2 and the line broadens; the dots are the analytic formula.
 With `--check`, the runner verifies five things: the no-decay limit equals
 $\sin^2(\Omega t/2)$; the numerical steady state equals the analytic formula at
 every detuning; the time evolution relaxes to that steady state; the width
-equals $\Gamma\sqrt{1+s_0}$ within 0.5%; and no population exceeds its limit.
+equals $\Gamma\sqrt{1+s_0}$ within 0.5%; and QuTiP's master-equation solution
+agrees with an independent integration (SciPy) of the optical Bloch equations
+exactly as written in Chapter 03, which tests the decay terms and their signs.
 
 ## Try this
 

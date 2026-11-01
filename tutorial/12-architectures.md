@@ -2,14 +2,14 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-We now have every ingredient of a neutral-atom quantum computer: an assembled array (Chapter 08), single-qubit gates with long coherence (Chapter 09), and Rydberg CZ gates at the $10^{-3}$ error level (Chapter 11). This final chapter is about putting them together into a machine that can run error correction. Three issues are special to atoms. **Readout** by fluorescence is slow and scatters light onto neighbours, so measuring some qubits in the middle of a computation needs care. **Atom loss** is a failure mode that superconducting qubits do not have, but it can be turned into an advantage: a lost atom is an error *whose location is known*, an **erasure**, and erasures are much easier to correct. And because atoms can be **moved**, the layout of the processor is not fixed: modern machines split the array into zones and shuttle atoms between them. [Lab 12](../hands-on/12-erasure-code/) quantifies the erasure advantage with a repetition code.
+We now have every ingredient of a neutral-atom quantum computer: an assembled array (Chapter 08), single-qubit gates with long coherence (Chapter 09), and Rydberg CZ gates with errors of a few $10^{-3}$ (99.5% demonstrated; Chapter 11). This final chapter is about putting them together into a machine that can run error correction. Three issues are special to atoms. **Readout** by fluorescence is slow and scatters light onto neighbours, so measuring some qubits in the middle of a computation needs care. **Atom loss** is a failure mode that superconducting qubits do not have, but it can be turned into an advantage: a lost atom is an error *whose location is known*, an **erasure**, and erasures are much easier to correct. And because atoms can be **moved**, the layout of the processor is not fixed: modern machines split the array into zones and shuttle atoms between them. [Lab 12](../hands-on/12-erasure-code/) quantifies the erasure advantage with a repetition code.
 
 ## Measuring in the middle of a computation
 
 Error correction repeatedly measures **ancilla** qubits while the **data** qubits keep their quantum state. Fluorescence imaging (Chapter 08) poses two problems for this.
 
 1. **Crosstalk.** An imaged atom scatters thousands of near-resonant photons. Data atoms a few micrometres away absorb some of them, and a single absorbed photon can destroy a hyperfine superposition.
-2. **Speed.** Collecting enough photons takes milliseconds, comparable to the coherence time and much longer than a gate.
+2. **Speed.** Collecting enough photons takes milliseconds: much longer than a gate, comparable to $T_2^*$, and time during which the waiting data qubits accumulate idle errors.
 
 Three families of solutions are used, often in combination:
 
@@ -33,9 +33,9 @@ For a standard error-correcting code these look like ordinary errors at unknown 
 - With **unknown** bit flips of probability $p$, the vote fails once more than half the copies are wrong: the logical error scales as $p^{(d+1)/2}$. For $d=3$ it is $3p^2-2p^3$.
 - With **erasures**, you simply ignore the erased copies and vote among the rest, which are all correct. The vote fails only if **every** copy is erased (and then a random guess is right half the time): $P_L=p^d/2$.
 
-The effective code distance doubles. Lab 12 computes this exactly and with Monte Carlo, including the realistic case where only a fraction $R_e$ of errors are converted into erasures.
+The exponent grows from $(d+1)/2$ to $d$: almost twice as many faults are needed to cause a failure. Lab 12 computes this exactly and with Monte Carlo, including the realistic case where only a fraction $R_e$ of errors are converted into erasures.
 
-![Left: logical error probability versus physical error probability on log axes for repetition codes of distance 3, 5 and 7; pure Pauli errors fall as p to the (d+1)/2, pure erasures as p to the d over 2, and 98 percent erasure conversion lies in between but far below the Pauli curves. Right: logical error at p = 0.01 versus erasure fraction for d = 3, 5 and 7, nearly flat until the fraction approaches 1 and then dropping steeply](../hands-on/12-erasure-code/figures/erasure.png)
+![Left: logical error probability versus physical error probability on log axes for repetition codes of distance 3, 5 and 7; pure Pauli errors fall as p to the power (d+1)/2, pure erasures as one half of p to the power d, and 98 percent erasure conversion lies in between but far below the Pauli curves. Right: logical error at p = 0.01 versus erasure fraction for d = 3, 5 and 7, nearly flat until the fraction approaches 1 and then dropping steeply](../hands-on/12-erasure-code/figures/erasure.png)
 
 *Lab 12. Erasures are worth more than ordinary errors because their locations are known. Most of the benefit appears only when nearly all errors are converted, which is why the conversion fraction is a key figure of merit.*
 
@@ -50,10 +50,10 @@ In a superconducting chip, which qubits can interact is fixed by the wiring. In 
 *A zoned architecture. Gates happen only where the Rydberg beam is, measurements only where the imaging light is, and everything else waits in storage. Moving atoms in parallel connects any qubit to any other.*
 
 - **Storage zone**: qubits wait, spaced beyond the blockade radius, protected from gate and imaging light.
-- **Entangling zone**: pairs of atoms are placed within a blockade radius, and a single **global** Rydberg pulse (the Levine gate of Chapter 11) performs CZ gates on all pairs at once.
+- **Entangling zone**: pairs of atoms are placed within a blockade radius, and a single **global** Rydberg pulse (for example the Levine or the time-optimal gate of Chapter 11) performs CZ gates on all pairs at once.
 - **Readout zone**: ancillas are imaged away from the data.
 
-Two features make this powerful for error correction. **Parallelism**: one global pulse entangles hundreds of pairs, so the time per round of syndrome extraction does not grow with the number of qubits. **Transversal gates**: an error-correcting code stores one logical qubit in a block of physical atoms. Moving one block on top of another and applying a global CZ performs a CZ between corresponding atoms, which is a logical gate between the two logical qubits that does not spread errors within a block. Moving atoms makes such transversal operations natural. Using these ideas, Bluvstein et al. demonstrated coherent transport of entangled atom arrays (2022) and a logical processor with up to 280 physical qubits that entangled up to 48 logical qubits (2024). Follow-up work with up to 448 atoms reported surface-code operation below threshold, transversal logic and mid-circuit qubit re-use (Bluvstein et al., arXiv 2025).
+Two features make this powerful for error correction. **Parallelism**: one global pulse entangles hundreds of pairs, so the time per round of syndrome extraction does not grow with the number of qubits. **Transversal gates**: an error-correcting code stores one logical qubit in a block of physical atoms. Moving one block on top of another and applying a global Rydberg pulse performs a CZ between every pair of corresponding atoms. With Hadamard gates on the target block before and after, this is a transversal CNOT, which is a logical CNOT for any CSS code (including surface and colour codes) and does not spread errors within a block. Moving atoms makes such transversal operations natural. Using these ideas, Bluvstein et al. demonstrated coherent transport of entangled atom arrays (2022) and a logical processor with up to 280 physical qubits that entangled up to 48 logical qubits (2024). Follow-up work with up to 448 atoms reported surface-code operation below threshold, transversal logic and mid-circuit qubit re-use (Bluvstein, Geim et al., Nature 2026).
 
 ## Scaling up
 
@@ -91,7 +91,7 @@ Not every application needs a fault-tolerant gate-based computer. Running the Ry
 
 ## Run it
 
-[Lab 12](../hands-on/12-erasure-code/) computes the exact logical error of a repetition code with a mixture of erasures and bit flips, checks it against Monte Carlo and against the limits $3p^2-2p^3$ and $p^d/2$, and extracts the effective code distance from the small-$p$ slope.
+[Lab 12](../hands-on/12-erasure-code/) computes the exact logical error of a repetition code with a mixture of erasures and bit flips, checks it against Monte Carlo and against the limits $3p^2-2p^3$ and $p^d/2$, and extracts the failure exponent (the minimum number of faults that causes a failure) from the small-$p$ slope.
 
 ## Common pitfalls
 
@@ -119,4 +119,4 @@ Not every application needs a fault-tolerant gate-based computer. Running the Ry
 
 ---
 
-← Back to [project README](../README.md) · [Tutorial index](./README.md)
+← Previous: [Rydberg Entangling Gates and Their Errors](11-rydberg-gates.md) · [Tutorial index](./README.md) · [Project README](../README.md)

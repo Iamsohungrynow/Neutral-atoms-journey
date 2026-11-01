@@ -29,7 +29,7 @@ def geometry():
     ax1.text(5.2, 3.2, "the same lens collects the atom's fluorescence (Chapter 08)", ha="center", fontsize=8)
     # (b) beam waist w(z) and intensity map
     z = np.linspace(-3 * zR, 3 * zR, 400)
-    r = np.linspace(-2.5e-6, 2.5e-6, 300)
+    r = np.linspace(-3.3e-6, 3.3e-6, 300)
     Z, R = np.meshgrid(z, r)
     wz = w0 * np.sqrt(1 + (Z / zR)**2)
     I = (w0 / wz)**2 * np.exp(-2 * R**2 / wz**2)
@@ -39,7 +39,7 @@ def geometry():
     ax2.plot(z * 1e6, -wline * 1e6, "k--", lw=1)
     ax2.axvline(zR * 1e6, color="0.3", lw=0.8, ls=":")
     ax2.axvline(-zR * 1e6, color="0.3", lw=0.8, ls=":")
-    ax2.text(zR * 1e6 + 0.15, 2.0, "z_R = pi w0^2 / lambda\n= 2.95 um", fontsize=8)
+    ax2.text(-8.5, -2.9, "dotted lines: z = +/- z_R, z_R = pi w0^2 / lambda = 2.95 um", fontsize=8)
     ax2.annotate("", xy=(0, 1.0), xytext=(0, 0), arrowprops=dict(arrowstyle="<->", lw=1))
     ax2.text(0.15, 0.4, "w0 = 1 um", fontsize=8)
     ax2.set_xlabel("z along the beam (um)")

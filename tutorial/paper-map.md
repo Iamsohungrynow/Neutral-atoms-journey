@@ -36,10 +36,11 @@ physics courses and of the main reviews:
 
 | Source | Used for |
 |---|---|
-| MIT 8.421 / 8.422, *Atomic and Optical Physics I and II* ([MIT OpenCourseWare](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/)) | the order two-level systems → light forces → cooling and trapping (Chapters 03 to 07) |
+| MIT 8.421 / 8.422, *Atomic and Optical Physics I and II* ([8.421](https://ocw.mit.edu/courses/8-421-atomic-and-optical-physics-i-spring-2014/), [8.422](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/) on MIT OpenCourseWare) | the order structure → two-level and three-level atoms → line broadening (8.421) and light forces → dipole traps (8.422 lectures 16 to 17), used for Chapters 02 to 07 |
 | R. Grimm, M. Weidemüller, Yu. B. Ovchinnikov, *Optical dipole traps for neutral atoms* (2000), [arXiv:physics/9902072](https://arxiv.org/abs/physics/9902072) | polarizability, trap depth, scattering (Chapter 07) |
 | A. M. Kaufman and K.-K. Ni, *Quantum science with optical tweezer arrays* (2021), [arXiv:2109.10087](https://arxiv.org/abs/2109.10087) | tweezer arrays, loading, imaging, cooling (Chapters 07 to 08) |
-| A. Browaeys, lectures *Rydberg atoms in optical tweezers*, Boulder School 2021 (lecture notes on the [Boulder School website](https://boulderschool.yale.edu/)) | arrays → Rydberg basics → interactions → many-body physics (Chapters 08 to 10) |
+| A. Browaeys, lectures *Rydberg atoms in optical tweezers*, Boulder School 2021 ([lecture notes](https://www.colorado.edu/conference/bss/2021/boulder-school-2021-lecture-notes)), and Les Houches pre-doctoral school 2019 | arrays → Rydberg basics and blockade → gates → many-body physics (Chapters 08 to 10, and the analog-simulation section of Chapter 10) |
+| H. Bernien, ICTP-SAIFR lectures (2023), *Quantum Information Processing and Simulation with Rydberg Atom Arrays* | simulation and computation with Rydberg arrays (Chapters 10 to 12) |
 | M. Saffman, T. G. Walker, K. Mølmer, *Quantum information with Rydberg atoms* (2010), [arXiv:0909.4777](https://arxiv.org/abs/0909.4777) | Rydberg scaling, blockade, gate protocols and errors (Chapters 10 to 11) |
 | L. Henriet et al., *Quantum computing with neutral atoms* (2020), [arXiv:2006.12326](https://arxiv.org/abs/2006.12326) | qubit encodings, gates, digital and analog modes (Chapters 09 to 12) |
 | A. Browaeys and T. Lahaye, *Many-body physics with individually controlled Rydberg atoms* (2020), [arXiv:2002.07413](https://arxiv.org/abs/2002.07413) | quantum simulation (Chapters 10, 12) |

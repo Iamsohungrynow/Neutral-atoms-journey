@@ -118,6 +118,9 @@ for lam, e, col in [(852, 2.258e-4, "C3"), (1064, 6.083e-5, "C0")]:
     ax2.loglog(Tg * 1e6, np.sqrt(np.exp(2 / 3) - 1) * 2 * hbar / (e * kB * Tg) * 1e3, color=col, lw=2,
                label=f"{lam} nm, eta = {e:.2e}")
 ax2.loglog([T * 1e6 for T in temps], [T2_fit[T] * 1e3 for T in temps], "ko", ms=4, label="simulation (852 nm)")
+ax2.set_xticks([2, 5, 10, 20, 40])
+ax2.set_xticklabels(["2", "5", "10", "20", "40"])
+ax2.minorticks_off()
 ax2.set_xlabel("atom temperature (uK)")
 ax2.set_ylabel("T2* (ms)")
 ax2.set_title("T2* = 0.97 x 2 hbar / (eta kB T): colder and farther detuned is better", fontsize=9)

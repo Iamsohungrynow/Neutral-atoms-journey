@@ -31,41 +31,41 @@ Run these commands from the **repository root**, using the environment from the 
 `p_logical(d, p, Re)` evaluates the double sum above. `p_logical_mc` draws one
 uniform random number per copy and classifies it as an erasure
 ($u<R_ep$), a flip ($R_ep\le u<p$) or no error, then applies the decoder to
-400 000 blocks. The effective code distance is the slope
-$d\ln P_L/d\ln p$ at small $p$, computed from the exact formula.
+400 000 blocks. The slope $d\ln P_L/d\ln p$ at small $p$ is the smallest number of faults that
+can cause a failure; it is computed from the exact formula.
 
 ## Expected output
 
-     d   model                         P_L MC (p = 0.1)      exact
-     3   Pauli only (R_e = 0)          2.788e-02 +/- 2.6e-04   2.800e-02
-     3   98% erasures (R_e = 0.98)     1.107e-03 +/- 5.2e-05   1.069e-03
-     3   erasure only (R_e = 1)        5.000e-04 +/- 3.5e-05   5.000e-04
-     5   Pauli only (R_e = 0)          8.393e-03 +/- 1.5e-04   8.560e-03
-     5   98% erasures (R_e = 0.98)     2.250e-05 +/- 8.4e-06   2.830e-05
-     5   erasure only (R_e = 1)        5.000e-06 +/- 3.5e-06   5.000e-06
-     7   Pauli only (R_e = 0)          2.770e-03 +/- 8.2e-05   2.728e-03
-     7   98% erasures (R_e = 0.98)     0.000e+00 +/- 2.5e-06   8.079e-07
-     7   erasure only (R_e = 1)        0.000e+00 +/- 2.5e-06   5.000e-08
-    small-p slope d ln P_L / d ln p (effective distance):
+     d   model                         P_L MC (p = 0.3)      exact
+     3   Pauli only (R_e = 0)          2.155e-01 +/- 6.5e-04   2.160e-01
+     3   98% erasures (R_e = 0.98)     1.846e-02 +/- 2.1e-04   1.807e-02
+     3   erasure only (R_e = 1)        1.356e-02 +/- 1.8e-04   1.350e-02
+     5   Pauli only (R_e = 0)          1.626e-01 +/- 5.8e-04   1.631e-01
+     5   98% erasures (R_e = 0.98)     2.535e-03 +/- 8.0e-05   2.544e-03
+     5   erasure only (R_e = 1)        1.265e-03 +/- 5.5e-05   1.215e-03
+     7   Pauli only (R_e = 0)          1.259e-01 +/- 5.2e-04   1.260e-01
+     7   98% erasures (R_e = 0.98)     3.900e-04 +/- 3.1e-05   3.884e-04
+     7   erasure only (R_e = 1)        1.225e-04 +/- 1.7e-05   1.093e-04
+    small-p slope d ln P_L / d ln p (the number of faults needed to cause a failure):
        d = 3: Pauli 2.00 (expect 2.0), erasure 3.00 (expect 3), 98% erasure 2.01
        d = 5: Pauli 3.00 (expect 3.0), erasure 5.00 (expect 5), 98% erasure 3.04
        d = 7: Pauli 4.00 (expect 4.0), erasure 7.00 (expect 7), 98% erasure 4.10
     at p = 1e-2, d = 5: Pauli 9.85e-06, 98% erasure 7.88e-09, erasure 5.00e-11
 
-For $d=7$ the erasure-dominated failure rates are below what 400 000 shots can
-resolve, so the Monte Carlo sees zero failures; the check uses the standard error
-floor $\sqrt{1/N}/\sqrt N$ in that case.
+The Monte Carlo comparison uses $p=0.3$, large enough that every case produces
+at least dozens of failures in 400 000 shots, so the check is informative for the
+erasure-dominated codes too.
 
 ![Logical error versus physical error, and versus erasure fraction](figures/erasure.png)
 
-Left: logical error versus $p$. Pure erasures (dotted) fall twice as steeply as
-Pauli errors (solid). With 98% conversion (dashed), the small residual Pauli rate
+Left: logical error versus $p$. Pure erasures (dotted) fall almost twice as steeply as
+Pauli errors (solid): exponent $d$ instead of $(d+1)/2$. With 98% conversion (dashed), the small residual Pauli rate
 eventually sets the slope, but the curve sits orders of magnitude lower. Right:
 the logical error at $p=1\%$ versus $R_e$: almost flat until $R_e$ approaches 1,
 then a steep drop.
 
 The runner checks the Monte Carlo against the exact sum, the closed-form limits
-$3p^2-2p^3$ and $p^d/2$, and the effective distances $(d+1)/2$ and $d$.
+$3p^2-2p^3$ and $p^d/2$, and the failure exponents $(d+1)/2$ and $d$.
 
 ## Try this
 

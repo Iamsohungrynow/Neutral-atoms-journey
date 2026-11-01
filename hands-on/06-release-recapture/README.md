@@ -15,7 +15,7 @@ This lab runs the simulation for a 1 mK, 1064 nm tweezer with a 1 $\mu$m waist
 
 1. Draw 40 000 atoms from the thermal phase-space distribution of the harmonic
    approximation (Gaussian positions and velocities).
-2. Fly them ballistically for time $t$, with gravity.
+2. Fly them ballistically for time $t$, with gravity (the tweezer axis is $z$ and gravity points along $x$, as for a horizontal tweezer beam; at these times gravity moves the atom by only nanometres).
 3. Recapture an atom if its total energy in the full Gaussian potential is
    negative.
 
@@ -63,8 +63,10 @@ temperature grid; the 1-sigma range is where $\chi^2$ is within 1 of its minimum
 Left: recapture probability versus release time for 5, 20 and 50 $\mu$K, with the
 synthetic 20 $\mu$K data. For the first few microseconds nothing happens: the
 atom has not yet moved out of the well. Right: $\chi^2$ versus model
-temperature; the fit lands within about one standard deviation of the true
-value.
+temperature; the fit lands about 1.3 standard deviations from the true
+value. Note that the synthetic data are generated from the same random atoms as
+the model curves, so this tests the effect of finite shot noise on the fit, not
+Monte Carlo noise.
 
 The runner checks that $P(0)=1$, that the untruncated samples have mean energy
 $3k_BT$ (equipartition over six quadratic terms), that $P$ falls with both $t$

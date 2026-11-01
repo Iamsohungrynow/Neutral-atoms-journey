@@ -1,4 +1,67 @@
-# Repository review, 1 November 2026
+# Independent review, 1 November 2026 (second pass)
+
+Five independent reviewers each re-read one slice of the course line by line
+(Chapters 01 to 03, 04 to 06, 07 to 09, 10 to 12, and the cross-cutting pages
+with every citation), recomputed the numbers with their own scripts and the ARC
+library, viewed every figure, and ran every lab. A sixth searched for courses
+and lecture series by researchers in the field. Every finding was re-checked
+before it was applied.
+
+## Corrections
+
+| Where | Finding | Correction |
+|---|---|---|
+| Ch 01 cycle figure | readout written as "bright = 1, dark = 0" | after pushing out $F=2$ ($\vert1\rangle$), bright means $\vert0\rangle$: "bright = 0, dark = 1" |
+| Ch 07 | polarizability at 532 nm given as $-785$ a.u. (an early weighting error) | $-262$ a.u. from the course's two-line model |
+| Ch 06 | gray-molasses mechanism described backwards | atoms leave the dark state near the bottoms of bright-state valleys and are pumped back near the hilltops |
+| Ch 11 | "co-propagating beam geometries reduce" Doppler errors | backwards for a ladder scheme: co-propagating beams add the wavevectors; counter-propagating beams (as assumed) or three-photon schemes reduce it |
+| Ch 12 | transversal physical CZ called a logical gate in general | a transversal CNOT (CZ plus Hadamards) is logical for CSS codes such as surface and colour codes |
+| Ch 01 | cooling factor stated as $10^5$ and "five orders of magnitude" | $10^6$ to $10^7$ (300 K to 10 to 100 $\mu$K) |
+| Ch 02 | clock-state noise sensitivity "a thousand times" smaller; low-$n$ quantum defects "slightly larger"; $g_F\neq1/2$ attributed only to $g_I$; quadrupole condition | about 600 times; larger for S, P and smaller for D, F; $g_J\neq2$ contributes too; quadrupole exists because $I\ge1$ |
+| Ch 03 | RWA described in the wrong frame | RWA in the interaction picture, then the frame rotating at $\omega_L$; Bloch components defined |
+| Ch 04 | $\vert\delta\vert=1650\,\Gamma$ in the worked example | $\approx8200\,\Gamma$; two-level $\sigma^+$ assumption stated |
+| Ch 05 | ytterbium narrow-line cooling "below a microkelvin"; 3D Doppler limit wording | only strontium reaches below 1 $\mu$K; explicit 1D vs 3D emission-model statement |
+| Ch 06, lab 04 | "linear region 4.3 mm" | that is the force maximum; the force is linear only for $\vert z\vert\lesssim2$ mm |
+| Ch 08 | threshold arithmetic with rounded $\mu_s$; combine step attributed a reservoir effect | carry $\mu_s=32.2$ (gives 17); $0.606\times0.717=0.434$ |
+| Ch 09 | ground-Rydberg splitting "hundreds of THz"; $T_1$ "seconds" | about 1009 THz (297 nm); seconds at 852 nm, minutes at 1064 nm; repumper polarization requirement added |
+| Ch 10 | blockade history attribution; Förster-defect sign undefined | Urban et al. (suppressed double excitation) and Gaëtan et al. ($\sqrt2$ enhancement); $\Delta_F<0$ defined |
+| all | 70S lifetime at 300 K quoted as 147 $\mu$s | 146 $\mu$s (ARC, consistent with the code) |
+| Ch 12, lab 12 | erasure "doubles" the code distance | exponent $d$ instead of $(d+1)/2$ |
+| reading list | 2025 Bluvstein et al. listed as preprint; Shaw et al. arXiv title | published as *A fault-tolerant neutral-atom architecture for universal quantum computation*, Nature 649, 39 (2026); Science title and DOI added |
+| notation page | lab unit conventions wrong for labs 01 and 09; "every number recomputed" overclaim | corrected table; stated which inputs are tabulated |
+
+## Stronger lab checks
+
+Several checks were circular or trivial and were replaced: lab 01 now compares
+QuTiP with an independent integration of the Chapter 03 Bloch equations; lab 02
+measures the deceleration the locked atom actually experiences; lab 03 extracts
+the friction coefficient from the decay of the mean velocity in the stochastic
+simulation (instead of re-deriving the force formula) and uses a burn-in of
+eight damping times at every detuning; lab 11 checks the time $\vert11\rangle$
+spends in $\vert r\rangle$ against its analytic value and models ideal blockade
+with a $V$ small enough to keep the matrix exponential unitary; lab 12 runs its
+Monte Carlo at $p=0.3$, where every case produces enough failures to test.
+
+## Additions
+
+- **Chapter 03:** Doppler broadening; three-level atoms (adiabatic elimination,
+  dark states and STIRAP, Landau-Zener adiabatic passage), which later chapters
+  rely on.
+- **Chapter 10 and lab 13:** analog quantum simulation, with exact adiabatic
+  preparation of a nine-atom $Z_2$ crystal.
+- **Reading list and paper map:** courses and lecture series (MIT 8.421/8.422 at
+  lecture level, Browaeys at Les Houches 2019 and Boulder 2021, Bernien at
+  ICTP-SAIFR 2023, Caltech Ph/APh 137, Saffman's Varenna notes).
+- Previous/next navigation on every chapter; the link checker now also checks
+  HTML `src`/`href` targets.
+
+Validation after this pass: `python hands-on/run_labs.py --all --check` passes
+13/13 (about 95 s), `python tutorial/figures/make_figures.py` regenerates every
+figure, and `python tools/check_repo.py` reports 0 errors.
+
+---
+
+# Repository review, 1 November 2026 (first pass)
 
 This file records how the course was built and checked, what was corrected
 during the checks, and what is deliberately out of scope.
@@ -51,8 +114,8 @@ numbers locally.
 
 ## Labs and their checks
 
-All twelve labs run headlessly with
-`python hands-on/run_labs.py --all --check` (about 75 s on one core) and pass.
+All thirteen labs run headlessly with
+`python hands-on/run_labs.py --all --check` (about 75 to 95 s on one core) and pass.
 Each lab defines a `checks` dictionary of independent comparisons. Examples:
 
 | Lab | Independent check |
@@ -72,7 +135,7 @@ Each lab defines a `checks` dictionary of independent comparisons. Examples:
 
 Every figure was regenerated with `python tutorial/figures/make_figures.py` and
 inspected visually for overlapping labels and for physics errors.
-`python tools/check_repo.py` checks every local link and image.
+`python tools/check_repo.py` checks every local Markdown link and image and every HTML `src`/`href` target (not heading anchors or external URLs).
 
 Validated on Linux with Python 3.13.18, NumPy 2.5.3, SciPy 1.18.1,
 Matplotlib 3.11.2 and QuTiP 5.3.1.

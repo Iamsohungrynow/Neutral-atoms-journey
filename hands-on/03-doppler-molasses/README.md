@@ -41,43 +41,46 @@ atoms:
     emit = rng.choice([-1.0, 1.0], n_atoms)
     v = v + (absorb + emit) * vr
 
-After a burn-in of 2000 events (many damping times), the script accumulates the
+After a burn-in of at least eight velocity-damping times $m/\beta$ (2000 events,
+or more at large detuning where the damping is slow), the script accumulates the
 **time-weighted** average of $v^2$ for each atom, because the atom spends a time
 `dt` at each velocity. The temperature is $T=m\langle v^2\rangle/k_B$, and its
 standard error comes from the spread across atoms, which are independent.
 
-The friction is measured separately by holding the velocity fixed, drawing a
-very large number of absorptions and counting how many came from each beam:
-the mean force is $\hbar k(N_+-N_-)$ divided by the elapsed time.
+The friction is measured from the dynamics. 20 000 atoms start with the same
+velocity, $v_0=0.5$ m/s, inside the linear region, and receive random kicks in
+small fixed time steps (a common clock makes averaging easy). Diffusion spreads
+the velocities but leaves the mean alone, so $\langle v(t)\rangle$ decays as
+$e^{-\beta t/m}$; the slope of $\ln\langle v\rangle$ gives $\beta$.
 
 ## Expected output
 
-    friction at delta = -Gamma/2: beta_sim = 3.248e-22 kg/s, beta_analytic = 3.255e-22 kg/s
+    friction at delta = -Gamma/2 from the decay of <v>: beta_sim = 3.195e-22 kg/s, beta_analytic = 3.255e-22 kg/s
     velocity damping time m/beta = 0.443 ms
      delta/Gamma   T_sim (uK)          T_analytic (uK)
-       -0.25       193.5 +/-  2.1        189.2
-       -0.50       147.0 +/-  1.3        149.2
-       -1.00       182.8 +/-  1.8        183.8
-       -1.50       241.8 +/-  2.8        243.8
-       -2.00       311.4 +/-  3.9        310.3
-       -3.00       450.2 +/-  6.8        449.5
+       -0.25       187.9 +/-  1.9        189.2
+       -0.50       148.4 +/-  1.4        149.2
+       -1.00       184.7 +/-  1.9        183.8
+       -1.50       245.7 +/-  2.8        243.8
+       -2.00       313.1 +/-  4.0        310.3
+       -3.00       448.7 +/-  6.6        449.5
     Doppler limit hbar Gamma/2k_B = 145.6 uK; minimum of the s0 = 0.05 curve = 149.2 uK
 
 ![Molasses force, one atom's velocity, and temperature versus detuning](figures/molasses.png)
 
-Left: the force counted from simulated kicks lies on the analytic curve,
-linear only for $|v|\lesssim2$ m/s. Middle: one atom starting at $-2$ m/s is
+Left: the force obtained by counting absorptions at fixed velocity lies on the
+analytic curve (an illustration of what the formula means), linear only for
+$|v|\lesssim2$ m/s. Middle: one atom starting at $-2$ m/s is
 damped within about a millisecond, then wanders randomly; the size of that
 wandering is the temperature. Right: the simulated temperatures follow the
 analytic curve, with the minimum at $\delta=-\Gamma/2$, just above the Doppler
 limit (the small excess comes from $s_0=0.05$).
 
-The runner checks that the counted forces match the analytic $F(v)$, that the
-small-velocity slope matches $\beta$ within 5%, that every temperature matches
-the analytic formula within 4% plus three standard errors, and that the coldest
-point is at $-\Gamma/2$ within 5% of $T_D$. The 4% allowance covers the
-nonlinearity of the force at the smallest detuning, where $kv$ is not much
-smaller than $|\delta|$.
+The runner checks that the decay rate of the mean velocity gives the analytic
+$\beta$ within 5%, that every temperature matches the analytic formula within 2%
+plus three standard errors, and that the coldest point is at $-\Gamma/2$ within
+5% of $T_D$. The 2% allowance covers the small nonlinearity of the force (about
+1% at the smallest detuning, where $kv$ is not much smaller than $|\delta|$).
 
 ## Try this
 

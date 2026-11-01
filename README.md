@@ -8,7 +8,7 @@
 
 This repo is the introduction to neutral-atom quantum hardware I wish I'd had when I started: a course built **from scratch**, assuming nothing beyond undergraduate physics and a little linear algebra, that takes you from "what does a laser do to an atom?" to Rydberg entangling gates and the architectures being built for quantum error correction.
 
-The first half follows **Metcalf and van der Straten's review _Laser cooling and trapping of atoms_** ([Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf), J. Opt. Soc. Am. B 20, 887 (2003)). The second half is structured after graduate atomic-physics courses and the standard reviews on tweezer arrays and Rydberg atoms (see the [paper map](tutorial/paper-map.md)). Every explanation is written in my own words, every number is computed rather than copied, and every simulation checks itself against an independent result.
+The first half follows **Metcalf and van der Straten's review _Laser cooling and trapping of atoms_** ([Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf), J. Opt. Soc. Am. B 20, 887 (2003)). The second half is structured after graduate atomic-physics courses and the standard reviews on tweezer arrays and Rydberg atoms (see the [paper map](tutorial/paper-map.md)). Every explanation is written in my own words, every derived number is recomputed from a small set of tabulated atomic data, and every simulation checks itself against an independent result.
 
 If you find it useful, a ⭐ genuinely makes my day, and corrections are always welcome.
 
@@ -61,7 +61,7 @@ Every chapter mixes derivations with pictures. All figures are original and rege
 
 ## 🧪 Hands-on labs
 
-Reading is good, but doing sticks. The [**hands-on/**](hands-on/README.md) track simulates the physics on your laptop with NumPy, SciPy and [QuTiP](https://qutip.org), one or two labs per chapter:
+Reading is good, but doing sticks. The [**hands-on/**](hands-on/README.md) track simulates the physics on your laptop with NumPy, SciPy and [QuTiP](https://qutip.org), with labs for chapters 03 and 05 to 12:
 
 | Lab | You simulate | Theory |
 |---|---|---|
@@ -77,8 +77,9 @@ Reading is good, but doing sticks. The [**hands-on/**](hands-on/README.md) track
 | [Rydberg blockade](hands-on/10-rydberg-blockade/) | blockade, $\sqrt N$ enhancement, scaling laws | ch10 |
 | [CZ gate](hands-on/11-cz-gate/) | the Levine and Jaksch gates and their error budget | ch11 |
 | [Erasure code](hands-on/12-erasure-code/) | why detected errors are easier to correct | ch12 |
+| [Adiabatic Z2 crystal](hands-on/13-adiabatic-z2/) | analog simulation: preparing an ordered Rydberg chain | ch10 |
 
-Install the requirements, then run all twelve labs with their physics checks:
+Install the requirements, then run all thirteen labs with their physics checks:
 
 ```bash
 python -m pip install -r hands-on/requirements.txt
