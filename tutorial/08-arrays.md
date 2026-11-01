@@ -32,7 +32,7 @@ $$P_1=\sum_{N\ \rm odd}\frac{\bar n^Ne^{-\bar n}}{N!}=e^{-\bar n}\sinh\bar n=\fr
 
 The occupancy is **sub-Poissonian**: the variance of the atom number per trap, $p(1-p)=0.25$ at $p=1/2$, is much smaller than the Poisson variance $\bar n$. That is useful, but a 50% filling is still a problem: the probability that all $N$ traps are full is $2^{-N}$, about $10^{-15}$ for $N=50$.
 
-**Beating 50%.** If the collisions are tuned so that only **one** atom of a pair escapes, the trap ends with one atom far more often. Blue-detuned light-assisted collisions do this by giving the pair just enough energy for one atom to leave; gray-molasses loading on the D1 line achieves the same with little light scattering. Experiments have reached loading probabilities of about 80 to 90% this way (Grünzweig et al., 2010; Brown et al., 2019). Rearrangement then fills the rest.
+**Beating 50%.** If the collisions are tuned so that only **one** atom of a pair escapes, the trap ends with one atom far more often. Blue-detuned light-assisted collisions do this by giving the pair just enough energy for one atom to leave; gray-molasses loading on the D1 line achieves the same with little light scattering. Grünzweig et al. (2010) pioneered this with blue-detuned light-assisted collisions; with gray-molasses loading, Brown et al. (2019) reached 89% in a single tweezer and 80% across a 10 × 10 array. Rearrangement then fills the rest.
 
 ## Imaging single atoms
 
@@ -110,7 +110,7 @@ $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\t
 ## Key takeaways
 
 - AODs make dynamic rows and grids and move atoms; SLMs make static arbitrary patterns. Most arrays use both.
-- Light-assisted collisions remove atoms in pairs, so each tweezer ends with $N\bmod2$ atoms: $P_1=(1-e^{-2\bar n})/2\to1/2$. Tailored collisions raise this to 80 to 90%.
+- Light-assisted collisions remove atoms in pairs, so each tweezer ends with $N\bmod2$ atoms: $P_1=(1-e^{-2\bar n})/2\to1/2$. Tailored collisions raise this to about 80 to 90%.
 - Fluorescence imaging collects $(1-\cos\theta)/2$ of the photons (6.7% at NA 0.5) and must cool the atom while imaging; assignment errors of $10^{-4}$ and below are possible, and survival is a separate figure of merit.
 - Rearrangement fills empty sites atom by atom; success then decays as $(1-\varepsilon p_{\rm hole})^N e^{-Nt/\tau}$ instead of $p^N$.
 

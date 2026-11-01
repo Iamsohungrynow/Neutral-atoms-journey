@@ -53,14 +53,14 @@ In a superconducting chip, which qubits can interact is fixed by the wiring. In 
 - **Entangling zone**: pairs of atoms are placed within a blockade radius, and a single **global** Rydberg pulse (the Levine gate of Chapter 11) performs CZ gates on all pairs at once.
 - **Readout zone**: ancillas are imaged away from the data.
 
-Two features make this powerful for error correction. **Parallelism**: one global pulse entangles hundreds of pairs, so the time per round of syndrome extraction does not grow with the number of qubits. **Transversal gates**: an error-correcting code stores one logical qubit in a block of physical atoms. Moving one block on top of another and applying a global CZ performs a CZ between corresponding atoms, which is a logical gate between the two logical qubits that does not spread errors within a block. Moving atoms makes such transversal operations natural. Using these ideas, Bluvstein et al. demonstrated coherent transport of entangled atom arrays (2022) and a processor operating on dozens of logical qubits encoded in reconfigurable arrays (2024).
+Two features make this powerful for error correction. **Parallelism**: one global pulse entangles hundreds of pairs, so the time per round of syndrome extraction does not grow with the number of qubits. **Transversal gates**: an error-correcting code stores one logical qubit in a block of physical atoms. Moving one block on top of another and applying a global CZ performs a CZ between corresponding atoms, which is a logical gate between the two logical qubits that does not spread errors within a block. Moving atoms makes such transversal operations natural. Using these ideas, Bluvstein et al. demonstrated coherent transport of entangled atom arrays (2022) and a logical processor with up to 280 physical qubits that entangled up to 48 logical qubits (2024). Follow-up work with up to 448 atoms reported surface-code operation below threshold, transversal logic and mid-circuit qubit re-use (Bluvstein et al., arXiv 2025).
 
 ## Scaling up
 
 Three numbers limit how large an array can be: the laser power per tweezer (Chapter 07), the vacuum-limited lifetime of the atoms (Chapter 08), and the time needed to load, image and rearrange. Recent work attacks each:
 
-- **More tweezers.** Arrays with more than 6000 trapped atomic qubits have been demonstrated (Manetsch et al., 2025).
-- **Continuous operation.** Instead of reloading the whole array each cycle, fresh atoms from a reservoir replace lost ones while the computation continues; a coherent system of about 3000 qubits operated continuously in this way (Chiu et al., 2025).
+- **More tweezers.** Manetsch et al. (2025) trapped more than 6100 caesium atoms in an array of about 12 000 tweezers, with hyperfine coherence times of about 12.6 s and coherent transport over hundreds of micrometres.
+- **Continuous operation.** Instead of reloading the whole array each cycle, fresh atoms replace lost ones while the stored qubits keep their state. Chiu et al. (2025) reloaded about 300 000 atoms per second into tweezers and kept an array of more than 3000 qubits running for over two hours.
 - **Better vacuum and cryogenics.** Cryogenic environments extend trap lifetimes and reduce blackbody-induced Rydberg decay (Chapter 10).
 
 These are developing quickly; check the [reading list](../reading-list/README.md) and recent literature for the current state of the art.

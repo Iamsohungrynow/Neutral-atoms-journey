@@ -40,7 +40,7 @@ Raman beams can be focused onto single atoms or steered with AODs, giving **loca
 
 $$P_{\rm sc}=R\,\frac{\pi}{\Omega_{\rm eff}}=\frac{\pi\Gamma}{|\Delta|},$$
 
-independent of the laser power. At $\Delta/2\pi=50$ GHz this is $\pi\times6.07/50\,000=3.8\times10^{-4}$. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
+independent of the laser power. At $\Delta/2\pi=50$ GHz this is $\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
 
 ### Addressing one atom in an array
 
@@ -141,6 +141,7 @@ What echo cannot remove is noise that changes **during** the sequence: fluctuati
 - S. Kuhr et al., *Analysis of dephasing mechanisms in a standing-wave dipole trap*, Phys. Rev. A 72, 023406 (2005), [arXiv:quant-ph/0410037](https://arxiv.org/abs/quant-ph/0410037). The origin of the $T_2^*$ formula and a careful catalogue of dephasing mechanisms.
 - M. Saffman, *Quantum computing with atomic qubits and Rydberg interactions: progress and challenges*, J. Phys. B 49, 202001 (2016), [arXiv:1605.05207](https://arxiv.org/abs/1605.05207). Qubit encodings, single-qubit gate methods and their error budgets.
 - L. Henriet et al., *Quantum computing with neutral atoms*, Quantum 4, 327 (2020), [arXiv:2006.12326](https://arxiv.org/abs/2006.12326). Encodings and gates from a computing perspective.
+- H. Levine et al., *Dispersive optical systems for scalable Raman driving of hyperfine qubits*, Phys. Rev. A 105, 032618 (2022), [arXiv:2110.14645](https://arxiv.org/abs/2110.14645). A practical Raman laser system for hundreds of tweezer qubits.
 - J. D. Thompson et al., *Coherence and Raman sideband cooling of a single atom in an optical tweezer*, Phys. Rev. Lett. 110, 133001 (2013), [arXiv:1209.3028](https://arxiv.org/abs/1209.3028). Coherence of a hyperfine qubit in a tweezer, including the role of motion.
 
 ---

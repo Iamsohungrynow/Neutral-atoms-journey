@@ -85,7 +85,7 @@ A careful three-dimensional treatment (with the true dipole emission pattern and
 
 ### The surprise of 1988
 
-When Lett and co-workers measured the temperature of sodium in optical molasses carefully, they found about $40\ \mu$K, several times **below** sodium's Doppler limit of $235\ \mu$K. The theory above is correct for a two-level atom; real atoms have several ground-state sublevels, and polarization gradients in the light field add a far more efficient cooling mechanism. That is the subject of Chapter 06.
+When Lett and co-workers measured the temperature of sodium in optical molasses carefully, they found $43\pm20\ \mu$K, several times **below** sodium's Doppler limit of about $240\ \mu$K. The theory above is correct for a two-level atom; real atoms have several ground-state sublevels, and polarization gradients in the light field add a far more efficient cooling mechanism. That is the subject of Chapter 06.
 
 ## Worked example (Rb-87, illustrative numbers)
 

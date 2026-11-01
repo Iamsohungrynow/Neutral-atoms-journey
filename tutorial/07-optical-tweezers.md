@@ -88,7 +88,7 @@ The ratio of the atom's spatial extent to the optical wavelength is the **Lamb-D
 
 *Resolved-sideband cooling in a tweezer. Each cycle of a red-sideband pulse plus optical pumping removes one vibrational quantum. The motional ground state does not absorb on the red sideband, so population piles up there.*
 
-Raman sideband cooling of single atoms in tweezers to near the three-dimensional motional ground state was demonstrated in 2012 to 2013 (Kaufman, Lester and Regal; Thompson et al.). Ground-state cooling matters for Rydberg gates, whose errors grow with atomic motion (Chapter 11), and for experiments that use motion itself as a resource.
+Raman sideband cooling of single atoms in tweezers was demonstrated in 2012 to 2013: Kaufman, Lester and Regal prepared a Rb-87 atom in its three-dimensional vibrational ground state with about 90% probability, and Thompson et al. reached the radial ground state with only a few axial quanta in a tweezer with a 900 nm waist. Ground-state cooling matters for Rydberg gates, whose errors grow with atomic motion (Chapter 11), and for experiments that use motion itself as a resource.
 
 ### Measuring the temperature: release and recapture
 
@@ -140,7 +140,7 @@ How do you take the temperature of *one* atom? Switch the tweezer off for a few 
 
 - R. Grimm, M. Weidemüller, Yu. B. Ovchinnikov, *Optical dipole traps for neutral atoms*, Adv. At. Mol. Opt. Phys. 42, 95 (2000), [arXiv:physics/9902072](https://arxiv.org/abs/physics/9902072). The polarizability, scattering and multilevel formulas of this chapter, and a survey of trap geometries.
 - H. J. Metcalf and P. van der Straten, *Laser cooling and trapping of atoms*, J. Opt. Soc. Am. B 20, 887 (2003), [Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf). Its discussion of quantized atomic motion in optical potentials and of dipole traps.
-- A. M. Kaufman, B. J. Lester, C. A. Regal, *Cooling a single atom in an optical tweezer to its quantum ground state*, Phys. Rev. X 2, 041014 (2012), [arXiv:1209.3087](https://arxiv.org/abs/1209.3087).
+- A. M. Kaufman, B. J. Lester, C. A. Regal, *Cooling a single atom in an optical tweezer to its quantum ground state*, Phys. Rev. X 2, 041014 (2012), [arXiv:1209.2087](https://arxiv.org/abs/1209.2087).
 - J. D. Thompson, T. G. Tiecke, A. S. Zibrov, V. Vuletić, M. D. Lukin, *Coherence and Raman sideband cooling of a single atom in an optical tweezer*, Phys. Rev. Lett. 110, 133001 (2013), [arXiv:1209.3028](https://arxiv.org/abs/1209.3028).
 - A. M. Kaufman and K.-K. Ni, *Quantum science with optical tweezer arrays of ultracold atoms and molecules*, Nat. Phys. 17, 1324 (2021), [arXiv:2109.10087](https://arxiv.org/abs/2109.10087).
 

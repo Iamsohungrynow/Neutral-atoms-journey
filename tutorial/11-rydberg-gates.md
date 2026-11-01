@@ -55,7 +55,7 @@ $$\frac{\Delta}{\Omega}=0.377,\qquad\tau\Omega=4.29,\qquad\xi=3.90\ {\rm rad},$$
 
 with a total duration $2\tau=8.58/\Omega$: 390 ns at $\Omega/2\pi=3.5$ MHz. Check the first condition: $\sqrt{2+0.377^2}\times4.29=1.464\times4.29=6.28\approx2\pi$. Lab 11 finds these values by numerical optimisation and confirms that the result is a CZ up to single-qubit phases. (With the opposite sign convention for the laser phase, the same gate has $\xi=2\pi-3.90=2.38$; both describe the same physics.)
 
-**Faster gates.** Optimal-control methods find smooth phase-modulated pulses that do the same job in less time; the time-optimal CZ gate takes $7.612/\Omega$ (Jandura and Pupillo, 2022). Gates of this family, with additional robustness to calibration errors, reached a CZ fidelity of 99.5% on 60 atoms in parallel (Evered et al., 2023).
+**Faster gates.** Optimal-control methods find a single smooth, phase-modulated global pulse that does the same job about 10% faster; the time-optimal CZ gate takes about $7.6/\Omega$ (Jandura and Pupillo, 2022). Using such fast single-pulse gates, together with dark-state techniques to reduce intermediate-state scattering and improved Rydberg excitation and atom cooling, Evered et al. (2023) reached a CZ fidelity of 99.52(4)% on up to 60 atoms in parallel. The first global two-pulse gate (Levine et al., 2019) had a fidelity of at least 97.4%.
 
 ## The error budget
 
@@ -130,7 +130,7 @@ The intrinsic budget above gives about $10^{-3}$. In experiments other errors us
 
 - A $2\pi$ excursion to $|r\rangle$ multiplies a state by $-1$; the blockade makes that phase conditional.
 - The $\pi$-$2\pi$-$\pi$ gate gives ${\rm diag}(1,-1,-1,-1)$ = CZ up to local $Z$, but needs individual addressing.
-- The global Levine gate uses two identical pulses with a phase jump: $\Delta/\Omega=0.377$, $\tau\Omega=4.29$, $\xi=3.90$, total $8.58/\Omega$; time-optimal pulses take $7.612/\Omega$.
+- The global Levine gate uses two identical pulses with a phase jump: $\Delta/\Omega=0.377$, $\tau\Omega=4.29$, $\xi=3.90$, total $8.58/\Omega$; time-optimal single pulses take about $7.6/\Omega$.
 - Intrinsic errors: decay $\Gamma\overline{T_R}\propto1/\Omega$, Doppler $\propto T/\Omega^2$, finite blockade $\propto(\Omega/V)^2$. For Rb 70S at 3.5 MHz they total about $2\times10^{-3}$.
 - Laser phase noise, intensity errors and intermediate-state scattering add to this; fidelities of 99.5% have been demonstrated in parallel on many pairs.
 
