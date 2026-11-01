@@ -14,7 +14,7 @@ Hamiltonian of Chapter 10:
 Nearest neighbours are strongly blockaded ($V_1/h=18.5$ MHz, nine times
 $\Omega/2\pi=2$ MHz), while next-nearest neighbours barely interact
 ($V_2/h=0.29$ MHz). For large negative $\Delta$ the ground state has every atom in
-$|g\rangle$; for $0<\Delta<V_1$ it is the **$Z_2$ crystal**
+$|g\rangle$; for $0<\Delta<V_1$ (in the limit $\Omega\to0$; with $\Omega/2\pi=2$ MHz the crossover is near $\Delta/2\pi\approx1.4$ MHz) it is the **$Z_2$ crystal**
 $|r\,g\,r\,g\,r\,g\,r\,g\,r\rangle$, one excitation on every other site.
 
 The protocol, used with 51 atoms by Bernien et al. (2017): start in
@@ -37,7 +37,9 @@ Run these commands from the **repository root**, using the environment from the 
     python -m pip install -r hands-on/requirements.txt
     python hands-on/13-adiabatic-z2/z2_sweep.py
 
-The script takes about one to two minutes.
+The script takes about one to two minutes. $T$ is the total time: $\Omega$ is ramped
+on and off during the first and last 10% of $T$, and $\Delta$ is swept linearly during
+the remaining $0.8T$.
 
 ## The code explained
 
@@ -55,6 +57,9 @@ Because the starting state $|g\cdots g\rangle$ and the Hamiltonian are both
 symmetric under reflecting the chain, only reflection-symmetric excited states
 can be reached. The script therefore computes the energy gap within that
 symmetric sector along the sweep; this is the gap that controls adiabaticity.
+(Here the first excited state is itself reflection-symmetric, so the
+symmetric-sector gap equals the full gap; the restriction matters for other $N$
+or geometries.)
 
 ## Expected output
 
@@ -69,6 +74,9 @@ symmetric sector along the sweep; this is the gap that controls adiabaticity.
           4.00        0.793       5.22e-05          4.793
           8.00        0.959       8.83e-07          4.959
 
+(The adjacent-pair probabilities below about $10^{-5}$ are not converged in the
+number of time steps; read them as "less than $10^{-5}$". $P(Z_2)$ is converged.)
+
 ![Gap, Z2 probability versus sweep time, and final density profile](figures/z2_sweep.png)
 
 Left: the gap to the first symmetric excited state shrinks to 0.79 MHz near
@@ -80,8 +88,9 @@ excited chain. The edges order first because the end atoms have only one
 neighbour.
 
 The 0.5 $\mu$s sweep also shows a 3% probability of two *adjacent* excitations:
-its 50 ns ramps of $\Omega$ are so fast that their spectrum reaches the 18.5 MHz
-interaction, so the blockade is no longer perfect. For slower sweeps this
+its 50 ns ramps of $\Omega$ are so fast that their spectrum reaches
+$V_1-\Delta\approx10$ MHz, the energy cost of exciting a neighbour at the end of the
+sweep, so the blockade is no longer perfect. For slower sweeps this
 leakage is below $10^{-3}$.
 
 The runner checks four things: the number of configurations allowed by the
@@ -94,8 +103,14 @@ exceeds 0.9 for the slowest sweep.
 ## Try this
 
 1. Estimate a Landau-Zener time scale from the minimum gap,
-   $T\sim\Delta_{\rm range}/\Delta_{\min}^2$ (in angular units). Is 8 $\mu$s "slow"?
-2. Reduce the spacing to 4.5 $\mu$m. Next-nearest neighbours now interact by
-   $V_1/64\approx1.6$ MHz. Which ordered state do you reach now, and why?
-3. Change $N$ to 10 (even). The $Z_2$ crystal is no longer unique: two patterns
-   compete. What happens to the final state?
+   $T\sim\Delta_{\rm range}/\Delta_{\min}^2$ (in angular units). With
+   $\Delta_{\rm range}=2\pi\times14$ MHz and $\Delta_{\min}=2\pi\times0.79$ MHz this gives
+   about 3.6 $\mu$s for the linear part of the sweep. Is 8 $\mu$s "slow"?
+2. Reduce the spacing to 4.5 $\mu$m ($V_2=V_1/64\approx1.6$ MHz). Is $Z_2$ still the
+   classical ground state at $\Delta_{\rm end}$? Compare its four next-nearest-neighbour
+   bonds (about 6.5 MHz) with the 8 MHz gained per excitation. Then try 4.0 $\mu$m
+   ($V_2\approx3.3$ MHz): which state wins now, and does the sweep reach it?
+3. Change $N$ to 10 (even). Both end atoms want to be excited, so a perfect
+   $r\,g\,r\,g\ldots$ pattern no longer fits: the classical ground state contains
+   one domain wall ($\ldots r\,g\,g\,r\ldots$). Which configurations does the slow
+   sweep produce, and where is the wall?

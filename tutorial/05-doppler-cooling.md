@@ -39,7 +39,7 @@ $$L=\frac{v_0^2-v_f^2}{2\eta\,a_{\max}}.$$
 
 Three design choices deserve comment.
 
-- **Why $\eta<1$?** The atom can only stay locked if a slightly larger force is available when it falls behind. With saturation parameter $s_0$ the largest available force is $a_{\max}\,s_0/(1+s_0)$, so $\eta$ must be below $s_0/(1+s_0)$. A locked atom settles where the force exactly equals $ma$, which happens a little off resonance, on the slow (red-detuned) side: there an atom that falls further behind feels less force and is caught up again by the resonance, so the lock is stable. In lab 02 the atom travels about 2.4 m/s slower than $v_d(z)$, as the force balance predicts.
+- **Why $\eta<1$?** The atom stays on the design curve only if the force can supply $ma$ somewhere near resonance. With saturation parameter $s_0$ the largest deceleration available is $a_{\max}\,s_0/(1+s_0)$, so $\eta$ must be below $s_0/(1+s_0)$. The force equals $ma$ at two detunings, one on each side of resonance, and only one of them is stable: the one where the atom is slightly *slower* than $v_d(z)$ (red-detuned in its own frame). If the atom gets slower still, it moves further from resonance, feels less force, and the resonance, sweeping down in velocity, catches it again. If it gets faster, it moves closer to resonance and is decelerated harder. In lab 02 the atom travels about 2.4 m/s slower than $v_d(z)$, as the force balance predicts.
 - **What is captured?** Every atom with $v_f\lesssim v<v_0$ when it enters drifts until the resonance condition catches up with it, then locks on and exits at about $v_f$. Atoms faster than $v_0$ are never resonant and pass straight through. $v_0$ is the **capture velocity**.
 - **Why red detuning?** With $\delta_L$ well to the red, atoms that have left the slower and slowed further are far off resonance, so the slowing beam does not push them back out of the MOT.
 
@@ -59,7 +59,7 @@ which is positive (a true damping) only for red detuning. Three pairs of beams a
 
 ![Left: force versus atom velocity at detuning minus Gamma with s0 = 1 per beam; the beam along +z pushes positive with a peak near -4.7 m/s, the beam along -z pushes negative with a peak near +4.7 m/s, and their sum is a dispersion-shaped curve passing through zero with negative slope. Right: the total force for detunings -0.5, -1 and -2 Gamma; larger detuning gives a smaller slope (weaker friction) at v = 0 but a wider capture range](figures/05-molasses-force.png)
 
-*The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is linear (pure friction) only for $|v|\lesssim\Gamma/2k\approx2.4$ m/s; faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
+*The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is close to linear (pure friction) only for $kv\lesssim|\delta|$ (about 2 m/s at $\delta=-\Gamma/2$, 4 m/s at $\delta=-\Gamma$). It peaks near $v\approx|\delta|/k$; faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
 
 ## The Doppler limit
 
@@ -77,11 +77,11 @@ At low intensity this is smallest at $\delta=-\Gamma/2$, giving the **Doppler li
 
 $$\boxed{\ k_BT_D=\frac{\hbar\Gamma}{2}\ },\qquad T_D=\frac{(1.0546\times10^{-34})(3.812\times10^7)}{2(1.381\times10^{-23})}=145.6\ \mu{\rm K}\ \text{for Rb-87}.$$
 
-The emission model matters. With a single beam pair and isotropic emission, each emission kick contributes only $(\hbar k)^2/3$ along the axis and the result is $\tfrac23$ of the formula above. With three beam pairs, though, photons scattered from all six beams feed random kicks into every axis, and for isotropic emission the low-intensity limit comes out at exactly $\hbar\Gamma/2$ again; that is the value universally quoted. Note what sets it: only $\Gamma$. A narrower line means a colder limit: the narrow intercombination line of strontium (689 nm, $\Gamma/2\pi=7.4$ kHz) cools to below a microkelvin, and that of ytterbium (556 nm, 182 kHz) to a few microkelvin and above (Chapter 02).
+The emission model matters. With a single beam pair and isotropic emission, each emission kick contributes only $(\hbar k)^2/3$ along the axis and the result is $\tfrac23$ of the formula above. With three beam pairs, though, photons scattered from all six beams feed random kicks into every axis, and for isotropic emission the low-intensity limit comes out at exactly $\hbar\Gamma/2$ again; that is the value universally quoted. Note what sets it: only $\Gamma$. A narrower line means a colder limit: the narrow intercombination line of strontium (689 nm, $\Gamma/2\pi=7.4$ kHz) cools to below a microkelvin, and that of ytterbium (556 nm, 182 kHz) has $T_D=4.4\ \mu$K (Chapter 02). For strontium the Doppler limit (0.18 $\mu$K) is even below the recoil temperature (0.46 $\mu$K), so the recoil sets the floor there.
 
 ![Doppler temperature of Rb-87 versus detuning for s0 = 0, 0.5 and 2 per beam. The s0 = 0 curve has its minimum of 145.6 microkelvin at delta = -Gamma/2, rising steeply toward zero detuning and linearly at large detuning; higher intensity raises the curve and moves its minimum to larger detuning](figures/05-doppler-temperature.png)
 
-*The Doppler theory's prediction. Too close to resonance, the friction vanishes; too far, the atoms barely scatter, and the friction falls faster than the heating. Increasing the intensity only adds heating. Lab 03 reproduces the $s_0=0.05$ curve with an event-by-event simulation of photon kicks.*
+*The Doppler theory's prediction. Too close to resonance, the friction vanishes; too far, the atoms barely scatter, and the friction falls faster than the heating. Increasing the intensity raises the temperature: friction and heating both grow, but the friction saturates first. Lab 03 reproduces the $s_0=0.05$ curve with an event-by-event simulation of photon kicks.*
 
 ### The surprise of 1988
 

@@ -52,7 +52,7 @@ def mot_scheme():
     ax1.text(1.03, -2.2, "J = 0, m = 0", va="center", fontsize=8)
     for mp, col in [(+1, "C3"), (0, "0.4"), (-1, "C0")]:
         ax1.plot(z, 1.0 + 0.55 * mp * z, color=col, lw=2)
-        ax1.text(1.03, 1.0 + 0.55 * mp, f"m' = {mp:+d}", va="center", fontsize=8, color=col)
+        ax1.text(1.03, 1.0 + 0.55 * mp, (f"m' = {mp:+d}" if mp else "m' = 0"), va="center", fontsize=8, color=col)
     ax1.plot(z, 0 * z + 0.6, "C2", lw=1.2, ls="--")
     ax1.text(-1.0, 0.68, "laser (red detuned)", fontsize=8, color="C2")
     zr = (0.6 - 1.0) / (-0.55)   # where m'=-1 meets the laser (z>0)

@@ -25,7 +25,7 @@ From that cloud, an array of tweezers picks up atoms. A surprising piece of phys
 | Property | What it buys you | Where you learn it |
 |---|---|---|
 | **Identical by nature** | every qubit has the same frequencies; no fabrication spread | Ch 02 |
-| **Weakly coupled to the environment** | a neutral atom in its ground state barely feels electric fields or its neighbours, so hyperfine qubits keep their phase for seconds | Ch 09 |
+| **Weakly coupled to the environment** | a neutral atom in its ground state barely feels electric fields or its neighbours, so hyperfine qubits keep their phase for milliseconds, and for seconds with spin echo | Ch 09 |
 | **Interactions you can switch on** | exciting an atom to a high-lying **Rydberg** state makes it interact strongly with atoms micrometres away; de-exciting switches the interaction off again | Ch 10 to 11 |
 | **Optically reconfigurable** | tweezers are just light, so the layout is software: atoms can be moved mid-computation to connect any pair | Ch 08, 12 |
 | **Scalable in number** | thousands of tweezers can be made from one laser with holograms or acousto-optic deflectors | Ch 08 |
@@ -44,7 +44,7 @@ far larger than the few-MHz laser coupling used to drive the atoms. That mismatc
 
 *The frequency (or energy, via $E=hf$) scales in one experiment, computed from the reference data in the [notation page](00-notation.md). Much of atomic physics is the art of using a fast scale to control a slow one: optical photons at hundreds of THz set up a trap whose vibrations are at 100 kHz.*
 
-Keep this ladder in mind. Many approximations in this course work because two scales are far apart. The rotating-wave approximation (Chapter 03) needs the laser coupling to be much smaller than the optical frequency; the dipole trap (Chapter 07) needs the laser to be detuned from resonance by much more than the linewidth; the hyperfine qubit is protected because 6.8 GHz is tiny compared with optical energies but huge compared with the trap vibration frequency.
+Keep this ladder in mind. Many approximations in this course work because two scales are far apart. The rotating-wave approximation (Chapter 03) needs the laser coupling to be much smaller than the optical frequency; the dipole trap (Chapter 07) needs the laser to be detuned from resonance by much more than the linewidth; the hyperfine qubit is long-lived because 6.8 GHz is tiny compared with optical frequencies (spontaneous decay between the qubit levels is negligible, and both levels feel almost the same trap light shift) yet large compared with trap vibration frequencies (so qubit and motional transitions are well resolved).
 
 ## The DiVincenzo criteria, atom by atom
 

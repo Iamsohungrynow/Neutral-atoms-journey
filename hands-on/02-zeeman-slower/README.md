@@ -65,17 +65,20 @@ deceleration from the slope of $v^2$ versus $z$, and compares both with the desi
 Left: the designed field. It falls from $+160$ G, crosses zero, and ends at
 $-87$ G, where it drops abruptly to zero. Right: every atom slower than about
 300 m/s coasts until the resonance condition reaches it, locks on just below the
-dashed design curve (on its slow, red-detuned side), and leaves at 26 m/s: $v_f$
-minus the lag, minus a further 0.7 m/s lost in the last 10 cm, where the atom is
+dashed design curve (on its slow, red-detuned side), and leaves at 26.4 m/s: $v_f$
+minus the lag (which grows to about 2.8 m/s near the exit, where $v_d$ is small),
+minus a further 0.7 m/s lost in the 10 cm after the slower, where the atom is
 20 linewidths off resonance but still scatters a few times $10^4$ photons per
 second. Atoms above the capture velocity are never resonant
 and pass through almost unchanged.
 
 The runner checks four things: that the deceleration the locked atom actually
-experiences (the slope of $v^2$ versus $z$, which should be $-2\eta a_{\max}$)
-matches the design within 2%; that atoms entering between $v_f$ and $v_0$ leave
+experiences (the slope of $v^2$ versus $z$, which should be $-2\eta a_{\max}$; the
+small lag makes it about 1% lower) matches the design within 2%; that atoms entering between $v_f$ and $v_0$ leave
 within 2 m/s of $v_f$ minus the lag; that atoms above $v_0$ are not captured; and
-that the measured lag matches the force balance (10%).
+that the measured lag matches the force balance (10%). The deceleration check
+only confirms that the atom stays locked (any locked atom follows the designed
+$B(z)$); the lag check is the one that tests the force law itself.
 
 ## Try this
 

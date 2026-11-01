@@ -28,7 +28,7 @@ The name comes from the Greek myth: the atom is forever climbing hills. Each cli
 
 $$k_BT\sim|E_{\rm ls}|\propto\frac{\hbar\Omega^2}{|\delta|}\propto\frac{I}{|\delta|}\qquad(|\delta|\gg\Gamma),$$
 
-with a numerical prefactor of order one that depends on the atomic structure. Lower intensity and larger detuning make colder atoms, until the hills become so shallow that a single photon recoil is enough to climb out of a valley. That sets a floor at a few tens of recoil energies $E_r$: a few microkelvin for Rb and Cs, compared with Doppler limits of about $125$ to $150\ \mu$K.
+with a numerical prefactor of order one that depends on the atomic structure. Lower intensity and larger detuning make colder atoms, until the hills become so shallow (a few tens of recoil energies $E_r$) that the recoil heating of each pumping cycle is no longer small compared with the energy removed per climb. That sets the floor: a few microkelvin for Rb and Cs, compared with Doppler limits of about $125$ to $150\ \mu$K.
 
 > **Intuition aside.** Doppler cooling asks the atom to notice a frequency shift smaller than its linewidth: it's like trying to feel a gentle breeze. Sisyphus cooling instead makes the atom pay a toll in potential energy every half wavelength. Even a very slow atom has to pay it, so the friction stays strong down to very low velocities.
 
@@ -79,7 +79,7 @@ These are the parameters of [lab 04](../hands-on/04-mot/).
 | spring constant | $\kappa=\mu'A\beta/\hbar k$ | **$1.66\times10^{-18}$ N/m** |
 | trap frequency | $\sqrt{\kappa/m}/2\pi$ | **540 Hz** |
 | damping rate | $\beta/m$ | **$1.05\times10^4\ {\rm s^{-1}}$** |
-| force maximum (edge of the trap) | $z\approx\hbar\vert\delta\vert/\mu'A$ | **4.3 mm** (linear only for $\vert z\vert\lesssim2$ mm) |
+| position of the force maximum | $z\approx\hbar\vert\delta\vert/\mu'A$ | **4.3 mm** (numerically 4.4 mm; within about 10% of linear out to 2 to 3 mm, and still restoring out to the beam edge at 10 mm) |
 | capture velocity (beams of 1 cm radius) | numerical (lab 04) | **20 m/s** |
 
 **Step 1: friction.** Substitute $\delta=-\Gamma$ (so $2\delta/\Gamma=-2$) and $s_0=1$: $\beta=8\hbar k^2\,\Gamma\times1/[\Gamma\,(1+1+4)^2]=\frac{8}{36}\hbar k^2=0.222\times6.84\times10^{-21}=1.52\times10^{-21}$ kg/s. (A common slip is to use $|\delta|=\Gamma/2$ from the Doppler-limit discussion; substitute the detuning you actually chose.)

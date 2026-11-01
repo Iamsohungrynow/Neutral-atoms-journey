@@ -20,7 +20,8 @@ moving at v_d(z) exactly on resonance:
     mu' B(z) / hbar = delta_L + k v_d(z).
 
 The slower ends where v_d reaches v_f; beyond it B = 0 and the atom is about
-20 linewidths off resonance, so it stops scattering. An atom locked to the
+20 linewidths off resonance, so it scatters about 300 times more slowly than
+inside (it still loses about 0.7 m/s over the next 10 cm). An atom locked to the
 resonance lags behind v_d by the velocity at which the force equals m*a,
 i.e. where s0/(1 + s0 + x^2) = eta with x = 2 delta_eff/Gamma.
 

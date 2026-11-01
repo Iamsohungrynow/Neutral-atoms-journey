@@ -71,7 +71,7 @@ For the Levine gate at $\Omega/2\pi=3.5$ MHz the lab finds $T_R=0,\ 0.208,\ 0.20
 
 ### 2. Doppler dephasing
 
-A moving atom sees the two-photon Rydberg light shifted by $k_{\rm eff}v$ (Chapter 10). Over a gate lasting a few hundred nanoseconds the velocity is effectively constant, so this is a random static detuning, rms $k_{\rm eff}\sigma_v=2\pi\times43$ kHz at $10\ \mu$K. A detuning error $\delta$ causes an infidelity of order $(\delta/\Omega)^2$: the lab finds $5.6\times10^{-4}$ at $10\ \mu$K, scaling as $\sigma_v^2\propto T$. Colder atoms and faster gates reduce it. The usual counter-propagating 420/1013 nm arrangement already removes most of it (co-propagating beams would add the wavevectors and make it about six times worse), and three-photon schemes whose wavevectors cancel can remove it entirely.
+A moving atom sees the two-photon Rydberg light shifted by $k_{\rm eff}v$ (Chapter 10). Over a gate lasting a few hundred nanoseconds the velocity is effectively constant, so this is a random static detuning, rms $k_{\rm eff}\sigma_v=2\pi\times43$ kHz at $10\ \mu$K. A detuning error $\delta$ causes an infidelity of order $(\delta/\Omega)^2$: the lab finds $5.6\times10^{-4}$ at $10\ \mu$K, scaling as $\sigma_v^2\propto T$. Colder atoms and faster gates reduce it. The usual counter-propagating 420/1013 nm arrangement already removes most of it (co-propagating beams would add the wavevectors, multiplying the Doppler detuning by 2.4 and the infidelity by about six), and three-photon schemes whose wavevectors cancel can remove it entirely.
 
 ### 3. Finite blockade
 
@@ -95,7 +95,7 @@ The intrinsic budget above totals about $1.7\times10^{-3}$ (worked example below
 
 | Quantity | Value |
 |---|---|
-| $\Omega/2\pi$, $R$, $V/h$ | 3.5 MHz, 4.0 $\mu$m, 211 MHz |
+| $\Omega/2\pi$, $R$, $V/h$ | 3.5 MHz, 4.0 $\mu$m, 211 MHz (asymptotic $C_6/R^6$; Chapter 10) |
 | gate parameters | $\Delta/\Omega=0.377$, $\tau\Omega=4.29$, $\xi=3.90$ |
 | gate duration | $8.58/\Omega=$ **390 ns** |
 | mean time in $\vert r\rangle$ | **0.150 $\mu$s** |

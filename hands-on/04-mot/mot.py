@@ -101,7 +101,7 @@ print(f"kappa = {kappa:.4e} N/m   (numerical derivative {kappa_num:.4e})")
 print(f"trap frequency omega0/2pi = {w0 / 2 / np.pi:.1f} Hz, damping rate beta/m = {gam:.1f} 1/s")
 print(f"damping ratio (beta/m)/(2 omega0) = {gam / (2 * w0):.2f} "
       f"({'under' if disc < 0 else 'over'}damped)")
-print(f"force maximum near |z| = |delta| hbar/(mu' A) = {abs(delta) * hbar / (mu * A) * 1e3:.2f} mm (linear only for |z| < ~2 mm)")
+print(f"force maximum near |z| = |delta| hbar/(mu' A) = {abs(delta) * hbar / (mu * A) * 1e3:.2f} mm (within ~10% of linear out to ~2-3 mm)")
 print(f"capture velocity (beam radius 1 cm): {v_capture:.1f} m/s; "
       f"energy bound sqrt(4 F_max R/m) = {v_bound:.1f} m/s")
 print(f"max deviation from damped-oscillator solution: "

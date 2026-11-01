@@ -10,7 +10,7 @@ Two devices dominate, and most experiments use both.
 
 **Acousto-optic deflectors (AODs).** A radio-frequency sound wave in a crystal acts as a moving diffraction grating; the deflection angle is proportional to the RF frequency. Driving the AOD with several frequencies at once creates a row of beams, and the objective lens turns each angle into a tweezer at a different position. Two crossed AODs make a rectangular grid. AOD tweezers can be **moved** smoothly by sweeping a frequency, and switched on and off in microseconds, which makes them the tool for rearrangement and for moving atoms during a computation (Chapter 12). Their limitation is that a crossed pair can only make grids that are products of the $x$ and $y$ frequencies.
 
-**Spatial light modulators (SLMs).** A liquid-crystal SLM imprints a programmable phase pattern (a hologram) on the beam; the objective's focal plane then contains the Fourier transform of that pattern. With a suitable hologram, one beam becomes hundreds or thousands of static tweezers in an arbitrary 2D pattern. Iterative algorithms adjust the hologram until all trap depths are equal to within a few percent. SLMs refresh slowly (milliseconds), so they are used for the static array, with AOD tweezers moving atoms between its sites.
+**Spatial light modulators (SLMs).** A liquid-crystal SLM imprints a programmable phase pattern (a hologram) on the beam; the objective's focal plane then contains the Fourier transform of that pattern. With a suitable hologram, one beam becomes hundreds or thousands of static tweezers in an arbitrary 2D pattern. Iterative algorithms adjust the hologram until all trap depths are equal to within a few percent. SLMs refresh slowly (typically tens of milliseconds per frame), so they are used for the static array, with AOD tweezers moving atoms between its sites.
 
 ![Left: an acousto-optic deflector crystal driven by four radio-frequency tones splits one laser beam into four deflected beams, which an objective focuses into four tweezers in a row. Right: a spatial light modulator imprints a phase hologram on a laser beam, and the objective turns it into an arbitrary two-dimensional pattern of tweezers](figures/08-aod-slm.png)
 
@@ -44,7 +44,7 @@ $$\eta_{\rm coll}=\frac{1-\cos\theta}{2},\qquad\sin\theta={\rm NA},$$
 
 of its photons into the lens (for isotropic emission). For NA $=0.5$, $\theta=30°$ and $\eta_{\rm coll}=(1-0.866)/2=6.7\%$; for NA $=0.7$ it is 14.3%. After optical losses and the camera's quantum efficiency, only a few percent of the scattered photons are detected.
 
-**Heating during imaging.** At $6\times10^4$ scattered photons per second, a 20 ms exposure scatters about 1200 photons. Each adds about $2E_r=k_B\times0.36\ \mu$K, so an uncooled atom would gain $1200\times0.36\ \mu{\rm K}\approx0.43$ mK, close to the trap depth. Imaging therefore uses **cooling light** (molasses or a similar configuration) so that the atom is laser-cooled while it fluoresces. The tweezer's light shift also detunes the imaging transition (Chapter 07), which is why imaging light and trap depth are chosen together.
+**Heating during imaging.** At $6\times10^4$ scattered photons per second, a 20 ms exposure scatters about 1200 photons. Each adds about $2E_r=k_B\times0.36\ \mu$K, so an uncooled atom would gain $1200\times0.36\ \mu{\rm K}\approx0.43$ mK, about half the depth of a 1 mK trap. Imaging therefore uses **cooling light** (molasses or a similar configuration) so that the atom is laser-cooled while it fluoresces. The tweezer's light shift also detunes the imaging transition (Chapter 07), which is why imaging light and trap depth are chosen together.
 
 **Fidelity and survival.** Two numbers characterise imaging:
 
@@ -91,7 +91,7 @@ $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\t
 
 **Step 4: combine.** $0.606\times0.717=0.434$. Including the small probability that the reservoir runs short (lab 07) changes nothing at this size. In more than half the cycles at least one site is empty after one round. Experiments then image again and repair the remaining holes in a second round.
 
-**Step 5: imaging.** With $\mu_s=0.0268\times6\times10^4\times0.02=32.2$ detected signal photons and $\mu_b=5$, the optimal threshold is the first count at which a full site becomes more likely than an empty one, where the two Poisson distributions cross: $\mu_s/\ln(1+\mu_s/\mu_b)=32.2/\ln7.44=16.03$, which rounds up to 17 photons (with $\mu_s$ rounded to 32 you would get 16, so carry the digits), and the assignment error is $5\times10^{-5}$.
+**Step 5: imaging.** With $\mu_s=0.0268\times6\times10^4\times0.02=32.2$ detected signal photons and $\mu_b=5$, the optimal threshold (for equal prior probabilities of full and empty, as for 50% loading) is the first count at which a full site becomes more likely than an empty one, where the two Poisson distributions cross: $\mu_s/\ln(1+\mu_s/\mu_b)=32.16/\ln7.43=16.03$, which rounds up to 17 photons. The crossing sits almost exactly at an integer, so thresholds 16 and 17 give nearly the same error ($5.4\times10^{-5}$ and $4.9\times10^{-5}$), and the assignment error is $5\times10^{-5}$.
 
 ## Run it
 
@@ -112,7 +112,7 @@ $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\t
 - AODs make dynamic rows and grids and move atoms; SLMs make static arbitrary patterns. Most arrays use both.
 - Light-assisted collisions remove atoms in pairs, so each tweezer ends with $N\bmod2$ atoms: $P_1=(1-e^{-2\bar n})/2\to1/2$. Tailored collisions raise this to about 80 to 90%.
 - Fluorescence imaging collects $(1-\cos\theta)/2$ of the photons (6.7% at NA 0.5) and must cool the atom while imaging; assignment errors of $10^{-4}$ and below are possible, and survival is a separate figure of merit.
-- Rearrangement fills empty sites atom by atom; success then decays as $(1-\varepsilon p_{\rm hole})^N e^{-Nt/\tau}$ instead of $p^N$.
+- Rearrangement fills empty sites atom by atom; success then decays as $(1-\varepsilon p_{\rm hole})^N e^{-Nt/\tau}$ (with $p_{\rm hole}=1-p$) instead of $p^N$.
 
 ## Go deeper
 

@@ -66,9 +66,10 @@ collective frequency, and the scaling exponents of the ARC data.
 
 ## Try this
 
-1. Detune the laser by $\Delta=V$ at $R=4\ \mu$m. Which state is now resonant
-   from $|gg\rangle$, and at what Rabi frequency? (This "anti-blockade" is used
-   in some gate schemes.)
+1. Detune the laser by $\Delta=V/2$ at $R=4\ \mu$m. Which state is now resonant with
+   $|gg\rangle$ (by absorbing two photons), and at what effective Rabi frequency?
+   (Compare with $\Delta=V$, where an atom that is already excited "facilitates"
+   the excitation of its neighbour.)
 2. Put three atoms on a line with spacing 6 $\mu$m, so nearest neighbours are
    blockaded but the outer pair (12 $\mu$m apart) is not. Which states are
    reachable, and what is the oscillation like?

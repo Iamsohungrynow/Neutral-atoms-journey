@@ -21,7 +21,8 @@ Exact logical error, summing over the numbers of erasures e and flips f:
 
 Limits:  pure Pauli (R_e = 0), d = 3:  P_L = 3p^2 - 2p^3      (~ p^((d+1)/2))
          pure erasure (R_e = 1):        P_L = p^d / 2            (~ p^d)
-so converting errors into erasures roughly doubles the effective code distance.
+so converting all errors into erasures roughly doubles the failure exponent
+(from (d+1)/2 to d).
 """
 
 import os

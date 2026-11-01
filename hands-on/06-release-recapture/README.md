@@ -15,7 +15,7 @@ This lab runs the simulation for a 1 mK, 1064 nm tweezer with a 1 $\mu$m waist
 
 1. Draw 40 000 atoms from the thermal phase-space distribution of the harmonic
    approximation (Gaussian positions and velocities).
-2. Fly them ballistically for time $t$, with gravity (the tweezer axis is $z$ and gravity points along $x$, as for a horizontal tweezer beam; at these times gravity moves the atom by only nanometres).
+2. Fly them ballistically for time $t$, with gravity (the tweezer axis is $z$ and gravity points along $x$, as for a horizontal tweezer beam; over the longest 60 us release gravity moves the atom by about 20 nm).
 3. Recapture an atom if its total energy in the full Gaussian potential is
    negative.
 
@@ -39,7 +39,7 @@ it for each temperature:
 
 Reusing the same random numbers ("common random numbers") makes the simulated
 $P(t)$ a smooth function of $T$, which is what you need for fitting. Atoms
-whose harmonic energy is above $U_0$ would not be bound and are discarded; at
+whose harmonic energy is above $U_0$ might not be bound and are discarded (a conservative cut, since the Gaussian well is deeper than its harmonic approximation); at
 these temperatures there are none.
 
 The recapture condition is the total energy in the *full* potential,

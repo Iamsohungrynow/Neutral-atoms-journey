@@ -138,7 +138,9 @@ checks = {
         abs(n_empty.mean() - mu_b) < 4 * se(mu_b) and abs(n_full.mean() - mu_b - mu_s) < 4 * se(mu_b + mu_s)
         and abs(n_empty.var() / mu_b - 1) < 0.02 and abs(n_full.var() / (mu_b + mu_s) - 1) < 0.02,
     "Monte Carlo fidelity equals the Poisson-CDF formula at every threshold (within 4 s.e.)":
-        np.all(np.abs(F_mc - F_th) < 4 * np.sqrt(0.25 / n_shots) + 1e-4),
+        np.all(np.abs(F_mc - F_th) < 4 * 0.5 * np.sqrt(
+            (1 - poisson.cdf(ths - 1, mu_b)) * poisson.cdf(ths - 1, mu_b) / n_shots
+            + poisson.cdf(ths - 1, mu_b + mu_s) * (1 - poisson.cdf(ths - 1, mu_b + mu_s)) / n_shots) + 1e-6),
     "best threshold equals the pmf crossing point ceil(mu_s / ln(1 + mu_s/mu_b))":
         th_best == th_cross,
     "loss during imaging lowers the best fidelity":

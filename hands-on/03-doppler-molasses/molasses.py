@@ -94,10 +94,10 @@ def mean_force(v, delta, n=400000):
 # ---------------------------------------------------------------------------
 delta0 = -Gamma / 2
 v_probe = np.linspace(-6, 6, 25)
-F_sim, F_exact = np.array([mean_force(v, delta0) for v in v_probe]).T
+F_sim, _ = np.array([mean_force(v, delta0) for v in v_probe]).T
 # Friction measured from the DYNAMICS: atoms all start at +v0 (inside the linear
 # region) and receive random kicks; the mean velocity must decay as exp(-beta t / m).
-# Fixed small time steps (event probability per step ~2%) are used here so that all
+# Fixed small time steps (event probability per step about 4%, 2% per beam) are used here so that all
 # atoms share one clock; the equilibrium temperatures below use the exact event loop.
 def mean_velocity_decay(delta, v0=0.5, n_atoms=20000, t_max=1.2e-3, dt=4e-8):
     v = np.full(n_atoms, v0)
@@ -189,7 +189,6 @@ plt.show()
 # ---------------------------------------------------------------------------
 # Independent checks
 # ---------------------------------------------------------------------------
-F_err = hbar * k * np.sqrt(400000) / (400000 / (np.array([sum(rates(v, delta0)) for v in v_probe])))
 checks = {
     "mean velocity decays at beta/m with beta = -8 hbar k^2 delta s0 / (Gamma(1+s0+x^2)^2), within 5%":
         abs(beta_fit / beta_analytic(delta0) - 1) < 0.05,

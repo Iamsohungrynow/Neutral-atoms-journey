@@ -41,8 +41,8 @@ atoms:
     emit = rng.choice([-1.0, 1.0], n_atoms)
     v = v + (absorb + emit) * vr
 
-After a burn-in of at least eight velocity-damping times $m/\beta$ (2000 events,
-or more at large detuning where the damping is slow), the script accumulates the
+After a burn-in of at least eight velocity-damping times $m/\beta$ (about 3300
+events at $\delta=-\Gamma/2$, rising to about 9900 at $-3\Gamma$; never fewer than 2000), the script accumulates the
 **time-weighted** average of $v^2$ for each atom, because the atom spends a time
 `dt` at each velocity. The temperature is $T=m\langle v^2\rangle/k_B$, and its
 standard error comes from the spread across atoms, which are independent.

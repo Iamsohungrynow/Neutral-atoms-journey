@@ -81,7 +81,7 @@ In practice the cooling laser is also slightly off-resonant with $F'=2$, which i
 
 $$\left(\frac{6.07}{2\times266.65}\right)^2=1.3\times10^{-4},$$
 
-so after very roughly $10^4$ photons the atom lands in $F=1$ and goes dark. This estimate assumes resonant light and ignores line-strength and branching factors; in a MOT the cooling light is red-detuned by about $2\Gamma$, which makes $F'=2$ relatively more likely and the leak faster (a dark atom every few thousand photons). Note also that a perfect $\sigma^+$ beam on $|2,2\rangle$ could not excite $F'=2$ at all (there is no $m_F'=3$ in $F'=2$); the leak happens because real beams and MOTs have mixed polarizations. Laser cooling needs about $5\times10^4$ photons (Chapter 01), so without the repumper the atom would be lost from the cycle long before it was cold.
+so after very roughly $10^4$ photons the atom lands in $F=1$ and goes dark. This estimate assumes resonant light and ignores line-strength and branching factors; in a MOT the cooling light is red-detuned by about $2\Gamma$, which makes $F'=2$ relatively more likely. Including the weaker $F=2\to F'=2$ line strength and the 50% chance that $F'=2$ decays to $F=1$, that gives a dark atom every two to three thousand photons (on resonance the same factors stretch the estimate above to a few $10^4$). Note also that a perfect $\sigma^+$ beam on $|2,2\rangle$ could not excite $F'=2$ at all (there is no $m_F'=3$ in $F'=2$); the leak happens because real beams and MOTs have mixed polarizations. Laser cooling needs about $5\times10^4$ photons (Chapter 01), so at MOT detunings an atom without the repumper would be lost from the cycle long before it was cold.
 
 ## Step 4: the Zeeman effect and the clock states
 
@@ -99,7 +99,7 @@ with $g_J=2.00233$ and $g_I=-0.000995$ (Steck's sign convention, in which the Ze
 
 ![Left: Breit-Rabi diagram of the Rb-87 ground state from 0 to 5000 gauss; five F = 2 sublevels start at +2.56 GHz and three F = 1 sublevels at -4.27 GHz, fanning out linearly at low field, curving at intermediate field and becoming linear again (Paschen-Back regime) at high field. Right: on a log scale, the shift of the clock transition grows as 575 Hz per gauss squared and reaches 575 Hz at 1 gauss, while the magnetically sensitive transition from 1,0 to 2,1 shifts by 0.70 MHz per gauss](figures/02-breit-rabi.png)
 
-*Left: the exact ground-state energies (Breit-Rabi). Right: why the qubit lives in the $m_F=0$ "clock" states. Their transition has no linear Zeeman shift, only a quadratic one, At 1 G it shifts by 575 Hz instead of 700 kHz, and its sensitivity to field fluctuations is about 600 times smaller ($d\nu/dB=1.15$ kHz/G instead of 0.70 MHz/G).*
+*Left: the exact ground-state energies (Breit-Rabi). Right: why the qubit lives in the $m_F=0$ "clock" states. Their transition has no linear Zeeman shift, only a quadratic one. At 1 G it shifts by 575 Hz instead of 700 kHz, and its sensitivity to field fluctuations is about 600 times smaller ($d\nu/dB=1.15$ kHz/G instead of 0.70 MHz/G).*
 
 The two $m_F=0$ states have no linear shift at all. Expanding the Breit-Rabi formula to second order in $x$ for $m=0$ gives the **clock-transition shift**
 
@@ -142,7 +142,7 @@ Two-electron atoms have singlet and triplet families. A broad singlet line (for 
 ## Common pitfalls
 
 - **"The D2 line is a single frequency."** The $5S_{1/2}\to5P_{3/2}$ line has six allowed hyperfine components ($F=1\to F'=0,1,2$ and $F=2\to F'=1,2,3$) spread over 7 GHz. The quoted 780.241 nm refers to the centre of gravity of the line; lasers are locked to a specific hyperfine component.
-- **"Hyperfine splittings follow $A\,F$."** The interval rule gives the splitting between $F$ and $F-1$ as $A\,F$ only when there is no quadrupole term. For $5P_{3/2}$ the $B$ term is needed to reproduce 72.22, 156.95 and 266.65 MHz.
+- **"Hyperfine splittings follow $A\,F$."** The interval rule gives the splitting between $F$ and $F-1$ as $A\,F$ only when there is no quadrupole term. For $5P_{3/2}$ the $B$ term is needed to reproduce the measured splittings, 72.22, 156.95 and 266.65 MHz (to within 0.01 MHz).
 - **"Clock states are immune to magnetic fields."** They have no *linear* shift; the quadratic shift (575 Hz/G$^2$) is still there and must be included when the bias field is several gauss.
 - **"$g_F=1/2$ exactly."** It is $0.4998$ for $F=2$ and $-0.5018$ for $F=1$, because $g_J=2.00233$ is not exactly 2 and because of the small nuclear term $g_I$. The difference matters for precision work.
 - **Primed and unprimed $F$.** By convention $F'$ refers to the excited state and $F$ to the ground state; mixing them up sends lasers to the wrong transition.

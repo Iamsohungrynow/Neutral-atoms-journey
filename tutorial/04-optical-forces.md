@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Light pushes on atoms in two completely different ways. The **scattering force** (radiation pressure) comes from absorbing photons out of a beam and re-emitting them in random directions: every absorption is a kick along the beam. The **dipole force** comes from the energy shift the light field imprints on the atom: where the light is more intense the shift is larger, and the atom slides down (or up) that energy gradient. The first force is dissipative and is the basis of laser *cooling* (Chapters 05 and 06). The second is conservative and is the basis of optical *trapping* (Chapter 07). This chapter derives both from the two-level atom of Chapter 03 and shows why a tweezer must be tuned far from resonance.
+Light pushes on atoms in two completely different ways. The **scattering force** (radiation pressure) comes from absorbing photons out of a beam and re-emitting them in random directions: every absorption is a kick along the beam. The **dipole force** comes from the energy shift the light field imprints on the atom: where the light is more intense the shift is larger, and the atom is pushed toward lower energy: into the light if the shift is negative, out of it if positive. The first force is dissipative and is the basis of laser *cooling* (Chapters 05 and 06). The second is conservative and is the basis of optical *trapping* (Chapter 07). This chapter derives both from the two-level atom of Chapter 03 and shows why a tweezer must be tuned far from resonance.
 
 ## Photon momentum and recoil
 
@@ -30,9 +30,9 @@ Ten thousand times gravity from a beam of a few milliwatts: that is why radiatio
 
 ### The cost: heating from random kicks
 
-The emitted photons do not cancel exactly in any one realisation. Their kicks add like a **random walk**: after $N$ emissions along random directions the spread in momentum along $z$ grows as $\hbar k\sqrt{N/3}$ (the $1/3$ is $\langle\cos^2\theta\rangle$ for isotropic emission). The absorptions are random in time too. Both effects heat the atom. A useful rule: each scattering event raises the atom's mean kinetic energy by about $2E_r$, one $E_r$ from the absorption kick and one from the emission kick. Chapter 05 shows that Doppler cooling is a competition between the mean force (cooling) and this random walk (heating), and the balance sets the lowest temperature.
+The emitted photons do not cancel exactly in any one realisation. Their kicks add like a **random walk**: after $N$ emissions along random directions the spread in momentum along $z$ grows as $\hbar k\sqrt{N/3}$ (the $1/3$ is $\langle\cos^2\theta\rangle$ for isotropic emission). The absorptions are random in time too. Both effects heat the atom. A useful rule: each scattering event raises the atom's random (thermal) kinetic energy by about $2E_r$, one $E_r$ from the absorption kick and one from the emission kick. Chapter 05 shows that Doppler cooling is a competition between the mean force (cooling) and this random walk (heating), and the balance sets the lowest temperature.
 
-![Left: six simulated momentum trajectories, each the momentum along the beam minus N hbar k, wandering randomly within dashed envelopes plus or minus root N over 3 for up to 2000 scattered photons. Right: the mean momentum of 400 simulated atoms grows exactly as N hbar k](figures/04-random-walk.png)
+![Left: six simulated momentum trajectories, each the momentum along the beam minus N hbar k, wandering randomly for up to 2000 scattered photons; dashed curves mark the rms spread plus or minus root N over 3. Right: the mean momentum of 400 simulated atoms grows exactly as N hbar k](figures/04-random-walk.png)
 
 *Simulation of 400 atoms scattering 2000 photons each from a beam along $+z$. The mean momentum grows steadily (right): that is the scattering force. Individual atoms wander about the mean by $\sim\hbar k\sqrt{N/3}$ (left): that is heating.*
 
@@ -109,7 +109,7 @@ This example treats the atom as the two-level cycling transition driven with $\s
 
 - **"A tweezer holds atoms with radiation pressure."** A single focused beam pushes atoms *along* the beam through scattering; the tweezer holds them through the dipole force, and works best where scattering is negligible.
 - **"Blue light can't trap."** Blue-detuned light repels atoms, but a dark spot surrounded by light (a "bottle beam") or a blue-detuned lattice can trap them at intensity minima, where they also scatter less.
-- **Sign of the light shift.** With $\delta=\omega_L-\omega_0$, the ground state shifts by $+\hbar\Omega^2/4\delta$: negative for red. The excited state shifts by the same amount in the opposite direction, which matters for imaging atoms in a tweezer (Chapter 08).
+- **Sign of the light shift.** With $\delta=\omega_L-\omega_0$, the ground state shifts by $+\hbar\Omega^2/4\delta$: negative for red. In the two-level model the excited state shifts by the same amount in the opposite direction. In a real Rb tweezer the $5P_{3/2}$ shift has its own size, set by its couplings to other states (Chapter 07), which matters for imaging atoms in a tweezer (Chapter 08).
 - **Two-level formulas at large detuning.** Once $|\delta|$ approaches the fine-structure splitting (7 THz for Rb) the D1 and D2 lines both contribute, and at still larger detuning (for example a 1064 nm tweezer, 100 THz away) the counter-rotating terms matter too. Chapter 07 uses the full two-line polarizability.
 - **"Emission kicks cancel, so they don't matter."** They cancel on average but not their *variance*. That random walk is the heating that limits Doppler cooling.
 

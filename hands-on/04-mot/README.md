@@ -50,7 +50,7 @@ $v_c<\sqrt{4F_{\max}R/m}$.
     kappa = 1.6596e-18 N/m   (numerical derivative 1.6596e-18)
     trap frequency omega0/2pi = 539.7 Hz, damping rate beta/m = 10530.5 1/s
     damping ratio (beta/m)/(2 omega0) = 1.55 (overdamped)
-    force maximum near |z| = |delta| hbar/(mu' A) = 4.33 mm (linear only for |z| < ~2 mm)
+    force maximum near |z| = |delta| hbar/(mu' A) = 4.33 mm (within ~10% of linear out to ~2-3 mm)
     capture velocity (beam radius 1 cm): 19.9 m/s; energy bound sqrt(4 F_max R/m) = 47.4 m/s
     max deviation from damped-oscillator solution: 0.000% of z0
 

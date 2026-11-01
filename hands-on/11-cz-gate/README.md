@@ -66,7 +66,7 @@ shortest with $\Delta>0$.
     Doppler, 10 uK: infidelity 5.56e-04; at T/4 (sigma_v/2): 1.45e-04 (ratio 3.84)
     Jaksch pi-2pi-pi phases / pi for |00>,|01>,|10>,|11>: [ 0.        1.        1.       -0.999999]
 
-(Values within about $10^{-9}$ of 1, and phases of $\pm\pi$, are numerical noise from
+(Values within about $10^{-9}$ of 1, and the sign of the $\pm\pi$ phase, are numerical noise from
 the matrix exponential: ideal blockade is modelled by a large but finite
 $V=10^7$ rad/us, which keeps the exponential accurately unitary. A phase of
 $-\pi$ is the same as $+\pi$.)
