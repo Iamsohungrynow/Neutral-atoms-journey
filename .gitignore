@@ -1,0 +1,15 @@
+# This repo ships Markdown, code and its own figures only. Papers are LINKED,
+# never re-hosted: block PDFs so a downloaded paper or thesis is never committed.
+*.pdf
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Python run artifacts
+__pycache__/
+*.pyc
+.venv/
+hands-on/run-report.json
