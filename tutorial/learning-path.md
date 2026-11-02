@@ -69,7 +69,8 @@ commands run from the repository root.
 3. $s_0=1/1.669=0.599$; $\gamma_p=\frac\Gamma2\frac{0.599}{1+0.599+1}=4.4\times10^6\ {\rm s^{-1}}$;
    FWHM $=6.07\sqrt{11}=20.1$ MHz.
 4. $U_0=h\times35$ MHz $=k_B\times1.7$ mK and $\gamma_p=2.7\times10^4\ {\rm s^{-1}}$:
-   every scattered photon can flip the qubit, and recoil heating (about $2E_r$ per
+   about a third of the scattered photons are Raman photons that change the
+   atom's hyperfine state and destroy the qubit (Chapter 09), one every 0.1 ms or so, and recoil heating (about $2E_r$ per
    photon, so some 4600 photons to climb out) would boil the atom out of the trap
    in about 0.2 s.
 5. $T_D=\hbar\Gamma/2k_B=125.6\ \mu$K, at $\delta=-\Gamma/2$ and low intensity.
@@ -80,9 +81,9 @@ commands run from the repository root.
    $f_r\propto1/w_0$: $98.5/0.8=123$ kHz.
 8. $0.5^{100}e^{-100\times0.2/60}=5.7\times10^{-31}$. With rearrangement,
    averaging $0.99^h$ over the binomial number of holes $h$ gives
-   $0.995^{100}=0.606$, and $0.606\times e^{-1/3}=0.606\times0.717=0.43$; the
-   reservoir almost never runs short (lab 07's Monte Carlo gives $0.41\pm0.01$).
-   Fewer than half the cycles succeed in one round.
+   $0.995^{100}=0.606$, and $0.606\times e^{-1/3}=0.606\times0.717=0.43$, because
+   the reservoir almost never runs short. Lab 07's Monte Carlo gives
+   $0.411\pm0.013$. Fewer than half the cycles succeed in one round.
 9. $T_2^*=0.97\times2\hbar/(\eta k_BT)$ with $\eta=6.08\times10^{-5}$: 24 ms. No:
    a single echo refocuses only shifts that are constant during the sequence.
    If the whole sequence is much shorter than 1 ms, 1 kHz noise is effectively

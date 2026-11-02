@@ -90,8 +90,8 @@ details.
 - **Observation of atoms laser cooled below the Doppler limit.** Lett, Watts,
   Westbrook, Phillips, Gould, Metcalf (1988). *Phys. Rev. Lett.* 61, 169.
   [doi:10.1103/PhysRevLett.61.169](https://doi.org/10.1103/PhysRevLett.61.169)
-  Sodium at $43\pm20\ \mu$K, far below the Doppler limit of about $240\ \mu$K,
-  which the two-level theory could not explain.
+  Sodium at $43\pm20\ \mu$K, far below the Doppler limit of about $240\ \mu$K.
+  The two-level theory had no explanation for a temperature that low.
 - **Laser cooling below the Doppler limit by polarization gradients: simple
   theoretical models.** Dalibard, Cohen-Tannoudji (1989). *J. Opt. Soc. Am. B* 6, 2023.
   The explanation of Sisyphus and $\sigma^+\sigma^-$ cooling.
