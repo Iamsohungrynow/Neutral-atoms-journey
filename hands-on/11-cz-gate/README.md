@@ -40,7 +40,7 @@ average gate fidelity $F=(|{\rm Tr}(U_{\rm ideal}^\dagger M)|^2+{\rm Tr}(M^\dagg
 Leakage out of the subspace lowers ${\rm Tr}(M^\dagger M)$, so it is penalised.
 
 Decay is modelled by the non-Hermitian term $-i\Gamma/2$ on $|r\rangle$: decayed
-population simply disappears, which counts as an error (a conservative model;
+population disappears from the simulation, which counts as an error (a conservative model;
 a real decay may return the atom to a qubit state). To first order this model
 gives an infidelity of $\Gamma$ times the mean time spent in $|r\rangle$, computed
 by stepping through the ideal gate; that comparison is a consistency check of
@@ -94,3 +94,6 @@ truth table.
 3. Give the two atoms slightly different Rabi frequencies (for example a 2%
    intensity mismatch). How large an imbalance can the gate tolerate at the
    $10^{-3}$ level?
+4. Re-run the optimiser with the finite interaction `V=V0` instead of `V_INF`.
+   How much of the $1.7\times10^{-4}$ finite-blockade error is left? (Most of it
+   is a phase on $|11\rangle$ that the new $\Delta$, $\tau$ and $\xi$ absorb.)

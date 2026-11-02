@@ -56,9 +56,9 @@ double-excitation probability falls steeply inside the blockade radius. Right:
 ARC values on log-log axes. The $C_6$ exponent is 11.3 rather than exactly 11,
 because the Förster defects of real Rb pair states vary with $n$.
 
-Note that the maximum double excitation at 4 $\mu$m, $4.6\times10^{-5}$, equals
-$\frac12(\Omega/V)^2=\frac12(2/210.6)^2$: the perturbative estimate used in
-Chapter 10.
+The maximum double excitation at 4 $\mu$m, $4.6\times10^{-5}$, agrees to about 1%
+with the perturbative estimate used in Chapter 10,
+$\frac12(\Omega/V)^2=\frac12(2/210.6)^2=4.5\times10^{-5}$.
 
 The runner checks the independent-atom limit ($P_{rr}=\sin^4(\Omega t/2)$), the
 $\sqrt2$ enhancement, the $(\Omega/V)^2$ scaling of the leakage, the $\sqrt N$

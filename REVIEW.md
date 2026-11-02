@@ -1,3 +1,49 @@
+# Independent review, 2 November 2026 (fourth pass: derivations and wording)
+
+This pass had two aims: check every equation and every step of every
+derivation (not only the final numbers), and rewrite passages that read as
+machine-generated. Five reviewers each re-derived their slice by hand, with
+sympy or numerically, and proposed text edits; every physics correction below
+was re-checked independently before it was applied. No displayed equation was
+wrong. The corrections are to individual statements, numbers and missing
+conditions.
+
+## Corrections
+
+| Where | Finding | Correction |
+|---|---|---|
+| Ch 11 | finite-blockade error described as leakage, "part of" which calibration removes | it is almost entirely a phase $\delta\phi=2\hbar\Omega/V$ on $\vert11\rangle$, giving $1-F=0.6(\hbar\Omega/V)^2=1.7\times10^{-4}$; re-optimising the pulse leaves $1.2\times10^{-8}$ (checked numerically); leakage is only $10^{-5}$ |
+| Ch 11 | "the design has two steps" followed by three conditions; $1-F\approx\Gamma\overline{T_R}$ and $F$ not derived or defined in the chapter | three conditions for three parameters, with $\phi_{11}=\Delta\tau=1.62$ rad and $\phi_{01}=2.38$ rad shown; Pedersen formula and one-line derivation added |
+| Ch 03 | pitfall said more intensity barely raises the scattering above $s_0\approx1$ | on resonance $s_0=1\to10$ raises $\gamma_p$ from 50% to 91% of $\Gamma/2$; pitfall now targets "scattering is proportional to intensity" |
+| Ch 01 | cooling factor $10^6$ to $10^7$ | $3\times10^6$ to $3\times10^7$ |
+| Ch 02 | worked example reused the resonant leak estimate | one leak per 2 to 3 thousand photons at MOT detunings, every 0.2 to 3 ms |
+| Ch 04 | far-detuned limit of the log formula; sign of $U_0$ in the worked example | needs $\vert\delta\vert\gg\Gamma$ as well; $\vert\delta\vert$ used so $U_0>0$ |
+| Ch 05 | molasses caption: "linear up to $kv\approx\vert\delta\vert$" and "peaks near $\vert\delta\vert/k$" contradict each other | within 10% of linear to 1.5 and 2.5 m/s ($\delta=-\Gamma/2,-\Gamma$); peaks at 2.8 and 4.8 m/s |
+| Ch 06 | Sisyphus climb "every half wavelength" | every quarter wavelength |
+| Ch 07 | Lamb-Dicke parameter called the ratio of size to wavelength | ratio to the reduced wavelength $\lambda/2\pi$ |
+| Ch 08 | error at threshold 16 given as $5.4\times10^{-5}$ | $5.1\times10^{-5}$ |
+| Ch 09 | Rayleigh fraction "70 to 90%" | two thirds for the clock states at any polarization (Kramers-Heisenberg sum; checked numerically) |
+| Ch 10 | $\sqrt N$ condition "within one blockade radius"; lifetime scaling $n^{*3}$ | every pair within $R_b$ of each other; $n^{*3}$ is the radiative part |
+| Ch 12 | dominant failure terms and the value of erasure conversion stated vaguely | leading terms $5.8\times10^{-9}$ and $1.9\times10^{-9}$; 98% conversion is worth an elevenfold cut in the raw error rate |
+| Labs 09, 10 | an oscillating-phase bound off by 2; an ill-posed exercise; "equals" for a 1% agreement | bound $E_i/2\omega_i$; exercise restated; "agrees to about 1%" |
+| notation page | Gaussian potential and $\sigma^x$ | focal-plane form with $w_0$; $\sigma^x_i$ defined |
+
+## Wording
+
+About 160 passages across the chapters, labs and front pages were rewritten:
+signposting openers ("This chapter builds…", "The idea is simple", "Here is
+how"), "This is why" and "Note that" sentences, colons that deliver a moral,
+paragraph-ending morals, rule-of-three lists, filler adjectives, stacked bold
+labels and templated metaphors (several "Intuition aside" boxes now give a
+number the reader can check instead). Section structure, worked examples,
+numbers and links are unchanged.
+
+## Re-run
+
+`python hands-on/run_labs.py --all --check` passes 13/13, regenerating the
+figures leaves every PNG unchanged, and `python tools/check_repo.py` reports
+0 errors.
+
 # Independent review, 1 November 2026 (third pass)
 
 Five fresh reviewers re-read the whole course again in the same slices as the

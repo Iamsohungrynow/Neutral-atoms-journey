@@ -94,8 +94,7 @@ sweep, so the blockade is no longer perfect. For slower sweeps this
 leakage is below $10^{-3}$.
 
 The runner checks four things: the number of configurations allowed by the
-nearest-neighbour blockade is the Fibonacci number $F(N+2)=89$ (a classic
-counting result); the classical ground state at the end of the sweep is the
+nearest-neighbour blockade is the Fibonacci number $F(N+2)=89$; the classical ground state at the end of the sweep is the
 $Z_2$ crystal; the blockade holds (adjacent-pair probability below 1%) for sweeps
 of 1 $\mu$s or longer; and the crystal probability increases with sweep time and
 exceeds 0.9 for the slowest sweep.

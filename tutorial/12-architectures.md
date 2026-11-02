@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-We now have every ingredient of a neutral-atom quantum computer: an assembled array (Chapter 08), single-qubit gates with long coherence (Chapter 09), and Rydberg CZ gates with errors of a few $10^{-3}$ (99.5% demonstrated; Chapter 11). This final chapter is about putting them together into a machine that can run error correction. Three issues are special to atoms. **Readout** by fluorescence is slow and scatters light onto neighbours, so measuring some qubits in the middle of a computation needs care. **Atom loss** is a failure mode that superconducting qubits do not have, but it can be turned into an advantage: a lost atom is an error *whose location is known*, an **erasure**, and erasures are much easier to correct. And because atoms can be **moved**, the layout of the processor is not fixed: modern machines split the array into zones and shuttle atoms between them. [Lab 12](../hands-on/12-erasure-code/) quantifies the erasure advantage with a repetition code.
+We now have every ingredient of a neutral-atom quantum computer: an assembled array (Chapter 08), single-qubit gates with long coherence (Chapter 09), and Rydberg CZ gates with errors of a few $10^{-3}$ (99.5% demonstrated; Chapter 11). This last chapter asks what it takes to run error correction on them, and where atoms differ from other qubits. Fluorescence **readout** is slow and scatters light onto neighbours, so measuring a few qubits in the middle of a computation needs care. Atoms can be **lost**, a failure superconducting qubits do not have; but a missing atom is an error *whose location is known*, an **erasure**, and erasures are much easier to correct. Atoms can also be **moved**, so the processor's layout is not fixed, and current machines split the array into zones and carry atoms between them. [Lab 12](../hands-on/12-erasure-code/) quantifies the erasure advantage with a repetition code.
 
 ## Measuring in the middle of a computation
 
@@ -31,15 +31,15 @@ For a standard error-correcting code these look like ordinary errors at unknown 
 **Why erasures are easier.** Take the simplest code, $d$ copies of a bit with majority voting (the repetition code; it protects against bit flips only, but it shows the principle).
 
 - With **unknown** bit flips of probability $p$, the vote fails once more than half the copies are wrong: the logical error scales as $p^{(d+1)/2}$. For $d=3$ it is $3p^2-2p^3$.
-- With **erasures**, you simply ignore the erased copies and vote among the rest, which are all correct. The vote fails only if **every** copy is erased (and then a random guess is right half the time): $P_L=p^d/2$.
+- With **erasures**, the decoder ignores the erased copies and votes among the rest, which are all correct. The vote fails only if **every** copy is erased (and then a random guess is right half the time): $P_L=p^d/2$.
 
 The exponent grows from $(d+1)/2$ to $d$: almost twice as many faults are needed to cause a failure. Lab 12 computes this exactly and with Monte Carlo, including the realistic case where only a fraction $R_e$ of errors are converted into erasures.
 
 ![Left: logical error probability versus physical error probability on log axes for repetition codes of distance 3, 5 and 7; pure Pauli errors fall as p to the power (d+1)/2, pure erasures as one half of p to the power d, and 98 percent erasure conversion lies in between but far below the Pauli curves. Right: logical error at p = 0.01 versus erasure fraction for d = 3, 5 and 7, nearly flat until the fraction approaches 1 and then dropping steeply](../hands-on/12-erasure-code/figures/erasure.png)
 
-*Lab 12. Erasures are worth more than ordinary errors because their locations are known. Most of the benefit appears only when nearly all errors are converted, which is why the conversion fraction is a key figure of merit.*
+*Lab 12. Left: erasures (dotted) fall off much faster with $p$ than bit flips (solid). Right: at $p=1\%$ the logical error barely moves until nearly every error is converted, then drops steeply.*
 
-The numbers are striking. At $p=1\%$ and $d=5$ the lab finds $P_L=9.9\times10^{-6}$ for Pauli errors, $7.9\times10^{-9}$ with 98% erasure conversion, and $5\times10^{-11}$ for pure erasures. The idea of designing qubits so that their dominant errors are erasures was developed for neutral atoms by Wu, Kolkowitz, Puri and Thompson (2022): in alkaline-earth atoms with a metastable qubit, decay from the Rydberg state mostly lands in states that can be detected by fluorescence without touching the qubit. Real codes such as the surface code show the same qualitative advantage, with higher thresholds for erasures than for Pauli errors.
+At $p=1\%$ and $d=5$ the lab finds $P_L=9.9\times10^{-6}$ for Pauli errors, $7.9\times10^{-9}$ with 98% erasure conversion, and $5\times10^{-11}$ for pure erasures. The idea of designing qubits so that their dominant errors are erasures was developed for neutral atoms by Wu, Kolkowitz, Puri and Thompson (2022): in alkaline-earth atoms with a metastable qubit, decay from the Rydberg state mostly lands in states that can be detected by fluorescence without touching the qubit. Real codes such as the surface code show the same qualitative advantage, with higher thresholds for erasures than for Pauli errors.
 
 ## Moving atoms: zoned architectures
 
@@ -53,7 +53,7 @@ In a superconducting chip, which qubits can interact is fixed by the wiring. In 
 - **Entangling zone**: pairs of atoms are placed within a blockade radius, and a single **global** Rydberg pulse (for example the Levine or the time-optimal gate of Chapter 11) performs CZ gates on all pairs at once.
 - **Readout zone**: ancillas are imaged away from the data.
 
-Two features make this powerful for error correction. **Parallelism**: one global pulse entangles hundreds of pairs, so the time per round of syndrome extraction does not grow with the number of qubits. **Transversal gates**: an error-correcting code stores one logical qubit in a block of physical atoms. Moving one block on top of another and applying a global Rydberg pulse performs a CZ between every pair of corresponding atoms. With Hadamard gates on the target block before and after, this is a transversal CNOT (each physical pair gets $H_t\,{\rm CZ}\,H_t={\rm CNOT}$), which is a logical CNOT for any CSS code (including surface and colour codes). An error on one atom can spread only to its partner in the other block, never within a block. Moving atoms makes such transversal operations natural. Using these ideas, Bluvstein et al. demonstrated coherent transport of entangled atom arrays (2022) and a logical processor with up to 280 physical qubits that entangled up to 48 logical qubits (2024). Follow-up work with up to 448 atoms reported surface-code operation below threshold, transversal logic and mid-circuit qubit re-use (Bluvstein, Geim et al., Nature 2026).
+For error correction, zones bring two things. One global pulse entangles hundreds of pairs at once, so the time for a round of syndrome extraction hardly grows with the number of qubits. And they make **transversal gates** easy. An error-correcting code stores one logical qubit in a block of physical atoms. Moving one block on top of another and applying a global Rydberg pulse performs a CZ between every pair of corresponding atoms. With Hadamard gates on the target block before and after, this is a transversal CNOT (each physical pair gets $H_t\,{\rm CZ}\,H_t={\rm CNOT}$), which is a logical CNOT for any CSS code (including surface and colour codes). An error on one atom can spread only to its partner in the other block, never within a block. Using these ideas, Bluvstein et al. demonstrated coherent transport of entangled atom arrays (2022) and a logical processor with up to 280 physical qubits that entangled up to 48 logical qubits (2024). Follow-up work with up to 448 atoms reported surface-code operation below threshold, transversal logic and mid-circuit qubit re-use (Bluvstein, Geim et al., Nature 2026).
 
 ## Scaling up
 
@@ -67,7 +67,7 @@ These are developing quickly; check the [reading list](../reading-list/README.md
 
 ## The analog route
 
-Not every application needs a fault-tolerant gate-based computer. Running the Rydberg Hamiltonian of Chapter 10 directly on hundreds of atoms, with the detuning swept in time, is already a powerful quantum simulator. Experiments have used it to study quantum phase transitions and ordered phases in 1D and 2D (Bernien et al., 2017; Ebadi et al., 2021; Scholl et al., 2021), and to explore combinatorial optimisation problems that map onto the blockade constraint. Analog and digital modes use the same hardware, and hybrid schemes that combine them are an active research direction.
+Not every application needs a fault-tolerant gate-based computer. Running the Rydberg Hamiltonian of Chapter 10 directly on hundreds of atoms, with the detuning swept in time, already makes a useful quantum simulator. Experiments have used it to study quantum phase transitions and ordered phases in 1D and 2D (Bernien et al., 2017; Ebadi et al., 2021; Scholl et al., 2021), and to explore combinatorial optimisation problems that map onto the blockade constraint. Analog and digital modes use the same hardware, and hybrid schemes that combine them are an active research direction.
 
 ## Worked example: what erasure conversion buys (illustrative numbers)
 
@@ -85,9 +85,9 @@ Not every application needs a fault-tolerant gate-based computer. Running the Ry
 
 **Step 2: pure erasure.** $p^5/2=10^{-10}/2=5\times10^{-11}$.
 
-**Step 3: partial conversion.** With 98% erasures, the residual Pauli rate is $0.02\times1\%=2\times10^{-4}$. The dominant failures now mix a few erasures with one or two flips; the exact sum gives $7.9\times10^{-9}$, more than a thousand times better than all-Pauli.
+**Step 3: partial conversion.** With 98% erasures, the residual Pauli rate is $0.02\times1\%=2\times10^{-4}$. The largest terms are now one erasure with two flips among the four remaining copies (a 2-2 tie, which the coin toss loses half the time; $5.8\times10^{-9}$) and three erasures with one flip ($1.9\times10^{-9}$). The exact sum gives $7.9\times10^{-9}$, about 1250 times better than all-Pauli.
 
-**Step 4: the cost comparison.** Matching $7.9\times10^{-9}$ with Pauli errors at $p=1\%$ needs $d=11$ ($d=9$ gives $1.2\times10^{-8}$) instead of $d=5$: more than twice as many atoms per logical bit, and the gap is larger still for 2D codes, whose qubit count grows as $d^2$. Erasure conversion is therefore as valuable as a large reduction in the raw error rate.
+**Step 4: the cost comparison.** Matching $7.9\times10^{-9}$ with Pauli errors at $p=1\%$ needs $d=11$ ($d=9$ gives $1.2\times10^{-8}$) instead of $d=5$: more than twice as many atoms per logical bit, and the gap is larger still for 2D codes, whose qubit count grows as $d^2$. Put another way, for this code 98% conversion is worth as much as cutting the raw Pauli error rate about elevenfold, from 1% to 0.09%.
 
 ## Run it
 
@@ -95,8 +95,8 @@ Not every application needs a fault-tolerant gate-based computer. Running the Ry
 
 ## Common pitfalls
 
-- **"Atom loss is just another error."** Undetected, it is the worst kind; detected, it is the best kind. The difference is whether your hardware can find it without disturbing the rest.
-- **"Erasure conversion doubles the distance."** Only if (nearly) all errors are converted; the residual Pauli errors set the asymptotic slope, as lab 12 shows for $R_e=98\%$. What changes dramatically is the prefactor.
+- **"Atom loss is just another error."** Undetected, a lost atom acts like an error at an unknown place. Detected, it is an erasure and costs far less to correct. What decides it is whether the hardware can see the loss without disturbing the other qubits.
+- **"Erasure conversion doubles the distance."** Only if (nearly) all errors are converted; the residual Pauli errors set the asymptotic slope, as lab 12 shows for $R_e=98\%$. What 98% conversion changes is the prefactor, by about three orders of magnitude at $p=1\%$.
 - **"Moving atoms is slow, so it is a bad idea."** Moves take hundreds of microseconds, much longer than a gate, but they are done in parallel on many atoms and they buy arbitrary connectivity and transversal gates.
 - **"Mid-circuit measurement is just imaging."** Imaging an ancilla next to data qubits destroys the data unless the two are separated in space, species or internal state.
 - **Comparing platforms by one number.** Gate fidelity, qubit number, connectivity, cycle time and the nature of the errors (erasure or not) all matter for error correction.
