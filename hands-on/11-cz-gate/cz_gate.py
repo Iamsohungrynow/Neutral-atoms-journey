@@ -23,6 +23,9 @@ values Delta/Omega = 0.377, tau Omega = 4.29, xi = 3.90 are recovered.)
 Gate quality: the 4 x 4 block M of the propagator on the qubit subspace is
 compared with CZ up to single-qubit Z rotations using the average gate fidelity
 F = (|Tr(U^dag M)|^2 + Tr(M^dag M)) / 20  (Pedersen et al. 2007).
+The Z phases are read off M, except for the random Doppler detunings: there they
+are held at their ideal-gate values, because a correction calibrated once cannot
+follow a velocity that changes from shot to shot.
 
 Units: time in us, angular frequencies in rad/us.
 """
@@ -66,10 +69,10 @@ def levine_U(params, **kw):
     return expm(-1j * H_pair(xi, D, **kw) * tau) @ expm(-1j * H_pair(0.0, D, **kw) * tau)
 
 
-def fidelity_cz(U):
+def fidelity_cz(U, phases=None):
     M = U[np.ix_(comp, comp)]
-    th = np.angle(M[1, 1])                       # single-qubit Z phase from |01>
-    th2 = np.angle(M[2, 2])
+    # single-qubit Z phases: read off |01> and |10>, or held at given (calibrated) values
+    th, th2 = (np.angle(M[1, 1]), np.angle(M[2, 2])) if phases is None else phases
     ideal = np.diag([1, np.exp(1j * th), np.exp(1j * th2), -np.exp(1j * (th + th2))])
     return (abs(np.trace(ideal.conj().T @ M))**2 + np.real(np.trace(M.conj().T @ M))) / 20
 
@@ -122,10 +125,13 @@ inf_V = {V: 1 - fidelity_cz(levine_U(params, V=V)) for V in (V0, 2 * V0)}
 rng = np.random.default_rng(1)
 
 
+Z_PHASES = (np.angle(M[1, 1]), np.angle(M[2, 2]))   # calibrated once, on the ideal gate
+
+
 def doppler_infidelity(sigma_v, n=600):
     s = k_eff * sigma_v
     d = rng.standard_normal((n, 2)) * s
-    return 1 - np.mean([fidelity_cz(levine_U(params, V=V_INF, d1=a, d2=b)) for a, b in d])
+    return 1 - np.mean([fidelity_cz(levine_U(params, V=V_INF, d1=a, d2=b), Z_PHASES) for a, b in d])
 
 
 inf_dopp = doppler_infidelity(sigma_v_10uK)

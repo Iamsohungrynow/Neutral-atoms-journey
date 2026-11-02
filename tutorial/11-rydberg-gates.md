@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Chapter 10 showed that two nearby atoms cannot both be excited to a Rydberg state. Here that rule becomes a **controlled-Z (CZ) gate** between hyperfine qubits. The mechanism rests on one fact: a state that goes to $|r\rangle$ and back in a full $2\pi$ rotation returns with a minus sign, and the blockade decides which states may make the trip. We start with the addressed **$\pi$-$2\pi$-$\pi$ protocol** of Jaksch et al., move on to the **global two-pulse gate** of Levine et al., on which today's parallel gates build, and then estimate what limits the fidelity. [Lab 11](../hands-on/11-cz-gate/) reproduces the published gate parameters and checks how each error scales.
+Chapter 10 showed that two nearby atoms cannot both be excited to a Rydberg state. Here that rule becomes a **controlled-Z (CZ) gate** between hyperfine qubits. It works because a state that goes to $|r\rangle$ and back in a full $2\pi$ rotation returns with a minus sign, and the blockade decides which states may make the trip. We start with the addressed **$\pi$-$2\pi$-$\pi$ protocol** of Jaksch et al., move on to the **global two-pulse gate** of Levine et al., on which today's parallel gates build, and then estimate what limits the fidelity. [Lab 11](../hands-on/11-cz-gate/) reproduces the published gate parameters and checks how each error scales.
 
 > **Conventions.** Qubit states $|0\rangle=|F{=}1,m_F{=}0\rangle$ and $|1\rangle=|F{=}2,m_F{=}0\rangle$; only $|1\rangle$ is coupled to $|r\rangle$. The single-atom Hamiltonian is $\frac{\hbar\Omega}{2}(e^{-i\xi}|r\rangle\langle1|+{\rm h.c.})-\hbar\Delta|r\rangle\langle r|$ with laser phase $\xi$, as in the [notation page](00-notation.md).
 
@@ -75,19 +75,19 @@ To see why, treat a decay as loss: input $i$ keeps amplitude $e^{-\Gamma T_R^i/2
 
 ### 2. Doppler dephasing
 
-A moving atom sees the two-photon Rydberg light shifted by $k_{\rm eff}v$ (Chapter 10). Over a gate lasting a few hundred nanoseconds the velocity is effectively constant, so this is a random static detuning, rms $k_{\rm eff}\sigma_v=2\pi\times43$ kHz at $10\ \mu$K. A detuning error $\delta$ causes an infidelity of order $(\delta/\Omega)^2$: the lab finds $5.6\times10^{-4}$ at $10\ \mu$K, scaling as $\sigma_v^2\propto T$. Colder atoms and faster gates reduce it. The usual counter-propagating 420/1013 nm arrangement already removes most of it (co-propagating beams would add the wavevectors, multiplying the Doppler detuning by 2.4 and the infidelity by about six), and three-photon schemes whose wavevectors cancel can remove it entirely.
+A moving atom sees the two-photon Rydberg light shifted by $k_{\rm eff}v$ (Chapter 10). Over a gate lasting a few hundred nanoseconds the velocity is effectively constant, so this is a random static detuning, rms $k_{\rm eff}\sigma_v=2\pi\times43$ kHz at $10\ \mu$K. A detuning error $\delta$ causes an infidelity of order $(\delta/\Omega)^2$: the lab finds $1.1\times10^{-3}$ at $10\ \mu$K, scaling as $\sigma_v^2\propto T$. For this estimate the single-qubit $Z$ phases are held at their ideal-gate values instead of being read off each run, because a correction calibrated once cannot follow a velocity that changes from shot to shot. Colder atoms and faster gates reduce it. The usual counter-propagating 420/1013 nm arrangement already removes most of it (co-propagating beams would add the wavevectors, multiplying the Doppler detuning by 2.4 and the infidelity by about six), and three-photon schemes whose wavevectors cancel can remove it entirely.
 
 ### 3. Finite blockade
 
-With $V$ finite, $|W\rangle$ is coupled to $|rr\rangle$ with matrix element $\hbar\Omega/\sqrt2$ across an energy gap of about $V$. In second order this lowers the energy of $|W\rangle$ by $(\hbar\Omega)^2/2V$, so $|11\rangle$ collects an extra phase $\delta\phi\approx\hbar\Omega^2T_R^{11}/2V$, which is $2\hbar\Omega/V$ for the Levine gate ($\Omega T_R^{11}=4.0$). A phase error $\delta\phi$ on one of the four inputs gives $1-F=3\,\delta\phi^2/20=0.6\,(\hbar\Omega/V)^2$, or $1.7\times10^{-4}$ at $V/h=211$ MHz (two 70S atoms 4 $\mu$m apart), as the lab finds; the population that leaks into $|rr\rangle$ is only $10^{-5}$. The error falls fourfold when $V$ doubles and grows with $\Omega$. Since it is almost all a fixed phase, re-optimising $\Delta$, $\tau$ and $\xi$ for the actual $V$ removes it (to about $10^{-8}$ here). What cannot be calibrated away is the shot-to-shot change in $V$ as the atoms' separation fluctuates.
+With $V$ finite, $|W\rangle$ is coupled to $|rr\rangle$ with matrix element $\hbar\Omega/\sqrt2$ across an energy gap of about $V$. In second order this lowers the energy of $|W\rangle$ by $(\hbar\Omega)^2/2V$, so $|11\rangle$ collects an extra phase $\delta\phi\approx\hbar\Omega^2T_R^{11}/2V$, which is $2\hbar\Omega/V$ for the Levine gate ($\Omega T_R^{11}=4.0$). A phase error $\delta\phi$ on one of the four inputs gives $1-F=3\,\delta\phi^2/20=0.6\,(\hbar\Omega/V)^2$, or $1.7\times10^{-4}$ at $V/h=211$ MHz (two 70S atoms 4 $\mu$m apart), as the lab finds; the population left outside the qubit states at the end of the gate is only $10^{-5}$. The error falls fourfold when $V$ doubles and grows with $\Omega$. Since it is almost all a fixed phase, re-optimising $\Delta$, $\tau$ and $\xi$ for the actual $V$ removes it (to about $10^{-8}$ here). What cannot be calibrated away is the shot-to-shot change in $V$ as the atoms' separation fluctuates.
 
-![Left: population of the initial state during the Levine gate; the 11 state returns to 1 at the end of the first pulse, the 01 state only at the end of the second pulse after the phase jump. Right: gate infidelity versus Rydberg Rabi frequency on log axes for Rydberg decay (falling as one over Omega), Doppler dephasing at 10 microkelvin (falling as one over Omega squared), finite blockade at 211 MHz (rising as Omega squared), and their sum, which has a minimum of about 1.3 times ten to the minus three near 6 MHz](../hands-on/11-cz-gate/figures/cz_gate.png)
+![Left: population of the initial state during the Levine gate; the 11 state returns to 1 at the end of the first pulse, the 01 state only at the end of the second pulse after the phase jump. Right: gate infidelity versus Rydberg Rabi frequency on log axes for Rydberg decay (falling as one over Omega), Doppler dephasing at 10 microkelvin (falling as one over Omega squared), finite blockade at 211 MHz (rising as Omega squared), and their sum, which has a minimum of about 1.5 times ten to the minus three near 6.5 MHz](../hands-on/11-cz-gate/figures/cz_gate.png)
 
 *Lab 11. Left: the two pulses of the Levine gate. Right: the three intrinsic errors scale differently with $\Omega$, so there is an optimal Rabi frequency. Real experiments add laser and control errors on top.*
 
 ### 4. Technical errors
 
-The intrinsic budget above totals about $1.7\times10^{-3}$ (worked example below). In experiments other errors usually dominate:
+The intrinsic budget above totals about $2.3\times10^{-3}$ (worked example below). In experiments other errors usually dominate:
 
 - **Laser phase noise.** The Rydberg lasers' phase directly enters the gate; noise at frequencies near $\Omega$ is especially harmful. Experiments lock their lasers to high-finesse cavities and filter out the "servo bumps" of the lock.
 - **Intensity noise and inhomogeneity.** A 1% error in $\Omega$ shifts the pulse areas; across a large array the beams must be uniform, and pulse shapes designed to be insensitive to small amplitude errors help.
@@ -104,19 +104,19 @@ The intrinsic budget above totals about $1.7\times10^{-3}$ (worked example below
 | gate duration | $8.58/\Omega=$ **390 ns** |
 | mean time in $\vert r\rangle$ | **0.150 $\mu$s** |
 | decay error ($\tau_r=146\ \mu$s) | **$1.0\times10^{-3}$** |
-| Doppler error (10 $\mu$K) | **$5.6\times10^{-4}$** |
+| Doppler error (10 $\mu$K) | **$1.1\times10^{-3}$** |
 | finite-blockade error | **$1.7\times10^{-4}$** |
-| intrinsic total | **$\approx1.7\times10^{-3}$** ($F\approx99.8\%$) |
+| intrinsic total | **$\approx2.3\times10^{-3}$** ($F\approx99.8\%$) |
 
 **Step 1: duration.** $2\times4.29/(2\pi\times3.5\ {\rm MHz})=8.58/(22.0\ \mu{\rm s}^{-1})=0.390\ \mu$s.
 
-**Step 2: decay.** $0.150\ \mu{\rm s}/146\ \mu{\rm s}=1.0\times10^{-3}$. This is the largest intrinsic term.
+**Step 2: decay.** $0.150\ \mu{\rm s}/146\ \mu{\rm s}=1.0\times10^{-3}$.
 
-**Step 3: Doppler.** $k_{\rm eff}\sigma_v/\Omega=2\pi\times43\ {\rm kHz}/(2\pi\times3.5\ {\rm MHz})=0.012$; the infidelity is a few times $0.012^2$, and the lab gives $5.6\times10^{-4}$.
+**Step 3: Doppler.** $k_{\rm eff}\sigma_v/\Omega=2\pi\times43\ {\rm kHz}/(2\pi\times3.5\ {\rm MHz})=0.012$; the infidelity is several times $0.012^2$, and the lab gives $1.1\times10^{-3}$, about the same as the decay term.
 
-**Step 4: blockade.** $\hbar\Omega/V=3.5/211=0.0166$, so the extra phase on $|11\rangle$ is $2\hbar\Omega/V=0.033$ rad and the infidelity $3\times0.033^2/20=1.7\times10^{-4}$, as the lab gives.
+**Step 4: blockade.** $\hbar\Omega/V=3.5/211=0.0166$, so the extra phase on $|11\rangle$ is $2\hbar\Omega/V=0.0332$ rad and the infidelity $3\times0.0332^2/20=1.65\times10^{-4}$, close to the lab's $1.7\times10^{-4}$.
 
-**Step 5: verdict.** About $1.7\times10^{-3}$ from decay, motion and finite interaction, before laser noise and intermediate-state scattering. The blockade term is nearly all a fixed phase that recalibrating the pulse absorbs, so the floor that cannot be calibrated away is closer to $1.6\times10^{-3}$, set by decay and Doppler. The 2023 demonstration reached 99.5%, within a factor of about three of this illustrative floor. Cryogenic cells, higher Rydberg states, faster error-tolerant pulses and colder atoms are the ways groups are trying to lower the floor itself.
+**Step 5: verdict.** About $2.3\times10^{-3}$ from decay, motion and finite interaction, before laser noise and intermediate-state scattering. The blockade term is nearly all a fixed phase that recalibrating the pulse absorbs, so the floor that cannot be calibrated away is closer to $2.2\times10^{-3}$, set by decay and Doppler. The 2023 demonstration reached 99.5%, within a factor of about two of this illustrative floor. Cryogenic cells, higher Rydberg states, faster error-tolerant pulses and colder atoms are the ways groups are trying to lower the floor itself.
 
 ## Run it
 
@@ -135,7 +135,7 @@ The intrinsic budget above totals about $1.7\times10^{-3}$ (worked example below
 - A $2\pi$ excursion to $|r\rangle$ multiplies a state by $-1$; the blockade makes that phase conditional.
 - The $\pi$-$2\pi$-$\pi$ gate gives ${\rm diag}(1,-1,-1,-1)$ = CZ up to local $Z$, but needs individual addressing.
 - The global Levine gate uses two identical pulses with a phase jump: $\Delta/\Omega=0.377$, $\tau\Omega=4.29$, $\xi=3.90$, total $8.58/\Omega$; time-optimal single pulses take about $7.6/\Omega$.
-- Intrinsic errors: decay $\Gamma\overline{T_R}\propto1/\Omega$, Doppler $\propto T/\Omega^2$, finite blockade $\propto(\Omega/V)^2$ (mostly a phase that calibration removes). For Rb 70S at 3.5 MHz they total about $1.7\times10^{-3}$.
+- Intrinsic errors: decay $\Gamma\overline{T_R}\propto1/\Omega$, Doppler $\propto T/\Omega^2$, finite blockade $\propto(\Omega/V)^2$ (mostly a phase that calibration removes). For Rb 70S at 3.5 MHz they total about $2.3\times10^{-3}$.
 - Laser phase noise, intensity errors and intermediate-state scattering add to this; fidelities of 99.5% have been demonstrated in parallel on many pairs.
 
 ## Go deeper

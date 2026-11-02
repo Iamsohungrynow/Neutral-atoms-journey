@@ -48,7 +48,10 @@ the code. The independent physics check is the time $|11\rangle$ spends in
 $|r\rangle$: one full detuned cycle of a two-level system with coupling
 $\sqrt2\Omega$ per pulse gives exactly $2\tau\,\Omega^2/(2\Omega^2+\Delta^2)$. Doppler shifts are Gaussian random detunings
 with rms $k_{\rm eff}\sigma_v$, held constant during each gate and averaged over
-600 samples; the two temperatures use independent random draws.
+600 samples; the two temperatures use independent random draws. For these the
+$Z$ phases are not read off each sample but held at their ideal-gate values
+(`Z_PHASES`): in an experiment the corrections are calibrated once and cannot
+follow a velocity that changes from shot to shot.
 
 The optimiser is started near the published values. Other starting points can
 converge to equivalent solutions, for example the mirror image $\Delta\to-\Delta$,
@@ -63,7 +66,7 @@ shortest with $\Delta>0$.
        time in |r> (us): 00 0.000, 01 0.208, 10 0.208, 11 0.182
     decay (tau = 146.2 us): infidelity 1.022e-03; prediction mean(Gamma T_R) = 1.022e-03
     finite blockade: infidelity at V = 211 MHz: 1.71e-04; at 2V: 4.26e-05 (ratio 4.03)
-    Doppler, 10 uK: infidelity 5.56e-04; at T/4 (sigma_v/2): 1.45e-04 (ratio 3.84)
+    Doppler, 10 uK: infidelity 1.14e-03; at T/4 (sigma_v/2): 2.84e-04 (ratio 4.02)
     Jaksch pi-2pi-pi phases / pi for |00>,|01>,|10>,|11>: [ 0.        1.        1.       -0.999999]
 
 (Values within about $10^{-9}$ of 1, and the sign of the $\pm\pi$ phase, are numerical noise from

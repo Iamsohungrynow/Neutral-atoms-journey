@@ -1,3 +1,32 @@
+# Independent review, 2 November 2026 (fifth pass: audit of the fourth pass)
+
+Rewriting about 160 passages can introduce new mistakes, so five fresh
+reviewers compared every hunk of the fourth pass with the text it replaced and
+re-derived every equation in their slice again. Each finding was re-checked
+before it was applied; the lab 11 correction was confirmed with a separate
+script and a different random seed.
+
+## Corrections
+
+| Where | Finding | Correction |
+|---|---|---|
+| Lab 11, Ch 11 | the Doppler error re-fitted the single-qubit $Z$ phases for every random velocity, which cancels each shot's random phase error (pre-existing) | phases held at their calibrated ideal-gate values: Doppler error $1.1\times10^{-3}$ (was $5.6\times10^{-4}$), intrinsic total $2.3\times10^{-3}$, floor $2.2\times10^{-3}$, figure minimum $1.5\times10^{-3}$ near 6.5 MHz |
+| Ch 02 | fourth-pass rewrite said spin-orbit coupling splits "each level" | only $5p$ is split here; the $5s$ ground state has no fine structure |
+| Ch 03 | fourth-pass rewrite said pure $\sigma^+$ driving still leaks | pure $\sigma^+$ on $\vert2,2\rangle\to\vert3',3'\rangle$ is closed; leaks come from impure polarization |
+| Ch 05 | fourth-pass caption gave $\vert\delta\vert/k$ (2.4 and 4.7 m/s) as the force peaks | peaks at 2.8 and 4.8 m/s |
+| Ch 07 | "only the lowest few levels are occupied" (fourth pass) | true radially; axially $\bar n=8.3$ puts 32% of atoms in $n\ge10$ |
+| Ch 10 | "exciting both atoms of a pair costs $V-\hbar\Delta$" (fourth pass) | exciting the *second* atom costs $V$ and gains $\hbar\Delta$ |
+| Ch 11 | "population that leaks into $\vert rr\rangle$ is $10^{-5}$"; $3\times0.033^2/20$ rounded to $1.7\times10^{-4}$ (fourth pass) | the $10^{-5}$ is left in $\vert W\rangle$; $3\times0.0332^2/20=1.65\times10^{-4}$ |
+| Ch 04 | takeaway $\hbar\gamma_p=(\Gamma/\vert\delta\vert)U$ (pre-existing) | $\vert U\vert$ |
+| Ch 01, 07, 09 | "seconds with spin echo"; a cross-reference to trap modulation that Chapter 08 does not contain; three ambiguous sentences | trains of echo pulses; reworded |
+| learning path, index | checkpoint 4 said every photon flips the qubit; Monte Carlo error bar rounded; "all the numbers are for Rb-87" | about a third are Raman photons; $0.411\pm0.013$; worked examples use Rb-87, comparisons use other atoms |
+
+## Re-run
+
+`python hands-on/run_labs.py --all --check` passes 13/13 (lab 11 prints the new
+Doppler numbers), regenerating the figures changes only the lab 11 figure, and
+`python tools/check_repo.py` reports 0 errors.
+
 # Independent review, 2 November 2026 (fourth pass: derivations and wording)
 
 This pass had two aims: check every equation and every step of every
