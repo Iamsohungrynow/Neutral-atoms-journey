@@ -22,7 +22,7 @@ This course keeps to the Rb-87 clock qubit, $|0\rangle=|F{=}1,m_F{=}0\rangle$ an
 
 ### Microwaves
 
-The qubit splitting is a microwave frequency, so the simplest way to drive $|0\rangle\leftrightarrow|1\rangle$ is a microwave horn or antenna at 6.834 GHz. The wavelength is $c/6.834\ {\rm GHz}=4.4$ cm, much larger than the array, so every atom sees the same field and a microwave pulse acts on the whole array at once (a **global** drive). They are clean (no spontaneous emission) but slow; Rabi frequencies of tens of kHz give $\pi$ pulses of tens of microseconds.
+The qubit splitting is a microwave frequency, so the simplest way to drive $|0\rangle\leftrightarrow|1\rangle$ is a microwave horn or antenna at 6.834 GHz. The wavelength is $c/6.834\ {\rm GHz}=4.4$ cm, much larger than the array, so every atom sees the same field and a microwave pulse acts on the whole array at once (a **global** drive). Microwaves are clean (no spontaneous emission) but slow; Rabi frequencies of tens of kHz give $\pi$ pulses of tens of microseconds.
 
 ### Two-photon Raman transitions
 
@@ -40,7 +40,7 @@ Raman beams can be focused onto single atoms or steered with AODs, giving **loca
 
 $$P_{\rm sc}=R\,\frac{\pi}{\Omega_{\rm eff}}=\frac{\pi\Gamma}{|\Delta|},$$
 
-independent of the laser power. This overestimates the error. For the clock states, with $|\Delta|$ well below the fine-structure splitting, about two thirds of the scattered photons are Rayleigh photons, which return the atom to the state it started in, whatever the polarization. For $|\Delta|\gg\omega_{\rm hfs}$ they barely distinguish the two qubit states and leave the qubit nearly intact. Only the remaining third, the Raman (state-changing) photons, is fully destructive. At $\Delta/2\pi=50$ GHz, $P_{\rm sc}=\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
+independent of the laser power. This overestimates the error. For the clock states, with $|\Delta|$ well below the fine-structure splitting, about two thirds of the scattered photons are Rayleigh photons, whatever the polarization. A Rayleigh photon returns the atom to the state it started in. For $|\Delta|\gg\omega_{\rm hfs}$ they barely distinguish the two qubit states and leave the qubit nearly intact. Only the remaining third, the Raman (state-changing) photons, is fully destructive. At $\Delta/2\pi=50$ GHz, $P_{\rm sc}=\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
 
 ### Addressing one atom in an array
 
@@ -115,7 +115,7 @@ What echo cannot remove is noise that changes **during** the sequence: fluctuati
 
 **Step 3: thermal dephasing.** $2\hbar/(k_B\times10\ \mu{\rm K})=1.53\ \mu$s, divided by $\eta=2.26\times10^{-4}$ gives 6.8 ms, times 0.97 gives $T_2^*=6.6$ ms.
 
-**Step 4: what that buys.** About $6.6\ {\rm ms}/5\ \mu{\rm s}\approx1300$ Raman $\pi$ pulses fit into $T_2^*$, and with spin echo the usable time extends much further. The entangling gates of Chapters 10 and 11 are much harder to make this accurate.
+**Step 4: what that buys.** About $6.6\ {\rm ms}/5\ \mu{\rm s}\approx1300$ Raman $\pi$ pulses fit into $T_2^*$, and with spin echo the usable time extends much further. Single-qubit operations are therefore in good shape; the entangling gates of Chapters 10 and 11 are the harder part.
 
 ## Run it
 
