@@ -118,7 +118,7 @@ This example treats the atom as the two-level cycling transition driven with $\s
 - Each photon changes a Rb atom's velocity by $v_r=5.9$ mm/s; scattering at up to $\Gamma/2$ gives forces up to $\hbar k\Gamma/2$, about $10^4\,g$.
 - The scattering force $F=\hbar k\gamma_p$ is dissipative and points along the beam; the random emission kicks heat the atom by about $2E_r$ per photon.
 - The dipole force comes from the light shift $\hbar\Omega^2/4\delta$: red detuning attracts atoms to intense light, blue detuning repels them.
-- At large detuning, $U\propto I/\delta$ while $\gamma_p\propto I/\delta^2$, so $\hbar\gamma_p=(\Gamma/|\delta|)U$: traps are made far off resonance.
+- At large detuning, $U\propto I/\delta$ while $\gamma_p\propto I/\delta^2$, so $\hbar\gamma_p=(\Gamma/|\delta|)|U|$: traps are made far off resonance.
 
 ## Go deeper
 

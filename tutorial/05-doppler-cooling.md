@@ -59,7 +59,7 @@ which is positive (a true damping) only for red detuning. Three pairs of beams a
 
 ![Left: force versus atom velocity at detuning minus Gamma with s0 = 1 per beam; the beam along +z pushes positive with a peak near -4.7 m/s, the beam along -z pushes negative with a peak near +4.7 m/s, and their sum is a dispersion-shaped curve passing through zero with negative slope. Right: the total force for detunings -0.5, -1 and -2 Gamma; larger detuning gives a smaller slope (weaker friction) at v = 0 but a wider capture range](figures/05-molasses-force.png)
 
-*The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is close to linear (pure friction) only for $kv$ well below $|\delta|$: for these curves it stays within 10% of $-\beta v$ up to about 1.5 m/s at $\delta=-\Gamma/2$ and 2.5 m/s at $\delta=-\Gamma$. It peaks near $v\approx|\delta|/k$ (2.4 and 4.7 m/s), and faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
+*The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is close to linear (pure friction) only for $kv$ well below $|\delta|$: for these curves it stays within 10% of $-\beta v$ up to about 1.5 m/s at $\delta=-\Gamma/2$ and 2.5 m/s at $\delta=-\Gamma$. It peaks a little beyond $v=|\delta|/k$ (at about 2.8 m/s for $\delta=-\Gamma/2$ and 4.8 m/s for $\delta=-\Gamma$), and faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
 
 ## The Doppler limit
 
