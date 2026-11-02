@@ -12,7 +12,7 @@ commands run from the repository root.
 | Chapter | By the end you should be able to… | Run and investigate |
 |---|---|---|
 | [01](01-introduction.md) | Explain the experimental cycle and estimate how many photons it takes to stop an atom | `python tutorial/figures/make_figures.py 01`; read the frequency-scale figure |
-| [02](02-atomic-structure.md) | Read the Rb-87 level diagram and explain why the clock states make the best qubit | `python tutorial/figures/make_figures.py 02`; change the plotted field range in `breit_rabi()` of `tutorial/figures/ch02.py` |
+| [02](02-atomic-structure.md) | Read the Rb-87 level diagram and explain why the clock states are the standard qubit choice | `python tutorial/figures/make_figures.py 02`; change the plotted field range in `breit_rabi()` of `tutorial/figures/ch02.py` |
 | [03](03-atom-light.md) | Solve the optical Bloch equations and use the scattering-rate formula | `python hands-on/01-optical-bloch/obe.py`; add a detuning |
 | [04](04-optical-forces.md) | Distinguish the scattering and dipole forces and explain why traps are far detuned | `python tutorial/figures/make_figures.py 04` |
 | [05](05-doppler-cooling.md) | Design a Zeeman slower and derive the Doppler limit | `python hands-on/run_labs.py 02 03`; change $\eta$ and the emission model |
@@ -44,8 +44,9 @@ commands run from the repository root.
 7. **Tweezer (Ch 07):** How much 1064 nm power gives a 1 mK trap with
    $w_0=0.8\ \mu$m, and what is the radial trap frequency?
 8. **Arrays (Ch 08):** What is the probability that a 100-site array is
-   defect-free *without* rearrangement ($p=0.5$, $\tau=60$ s, $t=0.2$ s)? With
-   rearrangement and 1% loss per move, sorting a 16 × 16 array loaded at $p=0.5$
+   defect-free *without* rearrangement (loading probability $p=0.5$, vacuum
+   lifetime $\tau=60$ s, cycle time $t=0.2$ s)? With rearrangement, the same
+   $\tau$ and $t$, and 1% loss per move, sorting a 16 × 16 array loaded at $p=0.5$
    into a central 10 × 10 block (the geometry of lab 07)?
 9. **Coherence (Ch 09):** Find $T_2^*$ for a Rb atom at 10 $\mu$K in a 1064 nm
    tweezer. Would a spin echo remove dephasing caused by magnetic-field noise at
@@ -68,17 +69,20 @@ commands run from the repository root.
 3. $s_0=1/1.669=0.599$; $\gamma_p=\frac\Gamma2\frac{0.599}{1+0.599+1}=4.4\times10^6\ {\rm s^{-1}}$;
    FWHM $=6.07\sqrt{11}=20.1$ MHz.
 4. $U_0=h\times35$ MHz $=k_B\times1.7$ mK and $\gamma_p=2.7\times10^4\ {\rm s^{-1}}$:
-   each photon can flip the qubit and heats the atom, which would boil out of the
-   trap in about 0.2 s.
+   every scattered photon can flip the qubit, and recoil heating (about $2E_r$ per
+   photon, so some 4600 photons to climb out) would boil the atom out of the trap
+   in about 0.2 s.
 5. $T_D=\hbar\Gamma/2k_B=125.6\ \mu$K, at $\delta=-\Gamma/2$ and low intensity.
 6. $\kappa=\mu_BA\beta/\hbar k=1.66\times10^{-18}$ N/m, $f=540$ Hz; damping rate
    $\beta/m=1.05\times10^4\ {\rm s^{-1}}>2\omega_0=6.8\times10^3\ {\rm s^{-1}}$, so it is
    overdamped (lab 04).
 7. Depth per mW scales as $1/w_0^2$: $P=10.3\times0.64=6.6$ mW. At fixed depth
    $f_r\propto1/w_0$: $98.5/0.8=123$ kHz.
-8. $0.5^{100}e^{-100\times0.2/60}=5.7\times10^{-31}$: essentially never. With
-   rearrangement, 0.43 exactly (lab 07's Monte Carlo gives 0.41 ± 0.01): fewer than half
-   the cycles succeed in one round.
+8. $0.5^{100}e^{-100\times0.2/60}=5.7\times10^{-31}$. With rearrangement,
+   averaging $0.99^h$ over the binomial number of holes $h$ gives
+   $0.995^{100}=0.606$, and $0.606\times e^{-1/3}=0.606\times0.717=0.43$; the
+   reservoir almost never runs short (lab 07's Monte Carlo gives $0.41\pm0.01$).
+   Fewer than half the cycles succeed in one round.
 9. $T_2^*=0.97\times2\hbar/(\eta k_BT)$ with $\eta=6.08\times10^{-5}$: 24 ms. No:
    a single echo refocuses only shifts that are constant during the sequence.
    If the whole sequence is much shorter than 1 ms, 1 kHz noise is effectively

@@ -6,11 +6,11 @@
 
 ## 👋 Hey there
 
-This repo is the introduction to neutral-atom quantum hardware I wish I'd had when I started: a course built **from scratch**, assuming nothing beyond undergraduate physics and a little linear algebra, that takes you from "what does a laser do to an atom?" to Rydberg entangling gates and the architectures being built for quantum error correction.
+I started this repo as the introduction to neutral-atom quantum hardware I would have liked to have as a newcomer. It is written **from scratch** and assumes only undergraduate physics and a little linear algebra. It begins with what a laser does to a single atom and ends with Rydberg entangling gates and the architectures being built for quantum error correction.
 
-The first half follows **Metcalf and van der Straten's review _Laser cooling and trapping of atoms_** ([Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf), J. Opt. Soc. Am. B 20, 887 (2003)). The second half is structured after graduate atomic-physics courses and the standard reviews on tweezer arrays and Rydberg atoms (see the [paper map](tutorial/paper-map.md)). Every explanation is written in my own words, every derived number is recomputed from a small set of tabulated atomic data, and every simulation checks itself against an independent result.
+The first half follows **Metcalf and van der Straten's review _Laser cooling and trapping of atoms_** ([Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf), J. Opt. Soc. Am. B 20, 887 (2003)). The second half is structured after graduate atomic-physics courses and the standard reviews on tweezer arrays and Rydberg atoms (see the [paper map](tutorial/paper-map.md)). The explanations are in my own words. Derived numbers are recomputed from a short list of tabulated atomic data (Steck's tables plus a few values from the ARC library), and each simulation is checked against an independent result.
 
-If you find it useful, a ⭐ genuinely makes my day, and corrections are always welcome.
+Corrections are very welcome.
 
 ---
 
@@ -61,7 +61,7 @@ Every chapter mixes derivations with pictures. All figures are original and rege
 
 ## 🧪 Hands-on labs
 
-Reading is good, but doing sticks. The [**hands-on/**](hands-on/README.md) track simulates the physics on your laptop with NumPy, SciPy and [QuTiP](https://qutip.org), with labs for chapters 03 and 05 to 12:
+The [**hands-on/**](hands-on/README.md) track simulates the physics on a laptop with NumPy, SciPy and [QuTiP](https://qutip.org). There are labs for chapters 03 and 05 to 12:
 
 | Lab | You simulate | Theory |
 |---|---|---|
@@ -105,7 +105,7 @@ The [review notes](REVIEW.md) record what was checked, how, and what is out of s
 
 ## 🚀 Recommended reading / start here
 
-If you read nothing else, read these. They pair naturally with the three parts of the course:
+One review for each part of the course:
 
 - **Laser cooling and trapping of atoms**, Metcalf and van der Straten, 2003 → [Utrecht preprint](https://webspace.science.uu.nl/~strat102/preprint/handpubl.pdf) · [doi:10.1364/JOSAB.20.000887](https://doi.org/10.1364/JOSAB.20.000887)
 - **Optical dipole traps for neutral atoms**, Grimm, Weidemüller and Ovchinnikov, 2000 → [arXiv:physics/9902072](https://arxiv.org/abs/physics/9902072)
@@ -121,26 +121,26 @@ For the full annotated reading list, organised to follow the tutorial (and inclu
 
 - Students joining a neutral-atom, optical-tweezer or Rydberg lab.
 - Quantum-information and software people who want to understand the hardware underneath.
-- Anyone curious with undergraduate physics who wants a guided, self-contained on-ramp.
+- Anyone with undergraduate physics who is curious how these machines work.
 
 You do **not** need prior atomic-physics experience. Comfort with basic quantum mechanics (two-level systems, the Schrödinger equation), linear algebra and some optics is enough.
 
 ## 🧭 How to use it
 
-- **Read in order.** Each chapter assumes the previous ones.
-- **Keep the primary text open** for Part I; the chapters are meant to make it easier to read, not to replace it.
-- **Predict, then run.** Every lab prints numbers you can compute on paper first.
-- **Treat numbers as illustrative.** Values are typical, computed for Rb-87 with stated parameters; real experiments vary, so check the literature for any specific machine.
+- Read the chapters in order; each one assumes the ones before it.
+- For Part I, keep Metcalf and van der Straten open alongside. The chapters are a companion to the review and do not replace it.
+- Before running a lab, work out on paper what it should print. Every lab prints numbers you can check this way.
+- The numbers are typical values for Rb-87 with the stated parameters. Real experiments differ, so check the literature for any specific machine.
 
 ---
 
 ## 🤝 Contributing
 
-This is a living document and I'd love help making it clearer and more correct.
+Help making it clearer and more correct is welcome.
 
 - Spotted an error, an unclear explanation, or a broken link? **Open an issue.**
 - Want to improve a chapter or suggest a paper for the reading list? **Open a pull request.**
-- Found it useful? A **⭐** is appreciated and helps others discover it.
+- If you found it useful, a ⭐ helps other people find it.
 
 Contributions should stay original and cite only public sources (arXiv, textbooks, published papers and theses).
 

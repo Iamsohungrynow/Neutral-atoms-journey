@@ -25,8 +25,8 @@ reading alongside the course.
 | polychromatic light (for example bichromatic forces) | not covered | an advanced topic outside the needs of tweezer experiments |
 
 Metcalf and van der Straten's book, *Laser Cooling and Trapping* (Springer,
-1999), develops the same material at book length and is the best next step
-for Part I.
+1999), develops the same material at book length; read it if you want more
+after Part I.
 
 ## Sources used to structure Parts II and III
 
@@ -36,7 +36,7 @@ physics courses and of the main reviews:
 
 | Source | Used for |
 |---|---|
-| MIT 8.421 / 8.422, *Atomic and Optical Physics I and II* ([8.421](https://ocw.mit.edu/courses/8-421-atomic-and-optical-physics-i-spring-2014/), [8.422](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/) on MIT OpenCourseWare) | the order structure → two-level and three-level atoms → line broadening (8.421) and light forces → dipole traps (8.422 lectures 16 to 17), used for Chapters 02 to 07 |
+| MIT 8.421 / 8.422, *Atomic and Optical Physics I and II* ([8.421](https://ocw.mit.edu/courses/8-421-atomic-and-optical-physics-i-spring-2014/), [8.422](https://ocw.mit.edu/courses/8-422-atomic-and-optical-physics-ii-spring-2013/) on MIT OpenCourseWare) | the order of Chapters 02 to 07: atomic structure → two- and three-level atoms → line broadening (8.421), then light forces → dipole traps (8.422 lectures 16 and 17) |
 | R. Grimm, M. Weidemüller, Yu. B. Ovchinnikov, *Optical dipole traps for neutral atoms* (2000), [arXiv:physics/9902072](https://arxiv.org/abs/physics/9902072) | polarizability, trap depth, scattering (Chapter 07) |
 | A. M. Kaufman and K.-K. Ni, *Quantum science with optical tweezer arrays* (2021), [arXiv:2109.10087](https://arxiv.org/abs/2109.10087) | tweezer arrays, loading, imaging, cooling (Chapters 07 to 08) |
 | A. Browaeys, lectures *Rydberg atoms in optical tweezers*, Boulder School 2021 ([lecture notes](https://www.colorado.edu/conference/bss/2021/boulder-school-2021-lecture-notes)), and Les Houches pre-doctoral school 2019 | arrays → Rydberg basics and blockade → gates → many-body physics (Chapters 08 to 10) |
@@ -45,10 +45,10 @@ physics courses and of the main reviews:
 | L. Henriet et al., *Quantum computing with neutral atoms* (2020), [arXiv:2006.12326](https://arxiv.org/abs/2006.12326) | qubit encodings, gates, digital and analog modes (Chapters 09 to 12) |
 | A. Browaeys and T. Lahaye, *Many-body physics with individually controlled Rydberg atoms* (2020), [arXiv:2002.07413](https://arxiv.org/abs/2002.07413) | quantum simulation (Chapters 10, 12) |
 
-This is an original, Rb-87-focused course built on these sources, not a
-reproduction of any of them.
+These sources set the order of topics. The text, worked examples and figures
+are original and use Rb-87 throughout.
 
-## What deserves a separate, advanced course?
+## Left for an advanced course
 
 - **Full multilevel laser-cooling theory**: semiclassical and quantum Monte
   Carlo treatments of polarization-gradient cooling in real hyperfine structure;
@@ -67,7 +67,7 @@ reproduction of any of them.
 - **Molecules in tweezers, optical clocks, and quantum networking with atoms in
   cavities**, all of which use the same toolbox.
 
-These boundaries matter: a teaching simulation can establish a mechanism
-without being an experiment-design package.
+The labs show mechanisms with simple models. None of them is meant as a tool
+for designing an experiment.
 
 [Learning path and exercises](learning-path.md) · [Notation](00-notation.md)

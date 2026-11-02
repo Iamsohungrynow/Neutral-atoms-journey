@@ -1,6 +1,6 @@
 # 📑 Tutorial Index: Neutral Atoms and Tweezer Arrays from Scratch
 
-Welcome! This is a self-contained, beginner-friendly course on neutral-atom quantum hardware, written for anyone with undergraduate physics and a little linear algebra. It starts from a single atom and a laser beam, builds up laser cooling and trapping following Metcalf and van der Straten's review *Laser cooling and trapping of atoms*, zooms in on a single atom in an optical tweezer, assembles defect-free arrays, and ends with Rydberg entangling gates and the architectures being built for quantum error correction. Every chapter teaches standard, publicly known physics in plain language, works at least one example with numbers, and ends with common pitfalls, key takeaways and pointers to the literature. One reference atom, rubidium-87, is used throughout so that numbers can be compared across chapters.
+These chapters are a self-contained introduction to neutral-atom quantum hardware for readers with undergraduate physics and a little linear algebra. Part I starts from a single atom in a laser beam and builds up laser cooling and trapping along the lines of Metcalf and van der Straten's review *Laser cooling and trapping of atoms*. Part II puts one atom in an optical tweezer and then assembles defect-free arrays. Part III covers Rydberg entangling gates and the architectures being built for quantum error correction. The physics is standard and publicly known. Each chapter works at least one example with numbers and closes with common pitfalls, key takeaways and pointers to the literature. All the numbers are for rubidium-87, so they can be compared from chapter to chapter.
 
 Start with the [guided learning path and exercises](learning-path.md), the [notation and reference numbers](00-notation.md), and the [paper map](paper-map.md), which shows how the course follows the primary text and the courses and reviews used to structure it.
 
@@ -28,12 +28,12 @@ Start with the [guided learning path and exercises](learning-path.md), the [nota
 | # | Chapter | Key ideas | Lab |
 |---|---------|-----------|-----|
 | 10 | [**Rydberg Atoms and the Blockade**](10-rydberg.md) | scaling laws, van der Waals interaction, blockade radius, collective excitation, analog simulation and adiabatic state preparation | [10](../hands-on/10-rydberg-blockade/), [13](../hands-on/13-adiabatic-z2/) |
-| 11 | [**Rydberg Entangling Gates and Their Errors**](11-rydberg-gates.md) | $\pi$-$2\pi$-$\pi$ gate, global phase gate, decay, Doppler and blockade errors | [11](../hands-on/11-cz-gate/) |
+| 11 | [**Rydberg Entangling Gates and Their Errors**](11-rydberg-gates.md) | $\pi$-$2\pi$-$\pi$ gate, global two-pulse (Levine) gate, decay, Doppler and blockade errors | [11](../hands-on/11-cz-gate/) |
 | 12 | [**Toward Fault Tolerance: Readout, Loss, Erasure and Zoned Architectures**](12-architectures.md) | mid-circuit readout, atom loss and erasure conversion, zoned architectures, scaling | [12](../hands-on/12-erasure-code/) |
 
 ## How to use this tutorial
 
-Read the chapters in order; each builds on the previous ones. Before running a lab, predict its result on paper, then use the [learning path](learning-path.md) checkpoints to test yourself. The "Go deeper" references at the end of each chapter, and the [reading list](../reading-list/README.md), are the fastest way to reach research-level depth.
+Read the chapters in order; each builds on the previous ones. Before running a lab, predict its result on paper, then use the [learning path](learning-path.md) checkpoints to test yourself. For more depth, follow the "Go deeper" references at the end of each chapter and the [reading list](../reading-list/README.md).
 
 ## About the figures
 

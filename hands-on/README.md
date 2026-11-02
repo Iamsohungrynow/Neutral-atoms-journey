@@ -1,6 +1,6 @@
 # Hands-On Track
 
-These labs let you simulate the physics of the tutorial chapters on your own laptop. Each lab is a small, self-contained NumPy/SciPy or QuTiP simulation that turns a chapter's equations into something you can plot, tweak and explore, and each one checks itself against an independent analytic or statistical result. No hardware, accounts or lab setup are needed.
+Each lab is a short, self-contained NumPy/SciPy script (QuTiP for lab 01) that simulates the equations of one tutorial chapter on a laptop. It plots the result, lets you change the parameters, and checks itself against an independent analytic or statistical result. You need nothing beyond Python and the packages below.
 
 ## Setup (from the repository root)
 

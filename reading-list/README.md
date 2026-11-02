@@ -1,8 +1,8 @@
 # Neutral Atoms and Tweezer Arrays: An Annotated Reading List
 
-A curated entry point into the literature on laser cooling, optical tweezers,
-Rydberg atoms and neutral-atom quantum computing, for someone with a physics or
-engineering background who wants to understand how these machines are built
+Papers, books and lectures on laser cooling, optical tweezers, Rydberg atoms
+and neutral-atom quantum computing that I would give to someone with a physics
+or engineering background who wants to understand how these machines are built
 and operated.
 
 The annotations are original. Every reference is a public source (arXiv, a
@@ -90,8 +90,8 @@ details.
 - **Observation of atoms laser cooled below the Doppler limit.** Lett, Watts,
   Westbrook, Phillips, Gould, Metcalf (1988). *Phys. Rev. Lett.* 61, 169.
   [doi:10.1103/PhysRevLett.61.169](https://doi.org/10.1103/PhysRevLett.61.169)
-  Sodium at $43\pm20\ \mu$K against a Doppler limit of about $240\ \mu$K: the
-  result that broke the two-level theory.
+  Sodium at $43\pm20\ \mu$K, far below the Doppler limit of about $240\ \mu$K,
+  which the two-level theory could not explain.
 - **Laser cooling below the Doppler limit by polarization gradients: simple
   theoretical models.** Dalibard, Cohen-Tannoudji (1989). *J. Opt. Soc. Am. B* 6, 2023.
   The explanation of Sisyphus and $\sigma^+\sigma^-$ cooling.
@@ -301,8 +301,8 @@ is a good companion to Bernien's lectures.
 
 ## Theses and recent papers from my bibliography
 
-Theses are the best way to learn how an experiment actually works. They are
-linked through university repositories, not re-hosted.
+Theses are where the details of how an experiment works get written down.
+They are linked through university repositories, not re-hosted.
 
 ### Lukin group (Harvard)
 
@@ -330,8 +330,8 @@ linked through university repositories, not re-hosted.
 
 ### Notes on checking the bibliography
 
-While verifying these entries, a few details differed from how they were first
-recorded:
+Checking these entries turned up a few details that differed from how they
+were first recorded:
 
 - *Quantum Information Processing and Quantum Simulation with Programmable
   Rydberg Atom Arrays* is Harry Levine's 2021 thesis (advisor Lukin), not by
