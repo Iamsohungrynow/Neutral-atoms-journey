@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Before we can cool, trap or compute with an atom, we need to know its energy levels, because every laser in the experiment is tuned to one particular transition. We build up the levels of rubidium-87 one energy scale at a time. Which shell the outer electron occupies sets the **gross structure**, in electron-volts. Spin-orbit coupling splits each level into **fine-structure** components terahertz apart, and the nuclear spin splits those again into **hyperfine** levels separated by gigahertz down to megahertz. Finally an external magnetic field shifts the sublevels by about a megahertz per gauss (the **Zeeman effect**), and that last step explains why the qubit is stored in the two "clock" states.
+Before we can cool, trap or compute with an atom, we need to know its energy levels, because every laser in the experiment is tuned to one particular transition. We build up the levels of rubidium-87 one energy scale at a time. Which shell the outer electron occupies sets the **gross structure**, in electron-volts. Spin-orbit coupling splits the $5p$ level (but not the $5s$ ground state) into two **fine-structure** components 7 THz apart, and the nuclear spin splits every level again into **hyperfine** levels separated by gigahertz down to megahertz. Finally an external magnetic field shifts the sublevels by about a megahertz per gauss (the **Zeeman effect**), and that last step explains why the qubit is stored in the two "clock" states.
 
 ## Step 1: one electron outside a closed shell
 

@@ -4,7 +4,7 @@
 
 A neutral-atom quantum computer stores each qubit in a single atom, held in place by a tightly focused laser beam (an **optical tweezer**) inside an ultra-high-vacuum glass cell. Nobody fabricates these qubits. Every rubidium-87 atom is identical to every other one, so there is no device-to-device spread to calibrate away. The hard engineering goes into **catching** the atoms. They come out of a vapour at hundreds of metres per second and have to be slowed to a few centimetres per second, cooled to microkelvin temperatures, trapped one per tweezer and arranged into a pattern before any computing can start.
 
-This chapter is an overview. Each topic is derived properly in the chapter given in brackets.
+This chapter is an overview. The physics in it is worked out properly in the chapters given in brackets.
 
 ## The experimental cycle in one picture
 
@@ -25,7 +25,7 @@ From that cloud, an array of tweezers picks up atoms. Collisions now help. When 
 | Property | What it buys you | Where you learn it |
 |---|---|---|
 | **Identical by nature** | every qubit has the same frequencies; no fabrication spread | Ch 02 |
-| **Weakly coupled to the environment** | a neutral atom in its ground state barely feels electric fields or its neighbours, so hyperfine qubits keep their phase for milliseconds, and for seconds with spin echo | Ch 09 |
+| **Weakly coupled to the environment** | a neutral atom in its ground state barely feels electric fields or its neighbours, so hyperfine qubits keep their phase for milliseconds, and for seconds with trains of spin-echo pulses | Ch 09 |
 | **Interactions you can switch on** | exciting an atom to a high-lying **Rydberg** state makes it interact strongly with atoms micrometres away; de-exciting switches the interaction off again | Ch 10 to 11 |
 | **Optically reconfigurable** | tweezers are just light, so the layout is software: atoms can be moved mid-computation to connect any pair | Ch 08, 12 |
 | **Scalable in number** | thousands of tweezers can be made from one laser with holograms or acousto-optic deflectors | Ch 08 |
