@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-An optical tweezer is a single laser beam focused to a spot about a micrometre wide. Tuned to the red of the atomic resonance, it attracts atoms to its focus through the dipole force of Chapter 04, making a potential well about a millikelvin deep. This chapter builds the tweezer quantitatively: the atom's **polarizability** at an arbitrary wavelength (including both D lines and the counter-rotating terms), the **Gaussian-beam** geometry that sets the depth and the trap frequencies, the **scattering** that heats the atom, the small **differential light shift** between the qubit states that will matter for coherence, and finally the **quantized motion** of an atom in the well. The standard reference for the first half is the review by Grimm, Weidemüller and Ovchinnikov; the second half connects to the "quantization of atomic motion" theme of Metcalf and van der Straten.
+An optical tweezer is a single laser beam focused to a spot about a micrometre wide. Tuned to the red of the atomic resonance, it attracts atoms to its focus through the dipole force of Chapter 04, making a potential well about a millikelvin deep. Here we put numbers on it. Far from resonance the polarizability needs both D lines and the counter-rotating terms. The Gaussian-beam optics then fix the depth and the trap frequencies, the scattering rate tells us how fast the atom heats, and a small difference between the light shifts of the two qubit states comes back in Chapter 09 as dephasing. The last part treats the atom's motion in the well as quantized. For the trap physics the standard reference is the review by Grimm, Weidemüller and Ovchinnikov; for quantized motion, Metcalf and van der Straten.
 
 ## From the two-level light shift to a real atom
 
@@ -40,7 +40,7 @@ A laser focused by a lens of numerical aperture NA forms, to a good approximatio
 
 $$I(r,z)=\frac{2P}{\pi w(z)^2}\exp\!\Big(-\frac{2r^2}{w(z)^2}\Big),\qquad w(z)=w_0\sqrt{1+(z/z_R)^2},\qquad z_R=\frac{\pi w_0^2}{\lambda}.$$
 
-The waist $w_0$ is the $1/e^2$ intensity radius at the focus; a lens of numerical aperture NA, uniformly filled, produces a diffraction-limited spot that is well approximated by a Gaussian with $w_0\approx0.42\,\lambda/{\rm NA}$, about $0.9\ \mu$m for 1064 nm and NA $=0.5$. (The often-quoted $\lambda/(\pi\,{\rm NA})$ assumes an untruncated Gaussian beam whose $1/e^2$ divergence half-angle equals the NA; a uniformly filled aperture gives the larger $0.42\,\lambda/{\rm NA}$ at any NA, and at NA $\gtrsim0.5$ non-paraxial effects enlarge the spot a little further.) Real tweezers have waists of about $0.7$ to $1\ \mu$m. The **Rayleigh range** $z_R$ is the distance over which the beam stays focused; for $w_0=1\ \mu$m at 1064 nm it is $2.95\ \mu$m: $z_R/w_0\approx3$, and the trap frequencies (and thermal cloud sizes) differ by $\sqrt2\,z_R/w_0\approx4$.
+The waist $w_0$ is the $1/e^2$ intensity radius at the focus; a lens of numerical aperture NA, uniformly filled, produces a diffraction-limited spot that is well approximated by a Gaussian with $w_0\approx0.42\,\lambda/{\rm NA}$, about $0.9\ \mu$m for 1064 nm and NA $=0.5$. (The often-quoted $\lambda/(\pi\,{\rm NA})$ assumes an untruncated Gaussian beam whose $1/e^2$ divergence half-angle equals the NA; a uniformly filled aperture gives the larger $0.42\,\lambda/{\rm NA}$ at any NA, and at NA $\gtrsim0.5$ non-paraxial effects enlarge the spot a little further.) Real tweezers have waists of about $0.7$ to $1\ \mu$m. The **Rayleigh range** $z_R$ is the distance over which the beam stays focused; for $w_0=1\ \mu$m at 1064 nm it is $2.95\ \mu$m, about three waists, so the radial and axial trap frequencies (and thermal cloud sizes) differ by a factor $\sqrt2\,z_R/w_0\approx4$.
 
 ![Left: schematic of a collimated 1064 nm beam focused by a high numerical aperture objective onto an atom at the focus; the same lens collects fluorescence. Right: colour map of intensity near the focus versus radial position and position along the beam, with dashed lines showing the beam radius w(z) growing from 1 micrometre at the waist, and dotted lines at the Rayleigh range of 2.95 micrometres](figures/07-tweezer-geometry.png)
 
@@ -52,7 +52,7 @@ The trap depth is the potential at the centre, $U_0=\alpha I_0/(2\varepsilon_0c)
 
 $$U(r,z)\approx-U_0+\tfrac12m\omega_r^2r^2+\tfrac12m\omega_z^2z^2,\qquad \omega_r=\sqrt{\frac{4U_0}{mw_0^2}},\qquad \omega_z=\sqrt{\frac{2U_0}{mz_R^2}}.$$
 
-The ratio $\omega_r/\omega_z=\sqrt2\,z_R/w_0=\sqrt2\,\pi w_0/\lambda$ is about 4 for a 1 $\mu$m waist. Two facts are worth noticing. The radial frequency depends only on $U_0$ and $w_0$, not on the wavelength. And the Gaussian well is softer than its harmonic approximation: hot atoms, which explore the outer parts of the well, oscillate more slowly.
+The ratio $\omega_r/\omega_z=\sqrt2\,z_R/w_0=\sqrt2\,\pi w_0/\lambda$ is about 4 for a 1 $\mu$m waist. At a given depth the radial frequency depends only on $U_0$ and $w_0$; the wavelength enters through $z_R$ and so affects only the axial frequency. Away from the bottom the Gaussian well is softer than the parabola, so hot atoms, which reach the outer parts of the well, oscillate more slowly than $\omega_r$ and $\omega_z$ suggest.
 
 ### Scattering and heating
 
@@ -64,25 +64,25 @@ Each scattered trap photon gives the atom about $2E_r$ of energy (Chapter 04), n
 | scattering rate | 3.6 s$^{-1}$ | 21.8 s$^{-1}$ |
 | recoil heating $2E_r\Gamma_{\rm sc}$ (energy) | $k_B\times0.7\ \mu$K/s | $k_B\times6.6\ \mu$K/s |
 
-Both are negligible against a 1 mK depth on the second time scale of an experiment. Scattering matters more for **coherence**: a single Raman-scattered photon can flip the qubit (Chapter 09). Other heating sources are usually larger in practice: fluctuations of the trap intensity heat the atom parametrically at twice the trap frequency, and fluctuations of the beam pointing shake it at the trap frequency. Collisions with background gas in the vacuum cell knock atoms out entirely, setting a trap lifetime of seconds to minutes depending on the vacuum.
+Over the second or so that an experiment lasts, both are negligible against a 1 mK depth. Scattering does more damage to coherence, because a single Raman-scattered photon can flip the qubit (Chapter 09). In practice other heating sources usually dominate. Intensity noise at twice the trap frequency heats the atom parametrically, and pointing noise at the trap frequency shakes it. Collisions with background gas in the vacuum cell knock atoms out entirely, setting a trap lifetime of seconds to minutes depending on the vacuum.
 
 ## Light shifts of the qubit states
 
-The trap shifts every level of the atom, and not all by the same amount. Two effects matter for neutral-atom qubits.
+The trap shifts every level of the atom, and not all by the same amount.
 
 **Differential shift of the hyperfine states.** The $F=2$ level sits 6.8 GHz above $F=1$, so its detuning from the D lines is slightly smaller and its light shift slightly larger. Writing the difference as a fraction $\eta$ of the trap depth, the two-line model gives $\eta=6.1\times10^{-5}$ at 1064 nm and $2.3\times10^{-4}$ at 852 nm. At $U_0/h=20.8$ MHz (1 mK) the qubit frequency is lowered by $\eta U_0/h=1.3$ kHz (1064 nm) or $4.7$ kHz (852 nm), because the upper state $|1\rangle$ is pulled down more. (The simpler rotating-wave estimate $\eta\approx\omega_{\rm hfs}/\Delta_{\rm eff}$, common in the literature, gives about 12% more at 1064 nm and 4% more at 852 nm; the counter-rotating terms included here reduce $\eta$.) That would be harmless if every atom felt the same intensity, but a warm atom samples different intensities as it moves, and atoms in different tweezers sit in slightly different depths. Chapter 09 shows that this sets the inhomogeneous coherence time $T_2^*$.
 
 **Excited-state and vector shifts.** The $5P_{3/2}$ excited state couples to other states and is shifted differently from the ground state, so the cooling and imaging transitions of an atom in a tweezer are shifted by an amount comparable to the depth. Circular or elliptical polarization adds a **vector light shift** that acts like a magnetic field along the beam, splitting $m_F$ levels. Tweezers are therefore usually linearly polarized, and imaging is often done with the trap modulated or at carefully chosen detunings (Chapter 08).
 
-**Magic wavelengths.** For some transitions there are wavelengths at which both levels shift equally, so the transition frequency is independent of the trap intensity. The best known example is the strontium clock transition, magic at 813.4 nm, which is why optical-clock qubits can have very long coherence in tweezers. Nuclear-spin qubits are insensitive for a different reason: their ground state has no electronic angular momentum ($J=0$; Chapter 09).
+**Magic wavelengths.** For some transitions there are wavelengths at which both levels shift equally, so the transition frequency is independent of the trap intensity. The best known example is the strontium clock transition, magic at 813.4 nm; optical-clock qubits trapped at that wavelength keep their coherence for a long time. Nuclear-spin qubits are insensitive for a different reason: their ground state has no electronic angular momentum ($J=0$; Chapter 09).
 
 ## Quantized motion
 
 At microkelvin temperatures the atom's motion in the well is quantum mechanical. In the harmonic approximation each direction is a ladder of states $|n\rangle$ with energies $\hbar\omega(n+\tfrac12)$.
 
-For the reference tweezer, $\hbar\omega_r/k_B=4.7\ \mu$K. An atom at $10\ \mu$K has a thermal mean occupation $\bar n=1/(e^{\hbar\omega/k_BT}-1)=1.7$ radially and $8.3$ axially: only a few quanta. The ground-state wavefunction has an rms width $x_0=\sqrt{\hbar/2m\omega_r}=24$ nm radially, and the thermal cloud has an rms size of about 50 nm radially and 210 nm axially, all much smaller than the trap.
+For the reference tweezer, $\hbar\omega_r/k_B=4.7\ \mu$K. An atom at $10\ \mu$K has a thermal mean occupation $\bar n=1/(e^{\hbar\omega/k_BT}-1)=1.7$ radially and $8.3$ axially, so only the lowest few levels are occupied. The ground-state wavefunction has an rms width $x_0=\sqrt{\hbar/2m\omega_r}=24$ nm radially, and the thermal cloud has an rms size of about 50 nm radially and 210 nm axially, all much smaller than the trap.
 
-The ratio of the atom's spatial extent to the optical wavelength is the **Lamb-Dicke parameter** $\eta_{LD}=kx_0$: 0.20 radially for one 780 nm photon. (For a two-photon Raman transition the relevant wavevector is the difference $\Delta k$ of the two beams, so $\eta_{LD}$ ranges from nearly 0 for co-propagating beams to about 0.39 for counter-propagating ones.) When $\eta_{LD}^2(2\bar n+1)\ll1$ (the **Lamb-Dicke regime**), absorbing or emitting a photon rarely changes $n$. Then a laser tuned one trap frequency **below** a narrow transition (the red sideband) drives $|n\rangle\to|n-1\rangle$, and optical pumping back to the start state usually keeps the new $n$. Each cycle removes one quantum, and $|n=0\rangle$ is dark to the red sideband, so the atom accumulates in the motional ground state. In tweezers this **Raman sideband cooling** uses a two-photon Raman transition between the hyperfine states as the narrow line.
+The ratio of the ground-state size $x_0$ to the reduced wavelength $\lambda/2\pi$ of the light is the **Lamb-Dicke parameter** $\eta_{LD}=kx_0$, which is 0.20 radially for one 780 nm photon. (For a two-photon Raman transition the relevant wavevector is the difference $\Delta k$ of the two beams, so $\eta_{LD}$ ranges from nearly 0 for co-propagating beams to about 0.39 for counter-propagating ones.) When $\eta_{LD}^2(2\bar n+1)\ll1$ (the **Lamb-Dicke regime**), absorbing or emitting a photon rarely changes $n$. Then a laser tuned one trap frequency below a narrow transition (the red sideband) drives $|n\rangle\to|n-1\rangle$, and optical pumping back to the start state usually keeps the new $n$. Each cycle removes one quantum, and $|n=0\rangle$ is dark to the red sideband, so the atom accumulates in the motional ground state. In tweezers this **Raman sideband cooling** uses a two-photon Raman transition between the hyperfine states as the narrow line.
 
 ![Two harmonic ladders of vibrational states labelled n = 0 to 4, one for the lower hyperfine state F = 1 and one for the upper state F = 2. Red arrows show red-sideband Raman pulses from F = 1, n to F = 2, n - 1, and a blue dashed arrow shows optical pumping back to F = 1 without changing n. A table lists the radial trap frequency 98.5 kHz, vibrational quantum 4.7 microkelvin, ground-state size 24 nm, Lamb-Dicke parameter 0.20 and mean n of 1.7 at 10 microkelvin](figures/07-sideband-cooling.png)
 
@@ -92,7 +92,7 @@ Raman sideband cooling of single atoms in tweezers was demonstrated in 2012 to 2
 
 ### Measuring the temperature: release and recapture
 
-How do you take the temperature of *one* atom? Switch the tweezer off for some microseconds (tens of microseconds for a 1 mK trap), let the atom fly, switch it back on, and image it. Hot atoms move farther and are recaptured less often. Repeating many times gives a recapture probability versus release time, which is fitted with a Monte Carlo simulation of thermal atoms. [Lab 06](../hands-on/06-release-recapture/) does exactly this, including a fit to synthetic data that recovers the input temperature within its statistical error.
+How do you take the temperature of *one* atom? Switch the tweezer off for some microseconds (tens of microseconds for a 1 mK trap), let the atom fly, switch it back on, and image it. Hot atoms move farther and are recaptured less often. Repeating many times gives a recapture probability versus release time, which is fitted with a Monte Carlo simulation of thermal atoms. [Lab 06](../hands-on/06-release-recapture/) simulates the measurement and fits a synthetic data set, recovering the input temperature within its statistical error.
 
 ## Worked example: designing a tweezer (illustrative numbers)
 
@@ -109,7 +109,7 @@ How do you take the temperature of *one* atom? Switch the tweezer off for some m
 
 **Step 1: intensity per mW.** $I_0=2(10^{-3})/(\pi\times10^{-12})=6.37\times10^8$ W/m$^2$.
 
-**Step 2: depth.** $U_0=\alpha I_0/2\varepsilon_0c$ with $\alpha=677\times1.649\times10^{-41}=1.117\times10^{-38}$ C m$^2$/V gives $U_0=1.117\times10^{-38}\times6.37\times10^8/(2\times8.854\times10^{-12}\times2.998\times10^8)=1.34\times10^{-27}$ J, which is $k_B\times97\ \mu$K. A 1 mK trap needs $1000/97=10.3$ mW. Arrays of hundreds of such tweezers need watts of laser power, which is why high-power 1064 nm fibre amplifiers are popular.
+**Step 2: depth.** $U_0=\alpha I_0/2\varepsilon_0c$ with $\alpha=677\times1.649\times10^{-41}=1.117\times10^{-38}$ C m$^2$/V gives $U_0=1.117\times10^{-38}\times6.37\times10^8/(2\times8.854\times10^{-12}\times2.998\times10^8)=1.34\times10^{-27}$ J, which is $k_B\times97\ \mu$K. A 1 mK trap needs $1000/97=10.3$ mW. Arrays of hundreds of such tweezers need watts of laser power, and high-power 1064 nm fibre amplifiers are the usual source.
 
 **Step 3: frequencies.** $\omega_r=\sqrt{4\times1.381\times10^{-26}/(1.443\times10^{-25}\times10^{-12})}=6.19\times10^5$ rad/s, so $f_r=98.5$ kHz. With $z_R=2.95\ \mu$m, $f_z=f_r\,w_0/(\sqrt2z_R)=23.6$ kHz.
 
@@ -124,7 +124,7 @@ How do you take the temperature of *one* atom? Switch the tweezer off for some m
 
 - **"Closer to resonance is always worse."** At fixed *power*, closer detuning gives a deeper trap; at fixed *depth*, it gives more scattering. Which matters depends on whether you are limited by laser power or by heating and coherence.
 - **Ignoring the counter-rotating term.** At 1064 nm the counter-rotating term adds about 15% to the Rb polarizability ($1+(\omega_0-\omega)/(\omega_0+\omega)\approx1.15$). Use the full Lorentz form.
-- **"$\omega_z=\omega_r$."** A single-beam tweezer is three to five times weaker axially. Many experiments use the axial frequency as the bottleneck for cooling and for gate errors from motion.
+- **"$\omega_z=\omega_r$."** A single-beam tweezer is three to five times weaker axially. In many experiments the weak axial confinement is the bottleneck for cooling and for gate errors caused by motion.
 - **Using the harmonic approximation for hot atoms.** It overestimates the restoring force away from the bottom and ignores that atoms with energy above $U_0$ escape.
 - **"The qubit doesn't care about the trap."** Both hyperfine states shift by almost the same amount, but the small difference $\eta U_0$ is the leading dephasing mechanism for thermal atoms (Chapter 09).
 

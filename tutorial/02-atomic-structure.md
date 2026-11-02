@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Before we can cool, trap or compute with an atom, we need to know its energy levels, because every laser in the experiment is tuned to one particular transition. This chapter builds the level structure of rubidium-87 in four steps of decreasing energy scale: the **gross structure** (which shell the outer electron is in, electron-volts), the **fine structure** (spin-orbit coupling, terahertz), the **hyperfine structure** (coupling to the nuclear spin, gigahertz to megahertz), and the **Zeeman effect** (an external magnetic field, megahertz per gauss). At the end you will be able to read the level diagram that every Rb experiment is built around, and you will see why the qubit is stored in the two "clock" states.
+Before we can cool, trap or compute with an atom, we need to know its energy levels, because every laser in the experiment is tuned to one particular transition. We build up the levels of rubidium-87 one energy scale at a time. Which shell the outer electron occupies sets the **gross structure**, in electron-volts. Spin-orbit coupling splits each level into **fine-structure** components terahertz apart, and the nuclear spin splits those again into **hyperfine** levels separated by gigahertz down to megahertz. Finally an external magnetic field shifts the sublevels by about a megahertz per gauss (the **Zeeman effect**), and that last step explains why the qubit is stored in the two "clock" states.
 
 ## Step 1: one electron outside a closed shell
 
@@ -22,9 +22,9 @@ For Rb the defects are large for S states ($\delta_0\approx3.13$), smaller for P
 
 *Rubidium levels (energies from ARC) compared with hydrogen. The lower the angular momentum, the deeper the core penetration and the larger the shift. The $5S$ ground state is bound by 4.18 eV, corresponding to $n^*=\sqrt{13.6/4.18}=1.80$.*
 
-> **Intuition aside.** Why is the ground state $5s$ and not $4d$ or $4f$? Because the $5s$ orbit dives deepest into the core and gains the most binding energy. The quantum defect is the bookkeeping for that dive.
+> **Intuition aside.** In hydrogen the $n=4$ levels lie below $n=5$, so why is the Rb ground state $5s$ rather than $4d$ or $4f$? The $5s$ electron spends much more time inside the core. It is bound by 4.18 eV, against 1.78 eV for $4d$ and 0.86 eV for $4f$, which is almost exactly hydrogen's $n=4$ value of 0.85 eV.
 
-The first excited state is $5p$. The $5s\to5p$ transition at about 780 to 795 nm is the workhorse of every Rb experiment: it is strong, it is reachable with inexpensive diode lasers, and it ends on a state that decays back to the ground state in about 26 ns.
+The first excited state is $5p$. Every Rb experiment uses the $5s\to5p$ transition, at 780 to 795 nm. It is a strong transition in a range where cheap diode lasers exist, and the $5p$ state decays back to the ground state in about 26 ns.
 
 ## Step 2: fine structure, D1 and D2
 
@@ -61,7 +61,7 @@ Apply this to Rb-87:
 
 The ground-state splitting, $6.834\,682\,610\,904$ GHz, is one of the most precisely measured numbers in physics. It is our **qubit frequency**.
 
-Count states as a check: $5S_{1/2}$ has $(2I+1)(2J+1)=4\times2=8$ states, and $F=1$ plus $F=2$ give $3+5=8$ sublevels $m_F$. Nothing is lost by changing basis.
+Count states as a check: $5S_{1/2}$ has $(2I+1)(2J+1)=4\times2=8$ states, and $F=1$ plus $F=2$ give $3+5=8$ sublevels $m_F$.
 
 ![Rubidium-87 level diagram, not to scale. The 5S1/2 ground state splits into F = 1 and F = 2 separated by 6.834 682 611 GHz. The 5P1/2 level (D1, 794.98 nm) splits into F' = 1 and 2, 816.7 MHz apart. The 5P3/2 level (D2, 780.24 nm) splits into F' = 0, 1, 2 and 3 with gaps 72.2, 156.9 and 266.7 MHz. A red double arrow marks the cooling and imaging transition F = 2 to F' = 3; a blue arrow marks the repumper F = 1 to F' = 2; a dotted arrow marks the forbidden decay from F' = 3 to F = 1](figures/02-rb87-levels.png)
 
@@ -81,7 +81,7 @@ In practice the cooling laser is also slightly off-resonant with $F'=2$, which i
 
 $$\left(\frac{6.07}{2\times266.65}\right)^2=1.3\times10^{-4},$$
 
-so after very roughly $10^4$ photons the atom lands in $F=1$ and goes dark. This estimate assumes resonant light and ignores line-strength and branching factors; in a MOT the cooling light is red-detuned by about $2\Gamma$, which makes $F'=2$ relatively more likely. Including the weaker $F=2\to F'=2$ line strength and the 50% chance that $F'=2$ decays to $F=1$, that gives a dark atom every two to three thousand photons (on resonance the same factors stretch the estimate above to a few $10^4$). Note also that a perfect $\sigma^+$ beam on $|2,2\rangle$ could not excite $F'=2$ at all (there is no $m_F'=3$ in $F'=2$); the leak happens because real beams and MOTs have mixed polarizations. Laser cooling needs about $5\times10^4$ photons (Chapter 01), so at MOT detunings an atom without the repumper would be lost from the cycle long before it was cold.
+so after very roughly $10^4$ photons the atom lands in $F=1$ and goes dark. This estimate assumes resonant light and ignores line-strength and branching factors; in a MOT the cooling light is red-detuned by about $2\Gamma$, which makes $F'=2$ relatively more likely. Including the weaker $F=2\to F'=2$ line strength and the 50% chance that $F'=2$ decays to $F=1$, that gives a dark atom every two to three thousand photons (on resonance the same factors stretch the estimate above to a few $10^4$). A perfect $\sigma^+$ beam on $|2,2\rangle$ could not excite $F'=2$ at all (there is no $m_F'=3$ in $F'=2$); the leak happens because real beams and MOTs have mixed polarizations. Laser cooling needs about $5\times10^4$ photons (Chapter 01), so at MOT detunings an atom without the repumper would be lost from the cycle long before it was cold.
 
 ## Step 4: the Zeeman effect and the clock states
 
@@ -89,7 +89,7 @@ In a weak magnetic field $B$ along $z$, each hyperfine sublevel shifts linearly:
 
 $$\Delta E=g_F\,m_F\,\mu_BB,\qquad \frac{\mu_B}{h}=1.400\ \mathrm{MHz/G}.$$
 
-For the Rb-87 ground state $g_F\approx+1/2$ for $F=2$ and $g_F\approx-1/2$ for $F=1$, so the sublevels shift by about $\pm0.70$ MHz per gauss per unit of $m_F$. This is why every experiment applies a small, well-controlled **bias field** (a few gauss) to define the quantisation axis and split the sublevels.
+For the Rb-87 ground state $g_F\approx+1/2$ for $F=2$ and $g_F\approx-1/2$ for $F=1$, so the sublevels shift by about $\pm0.70$ MHz per gauss per unit of $m_F$. Experiments therefore apply a small, well-controlled **bias field** (a few gauss), which defines the quantisation axis and separates the sublevels.
 
 When the Zeeman energy becomes comparable with the hyperfine splitting, $F$ is no longer a good quantum number. The exact energies for a $J=1/2$ ground state are given by the **Breit-Rabi formula**,
 
@@ -105,7 +105,7 @@ The two $m_F=0$ states have no linear shift at all. Expanding the Breit-Rabi for
 
 $$\Delta\nu_{\rm clock}=\frac{(g_J-g_I)^2\mu_B^2}{2h^2\,\nu_{\rm hfs}}B^2=575.15\ \mathrm{Hz/G^2}\times B^2 .$$
 
-This is why the standard neutral-atom qubit is
+The standard neutral-atom qubit therefore uses the two clock states,
 
 $$|0\rangle=|F{=}1,m_F{=}0\rangle,\qquad |1\rangle=|F{=}2,m_F{=}0\rangle .$$
 
@@ -137,7 +137,7 @@ Two-electron atoms have singlet and triplet families. A broad singlet line (for 
 
 **Step 2: field noise.** Suppose the bias field fluctuates by 1 mG from shot to shot. The clock qubit frequency then fluctuates by $3.45\ \mathrm{kHz/G}\times10^{-3}\ \mathrm{G}=3.5$ Hz; a $\Delta m_F=1$ qubit would fluctuate by $0.70\ \mathrm{MHz/G}\times10^{-3}\ \mathrm{G}=700$ Hz. A phase error of one radian accumulates after $1/(2\pi\times3.5\ \mathrm{Hz})\approx45$ ms for the clock qubit but after only $1/(2\pi\times700\ \mathrm{Hz})\approx0.23$ ms for the other. That factor of 200 is why the clock states are used.
 
-**Step 3: repumping.** From the $(\Gamma/2\Delta)^2$ estimate above, an atom on the cooling transition leaks to $F=1$ about once per $10^4$ photons. At a scattering rate of $10^6$ to $10^7$ photons per second, that happens every 1 to 10 ms, so the repumper must be on whenever the cooling light is.
+**Step 3: repumping.** At MOT detunings the estimate above gives one leak to $F=1$ every two to three thousand photons. At a scattering rate of $10^6$ to $10^7$ photons per second that happens every 0.2 to 3 ms, so the repumper must be on whenever the cooling light is.
 
 ## Common pitfalls
 
@@ -151,7 +151,7 @@ Two-electron atoms have singlet and triplet families. A broad singlet line (for 
 
 - Alkali atoms are hydrogen-like; the core penetration of low-$\ell$ orbits is captured by quantum defects, $E=-\mathrm{Ry}/(n-\delta_\ell)^2$.
 - Spin-orbit coupling splits $5P$ into $5P_{1/2}$ (D1, 795 nm) and $5P_{3/2}$ (D2, 780 nm).
-- Coupling to the $I=3/2$ nucleus splits the ground state into $F=1$ and $F=2$, 6.834682611 GHz apart: the qubit frequency.
+- Coupling to the $I=3/2$ nucleus splits the ground state into $F=1$ and $F=2$, 6.834682611 GHz apart; this splitting is the qubit frequency.
 - $F=2\to F'=3$ is a closed cycling transition used for cooling and imaging; a repumper on $F=1\to F'=2$ recovers atoms that leak out.
 - The $m_F=0$ clock states have only a quadratic Zeeman shift, 575 Hz/G$^2$, which makes them the standard qubit.
 

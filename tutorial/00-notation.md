@@ -18,8 +18,8 @@ page wins.
 | $\Omega$ | Rabi frequency (angular), $\hbar\Omega=-\langle e\vert\hat{\mathbf d}\cdot\mathbf E_0\vert g\rangle$ | the population oscillates as $\sin^2(\Omega t/2)$ on resonance |
 | $s_0=I/I_{\rm sat}=2\Omega^2/\Gamma^2$ | on-resonance saturation parameter | $I_{\rm sat}=\pi hc\Gamma/(3\lambda^3)$ for a cycling transition |
 | $\gamma_p=\dfrac{\Gamma}{2}\dfrac{s_0}{1+s_0+(2\delta/\Gamma)^2}$ | photon scattering rate | saturates at $\Gamma/2$ |
-| $U_0>0$ | depth of an optical trap (a positive energy) | the potential itself is $U(\mathbf r)=-U_0\,e^{-2r^2/w^2}$ for a red-detuned Gaussian focus |
-| $\Delta=\omega_L-\omega_{gr}$ | detuning of the Rydberg laser(s) from the ground-Rydberg transition | the Rydberg Hamiltonian is $H/\hbar=\sum_i\frac{\Omega}{2}\sigma^x_i-\Delta\sum_i n_i+\sum_{i<j}\frac{V_{ij}}{\hbar}n_in_j$ with $n_i=\vert r\rangle\langle r\vert_i$ |
+| $U_0>0$ | depth of an optical trap (a positive energy) | in the focal plane of a red-detuned Gaussian focus the potential is $U(r)=-U_0\,e^{-2r^2/w_0^2}$ |
+| $\Delta=\omega_L-\omega_{gr}$ | detuning of the Rydberg laser(s) from the ground-Rydberg transition | the Rydberg Hamiltonian is $H/\hbar=\sum_i\frac{\Omega}{2}\sigma^x_i-\Delta\sum_i n_i+\sum_{i<j}\frac{V_{ij}}{\hbar}n_in_j$ with $n_i=\vert r\rangle\langle r\vert_i$ and $\sigma^x_i=\vert r\rangle\langle g\vert_i+\vert g\rangle\langle r\vert_i$ |
 | $V(R)=C_6/R^6$ | van der Waals interaction of two Rydberg atoms | $C_6>0$ means repulsive. (The ARC library prints the opposite sign; we convert) |
 | $\vert0\rangle,\vert1\rangle$ | hyperfine "clock" qubit $\vert F{=}1,m_F{=}0\rangle$, $\vert F{=}2,m_F{=}0\rangle$ | in the gate chapter only $\vert1\rangle$ couples to the Rydberg state $\vert r\rangle$ |
 

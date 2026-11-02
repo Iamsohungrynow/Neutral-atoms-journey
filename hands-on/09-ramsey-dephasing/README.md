@@ -44,8 +44,8 @@ to $t/2$ minus the phase from $t/2$ to $t$.
 
 The script does **not** assume that each atom's frequency offset is $\eta E/2\hbar$;
 that time-averaging step of the analytic derivation emerges from the exact
-trajectories, because the oscillating part of the integral is bounded by
-$E/(4\omega)$ while the linear part grows as $Et/2$.
+trajectories, because for each axis the oscillating part of the integral is
+bounded by $E_i/(2\omega_i)$ while the linear part grows as $E_it/2$.
 
 ## Expected output
 
@@ -71,6 +71,6 @@ scaling, and that the echo keeps the contrast above 0.99.
    Predict $T_2^*$ at 10 $\mu$K first; the answer is in Chapter 09.
 2. Make the echo imperfect: give every atom a random energy change of 5% at
    $t/2$ (a crude model of heating). How fast does the echo contrast now decay?
-3. Add a site-to-site depth variation: multiply each atom's $\eta$ by
-   $1+0.02\,\xi$ with $\xi$ a standard normal and add a constant offset
-   $\eta U_0/\hbar$. Does the Ramsey decay change shape? Does the echo still work?
+3. Add a site-to-site depth variation of 2% rms: give each atom a constant
+   frequency offset $-0.02\,\xi\,\eta U_0/\hbar$, with $\xi$ a standard normal and
+   $U_0=k_B\times1$ mK. Does the Ramsey decay change shape? Does the echo still work?

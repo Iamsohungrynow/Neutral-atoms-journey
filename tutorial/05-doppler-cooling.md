@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Chapter 04 gave us a force: $F=\hbar k\gamma_p$, up to ten thousand times gravity. This chapter turns it into two tools. The first, **slowing**, uses one beam to decelerate a fast atomic beam from hundreds of m/s to a few tens of m/s; the problem to solve is that the Doppler shift changes as the atom slows, and the classic solution is the **Zeeman slower**. The second, **optical molasses**, uses pairs of counter-propagating beams to make a velocity-dependent force, a friction, that cools atoms to about $150\ \mu$K. We derive the friction coefficient, the heating from random photon kicks, and their balance, the **Doppler limit** $T_D=\hbar\Gamma/2k_B$. This is the material of the first sections of Metcalf and van der Straten's review, the course's primary text for Part I.
+Chapter 04 gave us a force, $F=\hbar k\gamma_p$, of up to ten thousand times gravity. Here we put it to two uses. **Slowing** uses one beam to bring a fast atomic beam down from hundreds of m/s to a few tens of m/s. The difficulty is that the Doppler shift changes as the atom slows, and the standard answer is the **Zeeman slower**. **Optical molasses** uses pairs of counter-propagating beams to make a velocity-dependent force, a friction, that cools atoms to about $150\ \mu$K. Weighing that friction against the heating from random photon kicks gives the **Doppler limit** $T_D=\hbar\Gamma/2k_B$. The material follows the first sections of Metcalf and van der Straten's review, the course's primary text for Part I.
 
 > **Conventions.** $\delta=\omega_L-\omega_0$ (red: $\delta<0$). An atom with velocity $v$ moving *toward* a beam sees the light Doppler-shifted up by $kv$. For Rb, $k/2\pi=1/\lambda=1.282$ MHz per (m/s): an atom at 300 m/s sees the light shifted by 384 MHz, or 63 natural linewidths.
 
@@ -43,7 +43,7 @@ Three design choices deserve comment.
 - **What is captured?** Every atom with $v_f\lesssim v<v_0$ when it enters drifts until the resonance condition catches up with it, then locks on and exits at about $v_f$. Atoms faster than $v_0$ are never resonant and pass straight through. $v_0$ is the **capture velocity**.
 - **Why red detuning?** With $\delta_L$ well to the red, atoms that have left the slower and slowed further are far off resonance, so the slowing beam does not push them back out of the MOT.
 
-> **Intuition aside.** Picture the resonance condition as a "sweet spot" velocity that slides down the slower as $B$ decreases. Atoms that reach the sweet spot are dragged along with it like surfers on a wave; atoms that start too fast never catch the wave.
+> **Intuition aside.** Think of the resonance condition as a velocity, $v_d(z)$, that falls steadily as the atom moves down the slower. An atom that enters slower than $v_0$ coasts until $v_d$ has come down to its speed, and from then on it is carried down with it. An atom that enters faster than $v_0$ is never resonant.
 
 ## Optical molasses
 
@@ -59,17 +59,17 @@ which is positive (a true damping) only for red detuning. Three pairs of beams a
 
 ![Left: force versus atom velocity at detuning minus Gamma with s0 = 1 per beam; the beam along +z pushes positive with a peak near -4.7 m/s, the beam along -z pushes negative with a peak near +4.7 m/s, and their sum is a dispersion-shaped curve passing through zero with negative slope. Right: the total force for detunings -0.5, -1 and -2 Gamma; larger detuning gives a smaller slope (weaker friction) at v = 0 but a wider capture range](figures/05-molasses-force.png)
 
-*The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is close to linear (pure friction) only for $kv\lesssim|\delta|$ (about 2 m/s at $\delta=-\Gamma/2$, 4 m/s at $\delta=-\Gamma$). It peaks near $v\approx|\delta|/k$; faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
+*The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is close to linear (pure friction) only for $kv$ well below $|\delta|$: for these curves it stays within 10% of $-\beta v$ up to about 1.5 m/s at $\delta=-\Gamma/2$ and 2.5 m/s at $\delta=-\Gamma$. It peaks near $v\approx|\delta|/k$ (2.4 and 4.7 m/s), and faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
 
 ## The Doppler limit
 
 If friction were the whole story, atoms would cool to zero velocity. They do not, because each scattering event is a random kick (Chapter 04). Here is the balance in its simplest, one-dimensional form, the model used in lab 03.
 
-**Cooling.** Friction removes kinetic energy at the rate $\frac{d}{dt}\langle\tfrac12mv^2\rangle=-\beta\langle v^2\rangle$.
+Friction removes kinetic energy at the rate $\frac{d}{dt}\langle\tfrac12mv^2\rangle=-\beta\langle v^2\rangle$.
 
-**Heating.** Each beam scatters at rate $R_0=\frac{\Gamma}{2}\frac{s_0}{1+s_0+(2\delta/\Gamma)^2}$ for an atom near rest. Every event has two random kicks of $\pm\hbar k$: the absorption (random because the atom does not know which beam it will absorb from next) and the emission (along $\pm z$ with equal probability in this 1D model). The momentum spread therefore grows as $\frac{d}{dt}\langle p^2\rangle=2R_0\times2(\hbar k)^2$, so the kinetic energy grows at $\frac{d}{dt}\langle\tfrac12mv^2\rangle=2R_0\hbar^2k^2/m$.
+The heating comes from the scattering itself. Each beam scatters at rate $R_0=\frac{\Gamma}{2}\frac{s_0}{1+s_0+(2\delta/\Gamma)^2}$ for an atom near rest. Every event has two random kicks of $\pm\hbar k$: the absorption (random because the atom does not know which beam it will absorb from next) and the emission (along $\pm z$ with equal probability in this 1D model). The momentum spread therefore grows as $\frac{d}{dt}\langle p^2\rangle=2R_0\times2(\hbar k)^2$, so the kinetic energy grows at $\frac{d}{dt}\langle\tfrac12mv^2\rangle=2R_0\hbar^2k^2/m$.
 
-**Balance.** Setting the sum to zero and using $k_BT=m\langle v^2\rangle$ in one dimension,
+In steady state the two rates cancel. Using $k_BT=m\langle v^2\rangle$ in one dimension,
 
 $$k_BT=\frac{2R_0\hbar^2k^2}{\beta}=\frac{\hbar\Gamma}{4}\,\frac{1+s_0+(2\delta/\Gamma)^2}{2|\delta|/\Gamma}.$$
 
@@ -77,15 +77,15 @@ At low intensity this is smallest at $\delta=-\Gamma/2$, giving the **Doppler li
 
 $$\boxed{\ k_BT_D=\frac{\hbar\Gamma}{2}\ },\qquad T_D=\frac{(1.0546\times10^{-34})(3.812\times10^7)}{2(1.381\times10^{-23})}=145.6\ \mu{\rm K}\ \text{for Rb-87}.$$
 
-The emission model matters. With a single beam pair and isotropic emission, each emission kick contributes only $(\hbar k)^2/3$ along the axis and the result is $\tfrac23$ of the formula above. With three beam pairs, though, photons scattered from all six beams feed random kicks into every axis, and for isotropic emission the low-intensity limit comes out at exactly $\hbar\Gamma/2$ again; that is the value universally quoted. Note what sets it: only $\Gamma$. A narrower line means a colder limit: the narrow intercombination line of strontium (689 nm, $\Gamma/2\pi=7.4$ kHz) cools to below a microkelvin, and that of ytterbium (556 nm, 182 kHz) has $T_D=4.4\ \mu$K (Chapter 02). For strontium the Doppler limit (0.18 $\mu$K) is even below the recoil temperature (0.46 $\mu$K), so the recoil sets the floor there.
+The emission model matters. With a single beam pair and isotropic emission, each emission kick contributes only $(\hbar k)^2/3$ along the axis and the result is $\tfrac23$ of the formula above. With three beam pairs, though, photons scattered from all six beams feed random kicks into every axis, and for isotropic emission the low-intensity limit comes out at exactly $\hbar\Gamma/2$ again, which is the value usually quoted. It depends on nothing but $\Gamma$, so narrower lines give colder limits. The intercombination line of strontium (689 nm, $\Gamma/2\pi=7.4$ kHz) cools to below a microkelvin, and that of ytterbium (556 nm, 182 kHz) has $T_D=4.4\ \mu$K (Chapter 02). For strontium the Doppler limit (0.18 $\mu$K) is even below the recoil temperature (0.46 $\mu$K), and there the recoil sets the floor instead.
 
 ![Doppler temperature of Rb-87 versus detuning for s0 = 0, 0.5 and 2 per beam. The s0 = 0 curve has its minimum of 145.6 microkelvin at delta = -Gamma/2, rising steeply toward zero detuning and linearly at large detuning; higher intensity raises the curve and moves its minimum to larger detuning](figures/05-doppler-temperature.png)
 
-*The Doppler theory's prediction. Too close to resonance, the friction vanishes; too far, the atoms barely scatter, and the friction falls faster than the heating. Increasing the intensity raises the temperature: friction and heating both grow, but the friction saturates first. Lab 03 reproduces the $s_0=0.05$ curve with an event-by-event simulation of photon kicks.*
+*The Doppler theory's prediction. Too close to resonance, the friction vanishes; too far, the atoms barely scatter, and the friction falls faster than the heating. Increasing the intensity raises the temperature, because friction and heating both grow but the friction saturates first. Lab 03 reproduces the $s_0=0.05$ curve with an event-by-event simulation of photon kicks.*
 
 ### The surprise of 1988
 
-When Lett and co-workers measured the temperature of sodium in optical molasses carefully, they found $43\pm20\ \mu$K, several times **below** sodium's Doppler limit of about $240\ \mu$K. The theory above is correct for a two-level atom; real atoms have several ground-state sublevels, and polarization gradients in the light field add a far more efficient cooling mechanism. That is the subject of Chapter 06.
+When Lett and co-workers measured the temperature of sodium in optical molasses carefully, they found $43\pm20\ \mu$K, several times **below** sodium's Doppler limit of about $240\ \mu$K. The theory above is correct for a two-level atom; real atoms have several ground-state sublevels, and polarization gradients in the light field add a far more efficient cooling mechanism, which Chapter 06 describes.
 
 ## Worked example (Rb-87, illustrative numbers)
 
@@ -103,9 +103,9 @@ When Lett and co-workers measured the temperature of sodium in optical molasses 
 
 **Step 1: the slower.** $L=(300^2-30^2)/(2\times0.6\times1.122\times10^5)=89\,100/134\,600=0.66$ m. The field must sweep the transition by $(300-30)\times1.282=346$ MHz, which at 1.400 MHz/G is 247 G. Lab 02 shows that the designed field, $+160$ G to $-87$ G, does exactly that.
 
-**Step 2: friction.** With $\hbar k^2=6.84\times10^{-21}$ kg/s, $\delta=-\Gamma/2$ and $s_0=0.5$: $\beta=4\times0.5/2.5^2\times6.84\times10^{-21}=2.2\times10^{-21}$ kg/s, so a velocity decays in $m/\beta=1.443\times10^{-25}/2.2\times10^{-21}=66\ \mu$s. Molasses is fast.
+**Step 2: friction.** With $\hbar k^2=6.84\times10^{-21}$ kg/s, $\delta=-\Gamma/2$ and $s_0=0.5$: $\beta=4\times0.5/2.5^2\times6.84\times10^{-21}=2.2\times10^{-21}$ kg/s, so a velocity decays in $m/\beta=1.443\times10^{-25}/2.2\times10^{-21}=66\ \mu$s.
 
-**Step 3: temperature.** At this intensity the 1D formula gives $(2.5/2)\,T_D=182\ \mu$K, 25% above the low-intensity limit. Real experiments compromise: higher intensity captures more atoms, lower intensity cools further.
+**Step 3: temperature.** At this intensity the 1D formula gives $(2.5/2)\,T_D=182\ \mu$K, 25% above the low-intensity limit. Real experiments compromise, since higher intensity captures more atoms and lower intensity cools further.
 
 **Step 4: is the Doppler limit cold enough for a tweezer?** A 1 mK tweezer holds an atom at $146\ \mu$K easily ($k_BT/U_0\approx0.15$). But the atom's motion would then be spread over many vibrational levels, and Chapter 09 shows that its temperature directly limits qubit coherence. Sub-Doppler cooling (Chapter 06) brings this down by another order of magnitude.
 
@@ -116,7 +116,7 @@ When Lett and co-workers measured the temperature of sodium in optical molasses 
 
 ## Common pitfalls
 
-- **"Molasses traps atoms."** It does not: there is no restoring force toward a point, only friction. Atoms in molasses diffuse out slowly. A trap needs a position-dependent force: the MOT (Chapter 06).
+- **"Molasses traps atoms."** It does not. There is friction but no force toward any point, so atoms in molasses slowly diffuse away. Trapping needs a position-dependent force, which the MOT adds (Chapter 06).
 - **"Closer to resonance cools better."** The friction coefficient vanishes on resonance and the force heats for blue detuning. The optimum for Doppler cooling is $\delta=-\Gamma/2$ at low intensity.
 - **"The Doppler limit is a fundamental limit."** It is a limit of the two-level model. Multilevel atoms cool far below it (Chapter 06), and the recoil temperature $T_r=362$ nK is the next natural scale.
 - **Slower capture versus oven speed.** In an effusive beam from an oven at 400 K the most probable speed is $\sqrt{3k_BT/m}\approx340$ m/s, so a large fraction of atoms is above 300 m/s and is not captured. Increasing $v_0$ captures more atoms but needs a longer slower or a larger $\eta$.

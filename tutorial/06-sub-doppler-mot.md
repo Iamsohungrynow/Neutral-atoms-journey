@@ -2,11 +2,11 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Chapter 05 treated the atom as a two-level system and found a temperature floor, the Doppler limit. Real atoms have several ground-state sublevels, and that changes everything twice. First, sublevels that are light-shifted by different amounts at different points of a polarization-varying light field make possible **Sisyphus cooling**, which reaches a few microkelvin, far below the Doppler limit. Second, sublevels that are Zeeman-shifted by a magnetic field gradient make the scattering force depend on position, which turns molasses into a **trap**: the magneto-optical trap, or MOT. These two ideas are the "multilevel atom" part of Metcalf and van der Straten's review, and together they produce the cold, dense clouds from which tweezers are loaded.
+Chapter 05 treated the atom as a two-level system and found a temperature floor, the Doppler limit. Real atoms have several ground-state sublevels, and this matters in two ways. Sublevels that are light-shifted by different amounts at different points of a polarization-varying light field make possible **Sisyphus cooling**, which reaches a few microkelvin, far below the Doppler limit. Sublevels that are Zeeman-shifted by a magnetic field gradient make the scattering force depend on position, and molasses becomes a **trap**, the magneto-optical trap or MOT. Both ideas belong to the "multilevel atom" part of Metcalf and van der Straten's review. A MOT followed by a sub-Doppler molasses stage is how the cold, dense clouds that load tweezers are made.
 
 ## Why the Doppler theory fails
 
-The Doppler model has one ground state. Its only handle on the atom's velocity is the Doppler shift, which is smaller than the linewidth for slow atoms, so the friction is weak and the random kicks win at $T_D=\hbar\Gamma/2k_B$. In a multilevel atom there is a second, much slower internal time scale: the **optical pumping time** $\tau_p$ it takes for scattered photons to move the atom from one ground sublevel to another. When $\tau_p$ is long compared with $1/\Gamma$, the atom's internal state lags behind its motion, and that lag can be turned into a friction force much stronger than the Doppler one for slow atoms. The price is a small velocity capture range: sub-Doppler cooling only works on atoms that Doppler cooling has already slowed.
+The Doppler model has one ground state. Its only handle on the atom's velocity is the Doppler shift, which is smaller than the linewidth for slow atoms, so the friction is weak and the random kicks win at $T_D=\hbar\Gamma/2k_B$. In a multilevel atom there is a second, much slower internal time scale: the **optical pumping time** $\tau_p$ it takes for scattered photons to move the atom from one ground sublevel to another. When $\tau_p$ is long compared with $1/\Gamma$, the atom's internal state lags behind its motion, and that lag can be turned into a friction force much stronger than the Doppler one for slow atoms. The price is a small velocity capture range, so sub-Doppler cooling only works on atoms that Doppler cooling has already slowed.
 
 ## Polarization gradients and Sisyphus cooling
 
@@ -24,17 +24,17 @@ Where the light is $\sigma^+$, the $m=+1/2$ level is lowest; where it is $\sigma
 
 *Sisyphus cooling. A moving atom climbs a potential hill, converting kinetic energy into potential energy. Near the hilltop the light is $\sigma^-$ and the atom is pumped into the other sublevel, which is at the bottom of its own valley. The spontaneously emitted photon is bluer than the absorbed one by the height of the hill, and that energy is gone for good.*
 
-The name comes from the Greek myth: the atom is forever climbing hills. Each climb removes the height of a hill, $\tfrac23|E_{\rm ls}|$, so the temperature reached scales with the light shift,
+The name comes from the Greek myth of Sisyphus, condemned to roll a boulder uphill forever. Each climb removes the height of a hill, $\tfrac23|E_{\rm ls}|$, so the temperature reached scales with the light shift,
 
 $$k_BT\sim|E_{\rm ls}|\propto\frac{\hbar\Omega^2}{|\delta|}\propto\frac{I}{|\delta|}\qquad(|\delta|\gg\Gamma),$$
 
-with a numerical prefactor of order one that depends on the atomic structure. Lower intensity and larger detuning make colder atoms, until the hills become so shallow (a few tens of recoil energies $E_r$) that the recoil heating of each pumping cycle is no longer small compared with the energy removed per climb. That sets the floor: a few microkelvin for Rb and Cs, compared with Doppler limits of about $125$ to $150\ \mu$K.
+with a numerical prefactor of order one that depends on the atomic structure. Lower intensity and larger detuning make colder atoms, until the hills become so shallow (a few tens of recoil energies $E_r$) that the recoil heating of each pumping cycle is no longer small compared with the energy removed per climb. The floor is a few microkelvin for Rb and Cs, against Doppler limits of about $125$ to $150\ \mu$K.
 
-> **Intuition aside.** Doppler cooling asks the atom to notice a frequency shift smaller than its linewidth: it's like trying to feel a gentle breeze. Sisyphus cooling instead makes the atom pay a toll in potential energy every half wavelength. Even a very slow atom has to pay it, so the friction stays strong down to very low velocities.
+> **Intuition aside.** In Doppler cooling a slow atom is slowed only through a Doppler shift that is much smaller than the linewidth, so the friction on it is weak. In Sisyphus cooling the atom's internal state lags its position by the distance $v\tau_p$ it travels in one pumping time. Because $\tau_p\gg1/\Gamma$, that lag is a sizeable part of a hill (each climb spans a quarter wavelength) even for atoms far too slow to show a useful Doppler shift, and each pumping event removes a correspondingly sizeable part of the hill height. The friction therefore stays strong down to much lower velocities.
 
 **Other configurations.** With circularly polarized counter-propagating beams ($\sigma^+\sigma^-$) the polarization is linear everywhere but rotates along $z$, so there are no potential hills. A moving atom still sees the polarization rotate, which creates an imbalance of ground-state populations that makes it scatter more from the beam it moves toward. This "motion-induced orientation" also cools far below the Doppler limit; it needs a ground state with $J\ge1$ (or $F\ge1$). Six-beam molasses and the MOT contain both kinds of gradient.
 
-**Gray molasses.** A modern variant tunes the cooling light slightly to the **blue** of a transition with dark states (for alkalis, usually D1, $F\to F'=F$). Atoms at rest are pumped into a dark state that does not scatter. The bright states are light-shifted upward by the blue-detuned light, by an amount that varies in space. A moving atom is coupled non-adiabatically from the dark state into a bright state, most likely near the bottom of a bright-state valley, where the two are closest in energy; it then climbs a hill and is optically pumped back into the dark state near the hilltop, losing energy as in Sisyphus cooling. Gray molasses reaches very low temperatures at high density with little light scattering, which is why it is popular for loading tweezers (Chapter 08).
+**Gray molasses.** A modern variant tunes the cooling light slightly to the **blue** of a transition with dark states (for alkalis, usually D1, $F\to F'=F$). Atoms at rest are pumped into a dark state that does not scatter. The bright states are light-shifted upward by the blue-detuned light, by an amount that varies in space. A moving atom is coupled non-adiabatically from the dark state into a bright state, most likely near the bottom of a bright-state valley, where the two are closest in energy; it then climbs a hill and is optically pumped back into the dark state near the hilltop, losing energy as in Sisyphus cooling. Gray molasses reaches very low temperatures at high density with little light scattering, and it is now widely used for loading tweezers (Chapter 08).
 
 ## The magneto-optical trap
 
@@ -58,7 +58,7 @@ with $\beta$ the molasses friction coefficient of Chapter 05. The atom is a **da
 
 ![Force on an atom at rest versus position in a 1D MOT with a 10 G/cm gradient, saturation parameter 1 and beams of radius 10 mm, for detunings -0.5, -1, -2 and -3 Gamma. Each curve is restoring, linear near the centre and peaked where the Zeeman shift roughly equals the detuning (for -3 Gamma that point lies outside the beams); larger detuning gives a smaller spring constant but a longer-range force](figures/06-mot-force.png)
 
-*The 1D MOT force for Rb-87 at rest. The force peaks where the Zeeman shift compensates the detuning, $z\approx\hbar|\delta|/\mu'A$; beyond that it falls off. Large detuning makes a larger, softer trap with a bigger capture range, which is why MOTs typically load at $\delta\approx-2\Gamma$ to $-3\Gamma$.*
+*The 1D MOT force for Rb-87 at rest. The force peaks where the Zeeman shift compensates the detuning, $z\approx\hbar|\delta|/\mu'A$; beyond that it falls off. Large detuning makes a larger, softer trap with a bigger capture range, and MOTs are usually loaded at $\delta\approx-2\Gamma$ to $-3\Gamma$ for that reason.*
 
 ### The MOT in practice
 
@@ -88,7 +88,7 @@ These are the parameters of [lab 04](../hands-on/04-mot/).
 
 **Step 3: oscillation versus damping.** $\omega_0=\sqrt{1.66\times10^{-18}/1.443\times10^{-25}}=3390$ rad/s ($f=540$ Hz). The damping rate $\beta/m=1.05\times10^4\ {\rm s^{-1}}$ exceeds $2\omega_0=6780\ {\rm s^{-1}}$, so the motion is **overdamped**: a displaced atom creeps back to the centre in about a millisecond without oscillating, as lab 04 shows.
 
-**Step 4: capture.** An atom entering beams of 1 cm radius is captured in lab 04 if it is slower than 20 m/s. Within this 1D model an upper bound is set by energy: the force can never exceed $\hbar k\frac{\Gamma}{2}\frac{s_0}{1+s_0}$, which over the 2 cm beam diameter removes at most the kinetic energy of an atom at 47 m/s. The atoms leaving the slower of Chapter 05 at about 26 m/s need larger beams or more detuning; this is why real MOT beams are 1 to 3 cm across and detuned by $2\Gamma$ to $3\Gamma$ during loading.
+**Step 4: capture.** An atom entering beams of 1 cm radius is captured in lab 04 if it is slower than 20 m/s. Within this 1D model an upper bound is set by energy: the force can never exceed $\hbar k\frac{\Gamma}{2}\frac{s_0}{1+s_0}$, which over the 2 cm beam diameter removes at most the kinetic energy of an atom at 47 m/s. The atoms leaving the slower of Chapter 05 at about 26 m/s need larger beams or more detuning, one reason real MOT beams are 1 to 3 cm across and detuned by $2\Gamma$ to $3\Gamma$ during loading.
 
 ## From the MOT to a tweezer
 
@@ -103,7 +103,7 @@ The MOT is a reservoir. A typical tweezer experiment loads the MOT for 50 to 500
 - **"The MOT works because atoms are attracted to the field zero."** The field by itself exerts only a tiny force on the atom's magnetic moment. The MOT force is a scattering force; the field only decides which beam is closer to resonance.
 - **Wrong circular polarizations.** With the opposite handedness, or the opposite coil current, the "restoring" force pushes atoms out. When a new MOT does not work, flipping the coil current is the first test.
 - **"Sub-Doppler cooling needs special beams."** Ordinary six-beam molasses already contains polarization gradients. What it needs is a multilevel ground state, low intensity, larger detuning, and a small magnetic field (stray fields of a fraction of a gauss shift the sublevels and destroy the mechanism).
-- **"Lower intensity is always colder."** Only down to the recoil-limited floor; below it the hills cannot hold atoms and the temperature rises again. The capture velocity also shrinks with intensity.
+- **"Lower intensity is always colder."** Only down to the recoil-limited floor; below it the hills cannot hold atoms and the temperature rises again. Lowering the intensity also shrinks the capture velocity.
 - **"The MOT is the coldest stage."** The MOT trades temperature for capture and confinement; the molasses that follows is colder.
 
 ## Key takeaways

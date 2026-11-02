@@ -14,7 +14,7 @@ the Doppler shift $\pm kv$:
     beam along -z :  delta + k v + mu' A z / hbar
 
 Expanding the total force for small $z$ and $v$ gives $F=-\beta v-\kappa z$ with
-$\kappa=\mu'A\beta/(\hbar k)$: a damped harmonic oscillator.
+$\kappa=\mu'A\beta/(\hbar k)$, so the atom behaves as a damped harmonic oscillator.
 
 Parameters (illustrative, Rb-87 D2): $\delta=-\Gamma$, $s_0=1$ per beam,
 $A=10$ G/cm, $\mu'=\mu_B$, beams of radius 1 cm (no force outside them).

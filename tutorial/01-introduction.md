@@ -2,9 +2,9 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-A neutral-atom quantum computer stores each qubit in a single atom, held in place by a tightly focused laser beam (an **optical tweezer**) inside an ultra-high-vacuum glass cell. Nothing about the qubit is fabricated: every rubidium-87 atom is identical to every other one, so there is no device-to-device spread to calibrate away. The engineering challenge is the opposite of chip building. Instead of making qubits, you have to **catch** them: slow atoms from hundreds of metres per second to a few centimetres per second, cool them to microkelvin temperatures, trap them one by one, and arrange them into a pattern. Only then can you start computing.
+A neutral-atom quantum computer stores each qubit in a single atom, held in place by a tightly focused laser beam (an **optical tweezer**) inside an ultra-high-vacuum glass cell. Nobody fabricates these qubits. Every rubidium-87 atom is identical to every other one, so there is no device-to-device spread to calibrate away. The hard engineering goes into **catching** the atoms. They come out of a vapour at hundreds of metres per second and have to be slowed to a few centimetres per second, cooled to microkelvin temperatures, trapped one per tweezer and arranged into a pattern before any computing can start.
 
-This chapter gives you the big picture: what the experimental cycle looks like, why atoms make good qubits, which criteria a quantum computer has to meet and how atoms meet them, and how the rest of the course is organised. Every idea here is developed properly in a later chapter.
+This chapter is an overview. Each topic is derived properly in the chapter given in brackets.
 
 ## The experimental cycle in one picture
 
@@ -16,9 +16,9 @@ Read the cycle as a story about **energy scales**. The atoms start as a room-tem
 
 $$v_{\rm rms}=\sqrt{\frac{3k_BT}{m}}=\sqrt{\frac{3\,(1.381\times10^{-23}\ {\rm J/K})(300\ {\rm K})}{1.443\times10^{-25}\ {\rm kg}}}\approx293\ {\rm m/s}.$$
 
-An optical tweezer is a potential well about $k_B\times1$ mK deep. An atom can be trapped only if its kinetic energy is well below that, so the atoms must first be cooled by a factor of roughly $10^6$ to $10^7$ in temperature (from 300 K to 10 to 100 $\mu$K). Laser light does this: each absorbed photon carries momentum $\hbar k$, and by arranging for atoms to absorb mostly photons that oppose their motion, a pair of counter-propagating, slightly red-detuned laser beams acts like friction (Chapters 04 and 05). A **magneto-optical trap (MOT)** adds a magnetic field gradient so that the friction comes with a restoring force (Chapter 06), collecting millions of atoms at about $100\ \mu$K in a cloud a millimetre across.
+An optical tweezer is a potential well about $k_B\times1$ mK deep. An atom can be trapped only if its kinetic energy is well below that, so the atoms must first be cooled by a factor of $3\times10^6$ to $3\times10^7$ in temperature (from 300 K to between 100 and 10 $\mu$K). The cooling is done with laser light. Each absorbed photon carries momentum $\hbar k$. In a pair of counter-propagating beams tuned slightly below resonance, the Doppler shift brings a moving atom closer to resonance with the beam it is moving towards, so it absorbs mostly photons that oppose its motion and the beams act like friction (Chapters 04 and 05). A **magneto-optical trap (MOT)** adds a magnetic field gradient so that the friction comes with a restoring force (Chapter 06), collecting millions of atoms at about $100\ \mu$K in a cloud a millimetre across.
 
-From that cloud, an array of tweezers picks up atoms. A surprising piece of physics now helps: when two atoms sit in the same tiny trap, laser light makes them collide and both are lost. Each tweezer ends up holding either zero or one atom, with roughly even odds (Chapter 08). A camera photographs the array, a computer finds the empty sites, and a second set of movable tweezers drags atoms into a perfect, defect-free pattern. Then the quantum computation starts.
+From that cloud, an array of tweezers picks up atoms. Collisions now help. When two atoms sit in the same tiny trap, laser light makes them collide and both are lost, so each tweezer ends up holding either zero or one atom, with roughly even odds (Chapter 08). A camera photographs the array, a computer finds the empty sites, and a second set of movable tweezers drags atoms into a perfect, defect-free pattern. Then the quantum computation starts.
 
 ## Why atoms make good qubits
 
@@ -30,25 +30,25 @@ From that cloud, an array of tweezers picks up atoms. A surprising piece of phys
 | **Optically reconfigurable** | tweezers are just light, so the layout is software: atoms can be moved mid-computation to connect any pair | Ch 08, 12 |
 | **Scalable in number** | thousands of tweezers can be made from one laser with holograms or acousto-optic deflectors | Ch 08 |
 
-The second and third properties pull in opposite directions, and reconciling them is the central idea of the platform. A good memory wants an atom that ignores everything; a good gate wants atoms that interact strongly. Neutral atoms do both by changing state: in the ground state the van der Waals interaction between two atoms $5\ \mu$m apart is utterly negligible (with the ground-state $C_6\approx4.7\times10^3$ atomic units it is about $h\times4\times10^{-11}$ Hz), while in the $70S$ Rydberg state the same pair interacts with energy
+The second and third rows seem to contradict each other. A memory should ignore its surroundings, while a two-qubit gate needs two atoms to interact strongly. Atoms manage both because the interaction depends enormously on the internal state. In the ground state the van der Waals interaction between two atoms $5\ \mu$m apart is negligible (with the ground-state $C_6\approx4.7\times10^3$ atomic units it is about $h\times4\times10^{-11}$ Hz), while in the $70S$ Rydberg state the same pair interacts with energy
 
 $$\frac{V}{h}=\frac{C_6/h}{R^6}=\frac{863\ {\rm GHz}\,\mu{\rm m}^6}{(5\ \mu{\rm m})^6}=\frac{863\times10^3\ {\rm MHz}}{15\,625}\approx55\ {\rm MHz},$$
 
-far larger than the few-MHz laser coupling used to drive the atoms. That mismatch is the **Rydberg blockade**, and it is what makes entangling gates possible (Chapter 10).
+far larger than the few-MHz laser coupling used to drive the atoms. With a shift that large, the laser cannot excite both atoms at once. This is the **Rydberg blockade**, the mechanism behind the entangling gates of Chapters 10 and 11.
 
-> **Intuition aside.** Think of each atom as a person in a library. In the ground state everyone whispers: nobody hears anyone else, so private notes (qubit phases) survive for a long time. Exciting two people to Rydberg states is like handing them megaphones for a microsecond: they can no longer ignore each other, and that brief, controlled conversation is the entangling gate.
+> **Intuition aside.** The two interaction energies above differ by a factor of about $10^{18}$. Turn each into the time needed for the pair to pick up one radian of phase, $1/(2\pi\times V/h)$: more than a century for ground-state atoms, about 3 ns for the $70S$ pair.
 
 ## Fourteen orders of magnitude
 
 ![Log-scale chart of characteristic frequencies in a rubidium-87 tweezer experiment, from the roughly 1 Hz experimental cycle rate, through the 3.8 kHz recoil energy, the 98 kHz radial trap frequency, the 0.7 MHz Zeeman shift per gauss per unit of m_F in F = 2, the 2 MHz Rydberg Rabi frequency, the 6.1 MHz natural linewidth, the 21 MHz depth of a 1 millikelvin tweezer, the 55 MHz Rydberg interaction at 5 micrometres, the 6.8 GHz hyperfine splitting, up to the 282 THz tweezer light and 384 THz optical transition](figures/01-frequency-scales.png)
 
-*The frequency (or energy, via $E=hf$) scales in one experiment, computed from the reference data in the [notation page](00-notation.md). Much of atomic physics is the art of using a fast scale to control a slow one: optical photons at hundreds of THz set up a trap whose vibrations are at 100 kHz.*
+*The frequency (or energy, via $E=hf$) scales in one experiment, computed from the reference data in the [notation page](00-notation.md). Light at 282 THz makes a trap that vibrates at about 100 kHz, three billion times more slowly.*
 
-Keep this ladder in mind. Many approximations in this course work because two scales are far apart. The rotating-wave approximation (Chapter 03) needs the laser coupling to be much smaller than the optical frequency; the dipole trap (Chapter 07) needs the laser to be detuned from resonance by much more than the linewidth; the hyperfine qubit is long-lived because 6.8 GHz is tiny compared with optical frequencies (spontaneous decay between the qubit levels is negligible, and both levels feel almost the same trap light shift) yet large compared with trap vibration frequencies (so qubit and motional transitions are well resolved).
+Many approximations in this course work because two of these scales are far apart. The rotating-wave approximation (Chapter 03) needs the laser coupling and detuning to be much smaller than the optical frequency; the dipole trap (Chapter 07) needs the laser to be detuned from resonance by much more than the linewidth; the hyperfine qubit is long-lived because 6.8 GHz is tiny compared with optical frequencies (spontaneous decay between the qubit levels is negligible, and both levels feel almost the same trap light shift) yet large compared with trap vibration frequencies (so qubit and motional transitions are well resolved).
 
 ## The DiVincenzo criteria, atom by atom
 
-DiVincenzo listed five requirements for a quantum computer (plus two for quantum communication). Here is how neutral atoms meet them.
+DiVincenzo listed five requirements for a quantum computer (plus two for quantum communication). The table gives the neutral-atom answer to each and what limits it today.
 
 | Criterion | Neutral-atom answer | Main limitation today |
 |---|---|---|
@@ -58,7 +58,7 @@ DiVincenzo listed five requirements for a quantum computer (plus two for quantum
 | 4. A universal set of gates | microwave or Raman single-qubit rotations; Rydberg-blockade CZ gates | two-qubit fidelity, laser noise |
 | 5. Qubit-specific measurement | fluorescence imaging of each tweezer | imaging heats the atoms and is slow (milliseconds); state-selective readout by push-out loses the atoms in one state |
 
-The last column is the honest part. Most of Chapters 08 to 12 is about those limitations and the clever ways experiments now work around them.
+Most of Chapters 08 to 12 is about the right-hand column and how current experiments work around those limits.
 
 ## How atoms compare with other platforms
 
@@ -70,7 +70,7 @@ The last column is the honest part. Most of Chapters 08 to 12 is about those lim
 | Connectivity | reconfigurable by moving atoms | all-to-all within a chain | fixed nearest-neighbour layout |
 | Natural strength | qubit number, identical qubits | gate fidelity, coherence | gate speed |
 
-All three platforms improve rapidly; treat this table as a description of *mechanisms*, not a scoreboard. The useful lesson is that the neutral-atom platform trades slow cycle times (atoms must be reloaded and the camera is slow) for very large, identical, rearrangeable arrays.
+The table compares mechanisms. Performance figures for all three platforms change from year to year. Neutral atoms accept slow cycle times (atoms must be reloaded and the camera is slow) in exchange for very large, identical, rearrangeable arrays.
 
 ## A short history
 
@@ -106,7 +106,7 @@ All values from the [reference table](00-notation.md).
 
 **Step 4: the end point.** After slowing and cooling, a typical atom moves at a few cm/s: at $10\ \mu$K the one-dimensional rms velocity is $\sqrt{k_BT/m}=3.1$ cm/s, about five recoil velocities. The whole journey spans a factor of $10^4$ in velocity and $3\times10^7$ in temperature.
 
-**Takeaway:** a single photon barely nudges an atom, but an atom can scatter about twenty million photons per second. That enormous rate is what makes light such a strong tool for controlling atoms.
+**Takeaway:** one photon changes the velocity by only 6 mm/s, but an atom can scatter about twenty million photons per second, and together the kicks decelerate it at $10^4\,g$.
 
 ## Course map
 
@@ -133,12 +133,12 @@ Part I follows the logic of the course's primary text, Metcalf and van der Strat
 - **"Laser cooling heats atoms because light carries energy."** Absorbed photons do add energy, but when the laser is tuned slightly below resonance, an atom preferentially absorbs photons that oppose its motion and re-emits slightly more energetic ones. The difference comes out of the atom's kinetic energy (Chapter 05).
 - **"A tweezer holds an atom by pushing on it."** A red-detuned tweezer attracts the atom toward the intensity maximum through the dipole force; it is a potential well, not a stream of momentum kicks. Photon scattering in the trap is a nuisance that heats the atom (Chapters 04 and 07).
 - **"Atoms are identical, so experiments need no calibration."** The atoms are identical; the light fields that address them are not. Intensity variations across an array, stray magnetic fields and atomic motion all have to be calibrated.
-- **"Ground-state atoms do not interact at all."** They do, weakly. Two atoms in the same tweezer collide strongly enough that light-assisted collisions eject pairs, which is exactly what makes single-atom loading work (Chapter 08). Atoms in *separate* tweezers a few micrometres apart are, for practical purposes, non-interacting until excited to Rydberg states.
+- **"Ground-state atoms do not interact at all."** They do, weakly. Two atoms in the same tweezer collide strongly enough that light-assisted collisions eject pairs, and single-atom loading relies on this (Chapter 08). Atoms in *separate* tweezers a few micrometres apart are, for practical purposes, non-interacting until excited to Rydberg states.
 
 ## Key takeaways
 
 - A neutral-atom qubit is a single atom in an optical tweezer; the qubit lives in two long-lived internal states.
-- Atoms must first be cooled by six to seven orders of magnitude in temperature. Laser cooling does this by scattering tens of thousands of photons per atom.
+- Atoms must first be cooled by about seven orders of magnitude in temperature. Laser cooling does this by scattering tens of thousands of photons per atom.
 - Ground-state atoms barely interact, which protects stored information; Rydberg excitation switches on interactions of tens of MHz at micrometre distances, which enables gates.
 - Arrays are assembled each cycle: stochastic loading, imaging, then rearrangement.
 - The five DiVincenzo criteria map naturally onto atoms; the hard parts are gate fidelity, atom loss, and slow cycle times.

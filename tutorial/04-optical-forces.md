@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Light pushes on atoms in two completely different ways. The **scattering force** (radiation pressure) comes from absorbing photons out of a beam and re-emitting them in random directions: every absorption is a kick along the beam. The **dipole force** comes from the energy shift the light field imprints on the atom: where the light is more intense the shift is larger, and the atom is pushed toward lower energy: into the light if the shift is negative, out of it if positive. The first force is dissipative and is the basis of laser *cooling* (Chapters 05 and 06). The second is conservative and is the basis of optical *trapping* (Chapter 07). This chapter derives both from the two-level atom of Chapter 03 and shows why a tweezer must be tuned far from resonance.
+Light pushes on atoms in two quite different ways. The **scattering force** (radiation pressure) comes from absorbing photons out of a beam and re-emitting them in random directions; every absorption is a kick along the beam. The **dipole force** comes from the energy shift the light field imprints on the atom. The shift grows with the intensity, so the atom is pushed toward lower energy, into the light if the shift is negative and out of it if positive. The scattering force is dissipative, and laser *cooling* (Chapters 05 and 06) relies on it. The dipole force is conservative and is what holds atoms in optical traps (Chapter 07). Both follow from the two-level atom of Chapter 03, and comparing their sizes tells us why a tweezer is tuned far from resonance.
 
 ## Photon momentum and recoil
 
@@ -10,7 +10,7 @@ A photon of wavelength $\lambda$ carries momentum $\hbar k=h/\lambda$. When a Rb
 
 $$v_r=\frac{\hbar k}{m}=\frac{6.626\times10^{-34}\ {\rm J\,s}}{(780.24\times10^{-9}\ {\rm m})(1.443\times10^{-25}\ {\rm kg})}=5.885\ {\rm mm/s},$$
 
-and gains the **recoil energy** $E_r=\hbar^2k^2/2m=h\times3.771$ kHz. These are tiny: an atom from a room-temperature vapour moves 50 000 times faster. The power of light comes from the *rate*: an atom can repeat the absorption-emission cycle up to $\Gamma/2\approx1.9\times10^7$ times per second.
+and gains the **recoil energy** $E_r=\hbar^2k^2/2m=h\times3.771$ kHz. Both are tiny. An atom from a room-temperature vapour moves 50 000 times faster than $v_r$. What makes the force large is the *rate*, since an atom can repeat the absorption-emission cycle up to $\Gamma/2\approx1.9\times10^7$ times per second.
 
 ## The scattering force
 
@@ -22,19 +22,19 @@ using the scattering rate from Chapter 03. Its maximum, at high intensity on res
 
 $$F_{\max}=\frac{\hbar k\Gamma}{2}=1.62\times10^{-20}\ {\rm N},\qquad a_{\max}=\frac{F_{\max}}{m}=1.12\times10^5\ {\rm m/s^2}\approx1.1\times10^4\,g .$$
 
-Ten thousand times gravity from a beam of a few milliwatts: that is why radiation pressure can stop an atomic beam in well under a metre (Chapter 05).
+A beam of a few milliwatts can therefore push with ten thousand times the force of gravity, enough to stop a thermal atomic beam in well under a metre (Chapter 05).
 
-![Left: scattering force in units of hbar k Gamma over 2 versus detuning for saturation parameters 0.1, 1 and 10; Lorentzian peaks of height 0.09, 0.5 and 0.91 that broaden with intensity, below a dashed line at the maximum 1.6e-20 newton. Right: rotating-frame energies versus detuning in units of Omega; the bare ground (zero) and excited (minus hbar delta) lines cross at zero detuning, the exact dressed states avoid each other, and for red detuning the ground-like state is pushed down by Omega squared over four delta](figures/04-forces.png)
+![Left: scattering force in units of hbar k Gamma over 2 versus detuning for saturation parameters 0.1, 1 and 10; Lorentzian peaks of height 0.09, 0.5 and 0.91 that broaden with intensity, below a dashed line at the maximum 1.6e-20 newton. Right: rotating-frame energies versus detuning in units of Omega; the bare ground (zero) and excited (minus hbar delta) lines cross at zero detuning, the exact dressed states avoid each other, and for red detuning the ground-like state is pushed down by Omega squared over four times the magnitude of delta](figures/04-forces.png)
 
 *Left: the scattering force has the Lorentzian shape of the scattering rate and always points along the beam. Right: the origin of the dipole force. In the rotating frame the laser couples $|g\rangle$ (energy 0) and $|e\rangle$ (energy $-\hbar\delta$); the coupled "dressed" states repel. For red detuning the ground-like state is pushed down.*
 
 ### The cost: heating from random kicks
 
-The emitted photons do not cancel exactly in any one realisation. Their kicks add like a **random walk**: after $N$ emissions along random directions the spread in momentum along $z$ grows as $\hbar k\sqrt{N/3}$ (the $1/3$ is $\langle\cos^2\theta\rangle$ for isotropic emission). The absorptions are random in time too. Both effects heat the atom. A useful rule: each scattering event raises the atom's random (thermal) kinetic energy by about $2E_r$, one $E_r$ from the absorption kick and one from the emission kick. Chapter 05 shows that Doppler cooling is a competition between the mean force (cooling) and this random walk (heating), and the balance sets the lowest temperature.
+The emitted photons do not cancel exactly in any one realisation. Their kicks add like a **random walk**: after $N$ emissions along random directions the spread in momentum along $z$ grows as $\hbar k\sqrt{N/3}$ (the $1/3$ is $\langle\cos^2\theta\rangle$ for isotropic emission). The absorptions are random in time too. Both effects heat the atom. As a rule of thumb, each scattering event raises the atom's random (thermal) kinetic energy by about $2E_r$, one $E_r$ from the absorption kick and one from the emission kick. Chapter 05 shows that Doppler cooling is a competition between the mean force (cooling) and this random walk (heating), and the balance sets the lowest temperature.
 
-![Left: six simulated momentum trajectories, each the momentum along the beam minus N hbar k, wandering randomly for up to 2000 scattered photons; dashed curves mark the rms spread plus or minus root N over 3. Right: the mean momentum of 400 simulated atoms grows exactly as N hbar k](figures/04-random-walk.png)
+![Left: six simulated momentum trajectories, each the momentum along the beam minus N hbar k, wandering randomly for up to 2000 scattered photons; dashed curves mark the rms spread plus or minus root N over 3. Right: the mean momentum of 400 simulated atoms follows the line N hbar k](figures/04-random-walk.png)
 
-*Simulation of 400 atoms scattering 2000 photons each from a beam along $+z$. The mean momentum grows steadily (right): that is the scattering force. Individual atoms wander about the mean by $\sim\hbar k\sqrt{N/3}$ (left): that is heating.*
+*Simulation of 400 atoms scattering 2000 photons each from a beam along $+z$. The mean momentum (right) grows by $\hbar k$ per photon, which is the scattering force. Individual atoms wander about that mean by $\sim\hbar k\sqrt{N/3}$ (left), and this spread is the heating.*
 
 ## The dipole force
 
@@ -50,12 +50,12 @@ the **light shift** (or AC Stark shift). It has the sign of $\delta$: red-detune
 
 $$\mathbf F_{\rm dip}=-\nabla U=-\frac{\hbar}{4\delta}\nabla\Omega^2(\mathbf r).$$
 
-- **Red detuning**: $U<0$ where the light is bright, so atoms are pulled toward intensity maxima. A focused red-detuned beam is a trap. This is the optical tweezer.
+- **Red detuning**: $U<0$ where the light is bright, so atoms are pulled toward intensity maxima. A focused red-detuned beam therefore traps atoms at its focus; an optical tweezer is such a beam.
 - **Blue detuning**: atoms are pushed out of the light, toward intensity minima.
 
-A formula valid at all intensities (for a two-level atom at rest) is $U=\frac{\hbar\delta}{2}\ln\!\big[1+\frac{s_0}{1+(2\delta/\Gamma)^2}\big]$, which reduces to $\hbar\Omega^2/4\delta$ when $s_0\ll(2\delta/\Gamma)^2$.
+For a two-level atom at rest in steady state there is a formula valid at all intensities, $U=\frac{\hbar\delta}{2}\ln\!\big[1+\frac{s_0}{1+(2\delta/\Gamma)^2}\big]$. It reduces to $\hbar\Omega^2/4\delta$ when $|\delta|\gg\Gamma$ and $s_0\ll(2\delta/\Gamma)^2$.
 
-> **Intuition aside.** Go back to the classical electron on a spring. Driven below resonance it oscillates in phase with the field, so its induced dipole lines up with the field and the energy $-\frac12\mathbf d\cdot\mathbf E$ is negative: like a piece of paper attracted to a charged comb, the atom is drawn into strong fields. Above resonance the dipole oscillates out of phase and the atom is repelled.
+> **Intuition aside.** Go back to the classical electron on a spring. Driven below resonance it oscillates in phase with the field, so its induced dipole lines up with the field and the energy $-\frac12\mathbf d\cdot\mathbf E$ is negative. The atom is then drawn toward strong fields, for the same reason that scraps of paper are pulled toward a charged comb. Above resonance the dipole oscillates out of phase and the atom is pushed away.
 
 ## Why traps are tuned far off resonance
 
@@ -63,7 +63,7 @@ Compare the two effects at large detuning. The potential and the scattering rate
 
 $$U\simeq\frac{\hbar\Omega^2}{4\delta}\propto\frac{I}{\delta},\qquad \gamma_p\simeq\frac{\Gamma\Omega^2}{4\delta^2}\propto\frac{I}{\delta^2},\qquad\text{so}\qquad \hbar\gamma_p=\frac{\Gamma}{|\delta|}\,|U| .$$
 
-At a fixed trap depth, the scattering rate falls as $1/|\delta|$. Moving far from resonance and compensating with more power keeps the trap depth while reducing the heating. This trade-off is the design rule of every optical tweezer.
+At a fixed trap depth, the scattering rate falls as $1/|\delta|$. Tweezers are therefore tuned far from resonance, and the depth lost by detuning is made up with more laser power.
 
 ![Left: dipole potential across a 1 milliwatt beam focused to a 10 micrometre waist, at plus and minus 50 GHz detuning; red detuning gives a well 1.68 millikelvin deep at the centre, blue detuning a hill of the same height. Right: the photon scattering rate for the red-detuned case, a Gaussian peaking at 2.7e4 photons per second](figures/04-dipole-potential.png)
 
@@ -88,11 +88,11 @@ This example treats the atom as the two-level cycling transition driven with $\s
 
 **Step 2: Rabi frequency.** $\Omega=\Gamma\sqrt{s_0/2}=2\pi\times6.0666\ {\rm MHz}\times437=2\pi\times2.65$ GHz. Check that $\Omega\ll|\delta|$: $2.65/50=0.053$, fine.
 
-**Step 3: depth.** $U_0/h=\Omega^2/(4\delta)/2\pi=(2.65\ {\rm GHz})^2/(4\times50\ {\rm GHz})=35.1$ MHz. In temperature units, $U_0/k_B=h(35.1\times10^6)/k_B=1.68$ mK. The exact dressed-state energy gives 35.06 MHz, confirming the perturbative formula.
+**Step 3: depth.** $U_0/h=\Omega^2/(4|\delta|)/2\pi=(2.65\ {\rm GHz})^2/(4\times50\ {\rm GHz})=35.1$ MHz. In temperature units, $U_0/k_B=h(35.1\times10^6)/k_B=1.68$ mK. The exact dressed-state energy gives 35.06 MHz, confirming the perturbative formula.
 
 **Step 4: scattering.** $\gamma_p=(\Gamma/|\delta|)(U_0/\hbar)=(6.0666/50\,000)\times2\pi\times35.1\times10^6\ {\rm s^{-1}}=2.7\times10^4\ {\rm s^{-1}}$.
 
-**Step 5: heating time.** At $2E_r=k_B\times362$ nK per photon, the atom gains $k_B\times9.7$ mK per second, so it climbs out of the 1.68 mK well in about 0.17 s. For a qubit that must keep its state for seconds, this is far too much: hence far-detuned tweezers.
+**Step 5: heating time.** At $2E_r=k_B\times362$ nK per photon, the atom gains $k_B\times9.7$ mK per second, so it climbs out of the 1.68 mK well in about 0.17 s. A qubit has to be held for seconds, so this is far too fast, and it is why real tweezers are detuned by many terahertz (Chapter 07).
 
 ## Comparing the two forces
 
@@ -111,7 +111,7 @@ This example treats the atom as the two-level cycling transition driven with $\s
 - **"Blue light can't trap."** Blue-detuned light repels atoms, but a dark spot surrounded by light (a "bottle beam") or a blue-detuned lattice can trap them at intensity minima, where they also scatter less.
 - **Sign of the light shift.** With $\delta=\omega_L-\omega_0$, the ground state shifts by $+\hbar\Omega^2/4\delta$: negative for red. In the two-level model the excited state shifts by the same amount in the opposite direction. In a real Rb tweezer the $5P_{3/2}$ shift has its own size, set by its couplings to other states (Chapter 07), which matters for imaging atoms in a tweezer (Chapter 08).
 - **Two-level formulas at large detuning.** Once $|\delta|$ approaches the fine-structure splitting (7 THz for Rb) the D1 and D2 lines both contribute, and at still larger detuning (for example a 1064 nm tweezer, 100 THz away) the counter-rotating terms matter too. Chapter 07 uses the full two-line polarizability.
-- **"Emission kicks cancel, so they don't matter."** They cancel on average but not their *variance*. That random walk is the heating that limits Doppler cooling.
+- **"Emission kicks cancel, so they don't matter."** Their mean is zero, but their *variance* grows with every photon, and this random walk is the heating that limits Doppler cooling.
 
 ## Key takeaways
 

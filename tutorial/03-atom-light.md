@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Everything in Part I of this course, from slowing to trapping, comes from one question: what does a laser do to an atom? This chapter answers it for the simplest possible atom, one with only two levels. We derive the coupling, see the atom oscillate between its levels (**Rabi oscillations**), add spontaneous emission to get the **optical Bloch equations**, and solve them for the quantity that drives Chapters 04 to 06: the **photon scattering rate**. The model is not a toy. Chapter 02 showed that Rb-87 driven with $\sigma^+$ light on $|F{=}2,m_F{=}2\rangle\to|F'{=}3,m_F'{=}3\rangle$ really is a closed two-level system.
+Slowing, cooling and trapping in Part I all rest on one calculation: the response of an atom with only two levels to a laser. We derive the coupling, find the **Rabi oscillations** of an undamped atom, add spontaneous emission to get the **optical Bloch equations**, and solve these in steady state for the **photon scattering rate**, which Chapters 04 to 06 use throughout. Two levels are a good description of a real atom here. Chapter 02 showed that Rb-87 driven with $\sigma^+$ light on $|F{=}2,m_F{=}2\rangle\to|F'{=}3,m_F'{=}3\rangle$ is a closed two-level system, apart from a slow leak that the repumper repairs.
 
 > **Conventions.** Laser frequency $\omega_L$, atomic frequency $\omega_0$, detuning $\delta=\omega_L-\omega_0$ (red: $\delta<0$). $\Gamma$ is the excited-state decay rate. $\Omega$ is the Rabi frequency, defined so that on resonance the excited population is $\sin^2(\Omega t/2)$. See the [notation page](00-notation.md).
 
@@ -17,7 +17,7 @@ Before any quantum mechanics, think of the electron as a mass on a spring, reson
 1. The response is large only within about $\Gamma$ of resonance (a **Lorentzian** line of full width $\Gamma$).
 2. Below resonance the electron moves **in phase** with the field; above resonance it moves **out of phase**. This phase decides whether light attracts or repels an atom (Chapter 04).
 
-What the classical oscillator cannot do is **saturate**. A spring can be stretched as far as you like, but a two-level atom can be at most fully excited. That is the new physics below.
+A spring can be stretched as far as you like, but a two-level atom cannot be more than fully excited, so its response must **saturate**. The classical model misses this.
 
 ## The coupling and the rotating-wave approximation
 
@@ -29,7 +29,7 @@ The dipole operator only connects $|g\rangle$ and $|e\rangle$. Define the **Rabi
 
 $$\hbar\Omega=-\langle e|\hat{\mathbf d}\cdot\mathbf E_0|g\rangle,$$
 
-taking $\Omega$ real. Write $\cos\omega_Lt=(e^{i\omega_Lt}+e^{-i\omega_Lt})/2$ and look at the coupling in the interaction picture, where the atom's own evolution at $\omega_0$ is removed. The coupling then contains two kinds of term. One oscillates at the small difference $\omega_L-\omega_0=\delta$; the other oscillates at the sum $\omega_L+\omega_0\approx2\pi\times768$ THz. The fast term averages to zero over any time we can resolve. Dropping it is the **rotating-wave approximation (RWA)**, valid when $\Omega,|\delta|\ll\omega_0$. For Rb that means MHz to GHz couplings against a 384 THz transition: an extremely good approximation.
+taking $\Omega$ real. Write $\cos\omega_Lt=(e^{i\omega_Lt}+e^{-i\omega_Lt})/2$ and look at the coupling in the interaction picture, where the atom's own evolution at $\omega_0$ is removed. The coupling then contains two kinds of term. One oscillates at the small difference $\omega_L-\omega_0=\delta$; the other oscillates at the sum $\omega_L+\omega_0\approx2\pi\times768$ THz. The fast term averages to zero over any time we can resolve. Dropping it is the **rotating-wave approximation (RWA)**, valid when $\Omega,|\delta|\ll\omega_0$. For Rb the couplings and detunings in this chapter are MHz to GHz and the transition is at 384 THz, so the approximation is excellent.
 
 Finally, moving to a frame that rotates at the laser frequency $\omega_L$ makes what remains time independent:
 
@@ -51,7 +51,7 @@ On resonance the atom is fully inverted after a **$\pi$ pulse** of duration $\pi
 
 ![Three Bloch spheres. Left: resonant drive with no decay, a great circle through both poles about a horizontal rotation axis. Middle: detuning equal to the Rabi frequency, a tilted small circle that reaches only the equator. Right: resonant drive at three times the linewidth with decay, a spiral that ends at a point inside the sphere](figures/03-bloch.png)
 
-*Bloch-vector trajectories from the optical Bloch equations ($\Omega=2\Gamma$ in the first two panels). Without decay the state circles forever about the rotation axis. With spontaneous emission it spirals into a **steady state** inside the sphere: a statistical mixture, not a pure state.*
+*Bloch-vector trajectories from the optical Bloch equations ($\Omega=2\Gamma$ in the first two panels). Without decay the state circles forever about the rotation axis. With spontaneous emission it spirals into a **steady state** inside the sphere, a statistical mixture.*
 
 ## Spontaneous emission and the optical Bloch equations
 
@@ -71,7 +71,7 @@ with $\rho_{gg}=1-\rho_{ee}$ and $\rho_{ge}=\rho_{eg}^*$. Populations decay at $
 
 ### The steady state
 
-After a few lifetimes the atom forgets its initial state. Setting the time derivatives to zero: the second equation gives $\rho_{eg}=\dfrac{i\Omega(\rho_{gg}-\rho_{ee})/2}{i\delta-\Gamma/2}$. Substituting into the first and solving for $\rho_{ee}$,
+After a few lifetimes the atom forgets its initial state. Setting the time derivatives to zero, the second equation gives $\rho_{eg}=\dfrac{i\Omega(\rho_{gg}-\rho_{ee})/2}{i\delta-\Gamma/2}$. Substituting into the first and solving for $\rho_{ee}$,
 
 $$\boxed{\ \rho_{ee}=\frac{s_0/2}{1+s_0+(2\delta/\Gamma)^2},\qquad s_0=\frac{2\Omega^2}{\Gamma^2}=\frac{I}{I_{\rm sat}}\ }$$
 
@@ -79,7 +79,7 @@ The photons the atom scatters per second equal $\Gamma\rho_{ee}$:
 
 $$\gamma_p=\frac{\Gamma}{2}\,\frac{s_0}{1+s_0+(2\delta/\Gamma)^2}.$$
 
-This one formula is the engine of laser cooling. Read off its properties:
+Chapters 04 to 06 use this formula constantly. Its main features:
 
 - **Low intensity** ($s_0\ll1$): a Lorentzian in $\delta$ with full width $\Gamma$, and $\gamma_p\propto I$.
 - **Saturation**: $\gamma_p\to\Gamma/2$ as $s_0\to\infty$, at any detuning (far from resonance it just takes more intensity). At most half the atoms are excited, because stimulated emission balances absorption.
@@ -91,7 +91,7 @@ With $I=\tfrac12c\varepsilon_0E_0^2$ and $\Omega=dE_0/\hbar$, the condition $s_0
 
 $$I_{\rm sat}=\frac{\pi hc\,\Gamma}{3\lambda^3}=1.669\ \mathrm{mW/cm^2}\quad\text{(Rb-87 cycling transition)}.$$
 
-At low intensity, the scattered power $\hbar\omega\gamma_p$ divided by the incident intensity is the resonant **cross-section** $\sigma_0=\hbar\omega\Gamma/(2I_{\rm sat})=3\lambda^2/2\pi=0.291\ \mu{\rm m}^2$: an atom a fraction of a nanometre across blocks light as if it were a disc about 0.6 $\mu$m in diameter.
+At low intensity, the scattered power $\hbar\omega\gamma_p$ divided by the incident intensity is the resonant **cross-section** $\sigma_0=\hbar\omega\Gamma/(2I_{\rm sat})=3\lambda^2/2\pi=0.291\ \mu{\rm m}^2$. On resonance an atom a fraction of a nanometre across blocks as much light as an opaque disc about 0.6 $\mu$m in diameter.
 
 ![Left: log-log plot of scattering rate versus saturation parameter for detunings 0, minus half a linewidth and minus two linewidths; each curve rises linearly and flattens at Gamma over 2, 1.9 times ten to the seven photons per second. Right: full width at half maximum in units of Gamma, rising as the square root of one plus s0, with points marked at 8.6 MHz for s0 = 1, 20.1 MHz for s0 = 10 and 61.0 MHz for s0 = 100](figures/03-saturation.png)
 
@@ -106,11 +106,11 @@ The line shape above is for an atom at rest. An atom moving with velocity $v$ al
 | room-temperature vapour, 300 K | 169 m/s | **511 MHz** | 84 times wider: the excited-state hyperfine components (72 to 267 MHz apart) blur together, although the 6.8 GHz ground-state splitting stays resolved |
 | laser-cooled cloud, 100 $\mu$K | 9.8 cm/s | **0.30 MHz** | 20 times narrower: the natural line dominates |
 
-This is why lasers are locked using **Doppler-free** techniques such as saturated-absorption spectroscopy in a vapour cell, and why cold atoms are such clean spectroscopic samples. The same physics returns twice later in the course: the Doppler shift is what makes laser *cooling* possible (Chapter 05), and the residual Doppler shift of a few-microkelvin atom is an error source for Rydberg gates (Chapter 11). Finite interaction time (transit-time broadening) and collisions also broaden lines, but they are small for atoms held in tweezers.
+Lasers are therefore locked with **Doppler-free** techniques such as saturated-absorption spectroscopy in a vapour cell, and cold atoms make clean spectroscopic samples. The same physics returns twice later in the course: the Doppler shift is what makes laser *cooling* possible (Chapter 05), and the residual Doppler shift of a few-microkelvin atom is an error source for Rydberg gates (Chapter 11). Finite interaction time (transit-time broadening) and collisions also broaden lines, but they are small for atoms held in tweezers.
 
 ## Beyond two levels: three-level atoms
 
-Several tools in later chapters use three levels: Raman transitions between the two qubit states (Chapter 09), two-photon excitation of Rydberg states (Chapter 10), and the dark states behind gray molasses (Chapter 06). Three ideas cover them all.
+Several tools in later chapters use three levels: Raman transitions between the two qubit states (Chapter 09), two-photon excitation of Rydberg states (Chapter 10), and the dark states behind gray molasses (Chapter 06). The results below are the ones those chapters need.
 
 **1. Adiabatic elimination: two photons act like one.** Take levels $|a\rangle$, $|e\rangle$, $|b\rangle$, with a laser of Rabi frequency $\Omega_1$ on $|a\rangle\leftrightarrow|e\rangle$ and a second, $\Omega_2$, on $|e\rangle\leftrightarrow|b\rangle$, with the first laser detuned by a large $\Delta$ from $|e\rangle$ and the second tuned so that the two-photon transition $|a\rangle\leftrightarrow|b\rangle$ is resonant (in a $\Lambda$ system both lasers then have detuning $\Delta$ from their own transitions; in a ladder the second has $-\Delta$). If $|\Delta|\gg\Omega_1,\Omega_2,\Gamma_e$, the intermediate state is barely populated (probability about $\Omega_1^2/4\Delta^2$) and can be eliminated. What remains is an effective two-level system with
 
@@ -122,13 +122,13 @@ plus a light shift of $|a\rangle$ by $\Omega_1^2/4\Delta$ and of $|b\rangle$ by 
 
 $$|D\rangle\propto\Omega_2|a\rangle-\Omega_1|b\rangle$$
 
-is not coupled to $|e\rangle$ at all: the two excitation amplitudes cancel. An atom in $|D\rangle$ never absorbs, never scatters, and stays there. This **coherent population trapping** makes a medium transparent at the two-photon resonance (electromagnetically induced transparency) and underlies gray molasses (Chapter 06). Slowly changing the ratio $\Omega_1/\Omega_2$ moves the dark state: switching $\Omega_2$ on first and then, while it is still on, ramping $\Omega_1$ up as $\Omega_2$ ramps down (overlapping pulses in the "counter-intuitive" order) carries an atom from $|a\rangle$ to $|b\rangle$ while, in the adiabatic limit, never populating $|e\rangle$. (This needs the two lasers to be phase-coherent; drift of their relative phase, or decoherence between $|a\rangle$ and $|b\rangle$, slowly bleeds the atom out of $|D\rangle$.) This is STIRAP (stimulated Raman adiabatic passage).
+is not coupled to $|e\rangle$ at all: the two excitation amplitudes cancel. An atom in $|D\rangle$ does not absorb light, so it stays there. This **coherent population trapping** makes a medium transparent at the two-photon resonance (electromagnetically induced transparency) and underlies gray molasses (Chapter 06). Slowly changing the ratio $\Omega_1/\Omega_2$ moves the dark state: switching $\Omega_2$ on first and then, while it is still on, ramping $\Omega_1$ up as $\Omega_2$ ramps down (overlapping pulses in the "counter-intuitive" order) carries an atom from $|a\rangle$ to $|b\rangle$ while, in the adiabatic limit, never populating $|e\rangle$. (This needs the two lasers to be phase-coherent; drift of their relative phase, or decoherence between $|a\rangle$ and $|b\rangle$, slowly bleeds the atom out of $|D\rangle$.) This is STIRAP (stimulated Raman adiabatic passage).
 
 **3. Adiabatic passage and Landau-Zener.** Sweep the detuning of a two-level system through resonance, $\delta(t)=\alpha t$, with a constant coupling $\Omega$. Far from resonance the eigenstates are $|g\rangle$ and $|e\rangle$; at resonance they mix; on the other side they have swapped. If the sweep is slow, the atom follows its eigenstate and ends up transferred; if it is fast, it stays behind. The probability of being left behind is the **Landau-Zener** formula,
 
 $$P_{\rm diabatic}=\exp\!\Big(-\frac{\pi\Omega^2}{2\alpha}\Big),$$
 
-so the sweep must be slow compared with $\Omega^2$, the square of the minimum gap. Adiabatic transfer is robust against small errors in pulse area and detuning, which is why it is used for state transfer and, in many-body form, to prepare ordered phases of Rydberg arrays (Chapter 10 and lab 13). For example, $\Omega/2\pi=2$ MHz swept over 14 MHz in 2 $\mu$s gives $\alpha=2\pi\times7$ MHz/$\mu$s and $P_{\rm diabatic}=e^{-\pi(2\pi\times2)^2/(2\cdot2\pi\times7)}=e^{-5.6}\approx4\times10^{-3}$. This formula assumes the sweep starts and ends far from resonance ($|\delta|\gg\Omega$), and it gives the probability of ending in the *original* bare state. If the sweep only runs from $-7$ to $+7$ MHz at constant $\Omega$, the eigenstate at the end is still mixed and about 1.4% stays in $|g\rangle$. In practice $\Omega$ is ramped up and down during the sweep (a $\sin$-shaped $\Omega$ over the same 2 $\mu$s leaves 0.2%).
+so the sweep must be slow compared with $\Omega^2$, the square of the minimum gap. Adiabatic transfer tolerates small errors in pulse area and detuning, so it is used for state transfer and, in many-body form, to prepare ordered phases of Rydberg arrays (Chapter 10 and lab 13). For example, $\Omega/2\pi=2$ MHz swept over 14 MHz in 2 $\mu$s gives $\alpha=2\pi\times7$ MHz/$\mu$s and $P_{\rm diabatic}=e^{-\pi(2\pi\times2)^2/(2\cdot2\pi\times7)}=e^{-5.6}\approx4\times10^{-3}$. This formula assumes the sweep starts and ends far from resonance ($|\delta|\gg\Omega$), and it gives the probability of ending in the *original* bare state. If the sweep only runs from $-7$ to $+7$ MHz at constant $\Omega$, the eigenstate at the end is still mixed and about 1.4% stays in $|g\rangle$. In practice $\Omega$ is ramped up and down during the sweep (a $\sin$-shaped $\Omega$ over the same 2 $\mu$s leaves 0.2%).
 
 ## Worked example (Rb-87 D2, illustrative numbers)
 
@@ -149,7 +149,7 @@ so the sweep must be slow compared with $\Omega^2$, the square of the minimum ga
 
 **Step 4: detuned by half a linewidth.** $(2\delta/\Gamma)^2=1$, so $\gamma_p=1.906\times10^7\times0.599/2.599=4.4\times10^6\ {\rm s^{-1}}$.
 
-**Step 5: can we see coherent Rabi oscillations?** Only if they are faster than decay. Here $\Omega/\Gamma=0.55$, so the excited population is damped before it completes a cycle (lab 01 shows this case). Coherent control of an optical transition needs $\Omega\gg\Gamma$ or, much better, a long-lived excited state; that is why qubits are stored in ground hyperfine levels (Chapter 09) and why Rydberg states, with lifetimes of hundreds of microseconds, are used for gates (Chapter 10).
+**Step 5: can we see coherent Rabi oscillations?** Only if they are faster than decay. Here $\Omega/\Gamma=0.55$, so the excited population is damped before it completes a cycle (lab 01 shows this case). Coherent control of an optical transition needs $\Omega\gg\Gamma$ or, much better, a long-lived excited state. Qubits are therefore stored in ground hyperfine levels (Chapter 09), and gates use Rydberg states, which live for hundreds of microseconds (Chapter 10).
 
 ## Run it
 
@@ -159,7 +159,7 @@ so the sweep must be slow compared with $\Omega^2$, the square of the minimum ga
 
 - **$\Omega$ versus $\Omega/2$.** Some texts call $\Omega/2$ the Rabi frequency or write the coupling as $\hbar\Omega$ rather than $\hbar\Omega/2$. Then $s_0=2\Omega^2/\Gamma^2$ changes form. Fix a convention (ours: $P_e=\sin^2(\Omega t/2)$) and stay with it.
 - **"Saturation intensity is a property of the atom."** It also depends on polarization and on which sublevels are involved. 1.669 mW/cm$^2$ is for the $\sigma^+$ cycling transition; for other polarizations the effective dipole is smaller and $I_{\rm sat}$ larger (Steck lists 3.58 mW/cm$^2$ for isotropic light).
-- **"More intensity always means more scattering."** Above $s_0\approx1$ the rate barely grows; you only broaden the line.
+- **"Doubling the intensity doubles the scattering."** Only for $s_0\ll1$. On resonance, going from $s_0=1$ to $s_0=10$ raises $\gamma_p$ from 50% to 91% of $\Gamma/2$, while the line broadens from $\Gamma\sqrt2$ to $\Gamma\sqrt{11}$.
 - **"The steady state is reached instantly."** It takes several lifetimes ($\sim5/\Gamma\approx130$ ns for Rb). For pulses shorter than that, solve the time-dependent equations.
 - **Angular versus ordinary frequency.** $\Gamma=3.81\times10^7\ {\rm s^{-1}}$ and $\Gamma/2\pi=6.07$ MHz are the same thing. Mixing them introduces errors of $2\pi$.
 

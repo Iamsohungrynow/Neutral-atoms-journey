@@ -4,9 +4,9 @@ Theory: [Chapter 07](../../tutorial/07-optical-tweezers.md) (also used in [Chapt
 
 ## What you simulate
 
-How do you measure the temperature of a single atom? Switch its tweezer off for
+To measure the temperature of a single atom, switch its tweezer off for
 a time $t$, let the atom fly freely, switch the tweezer back on, and check
-whether the atom is still there. Repeat many times: the recapture probability
+whether the atom is still there. Over many repetitions the recapture probability
 $P(t)$ falls faster for hotter atoms. The temperature is extracted by comparing
 the measured curve with simulations.
 
@@ -39,7 +39,7 @@ it for each temperature:
 
 Reusing the same random numbers ("common random numbers") makes the simulated
 $P(t)$ a smooth function of $T$, which is what you need for fitting. Atoms
-whose harmonic energy is above $U_0$ might not be bound and are discarded (a conservative cut, since the Gaussian well is deeper than its harmonic approximation); at
+whose harmonic energy is above $U_0$ might not be bound and are discarded (a conservative cut; the Gaussian potential lies below its harmonic approximation everywhere, so some discarded atoms would in fact be bound); at
 these temperatures there are none.
 
 The recapture condition is the total energy in the *full* potential,
@@ -64,7 +64,7 @@ Left: recapture probability versus release time for 5, 20 and 50 $\mu$K, with th
 synthetic 20 $\mu$K data. For the first few microseconds nothing happens: the
 atom has not yet moved out of the well. Right: $\chi^2$ versus model
 temperature; the fit lands about 1.3 standard deviations from the true
-value. Note that the synthetic data are generated from the same random atoms as
+value. The synthetic data are generated from the same random atoms as
 the model curves, so this tests the effect of finite shot noise on the fit, not
 Monte Carlo noise.
 

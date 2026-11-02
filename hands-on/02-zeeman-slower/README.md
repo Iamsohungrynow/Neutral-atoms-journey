@@ -87,5 +87,5 @@ $B(z)$); the lag check is the one that tests the force law itself.
    largest $\eta$ that still works.
 2. Lower $s_0$ to 1 while keeping $\eta=0.6$. Predict the new lag from the force
    balance first. (Is there a solution at all?)
-3. Add a 5% error to $B(z)$ near the middle of the slower. How robust is the
-   exit velocity? Real coils are never perfect.
+3. Add a 5% error to $B(z)$ near the middle of the slower. How much does the
+   exit velocity change? (Real coils never follow the design exactly.)

@@ -56,8 +56,8 @@ the 1 mK, 1064 nm well and their harmonic approximations, which are accurate
 only near the bottom. Right: at a fixed depth of 1 mK the scattering rate falls
 steadily with wavelength.
 
-Notice that the radial frequency is the same (98.5 kHz) at both wavelengths:
-it depends only on $U_0$ and $w_0$. The axial frequency is lower at 852 nm
+The radial frequency is the same (98.5 kHz) at both wavelengths because at
+fixed depth it depends only on $U_0$ and $w_0$. The axial frequency is lower at 852 nm
 because the Rayleigh range $\pi w_0^2/\lambda$ is longer.
 
 The runner checks the two harmonic frequencies against the numerical curvature,

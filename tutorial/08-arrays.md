@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-Chapter 07 built one tweezer. A quantum computer needs hundreds or thousands of them, each holding exactly one atom, arranged in a pattern you choose. This chapter covers the four steps that get you there: **making** many tweezers from one laser, **loading** them (and the surprising physics that gives exactly zero or one atom per trap), **imaging** single atoms to find out which traps are full, and **rearranging** the atoms into a defect-free array. The labs simulate loading and rearrangement (lab 07) and single-atom detection (lab 08).
+Chapter 07 built one tweezer. A quantum computer needs hundreds or thousands of them, each holding exactly one atom, arranged in a pattern you choose. One laser beam has to be split into many tweezers, and the tweezers loaded from a cold cloud, where collisions leave each trap with either no atom or one. A fluorescence image then shows which traps are full, and a moving tweezer carries atoms into the gaps. Lab 07 simulates loading and rearrangement, and lab 08 single-atom detection.
 
 ## Making many tweezers
 
@@ -18,7 +18,7 @@ Two devices dominate, and most experiments use both.
 
 ## Loading: why every tweezer holds zero or one atom
 
-Overlap the tweezer array with a cold cloud (a MOT or, better, a molasses) and atoms fall into the traps. You might expect a Poisson number of atoms per tweezer. Instead, in a sufficiently small trap you get **zero or one, with roughly equal probability**. This is the work of **light-assisted collisions**.
+Overlap the tweezer array with a cold cloud (a MOT or, better, a molasses) and atoms fall into the traps. You might expect a Poisson number of atoms per tweezer. In a small enough trap you instead find zero or one atom, with roughly equal probability. The cause is **light-assisted collisions**.
 
 When two atoms share a micron-sized trap in the presence of near-resonant cooling light, the light can excite the pair to a molecular state in which the atoms strongly attract each other. They accelerate toward each other and, after the excitation decays, often carry enough kinetic energy to leave the trap together. In a tiny tweezer this happens within milliseconds, much faster than new atoms arrive. So atoms are lost **in pairs**, and the trap can never hold more than one atom for long. This is the **collisional blockade** regime (Schlosser et al., 2001).
 
@@ -30,7 +30,7 @@ $$P_1=\sum_{N\ \rm odd}\frac{\bar n^Ne^{-\bar n}}{N!}=e^{-\bar n}\sinh\bar n=\fr
 
 *Collisional blockade. Removing atoms in pairs turns any Poisson distribution into a coin toss between zero and one atom. Without it, the best you could do is $P_1=1/e=0.37$, and many traps would hold two or more atoms.*
 
-The occupancy is **sub-Poissonian**: the variance of the atom number per trap, $p(1-p)=0.25$ at $p=1/2$, is half the variance $0.5$ that a Poisson distribution with the same mean of 0.5 atoms would have. That is useful, but a 50% filling is still a problem: the probability that all $N$ traps are full is $2^{-N}$, about $10^{-15}$ for $N=50$.
+The occupancy is **sub-Poissonian**: the variance of the atom number per trap, $p(1-p)=0.25$ at $p=1/2$, is half the variance $0.5$ that a Poisson distribution with the same mean of 0.5 atoms would have. A 50% filling is still far from what a computation needs. The probability that all $N$ traps are full is $2^{-N}$, about $10^{-15}$ for $N=50$.
 
 **Beating 50%.** If the collisions are tuned so that only **one** atom of a pair escapes, the trap ends with one atom far more often. Blue-detuned light-assisted collisions do this by giving the pair just enough energy for one atom to leave; gray-molasses loading on the D1 line achieves the same with little light scattering. Grünzweig et al. (2010) pioneered this with blue-detuned light-assisted collisions; with gray-molasses loading, Brown et al. (2019) reached 89% in a single tweezer and 80% across a 10 × 10 array. Rearrangement then fills the rest.
 
@@ -44,7 +44,7 @@ $$\eta_{\rm coll}=\frac{1-\cos\theta}{2},\qquad\sin\theta={\rm NA},$$
 
 of its photons into the lens (for isotropic emission). For NA $=0.5$, $\theta=30°$ and $\eta_{\rm coll}=(1-0.866)/2=6.7\%$; for NA $=0.7$ it is 14.3%. After optical losses and the camera's quantum efficiency, only a few percent of the scattered photons are detected.
 
-**Heating during imaging.** At $6\times10^4$ scattered photons per second, a 20 ms exposure scatters about 1200 photons. Each adds about $2E_r=k_B\times0.36\ \mu$K, so an uncooled atom would gain $1200\times0.36\ \mu{\rm K}\approx0.43$ mK, about half the depth of a 1 mK trap. Imaging therefore uses **cooling light** (molasses or a similar configuration) so that the atom is laser-cooled while it fluoresces. The tweezer's light shift also detunes the imaging transition (Chapter 07), which is why imaging light and trap depth are chosen together.
+**Heating during imaging.** At $6\times10^4$ scattered photons per second, a 20 ms exposure scatters about 1200 photons. Each adds about $2E_r=k_B\times0.36\ \mu$K, so an uncooled atom would gain $1200\times0.36\ \mu{\rm K}\approx0.43$ mK, about half the depth of a 1 mK trap. Imaging therefore uses **cooling light** (molasses or a similar configuration) so that the atom is laser-cooled while it fluoresces. The tweezer's light shift also detunes the imaging transition (Chapter 07), so the imaging detuning has to be chosen together with the trap depth.
 
 **Fidelity and survival.** Two numbers characterise imaging:
 
@@ -63,7 +63,7 @@ With a 50% filled array and a single-atom image in hand, the computer finds the 
 
 $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\tau}$$
 
-(assuming enough reservoir atoms; lab 07 includes the reservoir exactly). The two loss factors set the scaling: with $p=1/2$, $\varepsilon=1\%$, $\tau=60$ s and $t=0.2$ s, a 100-site block succeeds about 43% of the time, compared with $2^{-100}\approx10^{-30}$ without rearrangement. For 1000 sites the vacuum factor alone is $e^{-1000\times0.2/60}=e^{-3.3}=0.036$. Scaling to thousands of qubits therefore pushes toward better vacuum (cryogenic setups reach lifetimes of many minutes), faster cycles, repeated rearrangement rounds, and continuous reloading of fresh atoms (Chapter 12).
+(assuming enough reservoir atoms; lab 07 includes the reservoir exactly). With $p=1/2$, $\varepsilon=1\%$, $\tau=60$ s and $t=0.2$ s, a 100-site block succeeds about 43% of the time, compared with $2^{-100}\approx10^{-30}$ without rearrangement. For 1000 sites the vacuum factor alone is $e^{-1000\times0.2/60}=e^{-3.3}=0.036$. Scaling to thousands of qubits therefore pushes toward better vacuum (cryogenic setups reach lifetimes of many minutes), faster cycles, repeated rearrangement rounds, and continuous reloading of fresh atoms (Chapter 12).
 
 ![Three panels from lab 07. Left: a 16 by 16 array after loading, with 125 atoms scattered randomly and a red 10 by 10 target square. Middle: the same array after 51 moves, with the target square completely filled and leftover atoms outside. Right: probability of a defect-free array versus number of target sites on a log scale: without rearrangement it falls as one half to the N; with rearrangement it falls exponentially but slowly; three curves compare move loss 1 percent with a 60 s vacuum lifetime, 0.3 percent with 60 s, and 0.3 percent with 600 s; Monte Carlo points agree with the curves](../hands-on/07-rearrangement/figures/rearrange.png)
 
@@ -91,7 +91,7 @@ $$P_{\rm success}=\sum_h\binom{N}{h}(1-p)^hp^{N-h}\;(1-\varepsilon)^h\;e^{-Nt/\t
 
 **Step 4: combine.** $0.606\times0.717=0.434$. Including the small probability that the reservoir runs short (lab 07) changes nothing at this size. In more than half the cycles at least one site is empty after one round. Experiments then image again and repair the remaining holes in a second round.
 
-**Step 5: imaging.** With $\mu_s=0.0268\times6\times10^4\times0.02=32.2$ detected signal photons and $\mu_b=5$, the optimal threshold (for equal prior probabilities of full and empty, as for 50% loading) is the first count at which a full site becomes more likely than an empty one, where the two Poisson distributions cross: $\mu_s/\ln(1+\mu_s/\mu_b)=32.16/\ln7.43=16.03$, which rounds up to 17 photons. The crossing sits almost exactly at an integer, so thresholds 16 and 17 give nearly the same error ($5.4\times10^{-5}$ and $4.9\times10^{-5}$), and the assignment error is $5\times10^{-5}$.
+**Step 5: imaging.** With $\mu_s=0.0268\times6\times10^4\times0.02=32.2$ detected signal photons and $\mu_b=5$, the optimal threshold (for equal prior probabilities of full and empty, as for 50% loading) is the first count at which a full site becomes more likely than an empty one, where the two Poisson distributions cross: $\mu_s/\ln(1+\mu_s/\mu_b)=32.16/\ln7.43=16.03$, which rounds up to 17 photons. The crossing sits almost exactly at an integer, so thresholds 16 and 17 give nearly the same error ($5.1\times10^{-5}$ and $4.9\times10^{-5}$), and the assignment error is $5\times10^{-5}$.
 
 ## Run it
 

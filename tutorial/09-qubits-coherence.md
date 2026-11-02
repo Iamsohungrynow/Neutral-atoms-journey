@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-We now have a defect-free array of single, cold atoms. This chapter turns each atom into a qubit. We first choose **where to store the qubit** inside the atom: the long-lived hyperfine "clock" states of Chapter 02 are the standard choice, but other encodings exist and are increasingly used. Then we discuss **single-qubit gates** with microwaves and with two-photon Raman lasers, and how to address one atom without disturbing its neighbours. Finally, and most importantly, we ask **how long the qubit remembers its phase**. The trap of Chapter 07 shifts the two qubit states by slightly different amounts, and an atom's thermal motion turns that into dephasing. Lab 09 reproduces the classic analytic result for that dephasing from exact atomic trajectories, and shows how a spin echo removes it.
+We now have a defect-free array of single, cold atoms, and each one has to become a qubit. That means picking two internal states to store it in (usually the hyperfine "clock" states of Chapter 02, though other encodings are gaining ground), rotating it with microwaves or two-photon Raman lasers, and addressing one atom without disturbing its neighbours. Most of the chapter, though, is about how long the qubit keeps its phase. The trap of Chapter 07 shifts the two qubit states by slightly different amounts, and an atom's thermal motion turns that into dephasing. Lab 09 reproduces the classic analytic result for that dephasing from exact atomic trajectories, and shows how a spin echo removes it.
 
 ## Where to store a qubit
 
@@ -22,7 +22,7 @@ This course keeps to the Rb-87 clock qubit, $|0\rangle=|F{=}1,m_F{=}0\rangle$ an
 
 ### Microwaves
 
-The qubit splitting is a microwave frequency, so the simplest way to drive $|0\rangle\leftrightarrow|1\rangle$ is a microwave horn or antenna at 6.834 GHz. The wavelength is $c/6.834\ {\rm GHz}=4.4$ cm, much larger than the array, so every atom sees the same field: microwaves are naturally **global**. They are clean (no spontaneous emission) but slow; Rabi frequencies of tens of kHz give $\pi$ pulses of tens of microseconds.
+The qubit splitting is a microwave frequency, so the simplest way to drive $|0\rangle\leftrightarrow|1\rangle$ is a microwave horn or antenna at 6.834 GHz. The wavelength is $c/6.834\ {\rm GHz}=4.4$ cm, much larger than the array, so every atom sees the same field and a microwave pulse acts on the whole array at once (a **global** drive). They are clean (no spontaneous emission) but slow; Rabi frequencies of tens of kHz give $\pi$ pulses of tens of microseconds.
 
 ### Two-photon Raman transitions
 
@@ -40,14 +40,14 @@ Raman beams can be focused onto single atoms or steered with AODs, giving **loca
 
 $$P_{\rm sc}=R\,\frac{\pi}{\Omega_{\rm eff}}=\frac{\pi\Gamma}{|\Delta|},$$
 
-independent of the laser power. It is an upper bound on the error: most scattered photons (roughly 70 to 90% at 50 GHz, depending on state and polarization) are Rayleigh photons, and for $|\Delta|\gg\omega_{\rm hfs}$ they barely distinguish the two qubit states, so they leave the qubit nearly intact; and only the smaller Raman (state-changing) part is fully destructive. At $\Delta/2\pi=50$ GHz this is $\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
+independent of the laser power. This overestimates the error. For the clock states, with $|\Delta|$ well below the fine-structure splitting, about two thirds of the scattered photons are Rayleigh photons, which return the atom to the state it started in, whatever the polarization. For $|\Delta|\gg\omega_{\rm hfs}$ they barely distinguish the two qubit states and leave the qubit nearly intact. Only the remaining third, the Raman (state-changing) photons, is fully destructive. At $\Delta/2\pi=50$ GHz, $P_{\rm sc}=\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
 
 ### Addressing one atom in an array
 
 Three strategies are common:
 
 1. **Focused Raman beams** on the chosen atoms.
-2. **Light-shift addressing**: a focused off-resonant beam shifts the qubit frequency of selected atoms (via exactly the differential light shift discussed below), so that a global microwave or Raman pulse is resonant only with the unshifted atoms. A global pulse plus a pattern of shifts implements a different rotation on each group.
+2. **Light-shift addressing**: a focused off-resonant beam shifts the qubit frequency of selected atoms (through the same differential light shift that causes the dephasing discussed below), so that a global microwave or Raman pulse is resonant only with the unshifted atoms. A global pulse plus a pattern of shifts implements a different rotation on each group.
 3. **Moving atoms** to a separate zone where they receive the gate (Chapter 12).
 
 Crosstalk, the fraction of the addressing light reaching neighbours a few micrometres away, is a key specification.
@@ -71,11 +71,11 @@ $$\boxed{\ C(t)=\Big[1+\Big(\frac{\eta k_BTt}{2\hbar}\Big)^2\Big]^{-3/2}=\Big[1+
 
 where the numbers come from defining $T_2^*$ as the $1/e$ time: $0.95=e^{2/3}-1$ and $0.97=\sqrt{e^{2/3}-1}$. This is the result of Kuhr et al. (2005). The envelope is not exponential; it falls off as a power law at long times.
 
-Two levers follow directly: **colder atoms** (smaller $T$) and **smaller $\eta$** (farther-detuned traps). For Rb at $10\ \mu$K, $T_2^*=6.6$ ms in an 852 nm trap ($\eta=2.3\times10^{-4}$) and 24 ms at 1064 nm ($\eta=6.1\times10^{-5}$). Note that the trap depth does not appear: deeper traps shift the qubit more, but the spread of shifts is set by $k_BT$ alone. Depth matters indirectly: lowering the trap adiabatically lowers the temperature ($T\propto\omega\propto\sqrt{U_0}$, valid while $k_BT\ll U_0$ and the ramp is slow compared with the oscillation period), so $T_2^*$ grows as $1/\sqrt{U_0}$ when an experiment ramps the trap down before a coherent operation.
+$T_2^*$ gets longer if the atoms are colder or if $\eta$ is smaller, which means a farther-detuned trap. For Rb at $10\ \mu$K, $T_2^*=6.6$ ms in an 852 nm trap ($\eta=2.3\times10^{-4}$) and 24 ms at 1064 nm ($\eta=6.1\times10^{-5}$). The trap depth does not appear. A deeper trap shifts the qubit more, but the spread of shifts is set by $k_BT$ alone. Depth enters indirectly, because lowering the trap adiabatically lowers the temperature ($T\propto\omega\propto\sqrt{U_0}$, valid while $k_BT\ll U_0$ and the ramp is slow compared with the oscillation period), so $T_2^*$ grows as $1/\sqrt{U_0}$ when an experiment ramps the trap down before a coherent operation.
 
 ![Left: Ramsey contrast versus free-evolution time from lab 09 for atoms at 5, 10 and 20 microkelvin in an 852 nm tweezer, falling to 1/e at 13.2, 6.6 and 3.3 ms; dots show the analytic formula of Kuhr et al. on top of the simulated curves; a dashed line at contrast 1 shows that spin echo removes the dephasing. Right: T2 star versus temperature on log axes for 852 nm and 1064 nm traps, both falling as one over temperature, with the simulated points on the 852 nm line](../hands-on/09-ramsey-dephasing/figures/ramsey.png)
 
-*Lab 09. Each simulated atom follows its exact classical trajectory, and the phase it accumulates is integrated in closed form; the averaged contrast reproduces the analytic formula. A spin echo cancels the dephasing because each atom's energy, and hence its frequency offset, is constant during the sequence.*
+*Lab 09. Each simulated atom follows its exact classical trajectory, and the phase it accumulates is integrated in closed form; the averaged contrast reproduces the analytic formula. A spin echo cancels the dephasing because each atom's energy, and with it the time average of its frequency offset, stays constant during the sequence.*
 
 ### Spin echo and dynamical decoupling
 
@@ -115,7 +115,7 @@ What echo cannot remove is noise that changes **during** the sequence: fluctuati
 
 **Step 3: thermal dephasing.** $2\hbar/(k_B\times10\ \mu{\rm K})=1.53\ \mu$s, divided by $\eta=2.26\times10^{-4}$ gives 6.8 ms, times 0.97 gives $T_2^*=6.6$ ms.
 
-**Step 4: what that buys.** About $6.6\ {\rm ms}/5\ \mu{\rm s}\approx1300$ Raman $\pi$ pulses fit into $T_2^*$, and with spin echo the usable time extends much further. The single-qubit side of a neutral-atom processor is in good shape; the entangling gates of Chapters 10 and 11 are the harder part.
+**Step 4: what that buys.** About $6.6\ {\rm ms}/5\ \mu{\rm s}\approx1300$ Raman $\pi$ pulses fit into $T_2^*$, and with spin echo the usable time extends much further. The entangling gates of Chapters 10 and 11 are much harder to make this accurate.
 
 ## Run it
 
