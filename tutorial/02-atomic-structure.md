@@ -55,9 +55,9 @@ Apply this to Rb-87:
 
 | Level | $F$ values | Hyperfine constants | Splittings |
 |---|---|---|---|
-| $5S_{1/2}$ | 1, 2 | $A=3417.34$ MHz | $2A=6834.68$ MHz |
-| $5P_{1/2}$ | 1, 2 | $A=408.33$ MHz | 816.66 MHz |
-| $5P_{3/2}$ | 0, 1, 2, 3 | $A=84.72$ MHz, $B=12.50$ MHz | 72.22, 156.95, 266.65 MHz |
+| $5S_{1/2}$ | 1, 2 | $A/h=3417.34$ MHz | $2A/h=6834.68$ MHz |
+| $5P_{1/2}$ | 1, 2 | $A/h=408.33$ MHz | 816.66 MHz |
+| $5P_{3/2}$ | 0, 1, 2, 3 | $A/h=84.72$ MHz, $B/h=12.50$ MHz | 72.22, 156.95, 266.65 MHz |
 
 The ground-state splitting, $6.834\,682\,610\,904$ GHz, is one of the most precisely measured numbers in physics. It is our **qubit frequency**.
 
@@ -127,7 +127,7 @@ Two-electron atoms have singlet and triplet families. A broad singlet line (for 
 | Quantity | Formula | Value |
 |---|---|---|
 | fine-structure splitting | $c/\lambda_{D2}-c/\lambda_{D1}$ | **7.123 THz** |
-| ground hyperfine constant | $A=\nu_{\rm hfs}/2$ | **3417.34 MHz** |
+| ground hyperfine constant | $A/h=\nu_{\rm hfs}/2$ | **3417.34 MHz** |
 | Zeeman shift of $\vert2,2\rangle$ at 3 G | $g_Fm_F\mu_BB/h=\tfrac12\cdot2\cdot1.400\cdot3$ | **4.2 MHz** |
 | clock shift at 3 G | $575.15\times3^2$ | **5.18 kHz** |
 | clock sensitivity at 3 G | $d\nu/dB=2\times575.15\times3$ | **3.45 kHz/G** |

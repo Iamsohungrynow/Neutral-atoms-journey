@@ -40,10 +40,10 @@ $$L=\frac{v_0^2-v_f^2}{2\eta\,a_{\max}}.$$
 Three design choices deserve comment.
 
 - **Why $\eta<1$?** The atom stays on the design curve only if the force can supply $ma$ somewhere near resonance. With saturation parameter $s_0$ the largest deceleration available is $a_{\max}\,s_0/(1+s_0)$, so $\eta$ must be below $s_0/(1+s_0)$. The force equals $ma$ at two detunings, one on each side of resonance, and only one of them is stable: the one where the atom is slightly *slower* than $v_d(z)$ (red-detuned in its own frame). If the atom gets slower still, it moves further from resonance, feels less force, and the resonance, sweeping down in velocity, catches it again. If it gets faster, it moves closer to resonance and is decelerated harder. In lab 02 the atom travels about 2.4 m/s slower than $v_d(z)$, as the force balance predicts.
-- **What is captured?** Every atom with $v_f\lesssim v<v_0$ when it enters drifts until the resonance condition catches up with it, then locks on and exits at about $v_f$. Atoms faster than $v_0$ are never resonant and pass straight through. $v_0$ is the **capture velocity**.
+- **What is captured?** $v_0$ is the entrance resonance velocity, an approximate capture scale rather than an exact cutoff. Many slower atoms lock onto the slowing trajectory, and finite linewidth allows some atoms slightly faster than $v_0$ to be captured too. With lab 02's parameters, trajectories started at the entrance with 301 or 302 m/s reach about 26.4 m/s downstream, whereas a 303 m/s atom is not captured. The true capture boundary depends on intensity, the field profile and the entrance conditions.
 - **Why red detuning?** With $\delta_L$ well to the red, atoms that have left the slower and slowed further are far off resonance, so the slowing beam does not push them back out of the MOT.
 
-> **Intuition aside.** Think of the resonance condition as a velocity, $v_d(z)$, that falls steadily as the atom moves down the slower. An atom that enters slower than $v_0$ coasts until $v_d$ has come down to its speed, and from then on it is carried down with it. An atom that enters faster than $v_0$ is never resonant.
+> **Intuition aside.** Think of the resonance condition as a velocity, $v_d(z)$, that falls steadily as the atom moves down the slower. An atom that enters slower than $v_0$ coasts until $v_d$ has come down to its speed, and from then on it is carried down with it. Atoms sufficiently above the entrance resonance velocity escape capture, but the finite linewidth allows a narrow capture range above $v_0$.
 
 ## Optical molasses
 
@@ -60,6 +60,8 @@ which is positive (a true damping) only for red detuning. Three pairs of beams a
 ![Left: force versus atom velocity at detuning minus Gamma with s0 = 1 per beam; the beam along +z pushes positive with a peak near -4.7 m/s, the beam along -z pushes negative with a peak near +4.7 m/s, and their sum is a dispersion-shaped curve passing through zero with negative slope. Right: the total force for detunings -0.5, -1 and -2 Gamma; larger detuning gives a smaller slope (weaker friction) at v = 0 but a wider capture range](figures/05-molasses-force.png)
 
 *The molasses force for Rb-87. Each beam alone pushes atoms along its own direction; together they cancel for atoms at rest and oppose any motion. The force is close to linear (pure friction) only for $kv$ well below $|\delta|$: for these curves it stays within 10% of $-\beta v$ up to about 1.5 m/s at $\delta=-\Gamma/2$ and 2.5 m/s at $\delta=-\Gamma$. It peaks a little beyond $v=|\delta|/k$ (at about 2.8 m/s for $\delta=-\Gamma/2$ and 4.8 m/s for $\delta=-\Gamma$), and faster atoms are still slowed, but more weakly. Larger detuning trades friction strength for capture range.*
+
+The curves at $s_0\sim1$ extrapolate the independent-beam model beyond its controlled low-saturation regime. They illustrate the force shape; quantitative predictions require shared saturation and, for Rb, its multilevel structure. The finite-intensity temperature curves below use the same approximation.
 
 ## The Doppler limit
 
@@ -91,7 +93,7 @@ When Lett and co-workers measured the temperature of sodium in optical molasses 
 
 | Quantity | Formula | Value |
 |---|---|---|
-| Doppler shift at 300 m/s | $v/\lambda$ | 384 MHz $=63\,\Gamma$ |
+| Doppler shift at 300 m/s | $v/\lambda$ | 384 MHz $=63\,\Gamma/(2\pi)$ |
 | slower length ($v_0=300$, $v_f=30$ m/s, $\eta=0.6$) | $(v_0^2-v_f^2)/2\eta a_{\max}$ | **0.66 m** |
 | field range | $(v_0-v_f)/(\lambda\times1.400\ {\rm MHz/G})$ | **247 G** |
 | time in the slower | $(v_0-v_f)/\eta a_{\max}$ | **4.0 ms** |

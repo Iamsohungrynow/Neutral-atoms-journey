@@ -1,3 +1,32 @@
+# Correctness review, 13 November 2026
+
+This pass corrects scientific interpretations, units and captions while
+preserving the numerical models used in the labs.
+
+## Corrections
+
+- Keep the closed cycling-transition exercise separate from clock-state Raman scattering.
+- Label the simplified Raman calculation as scattering probability, and explain why gate infidelity depends on the scattering channels.
+- Describe spin echo as a sequence-dependent noise filter, including a timing-dependent answer to the 1 kHz exercise.
+- Specify opposite one-photon detuning signs for resonant ladder excitation.
+- Distinguish the full long-range Rydberg chain from its nearest-neighbour approximation, and describe its nonzero finite-size gap.
+- Keep the repetition-code example explicitly classical; correct claims about quantum erasure protection, code distance and surface-code overhead.
+- Require detection before treating atom loss as an erasure, and avoid describing leakage as unique to neutral atoms.
+- Correct the erasure-conversion curve description, energy/frequency notation, electron displacement phase and blockade crossover wording.
+- Add Andi Gu to the Magic tricycles author list.
+- Replace the sharp Zeeman-slower capture cutoff with the finite-linewidth capture range, and qualify finite-intensity independent-beam MOT predictions.
+
+## Validation
+
+All 13 labs passed their existing numerical checks on the reviewed snapshot.
+The affected labs (02, 12 and 13) also passed after the corrections. The
+Chapter 09 and 10 figure scripts regenerated successfully, and the repository
+checker reported 0 errors across 326 local links and 30 Python files.
+Independent checks enumerated the lab 13 classical configurations, evaluated
+the lab 12 error probabilities and sampled the slower near its capture boundary.
+The hard-coded ARC data still need a versioned generation script for complete
+numerical provenance; this pass does not claim to reproduce those calculations.
+
 # Independent review, 2 November 2026 (fifth pass: audit of the fourth pass)
 
 Rewriting about 160 passages can introduce new mistakes, so five fresh

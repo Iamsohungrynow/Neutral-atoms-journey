@@ -56,7 +56,7 @@ commands run from the repository root.
 11. **Gates (Ch 11):** How long is a Levine CZ gate at $\Omega/2\pi=5$ MHz, and
     what is its decay error with $\tau_r=146\ \mu$s?
 12. **Erasure (Ch 12):** For a $d=3$ repetition code at $p=5\%$, compare the
-    logical error with all-Pauli errors and with all-erasure errors.
+    logical error with bit-flip errors and with all-erasure errors.
 
 <details>
 <summary>Answers and interpretation</summary>
@@ -69,10 +69,7 @@ commands run from the repository root.
 3. $s_0=1/1.669=0.599$; $\gamma_p=\frac\Gamma2\frac{0.599}{1+0.599+1}=4.4\times10^6\ {\rm s^{-1}}$;
    FWHM $=6.07\sqrt{11}=20.1$ MHz.
 4. $U_0=h\times35$ MHz $=k_B\times1.7$ mK and $\gamma_p=2.7\times10^4\ {\rm s^{-1}}$:
-   about a third of the scattered photons are Raman photons that change the
-   atom's hyperfine state and destroy the qubit (Chapter 09), one every 0.1 ms or so, and recoil heating (about $2E_r$ per
-   photon, so some 4600 photons to climb out) would boil the atom out of the trap
-   in about 0.2 s.
+   recoil heating is about $2E_r\gamma_p/k_B=9.8$ mK/s, giving the rough energy-budget time $U_0/(2E_r\gamma_p)\approx0.17$ s. This is a heating estimate, not a measured trap lifetime. In the ideal stretched-state cycling model with pure $\sigma^+$ light, spontaneous emission returns the atom to $|F=2,m_F=2\rangle$; it does not change the hyperfine state. A clock-qubit trap needs a separate multilevel calculation of both qubit states, polarization-dependent shifts and scattering. The one-third Raman fraction discussed for clock states cannot be applied to this closed transition.
 5. $T_D=\hbar\Gamma/2k_B=125.6\ \mu$K, at $\delta=-\Gamma/2$ and low intensity.
 6. $\kappa=\mu_BA\beta/\hbar k=1.66\times10^{-18}$ N/m, $f=540$ Hz; damping rate
    $\beta/m=1.05\times10^4\ {\rm s^{-1}}>2\omega_0=6.8\times10^3\ {\rm s^{-1}}$, so it is
@@ -84,17 +81,13 @@ commands run from the repository root.
    $0.995^{100}=0.606$, and $0.606\times e^{-1/3}=0.606\times0.717=0.43$, because
    the reservoir almost never runs short. Lab 07's Monte Carlo gives
    $0.411\pm0.013$. Fewer than half the cycles succeed in one round.
-9. $T_2^*=0.97\times2\hbar/(\eta k_BT)$ with $\eta=6.08\times10^{-5}$: 24 ms. No:
-   a single echo refocuses only shifts that are constant during the sequence.
-   If the whole sequence is much shorter than 1 ms, 1 kHz noise is effectively
-   static and the echo works; for longer sequences it needs dynamical decoupling
-   with pulses spaced well below 1 ms.
+9. $T_2^*=0.97\times2\hbar/(\eta k_BT)$ with $\eta=6.08\times10^{-5}$: 24 ms. Echo suppression of 1 kHz noise depends on the total free-evolution time and noise spectrum. For ideal instantaneous pulses and sinusoidal frequency noise, the Hahn-echo response is $|Y(\omega)|^2=16\sin^4(\omega T/4)/\omega^2$. A 1 kHz tone is exactly cancelled at $T=2$ ms (and integer multiples), but not generally at other durations. Short sequences suppress slowly varying noise; multiple-pulse sequences can provide broader or better-targeted suppression.
 10. $R_b=(863\times10^3)^{1/6}\ \mu{\rm m}=9.8\ \mu$m; $V/h=863\times10^3/6^6=18.5$ MHz.
 11. $8.585/\Omega=273$ ns. Chapter 11 (lab 11) gives a mean time in $|r\rangle$,
     averaged over the four input states, of $0.150\ \mu$s at $\Omega/2\pi=3.5$ MHz.
     It scales as $1/\Omega$: $0.150\times3.5/5=0.105\ \mu$s, so the decay error is
     $0.105/146=7\times10^{-4}$.
-12. Pauli: $3p^2-2p^3=7.25\times10^{-3}$. Erasure: $p^3/2=6.3\times10^{-5}$,
+12. Bit flips: $3p^2-2p^3=7.25\times10^{-3}$. Erasure: $p^3/2=6.3\times10^{-5}$,
     more than a hundred times smaller.
 
 </details>

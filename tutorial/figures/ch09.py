@@ -33,7 +33,7 @@ def raman():
     err = np.pi * (G / 2 / np.pi) / d
     ax2.loglog(d / 1e9, err, "C2", lw=2)
     ax2.set_xlabel("detuning Delta / 2pi (GHz)")
-    ax2.set_ylabel("spontaneous-scattering error per pi pulse")
+    ax2.set_ylabel("spontaneous-scattering probability per pi pulse")
     ax2.set_title("Single-level estimate: P_sc = pi Gamma / Delta", fontsize=9)
     ax2.axvline(7123, color="0.6", ls=":", lw=1)
     ax2.text(7123 * 0.9, 3e-4, "fine-structure\nsplitting 7.1 THz:\nboth P levels matter", fontsize=8, ha="right")
@@ -46,7 +46,7 @@ def sequences():
     fig, axes = plt.subplots(2, 1, figsize=(10, 3.8), sharex=True)
     for ax, (title, pulses) in zip(axes, [
             ("Ramsey: measures T2* (all static and slow shifts dephase)", [(0, 0.06, "pi/2"), (0.94, 0.06, "pi/2")]),
-            ("Spin echo: a pi pulse (twice the area, so twice as long) in the middle refocuses static shifts (measures T2)",
+            ("Spin echo: a pi pulse (twice the area, so twice as long) in the middle refocuses static shifts (measures T2_echo)",
              [(0, 0.06, "pi/2"), (0.44, 0.12, "pi"), (0.94, 0.06, "pi/2")])]):
         ax.axhline(0, color="k", lw=1)
         for t0, w, lab in pulses:

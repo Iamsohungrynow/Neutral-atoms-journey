@@ -2,7 +2,7 @@
 
 > **Study companion:** [what to run and chapter checkpoints](learning-path.md) · [notation and reference numbers](00-notation.md) · [paper map](paper-map.md)
 
-We now have every ingredient of a neutral-atom quantum computer: an assembled array (Chapter 08), single-qubit gates with long coherence (Chapter 09), and Rydberg CZ gates with errors of a few $10^{-3}$ (99.5% demonstrated; Chapter 11). This last chapter asks what it takes to run error correction on them, and where atoms differ from other qubits. Fluorescence **readout** is slow and scatters light onto neighbours, so measuring a few qubits in the middle of a computation needs care. Atoms can be **lost**, a failure superconducting qubits do not have; but a missing atom is an error *whose location is known*, an **erasure**, and erasures are much easier to correct. Atoms can also be **moved**, so the processor's layout is not fixed, and current machines split the array into zones and carry atoms between them. [Lab 12](../hands-on/12-erasure-code/) quantifies the erasure advantage with a repetition code.
+We now have every ingredient of a neutral-atom quantum computer: an assembled array (Chapter 08), single-qubit gates with long coherence (Chapter 09), and Rydberg CZ gates with errors of a few $10^{-3}$ (99.5% demonstrated; Chapter 11). This last chapter asks what it takes to run error correction on them, and where atoms differ from other qubits. Fluorescence **readout** is slow and scatters light onto neighbours, so measuring a few qubits in the middle of a computation needs care. Atoms can be **lost**, a failure superconducting qubits do not have; and loss becomes an **erasure** when a suitable check identifies it without measuring the stored data. An empty site is not automatically distinguishable from a dark qubit in ordinary push-out readout. Known-location errors can be easier to correct. Atoms can also be **moved**, so the processor's layout is not fixed, and current machines split the array into zones and carry atoms between them. [Lab 12](../hands-on/12-erasure-code/) quantifies the erasure advantage with a repetition code.
 
 ## Measuring in the middle of a computation
 
@@ -26,20 +26,20 @@ A neutral-atom qubit can fail in ways that leave it outside the two-level qubit 
 - **Loss**: the atom leaves the tweezer, through a background-gas collision, heating, or a Rydberg atom being pushed out of the trap (the trap is usually switched off or anti-trapping for $|r\rangle$ during gates).
 - **Leakage**: the atom ends up in another internal state, for example another $m_F$ sublevel after a Rydberg decay.
 
-For a standard error-correcting code these look like ordinary errors at unknown locations, which is the worst case. But many of them can be **detected** without disturbing the other qubits: an empty tweezer is visible in a fluorescence image, and leaked population can be made to fluoresce (or be removed and then detected as missing) while the qubit states stay dark. An error whose location is known is an **erasure**.
+Without suitable checks, these faults are unlocated. Leakage can persist and propagate through later gates, so it must not automatically be modelled as an ordinary single-qubit bit or phase error. But many of them can be **detected** without disturbing the other qubits: an empty tweezer is visible in a fluorescence image, and leaked population can be made to fluoresce (or be removed and then detected as missing) while the qubit states stay dark. An error whose location is known is an **erasure**.
 
-**Why erasures are easier.** Take the simplest code, $d$ copies of a bit with majority voting (the repetition code; it protects against bit flips only, but it shows the principle).
+**A classical illustration of the erasure advantage.** Store a classical bit in $d$ copies and use majority voting. This model protects classical information against bit flips and erasures; it does not simulate a full quantum memory. In particular, losing one subsystem of $\alpha|0\rangle^{\otimes d}+\beta|1\rangle^{\otimes d}$ removes the coherence between the two branches, so $P_L=p^d/2$ below must not be read as the failure probability for an arbitrary encoded quantum state.
 
 - With **unknown** bit flips of probability $p$, the vote fails once more than half the copies are wrong: the logical error scales as $p^{(d+1)/2}$. For $d=3$ it is $3p^2-2p^3$.
 - With **erasures**, the decoder ignores the erased copies and votes among the rest, which are all correct. The vote fails only if **every** copy is erased (and then a random guess is right half the time): $P_L=p^d/2$.
 
 The exponent grows from $(d+1)/2$ to $d$: almost twice as many faults are needed to cause a failure. Lab 12 computes this exactly and with Monte Carlo, including the realistic case where only a fraction $R_e$ of errors are converted into erasures.
 
-![Left: logical error probability versus physical error probability on log axes for repetition codes of distance 3, 5 and 7; pure Pauli errors fall as p to the power (d+1)/2, pure erasures as one half of p to the power d, and 98 percent erasure conversion lies in between but far below the Pauli curves. Right: logical error at p = 0.01 versus erasure fraction for d = 3, 5 and 7, nearly flat until the fraction approaches 1 and then dropping steeply](../hands-on/12-erasure-code/figures/erasure.png)
+![Left: logical error probability versus physical error probability on log axes for repetition codes of distance 3, 5 and 7; pure bit-flip errors fall as p to the power (d+1)/2, pure erasures as one half of p to the power d, and 98 percent erasure conversion lies in between but far below the bit-flip curves. Right: logical error at p = 0.01 versus erasure fraction for d = 3, 5 and 7, decreasing throughout the conversion range, with the steepest reduction near 1](../hands-on/12-erasure-code/figures/erasure.png)
 
-*Lab 12. Left: erasures (dotted) fall off much faster with $p$ than bit flips (solid). Right: at $p=1\%$ the logical error barely moves until nearly every error is converted, then drops steeply.*
+*Lab 12. Left: erasures (dotted) fall off much faster with $p$ than bit flips (solid). Right: at $p=1\%$ the logical error decreases throughout the conversion range, with the steepest reduction near complete conversion. At $d=5$, increasing $R_e$ from 0 to 0.5 reduces it by about 3.2 times, and increasing to 0.9 reduces it by about 65 times.*
 
-At $p=1\%$ and $d=5$ the lab finds $P_L=9.9\times10^{-6}$ for Pauli errors, $7.9\times10^{-9}$ with 98% erasure conversion, and $5\times10^{-11}$ for pure erasures. The idea of designing qubits so that their dominant errors are erasures was developed for neutral atoms by Wu, Kolkowitz, Puri and Thompson (2022): in alkaline-earth atoms with a metastable qubit, decay from the Rydberg state mostly lands in states that can be detected by fluorescence without touching the qubit. Real codes such as the surface code show the same qualitative advantage, with higher thresholds for erasures than for Pauli errors.
+At $p=1\%$ and $d=5$ the lab finds $P_L=9.9\times10^{-6}$ for bit-flip errors, $7.9\times10^{-9}$ with 98% erasure conversion, and $5\times10^{-11}$ for pure erasures. The idea of designing qubits so that their dominant errors are erasures was developed for neutral atoms by Wu, Kolkowitz, Puri and Thompson (2022): in alkaline-earth atoms with a metastable qubit, decay from the Rydberg state mostly lands in states that can be detected by fluorescence without touching the qubit. Real codes such as the surface code show the same qualitative advantage, with higher thresholds for erasures than for bit-flip errors.
 
 ## Moving atoms: zoned architectures
 
@@ -75,19 +75,19 @@ Not every application needs a fault-tolerant gate-based computer. Running the Ry
 |---|---|
 | physical error probability per qubit per round | $p=1\%$ |
 | code | repetition, $d=5$ |
-| logical error, all errors Pauli | $9.9\times10^{-6}$ |
+| logical error, all errors bit-flip | $9.9\times10^{-6}$ |
 | logical error, 98% converted to erasures | $7.9\times10^{-9}$ |
 | logical error, all erasures | $5.0\times10^{-11}$ |
 | improvement from 98% conversion | **$\approx1250\times$** |
-| distance needed with Pauli errors only to do as well | **$d=11$** ($d=9$ gives $1.2\times10^{-8}$) |
+| distance needed with bit-flip errors only to do as well | **$d=11$** ($d=9$ gives $1.2\times10^{-8}$) |
 
-**Step 1: Pauli.** For $d=5$, failure needs at least 3 flips: $P_L\approx\binom53p^3=10\times10^{-6}=1.0\times10^{-5}$ (the exact sum gives $9.9\times10^{-6}$).
+**Step 1: bit-flip.** For $d=5$, failure needs at least 3 flips: $P_L\approx\binom53p^3=10\times10^{-6}=1.0\times10^{-5}$ (the exact sum gives $9.9\times10^{-6}$).
 
 **Step 2: pure erasure.** $p^5/2=10^{-10}/2=5\times10^{-11}$.
 
-**Step 3: partial conversion.** With 98% erasures, the residual Pauli rate is $0.02\times1\%=2\times10^{-4}$. The largest terms are now one erasure with two flips among the four remaining copies (a 2-2 tie, which the coin toss loses half the time; $5.8\times10^{-9}$) and three erasures with one flip ($1.9\times10^{-9}$). The exact sum gives $7.9\times10^{-9}$, about 1250 times better than all-Pauli.
+**Step 3: partial conversion.** With 98% erasures, the residual bit-flip rate is $0.02\times1\%=2\times10^{-4}$. The largest terms are now one erasure with two flips among the four remaining copies (a 2-2 tie, which the coin toss loses half the time; $5.8\times10^{-9}$) and three erasures with one flip ($1.9\times10^{-9}$). The exact sum gives $7.9\times10^{-9}$, about 1250 times better than all-bit-flip.
 
-**Step 4: the cost comparison.** Matching $7.9\times10^{-9}$ with Pauli errors at $p=1\%$ needs $d=11$ ($d=9$ gives $1.2\times10^{-8}$) instead of $d=5$: more than twice as many atoms per logical bit, and the gap is larger still for 2D codes, whose qubit count grows as $d^2$. Put another way, for this code 98% conversion is worth as much as cutting the raw Pauli error rate about elevenfold, from 1% to 0.09%.
+**Step 4: the cost comparison.** Matching $7.9\times10^{-9}$ with bit-flip errors at $p=1\%$ needs $d=11$ ($d=9$ gives $1.2\times10^{-8}$) instead of $d=5$: more than twice as many atoms per logical bit, within this classical repetition model. These distances do not determine surface-code overhead: a quantum comparison needs a specified code, circuit, noise model, loss-detection schedule and decoder. Put another way, for this code 98% conversion is worth as much as cutting the raw bit-flip error rate about elevenfold, from 1% to 0.09%.
 
 ## Run it
 
@@ -96,7 +96,7 @@ Not every application needs a fault-tolerant gate-based computer. Running the Ry
 ## Common pitfalls
 
 - **"Atom loss is just another error."** Undetected, a lost atom acts like an error at an unknown place. Detected, it is an erasure and costs far less to correct. What decides it is whether the hardware can see the loss without disturbing the other qubits.
-- **"Erasure conversion doubles the distance."** Only if (nearly) all errors are converted; the residual Pauli errors set the asymptotic slope, as lab 12 shows for $R_e=98\%$. What 98% conversion changes is the prefactor, by about three orders of magnitude at $p=1\%$.
+- **"Erasure conversion doubles the distance."** It does not change a code's defined distance. A distance-$d$ quantum code can guarantee correction of $t$ arbitrary unlocated errors and $e$ known erasures when $2t+e<d$. In lab 12's classical repetition model, pure erasures change the small-$p$ failure exponent from $(d+1)/2$ to $d$; any fixed nonzero bit-flip fraction eventually restores the lower exponent, while conversion can substantially reduce the prefactor.
 - **"Moving atoms is slow, so it is a bad idea."** Moves take hundreds of microseconds, much longer than a gate, but they are done in parallel on many atoms and they buy arbitrary connectivity and transversal gates.
 - **"Mid-circuit measurement is just imaging."** Imaging an ancilla next to data qubits destroys the data unless the two are separated in space, species or internal state.
 - **Comparing platforms by one number.** Gate fidelity, qubit number, connectivity, cycle time and the nature of the errors (erasure or not) all matter for error correction.
@@ -104,7 +104,7 @@ Not every application needs a fault-tolerant gate-based computer. Running the Ry
 ## Key takeaways
 
 - Mid-circuit readout requires protecting data qubits from the imaging light: separate zones, separate species, or shelving in dark states.
-- Atom loss and leakage are neutral-atom-specific errors; when detected they become erasures, which a repetition code corrects with $P_L=p^d/2$ instead of $\sim p^{(d+1)/2}$.
+- Atom loss is characteristic of atom arrays; leakage also occurs in other qubit platforms. Reliable detection can turn these faults into erasures. Lab 12 illustrates their benefit for a classical bit; quantum fault tolerance additionally requires protection of phase coherence and circuit-level analysis.
 - Moving atoms with AOD tweezers enables zoned architectures: storage, entangling and readout zones, with global parallel gates and transversal logical operations.
 - Scaling is advancing through larger tweezer arrays, continuous reloading and better vacuum; analog quantum simulation runs on the same hardware.
 

@@ -10,14 +10,13 @@ under the Rydberg Hamiltonian of Chapter 10 (hbar = 1, n_i = |r><r|_i):
     H(t) = sum_i (Omega(t)/2) sigma_x^i - Delta(t) sum_i n_i + sum_{i<j} V_ij n_i n_j,
     V_ij = C6 / (a |i - j|)^6.
 
-With a = 6 um and Rb-87 70S (C6/h = 862.7 GHz um^6), nearest neighbours are
-blockaded (V_1/h = 18.5 MHz >> Omega/2pi = 2 MHz) while next-nearest
-neighbours barely interact (V_2/h = 0.29 MHz). At large negative Delta the
-ground state is all atoms in |g>; at positive Delta (but below V_1) it is the
-"Z2" crystal r g r g ... r, one excitation on every other site. Sweeping Delta
-slowly from negative to positive while Omega is on follows the instantaneous
-ground state (adiabatic theorem) and prepares the crystal; sweeping too fast
-creates defects, because the energy gap closes near the phase transition.
+With a = 6 um and Rb-87 70S (C6/h = 862.7 GHz um^6), nearest neighbours
+have V_1/h = 18.5 MHz and next-nearest neighbours have V_2/h = 0.289 MHz.
+The code retains all pair interactions. At Omega = 0 the chosen endpoint,
+Delta/2pi = 8 MHz, has the Z2 crystal r g r g ... r as its unique ground state;
+arbitrarily small positive detuning need not favour Z2. Slowly following the
+instantaneous ground state prepares the crystal. The finite-chain gap has a
+nonzero minimum near the crossover; fast sweeps populate excited states.
 
 This is the protocol of the 51-atom experiment of Bernien et al. (2017); here
 N = 9 so that the full 2^9 = 512-dimensional state can be evolved exactly.
@@ -142,7 +141,7 @@ ax = axes[0]
 ax.plot(Deltas / 2 / np.pi, gaps_sym / 2 / np.pi, "C0", lw=2)
 ax.set_xlabel("detuning Delta / 2pi (MHz)")
 ax.set_ylabel("gap to the first symmetric excited state (MHz)")
-ax.set_title("The gap closes near the transition", fontsize=9)
+ax.set_title("Finite-chain gap near the crossover", fontsize=9)
 ax = axes[1]
 ax.semilogx(times, [results[T]["P_z2"] for T in times], "o-", color="C3", lw=2)
 ax.set_xticks(times)

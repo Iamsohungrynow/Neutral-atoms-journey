@@ -8,14 +8,10 @@ A chain of $N=9$ Rb-87 atoms, 6 $\mu$m apart, each a two-level system
 $\{|g\rangle,|r\rangle\}$ with $|r\rangle=|70S\rangle$, evolving under the Rydberg
 Hamiltonian of Chapter 10:
 
-    H(t)/hbar = sum_i (Omega(t)/2) sigma_x^i - Delta(t) sum_i n_i + sum_{i<j} V_ij n_i n_j,
+    H(t)/hbar = sum_i (Omega(t)/2) sigma_x^i - Delta(t) sum_i n_i + sum_{i<j} (V_ij/hbar) n_i n_j,
     V_ij = C6 / (a |i - j|)^6,  C6/h = 862.7 GHz um^6.
 
-Nearest neighbours are strongly blockaded ($V_1/h=18.5$ MHz, nine times
-$\Omega/2\pi=2$ MHz), while next-nearest neighbours barely interact
-($V_2/h=0.29$ MHz). For large negative $\Delta$ the ground state has every atom in
-$|g\rangle$; for $0<\Delta<V_1$ (in the limit $\Omega\to0$; with $\Omega/2\pi=2$ MHz the crossover is near $\Delta/2\pi\approx1.4$ MHz) it is the **$Z_2$ crystal**
-$|r\,g\,r\,g\,r\,g\,r\,g\,r\rangle$, one excitation on every other site.
+Nearest neighbours are strongly blockaded ($V_1/h=18.5$ MHz, nine times $\Omega/2\pi=2$ MHz), while $V_2/h=0.289$ MHz is weaker but nonzero. The code retains every pair interaction. At $\Omega=0$, large negative $\Delta$ favours $|g\cdots g\rangle$, and the chosen endpoint $\Delta/2\pi=8$ MHz has the unique classical ground state $|r\,g\,r\,g\,r\,g\,r\,g\,r\rangle$. The condition $0<\hbar\Delta<V_1$ is sufficient for this pattern in the nearest-neighbour-only approximation for this odd open chain, but not in the full long-range model. For example, at $\Delta/2\pi=0.1$ MHz the ground state is $100010001$, not $101010101$. During the finite-drive sweep, the symmetric-sector gap reaches a nonzero minimum near $\Delta/2\pi=1.35$ MHz.
 
 The protocol, used with 51 atoms by Bernien et al. (2017): start in
 $|g\cdots g\rangle$, ramp $\Omega$ on, sweep $\Delta$ from $-2\pi\times6$ MHz to

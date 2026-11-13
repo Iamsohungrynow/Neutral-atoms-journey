@@ -1,5 +1,5 @@
 """
-Why erasures are easier: a repetition code with Pauli errors versus erasures.
+Why erasures are easier: a repetition code with bit-flip errors versus erasures.
 
 Model
 -----
@@ -9,7 +9,7 @@ suffers, with total probability p,
   * an erasure with probability R_e * p: the bit is lost and we KNOW which one
     (in neutral atoms: an atom found missing, or a decay detected by a
     fluorescence check);
-  * a Pauli (bit-flip) error with probability (1 - R_e) * p: the bit is wrong
+  * a bit-flip error with probability (1 - R_e) * p: the bit is wrong
     and we do NOT know it.
 
 Decoder: majority vote over the non-erased bits; a tie, or all bits erased,
@@ -19,7 +19,7 @@ Exact logical error, summing over the numbers of erasures e and flips f:
 
   P_L = sum_{e,f} Multinomial(e, f) * [ 1 if f > (d-e)/2, 1/2 if f = (d-e)/2, else 0 ]
 
-Limits:  pure Pauli (R_e = 0), d = 3:  P_L = 3p^2 - 2p^3      (~ p^((d+1)/2))
+Limits:  pure bit-flip (R_e = 0), d = 3:  P_L = 3p^2 - 2p^3      (~ p^((d+1)/2))
          pure erasure (R_e = 1):        P_L = p^d / 2            (~ p^d)
 so converting all errors into erasures roughly doubles the failure exponent
 (from (d+1)/2 to d).
@@ -62,7 +62,7 @@ def p_logical_mc(d, p, Re, shots):
 
 ps = np.logspace(-3, -0.3, 40)
 ds = [3, 5, 7]
-models = {"Pauli only (R_e = 0)": 0.0, "98% erasures (R_e = 0.98)": 0.98, "erasure only (R_e = 1)": 1.0}
+models = {"bit-flip only (R_e = 0)": 0.0, "98% erasures (R_e = 0.98)": 0.98, "erasure only (R_e = 1)": 1.0}
 
 # Monte Carlo spot checks
 shots = 400000
@@ -80,16 +80,16 @@ def slope(d, Re, p1=1e-3, p2=2e-3):
     return np.log(p_logical(d, p2, Re) / p_logical(d, p1, Re)) / np.log(p2 / p1)
 
 
-print("Repetition code: Pauli errors versus erasures")
+print("Repetition code: bit-flip errors versus erasures")
 print("=" * 70)
 print(" d   model                         P_L MC (p = 0.3)      exact")
 for d, name, mc, th, se in spot:
     print(f" {d}   {name:28s}  {mc:.3e} +/- {se:.1e}   {th:.3e}")
 print("small-p slope d ln P_L / d ln p (the number of faults needed to cause a failure):")
 for d in ds:
-    print(f"   d = {d}: Pauli {slope(d, 0.0):.2f} (expect {(d + 1) / 2}), erasure {slope(d, 1.0):.2f} "
+    print(f"   d = {d}: bit-flip {slope(d, 0.0):.2f} (expect {(d + 1) / 2}), erasure {slope(d, 1.0):.2f} "
           f"(expect {d}), 98% erasure {slope(d, 0.98):.2f}")
-print(f"at p = 1e-2, d = 5: Pauli {p_logical(5, 1e-2, 0):.2e}, 98% erasure {p_logical(5, 1e-2, 0.98):.2e}, "
+print(f"at p = 1e-2, d = 5: bit-flip {p_logical(5, 1e-2, 0):.2e}, 98% erasure {p_logical(5, 1e-2, 0.98):.2e}, "
       f"erasure {p_logical(5, 1e-2, 1):.2e}")
 
 # ---------------------------------------------------------------------------
@@ -105,7 +105,7 @@ ax1.loglog(ps, ps, "k", lw=0.8, alpha=0.5, label="unencoded bit")
 ax1.set_xlabel("physical error probability p")
 ax1.set_ylabel("logical error probability")
 ax1.set_ylim(1e-14, 1)
-ax1.set_title("Solid: Pauli; dashed: 98% erasure; dotted: pure erasure", fontsize=9)
+ax1.set_title("Solid: bit-flip; dashed: 98% erasure; dotted: pure erasure", fontsize=9)
 ax1.legend(fontsize=7, loc="lower right")
 Re_axis = np.linspace(0, 1, 101)
 for d, col in zip(ds, ["C0", "C1", "C3"]):
@@ -127,10 +127,10 @@ pp = np.linspace(0.001, 0.5, 50)
 checks = {
     "Monte Carlo agrees with the exact sum for every d and model (4 s.e.)":
         all(abs(mc - th) < 4 * se for _, _, mc, th, se in spot),
-    "pure Pauli, d = 3, equals 3p^2 - 2p^3":
+    "pure bit-flip, d = 3, equals 3p^2 - 2p^3":
         np.allclose([p_logical(3, p, 0.0) for p in pp], 3 * pp**2 - 2 * pp**3, atol=1e-14),
     "pure erasure equals p^d / 2 for d = 3, 5, 7":
         all(np.allclose([p_logical(d, p, 1.0) for p in pp], pp**d / 2, rtol=1e-12) for d in ds),
-    "failure exponent: slope (d+1)/2 for Pauli and d for erasure (5%)":
+    "failure exponent: slope (d+1)/2 for bit-flip and d for erasure (5%)":
         all(abs(slope(d, 0.0) / ((d + 1) / 2) - 1) < 0.05 and abs(slope(d, 1.0) / d - 1) < 0.05 for d in ds),
 }

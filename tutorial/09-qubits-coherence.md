@@ -32,15 +32,15 @@ $$\Omega_{\rm eff}=\frac{\Omega_1\Omega_2}{2\Delta}.$$
 
 Raman beams can be focused onto single atoms or steered with AODs, giving **local** gates with Rabi frequencies of MHz.
 
-![Left: lambda-type Raman scheme; beam 1 couples the F = 2 clock state and beam 2 couples the F = 1 clock state to a virtual level detuned by Delta below the 5P excited state, with a frequency difference of 6.834 GHz. Right: the spontaneous-scattering error per pi pulse, pi Gamma over Delta, versus detuning on log axes, falling from 1 times ten to the minus three at 20 GHz to 3.8 times ten to the minus four at 50 GHz; a dotted line at the 7.1 THz fine-structure splitting marks where both P levels must be included](figures/09-raman.png)
+![Left: lambda-type Raman scheme; beam 1 couples the F = 2 clock state and beam 2 couples the F = 1 clock state to a virtual level detuned by Delta below the 5P excited state, with a frequency difference of 6.834 GHz. Right: the spontaneous-scattering probability per pi pulse, pi Gamma over the magnitude of Delta, versus detuning on log axes, falling from 1 times ten to the minus three at 20 GHz to 3.8 times ten to the minus four at 50 GHz; a dotted line at the 7.1 THz fine-structure splitting marks where both P levels must be included](figures/09-raman.png)
 
-*Raman gates. The price of using an optical transition is occasional spontaneous emission, which scrambles the qubit; detuning further reduces it at the cost of more laser power.*
+*Raman gates. Off-resonant light can scatter photons during the pulse. The plotted quantity counts scattering events; the resulting gate infidelity depends on the scattering channels and their effect on the qubit.*
 
 **The cost: spontaneous scattering.** With $\Omega_1=\Omega_2=\Omega$, each beam excites the atom off-resonantly at rate $\Gamma\Omega^2/4\Delta^2$, so the total scattering rate is $R=\Gamma\Omega^2/2\Delta^2$ (this assumes $|\Delta|\gg\omega_{\rm hfs}$, so that both beams scatter from whichever qubit state is populated). A $\pi$ pulse lasts $\pi/\Omega_{\rm eff}=2\pi\Delta/\Omega^2$, so the probability of scattering a photon during it is
 
 $$P_{\rm sc}=R\,\frac{\pi}{\Omega_{\rm eff}}=\frac{\pi\Gamma}{|\Delta|},$$
 
-independent of the laser power. This overestimates the error. For the clock states, with $|\Delta|$ well below the fine-structure splitting, about two thirds of the scattered photons are Rayleigh photons, whatever the polarization. A Rayleigh photon returns the atom to the state it started in. For $|\Delta|\gg\omega_{\rm hfs}$ they barely distinguish the two qubit states and leave the qubit nearly intact. Only the remaining third, the Raman (state-changing) photons, is fully destructive. At $\Delta/2\pi=50$ GHz, $P_{\rm sc}=\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
+independent of laser power within this simplified model. $P_{\rm sc}$ is a scattering probability, not an average gate infidelity. Raman scattering changes the internal state; Rayleigh scattering returns it to the same state but can still dephase a superposition if the scattering amplitudes distinguish the qubit states. The error therefore requires the multilevel, polarization-dependent scattering amplitudes and branching channels. A useful D2-dominated clock-state limit has approximately two thirds Rayleigh and one third Raman scattering, but that fraction is not universal and does not apply to a closed stretched-state cycling transition. See [Ozeri et al. (2007)](https://doi.org/10.1103/PhysRevA.75.042329) and [Uys et al. (2010)](https://doi.org/10.1103/PhysRevLett.105.200401). At $\Delta/2\pi=50$ GHz, $P_{\rm sc}=\pi\times6.07/50\,000=3.8\times10^{-4}$. For comparison, a Raman system designed for large arrays (Levine et al., 2022) drove about 300 Rb-87 qubits at 2 MHz Rabi frequency with a scattering error below $2\times10^{-4}$ per $\pi$ pulse. Increasing $\Delta$ helps until it becomes comparable to the fine-structure splitting (7.1 THz for Rb); then the D1 and D2 contributions to $\Omega_{\rm eff}$ partially cancel and the simple estimate no longer applies.
 
 ### Addressing one atom in an array
 
@@ -83,9 +83,9 @@ Thermal dephasing is **reversible**: each atom keeps a constant frequency offset
 
 ![Two pulse sequences on a time axis. Ramsey: a pi/2 pulse, free evolution, a second pi/2 pulse, then imaging. Spin echo: a pi/2 pulse, free evolution accumulating phase plus phi, a pi pulse, free evolution accumulating phase minus phi, a final pi/2 pulse, then imaging](figures/09-sequences.png)
 
-*Ramsey measures $T_2^*$, the dephasing from everything that varies from atom to atom or shot to shot. A spin echo refocuses whatever stays constant during one sequence and measures $T_2$, the irreversible part.*
+*Ramsey measures an inhomogeneous coherence time $T_2^*$. Hahn echo refocuses static frequency offsets and filters time-dependent noise; its measured decay time is denoted $T_{2,\rm echo}$. It is specific to that pulse sequence and need not be an irreversible coherence limit.*
 
-What echo cannot remove is noise that changes **during** the sequence: fluctuations of trap intensity and pointing, heating that changes an atom's energy, magnetic-field noise, and the phase noise of the addressing lasers. Trains of many $\pi$ pulses (dynamical decoupling sequences such as CPMG and XY-8) suppress slowly varying noise further, and have extended hyperfine coherence in tweezers to the scale of seconds.
+Echo does not generally cancel all time-dependent noise. Its suppression of trap-intensity fluctuations, changes in motional energy and magnetic-field noise depends on their spectra and the pulse timing; pulse imperfections and addressing-laser phase noise can add further errors. Trains of many $\pi$ pulses (dynamical decoupling sequences such as CPMG and XY-8) suppress slowly varying noise further, and have extended hyperfine coherence in tweezers to the scale of seconds.
 
 ### Other dephasing sources, in numbers
 
@@ -104,14 +104,14 @@ What echo cannot remove is noise that changes **during** the sequence: fluctuati
 | microwave wavelength | $c/\nu_{\rm hfs}$ | 4.4 cm (global drive) |
 | Raman: $\Omega_1=\Omega_2=2\pi\times100$ MHz, $\Delta=2\pi\times50$ GHz | $\Omega_{\rm eff}=\Omega^2/2\Delta$ | $2\pi\times100$ kHz |
 | Raman $\pi$ time | $\pi/\Omega_{\rm eff}$ | **5 $\mu$s** |
-| scattering error per $\pi$ pulse | $\pi\Gamma/\Delta$ | **$3.8\times10^{-4}$** |
+| scattering probability per $\pi$ pulse (simplified model) | $\pi\Gamma/\lvert\Delta\rvert$ | **$3.8\times10^{-4}$** |
 | differential shift at 1 mK, 852 nm | $\eta U_0/h$ | 4.7 kHz |
 | $T_2^*$ at 10 $\mu$K, 852 nm | $0.97\times2\hbar/(\eta k_BT)$ | **6.6 ms** |
 | gates within $T_2^*$ | $T_2^*/t_\pi$ | **~1300** |
 
 **Step 1: Raman Rabi frequency.** $\Omega_{\rm eff}/2\pi=(100\ {\rm MHz})^2/(2\times50\,000\ {\rm MHz})=0.1$ MHz, so a $\pi$ pulse takes $1/(2\times0.1\ {\rm MHz})=5\ \mu$s.
 
-**Step 2: scattering.** $P_{\rm sc}=\pi\times6.07\ {\rm MHz}/50\ {\rm GHz}=3.8\times10^{-4}$ per $\pi$ pulse, comparable to other error sources in modern experiments.
+**Step 2: scattering.** $P_{\rm sc}=\pi\times6.07\ {\rm MHz}/50\ {\rm GHz}=3.8\times10^{-4}$ per $\pi$ pulse in this model; converting this probability into gate infidelity requires the scattering channels.
 
 **Step 3: thermal dephasing.** $2\hbar/(k_B\times10\ \mu{\rm K})=1.53\ \mu$s, divided by $\eta=2.26\times10^{-4}$ gives 6.8 ms, times 0.97 gives $T_2^*=6.6$ ms.
 
@@ -125,14 +125,14 @@ What echo cannot remove is noise that changes **during** the sequence: fluctuati
 
 - **"Deeper traps dephase faster."** Not directly: the spread of differential shifts is $\eta k_BT/2\hbar$, independent of depth. Deeper traps matter through the temperature the atoms end up with, and through site-to-site depth variations (which scale with depth).
 - **"Ramsey decay is exponential."** Thermal dephasing gives a power law, $[1+0.95(t/T_2^*)^2]^{-3/2}$. Fitting an exponential gives a misleading $T_2^*$.
-- **Confusing $T_2^*$ and $T_2$.** $T_2^*$ includes reversible inhomogeneity; $T_2$ (echo) measures irreversible decoherence. Quote which one you mean.
+- **Confusing $T_2^*$ and $T_2$.** $T_2^*$ includes reversible inhomogeneity; $T_{2,\rm echo}$ is the decay time under a specified echo sequence and can still be improved by a different decoupling sequence. Quote the sequence and decay convention.
 - **"Raman errors fall forever with detuning."** The $\pi\Gamma/\Delta$ estimate assumes one excited level. Near and beyond the fine-structure splitting, the two P levels interfere and the coupling falls faster than the scattering.
 - **Forgetting the laser.** Two Raman beams must be phase-coherent at the qubit frequency; their relative phase noise appears directly as qubit phase noise.
 
 ## Key takeaways
 
 - The standard neutral-atom qubit is the hyperfine clock pair $|F{=}1,0\rangle$, $|F{=}2,0\rangle$; ground-Rydberg, nuclear-spin and optical-clock qubits are important alternatives.
-- Microwaves give clean global rotations; Raman beams ($\Omega_{\rm eff}=\Omega_1\Omega_2/2\Delta$) give fast local gates with a scattering error of about $\pi\Gamma/\Delta$ per $\pi$ pulse.
+- Microwaves give clean global rotations; Raman beams ($\Omega_{\rm eff}=\Omega_1\Omega_2/2\Delta$) give fast local gates with a scattering probability of about $\pi\Gamma/|\Delta|$ per $\pi$ pulse in the simplified model; the gate error depends on the scattering channels.
 - The trap shifts the qubit by $\eta U$; thermal motion spreads this shift and gives $T_2^*=0.97\times2\hbar/(\eta k_BT)$ with a power-law envelope.
 - For Rb at 10 $\mu$K: $T_2^*\approx6.6$ ms at 852 nm and 24 ms at 1064 nm. Spin echo and dynamical decoupling remove static inhomogeneity and extend coherence much further.
 

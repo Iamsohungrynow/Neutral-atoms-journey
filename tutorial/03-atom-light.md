@@ -15,7 +15,7 @@ Slowing, cooling and trapping in Part I all rest on one calculation: the respons
 Before any quantum mechanics, think of the electron as a mass on a spring, resonant at $\omega_0$, with a damping rate $\Gamma$, driven by the laser's electric field $E_0\cos\omega_Lt$. Two facts from the driven damped oscillator survive into the quantum treatment:
 
 1. The response is large only within about $\Gamma$ of resonance (a **Lorentzian** line of full width $\Gamma$).
-2. Below resonance the electron moves **in phase** with the field; above resonance it moves **out of phase**. This phase decides whether light attracts or repels an atom (Chapter 04).
+2. Away from resonance, the induced dipole is approximately **in phase** with the field below resonance and **out of phase** above it. Because the electron has negative charge, its displacement has the opposite phase to the dipole. This phase decides whether light attracts or repels an atom (Chapter 04).
 
 A spring can be stretched as far as you like, but a two-level atom cannot be more than fully excited, so its response must **saturate**. The classical model misses this.
 
@@ -116,7 +116,7 @@ Several tools in later chapters use three levels: Raman transitions between the 
 
 $$\Omega_{\rm eff}=\frac{\Omega_1\Omega_2}{2\Delta},$$
 
-plus a light shift of $|a\rangle$ by $\Omega_1^2/4\Delta$ and of $|b\rangle$ by $\Omega_2^2/4\Delta$ (the Chapter 04 formula, one laser at a time), with the same sign for $\Lambda$ and ladder systems: in the rotating frame $|e\rangle$ sits at $-\hbar\Delta$, and both $|a\rangle$ and $|b\rangle$ are pushed away from it. The *difference* of the two light shifts moves the two-photon resonance and must be compensated. The small intermediate-state population still scatters photons at a rate of about $\Gamma_e\Omega_1^2/4\Delta^2$, which is the price of the scheme (Chapters 09 and 11 work out the numbers).
+plus energy shifts of $|a\rangle$ by $\hbar\Omega_1^2/4\Delta$ and of $|b\rangle$ by $\hbar\Omega_2^2/4\Delta$ (the Chapter 04 formula, one laser at a time), with the same sign for $\Lambda$ and ladder systems: in the rotating frame $|e\rangle$ sits at $-\hbar\Delta$, and both $|a\rangle$ and $|b\rangle$ are pushed away from it. The *difference* of the two light shifts moves the two-photon resonance and must be compensated. The small intermediate-state population still scatters photons at a rate of about $\Gamma_e\Omega_1^2/4\Delta^2$, which is the price of the scheme (Chapters 09 and 11 work out the numbers).
 
 **2. Dark states.** In a $\Lambda$ system ($|a\rangle$ and $|b\rangle$ both below $|e\rangle$) on two-photon resonance, the superposition
 

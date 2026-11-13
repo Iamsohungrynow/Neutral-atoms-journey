@@ -103,7 +103,7 @@ How do you take the temperature of *one* atom? Switch the tweezer off for some m
 | depth per mW | $\alpha(2P/\pi w_0^2)/(2\varepsilon_0c)$ | **$k_B\times97\ \mu$K $=h\times2.02$ MHz** |
 | power for 1 mK | | **10.3 mW** |
 | Rayleigh range | $\pi w_0^2/\lambda$ | **2.95 $\mu$m** |
-| trap frequencies at 1 mK | $\sqrt{4U_0/mw_0^2}$, $\sqrt{2U_0/mz_R^2}$ | **98.5 kHz, 23.6 kHz** |
+| trap frequencies $f_r,f_z$ at 1 mK | $\sqrt{4U_0/mw_0^2}/(2\pi)$, $\sqrt{2U_0/mz_R^2}/(2\pi)$ | **98.5 kHz, 23.6 kHz** |
 | scattering at 1 mK | Grimm formula | **3.6 s$^{-1}$** |
 | qubit differential shift at 1 mK | $\eta U_0/h$ | **1.3 kHz** |
 

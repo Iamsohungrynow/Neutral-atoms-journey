@@ -315,7 +315,7 @@ They are linked through university repositories, not re-hosted.
 | 2025 | Bluvstein, D. | Error-Corrected Quantum Processing with Neutral Atoms | PhD thesis | [Harvard DASH](https://dash.harvard.edu/handle/1/42725323) |
 | 2026 | Evered, S. J. | Digital Quantum Simulation and Error Correction with Atomic Processors | PhD thesis | Harvard DASH |
 | 2026 | Evered et al. | High-fidelity entangling gates and nonlocal circuits with neutral atoms | preprint | [arXiv:2604.25987](https://arxiv.org/abs/2604.25987) |
-| 2025 | Menon, Bonilla Ataides, Mehta, Tan, Lukin | Magic tricycles: efficient magic state generation with finite block-length quantum LDPC codes | preprint (posted August 2025, since revised) | [arXiv:2508.10714](https://arxiv.org/abs/2508.10714) |
+| 2025 | Menon, Bonilla Ataides, Mehta, Gu, Tan, Lukin | Magic tricycles: efficient magic state generation with finite block-length quantum LDPC codes | preprint (posted August 2025, since revised) | [arXiv:2508.10714](https://arxiv.org/abs/2508.10714) |
 | 2026 | Koh, …, Lukin, Majidy | Entangling logical qubits without physical operations | preprint | [arXiv:2601.20927](https://arxiv.org/abs/2601.20927) |
 
 ### Endres group (Caltech)

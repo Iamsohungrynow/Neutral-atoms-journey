@@ -11,7 +11,7 @@ shift and the Zeeman shift of the cycling transition ($\mu'=\mu_B$):
     delta_eff(z, v) = delta_L + k v - mu_B B(z) / hbar
 
 and it feels the full Lorentzian scattering force (Chapter 04). You first
-**design** a slower for constant deceleration $a=\eta\,a_{\max}$, from a capture
+**design** a slower for constant deceleration $a=\eta\,a_{\max}$, from an entrance resonance
 velocity $v_0=300$ m/s down to $v_f=30$ m/s, then integrate trajectories for atoms
 entering at 100 to 400 m/s and see which ones are captured.
 
@@ -69,13 +69,13 @@ dashed design curve (on its slow, red-detuned side), and leaves at 26.4 m/s: $v_
 minus the lag (which grows to about 2.8 m/s near the exit, where $v_d$ is small),
 minus a further 0.7 m/s lost in the 10 cm after the slower, where the atom is
 20 linewidths off resonance but still scatters a few times $10^4$ photons per
-second. Atoms above the capture velocity are never resonant
+second. Atoms well above the entrance resonance velocity do not lock onto the slowing trajectory
 and pass through almost unchanged.
 
 The runner checks four things: that the deceleration the locked atom actually
 experiences (the slope of $v^2$ versus $z$, which should be $-2\eta a_{\max}$; the
 small lag makes it about 1% lower) matches the design within 2%; that atoms entering between $v_f$ and $v_0$ leave
-within 2 m/s of $v_f$ minus the lag; that atoms above $v_0$ are not captured; and
+within 2 m/s of $v_f$ minus the lag; that the sampled faster atoms (320, 350 and 400 m/s) are not captured; and
 that the measured lag matches the force balance (10%). The deceleration check
 only confirms that the atom stays locked (any locked atom follows the designed
 $B(z)$); the lag check is the one that tests the force law itself.

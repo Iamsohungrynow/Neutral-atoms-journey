@@ -70,7 +70,7 @@ with $\beta$ the molasses friction coefficient of Chapter 05. The atom is a **da
 
 ## Worked example: a 1D MOT for Rb-87 (illustrative numbers)
 
-These are the parameters of [lab 04](../hands-on/04-mot/).
+These are the parameters of [lab 04](../hands-on/04-mot/). The numbers belong to its independent-beam 1D model. At $s_0=1$, shared saturation, optical pumping and the multilevel structure of Rb can change the quantitative force, damping and capture velocity; use these results to understand the model rather than to calibrate an experimental MOT.
 
 | Quantity | Formula | Value |
 |---|---|---|

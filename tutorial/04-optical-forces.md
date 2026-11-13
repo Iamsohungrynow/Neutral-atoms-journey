@@ -55,7 +55,7 @@ $$\mathbf F_{\rm dip}=-\nabla U=-\frac{\hbar}{4\delta}\nabla\Omega^2(\mathbf r).
 
 For a two-level atom at rest in steady state there is a formula valid at all intensities, $U=\frac{\hbar\delta}{2}\ln\!\big[1+\frac{s_0}{1+(2\delta/\Gamma)^2}\big]$. It reduces to $\hbar\Omega^2/4\delta$ when $|\delta|\gg\Gamma$ and $s_0\ll(2\delta/\Gamma)^2$.
 
-> **Intuition aside.** Go back to the classical electron on a spring. Driven below resonance it oscillates in phase with the field, so its induced dipole lines up with the field and the energy $-\frac12\mathbf d\cdot\mathbf E$ is negative. The atom is then drawn toward strong fields, for the same reason that scraps of paper are pulled toward a charged comb. Above resonance the dipole oscillates out of phase and the atom is pushed away.
+> **Intuition aside.** Go back to the classical electron on a spring. Driven below resonance and away from the linewidth, its displacement is opposite to the field because its charge is negative. The induced dipole therefore lines up with the field and the energy $-\frac12\mathbf d\cdot\mathbf E$ is negative. The atom is then drawn toward strong fields, for the same reason that scraps of paper are pulled toward a charged comb. Above resonance the dipole oscillates out of phase and the atom is pushed away.
 
 ## Why traps are tuned far off resonance
 

@@ -42,7 +42,7 @@ Gamma = 2 * np.pi * 6.0666e6
 a_max = hbar * k * Gamma / (2 * m)
 
 # Design parameters (illustrative)
-v0 = 300.0                     # capture velocity of the design (m/s)
+v0 = 300.0                     # entrance resonance velocity of the design (m/s)
 v_f = 30.0                     # exit velocity (m/s)
 eta = 0.6                      # fraction of a_max used
 s0 = 3.0                       # saturation parameter of the slowing beam
@@ -146,7 +146,7 @@ checks = {
         abs(a_measured / a - 1) < 0.02,
     "atoms entering between v_f and the capture velocity exit within 2 m/s of v_f minus the lag":
         all(abs(v_exit[v] - (v_f - dv_lag)) < 2.0 for v in captured),
-    "atoms faster than the capture velocity are not slowed to v_f":
+    "sampled fast atoms (320, 350, 400 m/s) are not slowed to v_f":
         all(v_exit[v] > 0.8 * v for v in v_inits if v >= 350),
     "locked atom lags v_design by x*Gamma/2k from the force balance (10%)":
         abs(lag_measured / dv_lag - 1) < 0.10,
